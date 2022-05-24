@@ -55,8 +55,8 @@ export class MainPage implements OnInit, OnDestroy {
               r.forEach(d => {
                 const c: CandidateData = d.data() as CandidateData;
                 if (c.status === 'Active') { this.doughnutChartData[0][1] = ++active; }
-                if (c.status === 'Contratado') { this.doughnutChartData[0][2] = ++hired; }
-                if (c.status === 'Descartado') { this.doughnutChartData[0][3] = ++rejected; }
+                if (c.status === 'Hired') { this.doughnutChartData[0][2] = ++hired; }
+                if (c.status === 'Discarded') { this.doughnutChartData[0][3] = ++rejected; }
                 ++counter;
                 if (r.size === counter) { this.graphic = true; }
               });
