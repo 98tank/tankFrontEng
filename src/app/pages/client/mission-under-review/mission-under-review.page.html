@@ -28,7 +28,7 @@
                     <ion-card-content>
                         <ion-item lines="none" *ngIf="c$ | async as c">
                             <ion-icon color="medium" name="cash" slot="start"></ion-icon>
-                            <ion-label><strong>Costo:</strong> {{(mur.net_salary * c.create_mission) | currency : 'MXN '}}
+                            <ion-label><strong>Costo:</strong> {{(mur.net_salary * c.create_mission) | currency : '$ '}}
                             </ion-label>
                             <div tabindex="0" style="height: 0;"></div>
                         </ion-item>

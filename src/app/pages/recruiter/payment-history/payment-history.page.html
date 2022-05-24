@@ -34,7 +34,7 @@
                                 </td>
                                 <td>{{p.name}}</td>
                                 <td>{{p.update_date | date: 'd/MM/y - hh:mmaaa'}}</td>
-                                <td *ngIf="c$ | async as c">{{p.amount | currency: 'MXN '}}</td>
+                                <td *ngIf="c$ | async as c">{{p.amount | currency: '$ '}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -62,7 +62,7 @@
                                 </td>
                                 <td>{{p.name}}</td>
                                 <td>{{p.update_date | date: 'd/MM/y - hh:mmaaa'}}</td>
-                                <td *ngIf="c$ | async as c">{{p.amount | currency: 'MXN '}}</td>
+                                <td *ngIf="c$ | async as c">{{p.amount | currency: '$ '}}</td>
                                 <td>
                                     <ion-button shape="round" fill="solid" color="primary" (click)="openPeyment(p.pay)">Ver</ion-button>
                                 </td>
