@@ -37,7 +37,7 @@
                         </ng-container>
                         <ng-container matColumnDef="Estatus">
                             <th mat-header-cell mat-sort-header *matHeaderCellDef scope="row">Status</th>
-                            <td mat-cell [ngClass]="{'active': element.status === 'Activo', 'pending': element.status === 'Pendiente', 'block': element.status === 'Bloqueado'}" *matCellDef="let element">{{ element.status }}</td>
+                            <td mat-cell [ngClass]="{'active': element.status === 'Active', 'pending': element.status === 'Pending', 'block': element.status === 'Block'}" *matCellDef="let element">{{ element.status }}</td>
                         </ng-container>
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                         <tr mat-row (click)="clickedRows(row)" *matRowDef="let row; columns: displayedColumns"></tr>

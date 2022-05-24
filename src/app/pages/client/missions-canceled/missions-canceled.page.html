@@ -37,10 +37,10 @@
                         <ion-item *ngIf="mc.request_refound">
                             <ion-icon name="cash-outline" slot="start"></ion-icon>
                             <ion-label><strong>Reembolso:</strong>
-                                <ion-chip color="success" *ngIf="mc.request_refound.status === 'Pagada'">
+                                <ion-chip color="success" *ngIf="mc.request_refound.status === 'Paid'">
                                     <ion-label>Pagada</ion-label>
                                 </ion-chip>
-                                <ion-chip color="medium" *ngIf="mc.request_refound.status === 'Pendiente'">
+                                <ion-chip color="medium" *ngIf="mc.request_refound.status === 'Pending'">
                                     <ion-label>En revisión</ion-label>
                                 </ion-chip>
                                 <ion-chip color="dark" *ngIf="mc.request_refound.status === 'Denegada'">

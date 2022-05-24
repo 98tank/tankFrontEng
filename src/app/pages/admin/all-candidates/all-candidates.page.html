@@ -37,7 +37,7 @@
                         </ng-container>
                         <ng-container matColumnDef="Status">
                             <th mat-header-cell mat-sort-header *matHeaderCellDef scope="row">Status</th>
-                            <td mat-cell [ngClass]="{'active': element.status === 'Activo', 'pending': element.status === 'Pendiente', 'block': element.status === 'Bloqueado'}" *matCellDef="let element">{{ element.status }}</td>
+                            <td mat-cell [ngClass]="{'active': element.status === 'Active', 'pending': element.status === 'Pending', 'block': element.status === 'Block'}" *matCellDef="let element">{{ element.status }}</td>
                         </ng-container>
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                         <tr mat-row (click)="clickedRows(row)" *matRowDef="let row; columns: displayedColumns"></tr>
@@ -71,7 +71,7 @@
                                 <td>{{c.name}}</td>
                                 <td style="font-weight: 400;">{{c.name_position}}</td>
                                 <td>{{c.create_date | date}}</td>
-                                <td [ngClass]="{'active': c.status === 'Activo', 'contract': c.status === 'Contratado', 'discarded': c.status === 'Descartado'}">{{c.status}}</td>
+                                <td [ngClass]="{'active': c.status === 'Active', 'contract': c.status === 'Contratado', 'discarded': c.status === 'Descartado'}">{{c.status}}</td>
                                 <td>
                                     <ion-button class="more" fill="solid" shape="round" color="primary" [routerLink]="['/admin/candidato/', c.candidate_id]">Ver</ion-button>
                                 </td>

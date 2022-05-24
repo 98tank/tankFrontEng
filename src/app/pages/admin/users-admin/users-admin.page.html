@@ -32,13 +32,13 @@
                         </ion-avatar>
                         <ion-label>{{u.profile.name}} {{u.profile.lastName}} {{u.profile.lastNameS}}</ion-label>
                         <ion-note slot="end">
-                            <ion-chip color="success" *ngIf="u.profile.status === 'Activo'">
+                            <ion-chip color="success" *ngIf="u.profile.status === 'Active'">
                                 <ion-label>Activo</ion-label>
                             </ion-chip>
-                            <ion-chip color="dark" *ngIf="u.profile.status === 'Bloqueado'">
+                            <ion-chip color="dark" *ngIf="u.profile.status === 'Block'">
                                 <ion-label>Bloqueado</ion-label>
                             </ion-chip>
-                            <ion-chip color="medium" *ngIf="u.profile.status === 'Pendiente'">
+                            <ion-chip color="medium" *ngIf="u.profile.status === 'Pending'">
                                 <ion-label>Pendiente</ion-label>
                             </ion-chip>
                         </ion-note>

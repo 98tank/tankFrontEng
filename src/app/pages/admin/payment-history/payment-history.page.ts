@@ -107,10 +107,10 @@ export class PaymentHistoryPage implements OnInit, OnDestroy {
         const queryMission = await this.fs.getDoc(`missions/${r.mission_id}`);
         const mission: MissionData = queryMission.data() as MissionData;
         if (mission?.reward) {
-          if (r.status === 'Pendiente') {
+          if (r.status === 'Pending') {
             ++this.rewardsPendiente.quantity;
             this.rewardsPendiente.amount = this.rewardsPendiente.amount + mission.reward;
-          } else if (r.status === 'Pagada') {
+          } else if (r.status === 'Paid') {
             ++this.rewardsPagada.quantity;
             this.rewardsPagada.amount = this.rewardsPagada.amount + mission.reward;
           }
@@ -132,10 +132,10 @@ export class PaymentHistoryPage implements OnInit, OnDestroy {
     if (!queryRF.empty) {
       queryRF.forEach(d => {
         const rr: RequestRefound = d.data() as RequestRefound;
-        if (rr.status === 'Pendiente') {
+        if (rr.status === 'Pending') {
           this.returnsPending.amount = this.returnsPending.amount + rr.net_salary;
           ++this.returnsPending.quantity;
-        } else if (rr.status === 'Pagada') {
+        } else if (rr.status === 'Paid') {
           this.returnsPagada.amount = this.returnsPagada.amount + rr.net_salary;
           ++this.returnsPagada.quantity;
         }

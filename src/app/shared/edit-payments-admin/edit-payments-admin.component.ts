@@ -52,7 +52,7 @@ export class EditPaymentsAdminComponent implements OnInit {
 
   changePayment(e) {
     const date: number = this.ss.getDate().getTime();
-    e.detail.checked ? this.paid = 'Pagada' : this.paid = 'Pendiente';
+    e.detail.checked ? this.paid = 'Paid' : this.paid = 'Pending';
     this.fs.updateDoc(`missions/${this.mission.mission_id}`, { status_payment: this.paid, update_date: date });
   }
 

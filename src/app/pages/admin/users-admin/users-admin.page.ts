@@ -62,14 +62,14 @@ export class UsersAdminPage implements OnInit, OnDestroy {
         text: 'Activar',
         icon: 'checkmark-circle-sharp',
         handler: () => {
-          this.fs.updateDoc(`users/${u.profile.uid}`, {'profile.status': 'Activo'}).then(() => this.getAdmins());
+          this.fs.updateDoc(`users/${u.profile.uid}`, {'profile.status': 'Active'}).then(() => this.getAdmins());
         }
       }, {
         text: 'Bloquear',
         role: 'destructive',
         icon: 'cloud-offline',
           handler: () => {
-          this.fs.updateDoc(`users/${u.profile.uid}`, {'profile.status': 'Bloqueado'}).then(() => this.getAdmins());
+          this.fs.updateDoc(`users/${u.profile.uid}`, {'profile.status': 'Block'}).then(() => this.getAdmins());
         }
       }, {
         text: 'Cancelar',

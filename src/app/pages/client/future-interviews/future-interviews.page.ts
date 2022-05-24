@@ -31,7 +31,7 @@ export class FutureInterviewsPage implements OnInit {
   getMyMissions(uid: string) {
     const missionsIDS: string[] = [];
     let counter = 0;
-    this.fs.getColFilter('missions', 'uid', '==', uid).where('status', '==', 'Activa').get().then(res => {
+    this.fs.getColFilter('missions', 'uid', '==', uid).where('status', '==', 'Active').get().then(res => {
       if (res.size > 0) {
         res.forEach(d => {
           ++counter;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Observable, Subscription } from 'rxjs';
@@ -11,7 +11,7 @@ import { FirebaseService } from 'src/app/services';
   templateUrl: './recruiter.page.html',
   styleUrls: ['./recruiter.page.scss'],
 })
-export class RecruiterPage implements OnInit {
+export class RecruiterPage implements OnInit, OnDestroy {
   profile: Observable<Profile>;
   subscription: Subscription = new Subscription();
 
@@ -38,7 +38,7 @@ export class RecruiterPage implements OnInit {
   }
 
   changeStatusClient(status: string, uid: string) {
-    this.fs.updateDoc(`users/${uid}`, {'profile.status': status})
+    this.fs.updateDoc(`users/${uid}`, { 'profile.status': status });
   }
 
   async activeUser(uid: string) {
@@ -52,7 +52,7 @@ export class RecruiterPage implements OnInit {
         }, {
           text: 'Yes',
           handler: () => {
-            this.fs.updateDoc(`users/${uid}`, {'profile.status': 'Activo'})
+            this.fs.updateDoc(`users/${uid}`, { 'profile.status': 'Active' });
           }
         }
       ]
@@ -76,7 +76,7 @@ export class RecruiterPage implements OnInit {
         }, {
           text: 'Yes',
           handler: (d) => {
-            this.fs.updateDoc(`users/${uid}`, {'profile.status': 'Bloqueado', 'profile.reason_block': d.reason_block || ''});
+            this.fs.updateDoc(`users/${uid}`, {'profile.status': 'Block', 'profile.reason_block': d.reason_block || ''});
           }
         }
       ]

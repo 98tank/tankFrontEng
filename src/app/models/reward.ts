@@ -3,7 +3,7 @@ import { File } from './mission-data';
 export interface Reward {
     pay?: File;
     name: string;
-    status: string;
+    status: 'Paid' | 'Pending';
     voucher?: File;
     amount?: number;
     id_reward: string;

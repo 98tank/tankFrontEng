@@ -18,7 +18,7 @@ export class SelectedMissionsPage implements OnInit, OnDestroy {
   subscription2: Subscription = new Subscription();
   subscription3: Subscription = new Subscription();
   active: string;
-  status = ['Activa', 'Completada'];
+  status = ['Active', 'Completada'];
 
   constructor(
     private auth: AuthService,

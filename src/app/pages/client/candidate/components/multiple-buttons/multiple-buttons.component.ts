@@ -101,7 +101,7 @@ export class MultipleButtonsComponent implements OnInit {
   }
 
   activateCandidate() {
-    this.fs.updateDoc(`candidates/${this.candidate.candidate_id}`, { status: 'Activo' });
+    this.fs.updateDoc(`candidates/${this.candidate.candidate_id}`, { status: 'Active' });
   }
 
 }

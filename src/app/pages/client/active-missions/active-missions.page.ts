@@ -22,7 +22,7 @@ export class ActiveMissionsPage implements OnInit {
   }
 
   getMissionActive() {
-    this.fs.getColFilter('missions', 'uid', '==', this.auth.userUid).where('status', '==', 'Activa').orderBy('create_date', 'desc').get().then(res => {
+    this.fs.getColFilter('missions', 'uid', '==', this.auth.userUid).where('status', '==', 'Active').orderBy('create_date', 'desc').get().then(res => {
       this.activeMissions = [];
       if (res.size === 0) {
         this.loading = true;

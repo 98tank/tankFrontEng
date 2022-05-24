@@ -96,7 +96,7 @@ export class CandidatePage implements OnInit, OnDestroy {
           text: 'Si',
           role: 'cancel',
           handler: (d) => {
-            this.fs.updateDoc(`users/${uid}`, {'profile.status': 'Bloqueado', 'profile.reason_block': d.reason_block || ''});
+            this.fs.updateDoc(`users/${uid}`, {'profile.status': 'Block', 'profile.reason_block': d.reason_block || ''});
           }
         }
       ]

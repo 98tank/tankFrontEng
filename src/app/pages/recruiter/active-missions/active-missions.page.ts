@@ -36,7 +36,7 @@ export class ActiveMissionsPage implements OnInit, OnDestroy {
   }
 
   getActiveMissions() {
-    this.fs.getColFilter('missions', 'status', '==', 'Activa').orderBy('create_date', 'desc').get().then(res => {
+    this.fs.getColFilter('missions', 'status', '==', 'Active').orderBy('create_date', 'desc').get().then(res => {
       this.activeMissions = [];
       if (res.size === 0) {
         this.loading = false;

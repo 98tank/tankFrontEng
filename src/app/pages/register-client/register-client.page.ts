@@ -131,7 +131,7 @@ export class RegisterClientPage implements OnInit {
             email: data.email.toLowerCase(),
             registerDate: date,
             type: 'client',
-            status: 'Activo',
+            status: 'Active',
             avatar: this.imgAvatar || '',
             clabe: parseFloat(data.clabe),
             phone_company: parseFloat(data.phone_company || 0),

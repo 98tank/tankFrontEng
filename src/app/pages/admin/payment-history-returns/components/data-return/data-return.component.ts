@@ -47,16 +47,16 @@ export class DataReturnComponent implements OnInit {
   getUrl(event: File) {
     const date: number = this.ss.getDate().getTime();
     this.data.pay_refound = event;
-    this.data.status = 'Pagada';
-    this.fs.updateDoc(`request_refound/${this.data.request_id}`, { pay_refound: this.data.pay_refound, status: 'Pagada', update_date: date });
+    this.data.status = 'Paid';
+    this.fs.updateDoc(`request_refound/${this.data.request_id}`, { pay_refound: this.data.pay_refound, status: 'Paid', update_date: date });
   }
 
   deletePay() {
     if (this.data.pay_refound?.filePath) {
       this.ms.deleteImgStorage(this.data.pay_refound.filePath);
       this.data.pay_refound = null;
-      this.data.status = 'Pendiente';
-      this.fs.updateDoc(`request_refound/${this.data.request_id}`, { status: 'Pendiente' });
+      this.data.status = 'Pending';
+      this.fs.updateDoc(`request_refound/${this.data.request_id}`, { status: 'Pending' });
       this.fs.deleteField(`request_refound/${this.data.request_id}`, 'pay_refound');
     }
   }

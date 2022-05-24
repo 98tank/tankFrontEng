@@ -1,20 +1,20 @@
 <ion-card>
     <ion-row class="squares">
-        <!-- <ion-col size-md="12" size="6" *ngIf="candidate.status === 'Activo'">
+        <!-- <ion-col size-md="12" size="6" *ngIf="candidate.status === 'Active'">
             <ion-card>
                 <ion-icon name="cloud-download-outline"></ion-icon>
                 <br>
                 <ion-button fill="solid" shape="round" color="primary">Descargar CV</ion-button>
             </ion-card>
         </ion-col> -->
-        <ion-col size-md="12" size="6" *ngIf="candidate.status === 'Activo'">
+        <ion-col size-md="12" size="6" *ngIf="candidate.status === 'Active'">
             <ion-card>
                 <ion-icon name="calendar-outline"></ion-icon>
                 <br>
                 <ion-button fill="solid" shape="round" color="primary" (click)="createInterview()">Entrevista</ion-button>
             </ion-card>
         </ion-col>
-        <ion-col size-md="12" size="6" *ngIf="candidate.status === 'Activo'">
+        <ion-col size-md="12" size="6" *ngIf="candidate.status === 'Active'">
             <ion-card>
                 <ion-icon name="close-circle-outline"></ion-icon>
                 <br>
