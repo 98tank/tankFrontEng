@@ -7,7 +7,7 @@ export interface MissionData {
     sex: string;
     state?: string;
     levels: string;
-    status: string;
+    status: 'Pending' | 'Active' | 'Cancelled' | 'Accomplished' | 'Rejected';
     travel: string;
     reward?: number;
     studies: string;
@@ -30,7 +30,7 @@ export interface MissionData {
     name_position: string;
     business_days: string;
     salary_scheme: string;
-    status_payment?: string;
+    status_payment?: 'Paid' | 'Pending';
     position_level?: string;
     request_refound: Refound;
     numberInterviews: number;

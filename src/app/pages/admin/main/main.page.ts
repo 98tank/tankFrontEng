@@ -75,10 +75,10 @@ export class MainPage implements OnInit {
         let counter = 0;
         r.forEach(d => {
           const m: MissionData = d.data() as MissionData;
-          if (m.status === 'Pendiente') { this.doughnutChartData[0][1] = ++review; }
-          if (m.status === 'Activa') { this.doughnutChartData[0][2] = ++active; }
-          if (m.status === 'Completada') { this.doughnutChartData[0][3] = ++completed; }
-          if (m.status === 'Cancelada') { this.doughnutChartData[0][4] = ++cancel; }
+          if (m.status === 'Pending') { this.doughnutChartData[0][1] = ++review; }
+          if (m.status === 'Active') { this.doughnutChartData[0][2] = ++active; }
+          if (m.status === 'Accomplished') { this.doughnutChartData[0][3] = ++completed; }
+          if (m.status === 'Cancelled') { this.doughnutChartData[0][4] = ++cancel; }
           ++counter;
           if (r.size === counter) { this.getCandidatesInMissions(); }
         });
