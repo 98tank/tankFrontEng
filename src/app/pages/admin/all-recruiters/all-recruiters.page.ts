@@ -14,11 +14,11 @@ import { Router } from '@angular/router';
 export class AllRecruitersPage {
   totalRecruiter: number;
   displayedColumns: string[] = [
-    'Email',
-    'Reclutador',
-    'Regístro',
-    'Ult.Sesión',
-    'Estatus',
+    'E-mail',
+    'Recruiters',
+    'Register',
+    'Last.Session',
+    'Status',
   ];
   dataSource = new MatTableDataSource<Profile>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -65,15 +65,15 @@ export class AllRecruitersPage {
 
   changeSort(expresion: string): string {
     switch (expresion) {
-      case 'Email':
+      case 'E-mail':
         return 'email';
-      case 'Reclutador':
+      case 'Recruiters':
         return 'name';
-      case 'Regístro':
+      case 'Register':
         return 'registerDate';
-      case 'Ult.Sesión':
+      case 'Last.Session':
         return 'lastSession';
-      case 'Estatus':
+      case 'Status':
         return 'status';
       default:
         return;

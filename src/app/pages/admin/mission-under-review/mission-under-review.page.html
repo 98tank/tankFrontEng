@@ -5,7 +5,7 @@
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Misiones en Revisión
+            Missions under Review
         </ion-title>
     </ion-toolbar>
 </ion-header>
@@ -19,7 +19,7 @@
             <ion-col size-md="6" size="12" *ngFor="let mur of missionPending">
                 <ion-card mode="ios">
                     <ion-card-header>
-                        <ion-card-subtitle color="tertiary">Creada el {{mur.create_date | date: 'd/MM/y - hh:mmaaa'}}</ion-card-subtitle>
+                        <ion-card-subtitle color="tertiary">Created on {{mur.create_date | date: 'MM/d/y - hh:mmaaa'}}</ion-card-subtitle>
                         <ion-card-title color="secondary">
                             <h3>{{mur.name_position}}</h3>
                         </ion-card-title>
@@ -27,19 +27,19 @@
                     <ion-card-content>
                         <ion-item lines="none" *ngIf="c$ | async as c">
                             <ion-icon color="medium" name="cash" slot="start"></ion-icon>
-                            <ion-label><strong>Costo:</strong> {{(mur.net_salary * c.create_mission) | currency : 'MXN '}}
+                            <ion-label><strong>Cost:</strong> {{(mur.net_salary * c.create_mission) | currency : 'MXN '}}
                             </ion-label>
                             <div tabindex="0" style="height: 0;"></div>
                         </ion-item>
                         <ion-item lines="none">
                             <ion-icon color="medium" name="fitness" slot="start"></ion-icon>
-                            <ion-label><strong>Estatus de pago:</strong> <span [ngClass]="{'red': mur.status_payment === 'Pendiente', 'green': mur.status_payment === 'Pagada'}"> {{mur.status_payment}}</span>
+                            <ion-label><strong>Peyment Status:</strong> <span [ngClass]="{'red': mur.status_payment === 'Pendiente', 'green': mur.status_payment === 'Pagada'}"> {{mur.status_payment}}</span>
                             </ion-label>
                             <div tabindex="0" style="height: 0;"></div>
                         </ion-item>
                         <ion-item lines="none">
                             <ion-icon color="medium" name="rocket-sharp" slot="start"></ion-icon>
-                            <ion-label><strong>Estatus misión:</strong> Revisión
+                            <ion-label><strong>Mission Status:</strong> Review
                                 <!-- <ion-chip color="medium">
                                     <ion-label>Revisión</ion-label>
                                 </ion-chip> -->
@@ -47,7 +47,7 @@
                             <div tabindex="0" style="height: 0;"></div>
                         </ion-item>
                         <ion-buttons class="ion-text-center">
-                            <ion-button fill="solid" shape="round" color="primary" [routerLink]="['/admin/mision/', mur.mission_id]">Ver</ion-button>
+                            <ion-button fill="solid" shape="round" color="primary" [routerLink]="['/admin/mision/', mur.mission_id]">Open</ion-button>
                         </ion-buttons>
                     </ion-card-content>
                 </ion-card>

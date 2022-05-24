@@ -21,7 +21,7 @@ export class MainPage implements OnInit {
   public barChartLegend = false;
   public doughnutChartType: ChartType = 'doughnut';
   public doughnutChartData: MultiDataSet = [[0, 0, 0, 0, 0, 0, 0]];
-  public doughnutChartLabels: Label[] = ['Misiones creadas', 'Misiones en revisión', 'Misiones activas', 'Misiones terminadas', 'Misiones canceladas', 'Candidatos aceptados', 'Candidatos rechazados'];
+  public doughnutChartLabels: Label[] = ['Created Missions', 'Missions under Review', 'Active Missions', 'Missions Accomplished', 'Cancelled Missions', ' Accepted Candidates', 'Rejected Missions'];
   public pieChartColors = [{backgroundColor: ['#061347', '#a8a8a8', '#ec5e04', '#8dbdd8', '#000000', '#03a45e', '#e42300'], }, ];
   users: UsersCard = {
     admins: 0,

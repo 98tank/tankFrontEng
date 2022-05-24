@@ -14,11 +14,11 @@ import { FirebaseService } from 'src/app/services';
 export class AllCandidatesPage implements AfterViewInit {
 
   displayedColumns = [
-    'Email',
-    'Nombre',
-    'Posición',
-    'Ingresado',
-    'Estatus',
+    'E-mail',
+    'Name',
+    'Position',
+    'Joined-on',
+    'Status',
   ];
   totalCandidates: number;
   candidates: CandidateData[];
@@ -82,15 +82,15 @@ export class AllCandidatesPage implements AfterViewInit {
 
   changeSort(expresion: string): string {
     switch (expresion) {
-      case 'Email':
+      case 'E-mail':
         return 'email';
-      case 'Nombre':
+      case 'Name':
         return 'name';
-      case 'Posición':
+      case 'Position':
         return 'name_position';
-      case 'Ingresado':
+      case 'Joined-on':
         return 'create_date';
-      case 'Estatus':
+      case 'Status':
         return 'status';
       default:
         return;

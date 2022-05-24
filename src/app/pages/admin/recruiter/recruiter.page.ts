@@ -43,14 +43,14 @@ export class RecruiterPage implements OnInit {
 
   async activeUser(uid: string) {
     const alert = await this.alertController.create({
-      header: '¿Activar Reclutador?',
+      header: 'Activate this Recruiter?',
       mode: 'ios',
       buttons: [
         {
           text: 'No',
           role: 'cancel',
         }, {
-          text: 'Si',
+          text: 'Yes',
           handler: () => {
             this.fs.updateDoc(`users/${uid}`, {'profile.status': 'Activo'})
           }
@@ -62,19 +62,19 @@ export class RecruiterPage implements OnInit {
 
   async blockUser(uid: string) {
     const alert = await this.alertController.create({
-      header: '¿Bloquear Reclutador?',
+      header: 'Block this Recruiter?',
       mode: 'ios',
       inputs: [{
         name: 'reason_block',
         type: 'text',
-        placeholder: 'Motivo del bloqueo'
+        placeholder: 'Reason for blocking'
       }],
       buttons: [
         {
           text: 'No',
           role: 'cancel',
         }, {
-          text: 'Si',
+          text: 'Yes',
           handler: (d) => {
             this.fs.updateDoc(`users/${uid}`, {'profile.status': 'Bloqueado', 'profile.reason_block': d.reason_block || ''});
           }
