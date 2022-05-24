@@ -67,7 +67,7 @@ export class ContractPage implements OnInit {
       date,
       contacted: 'No'
     };
-    this.fs.updateDoc(`missions/${this.candidate.mission_id}`, { status: 'Completada', type_contract: tc,  update_date: date });
+    this.fs.updateDoc(`missions/${this.candidate.mission_id}`, { status: 'Accomplished', type_contract: tc,  update_date: date });
     this.fs.updateDoc(`candidates/${this.candidate.candidate_id}`, { status: 'Contratado', type_contract: tc,  update_date: date });
     this.changeStatusAllRelatedCandidates(this.candidate, date);
     this.createReward(date);
