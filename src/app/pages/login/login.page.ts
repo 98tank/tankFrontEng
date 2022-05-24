@@ -48,7 +48,7 @@ export class LoginPage implements OnInit, OnDestroy {
     if (this.form.valid) {
       await this.presentLoading('Autenticando...');
       this.auth.loginEmail(this.form.value.email, this.form.value.pass).then((res) => {
-        if (res.user.emailVerified === true) {
+        if (res.user.emailVerified === false) {
           if (res.user.uid) {
             const uid = res.user.uid;
             this.subscription = this.fs.getDocObserver(`users/${uid}`).pipe(pluck('profile'), take(1)).subscribe(async (p: Profile) => {
