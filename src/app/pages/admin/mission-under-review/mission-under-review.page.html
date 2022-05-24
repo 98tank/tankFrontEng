@@ -14,7 +14,7 @@
     <ion-grid fixed>
         <ion-row>
             <ion-col *ngIf="loading">
-                <app-no-missions [type]="'bajo revisión'" [icon]="'rocket-outline'"></app-no-missions>
+                <app-no-missions [type]="'No Active missions under review'" [icon]="'rocket-outline'"></app-no-missions>
             </ion-col>
             <ion-col size-md="6" size="12" *ngFor="let mur of missionPending">
                 <ion-card mode="ios">
@@ -33,7 +33,7 @@
                         </ion-item>
                         <ion-item lines="none">
                             <ion-icon color="medium" name="fitness" slot="start"></ion-icon>
-                            <ion-label><strong>Estatus de pago:</strong> <span [ngClass]="{'red': mur.status_payment === 'Pending', 'green': mur.status_payment === 'Paid'}"> {{mur.status_payment}}</span>
+                            <ion-label><strong>Payments Status:</strong> <span [ngClass]="{'red': mur.status_payment === 'Pending', 'green': mur.status_payment === 'Paid'}"> {{mur.status_payment}}</span>
                             </ion-label>
                             <div tabindex="0" style="height: 0;"></div>
                         </ion-item>

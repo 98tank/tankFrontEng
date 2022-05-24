@@ -1,11 +1,11 @@
 <ion-header [translucent]="true">
     <ion-toolbar mode="ios">
         <ion-buttons slot="start">
-            <ion-back-button [defaultHref]="'/admin/misiones-activas'" text="Atrás"></ion-back-button>
+            <ion-back-button [defaultHref]="'/admin/misiones-activas'" text="Back"></ion-back-button>
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Mision
+            Mission
         </ion-title>
         <ion-buttons slot="end">
             <ion-menu-button></ion-menu-button>
@@ -22,10 +22,10 @@
         <ion-row>
             <ion-col size="12">
                 <ion-buttons class="actions">
-                    <ion-button *ngIf="m.status === 'Pending'" color="primary" fill="solid" shape="round" (click)="changeStatus(m, 'Active')">Activar misión</ion-button>
-                    <ion-button color="primary" fill="solid" shape="round" (click)="editAllMission(m)" *ngIf="((adminType$ | async) === 'superAdmin')">Editar misión</ion-button>
-                    <ion-button color="primary" fill="solid" shape="round" (click)="changeStatus(m, 'Active')" *ngIf="m.status === 'Cancelled'">Activar misións</ion-button>
-                    <ion-button *ngIf="m.status !== 'Cancelled'" color="primary" fill="solid" shape="round" (click)="changeStatus(m, 'Cancelled')">Cancelar misión</ion-button>
+                    <ion-button *ngIf="m.status === 'Pending'" color="primary" fill="solid" shape="round" (click)="changeStatus(m, 'Active')">Active mission</ion-button>
+                    <ion-button color="primary" fill="solid" shape="round" (click)="editAllMission(m)" *ngIf="((adminType$ | async) === 'superAdmin')">Edit mission</ion-button>
+                    <ion-button color="primary" fill="solid" shape="round" (click)="changeStatus(m, 'Active')" *ngIf="m.status === 'Cancelled'">Active missions</ion-button>
+                    <ion-button *ngIf="m.status !== 'Cancelled'" color="primary" fill="solid" shape="round" (click)="changeStatus(m, 'Cancelled')">Cancel mission</ion-button>
                 </ion-buttons>
             </ion-col>
         </ion-row>

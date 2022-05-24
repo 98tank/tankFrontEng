@@ -1,11 +1,11 @@
 <ion-header [translucent]="true">
     <ion-toolbar mode="ios">
         <ion-buttons slot="start">
-            <ion-back-button [defaultHref]="'/admin/candidatos'" text="Atrás"></ion-back-button>
+            <ion-back-button [defaultHref]="'/admin/candidatos'" text="Back"></ion-back-button>
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Candidato
+            Candidate
         </ion-title>
         <ion-buttons slot="end">
             <ion-menu-button></ion-menu-button>
@@ -17,8 +17,8 @@
     <ion-grid fixed *ngIf="candidate">
         <app-candidate-data [candidate]="candidate"></app-candidate-data>
         <div class="buttons">
-            <ion-button fill="solid" shape="round" color="primary" *ngIf="candidate.status !== 'Contratado'" (click)="alertDelete(candidate)">Borrar candidato</ion-button>
-            <ion-button fill="solid" shape="round" color="primary" (click)="openEditCandidate(candidate)">Editar candidato</ion-button>
+            <ion-button fill="solid" shape="round" color="primary" *ngIf="candidate.status !== 'Contratado'" (click)="alertDelete(candidate)">Delete candidate</ion-button>
+            <ion-button fill="solid" shape="round" color="primary" (click)="openEditCandidate(candidate)">Edit candidate</ion-button>
         </div>
         <app-recruiter-data [uid]="candidate.uid_recruiter"></app-recruiter-data>
         <ion-card mode="ios" style="background: red;">
