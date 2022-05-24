@@ -103,10 +103,10 @@ export class CreateMissionPage implements OnInit {
       numberInterviews: parseFloat(this.form.value.numberInterviews) || 0,
       uid: this.auth.userUid,
       mission_id: id,
-      status_payment: 'Pendiente',
+      status_payment: 'Pending',
       pay: {},
       net_salary: parseFloat(this.form.value.net_salary),
-      status: 'Pendiente'
+      status: 'Pending'
     };
     this.fs.setDoc(`missions/${id}`, newMission).then(() => {
       this.form.reset();

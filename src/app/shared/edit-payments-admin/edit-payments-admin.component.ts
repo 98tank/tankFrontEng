@@ -25,7 +25,7 @@ export class EditPaymentsAdminComponent implements OnInit {
 
   statusPayment(){
     this.paid = this.mission.status_payment;
-    if (this.paid === 'Pagada') {
+    if (this.paid === 'Paid') {
       this.check = true;
     } else {
       this.check = false;
