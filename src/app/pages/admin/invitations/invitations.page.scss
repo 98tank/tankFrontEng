@@ -1,0 +1,15 @@
+ion-card {
+    .fondo {
+        color: #fff;
+        text-align: left;
+        padding: 10px 30px;
+        background-image: url(../../../../assets/img/fondo_login.png);
+        min-height: 100px;
+        background-size: cover;
+        background-position: center;
+        clip-path: polygon(0% 0%, 100% 0, 100% 80%, 90% 100%, 0% 100%);
+    }
+    ion-col {
+        text-align: center;
+    }
+}

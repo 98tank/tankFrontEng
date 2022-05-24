@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="title-page">
+            <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
+            Futuras entrevistas
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content #topPage>
+    <ion-grid fixed>
+        <ion-row>
+            <ng-container *ngIf="candidates.length > 0; else noInterview">
+                <ion-col size="12" *ngFor="let c of candidates">
+                    <app-interview-accepted [candidate]="c"></app-interview-accepted>
+                </ion-col>
+            </ng-container>
+            <ng-template #noInterview>
+                <ion-col size="12">
+                    <app-no-interviews></app-no-interviews>
+                </ion-col>
+            </ng-template>
+        </ion-row>
+    </ion-grid>
+</ion-content>

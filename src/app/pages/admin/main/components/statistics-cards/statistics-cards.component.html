@@ -1,0 +1,54 @@
+<ion-row>
+    <ion-col size-md="4" size-sm="12" size="12">
+        <ion-card mode="ios" color="primary">
+            <ion-card-header>
+                <ion-row>
+                    <ion-col size="4">
+                        <ion-icon name="business"></ion-icon>
+                    </ion-col>
+                    <ion-col size="8">
+                        <span>{{users.clients}}</span>
+                    </ion-col>
+                </ion-row>
+            </ion-card-header>
+            <ion-card-content>Clientes</ion-card-content>
+        </ion-card>
+    </ion-col>
+    <ion-col size-md="4" size-sm="6" size="6">
+        <ion-card mode="ios" color="secondary">
+            <ion-card-header>
+                <ion-row>
+                    <ion-col size="4">
+                        <ion-icon name="search"></ion-icon>
+                    </ion-col>
+                    <ion-col size="8">
+                        <span>{{users.recruiters}}</span>
+                    </ion-col>
+                </ion-row>
+            </ion-card-header>
+            <ion-card-content>Reclutadores</ion-card-content>
+        </ion-card>
+    </ion-col>
+    <ion-col size-md="4" size-sm="6" size="6">
+        <ion-card mode="ios" color="tertiary">
+            <ion-card-header>
+                <ion-row>
+                    <ion-col size="4">
+                        <ion-icon name="construct"></ion-icon>
+                    </ion-col>
+                    <ion-col size="8">
+                        <span>{{users.admins}}</span>
+                    </ion-col>
+                </ion-row>
+            </ion-card-header>
+            <ion-card-content>Administradores</ion-card-content>
+        </ion-card>
+    </ion-col>
+    <ion-col size="12">
+        <ion-card>
+            <div style="display: block">
+                <canvas height="50" baseChart [datasets]="barChartData" [legend]="barChartLegend" [chartType]="barChartType"></canvas>
+            </div>
+        </ion-card>
+    </ion-col>
+</ion-row>

@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="title-page">
+            <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
+            Historial de pagos
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col size="12">
+                <p>Transacciones Recientes por Misiones Creadas</p>
+                <ion-card mode="ios">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Misión</th>
+                                <th>Fecha de la transacción</th>
+                                <th>Monto</th>
+                                <th>Estatus</th>
+                                <th>Comprobante</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let p of payments">
+                                <td>
+                                    <ion-icon color="primary" name="rocket-sharp"></ion-icon>{{p.name_position}}
+                                </td>
+                                <td>{{p.create_date | date}}</td>
+                                <td *ngIf="c$ | async as c">{{((p.net_salary * c.create_mission) | currency: 'MXN ')}}</td>
+                                <td class="ion-text-capitalize">{{p.status}}</td>
+                                <td>
+                                    <ion-button *ngIf="p.pay.filePath; else noPay" expand="block" shape="round" fill="solid" color="primary" (click)="watch(p.pay)">Ver</ion-button>
+                                    <ng-template #noPay>Falta comprobante</ng-template>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ion-card>
+            </ion-col>
+            <ion-col size="12">
+                <p>Devoluciones de 98 TANK al cliente</p>
+                <ion-card mode="ios">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Misións Canceladas</th>
+                                <th>Fecha de la solicitud</th>
+                                <th>Monto</th>
+                                <th>Estatus</th>
+                                <th>Comprobante</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let r of refounds">
+                                <td>
+                                    <ion-icon color="primary" name="rocket-sharp"></ion-icon>{{r.name_position}}
+                                </td>
+                                <td>{{r.create_date | date}}</td>
+                                <td *ngIf="c$ | async as c">{{((r.net_salary * c.create_mission) | currency: 'MXN ')}}</td>
+                                <td class="ion-text-capitalize">{{r.status}}</td>
+                                <td>
+                                    <ion-button expand="block" shape="round" fill="solid" color="primary" (click)="watch(r.pay)">Ver</ion-button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

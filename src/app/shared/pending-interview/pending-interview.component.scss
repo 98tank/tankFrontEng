@@ -1,0 +1,17 @@
+table {
+    text-align: left;
+    margin-bottom: 20px;
+    ion-button.more {
+        max-width: 75px;
+        min-width: 65px !important;
+    }
+    .center {
+        text-align: center !important;
+    }
+    td.address {
+        word-break: break-all;
+    }
+    ion-icon {
+        margin-right: 10px;
+    }
+}

@@ -1,0 +1,50 @@
+<div class="table">
+    <ion-card mode="ios">
+        <ion-card-content>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Estatus de la entrevista</th>
+                        <th>Aceptada</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="interviewData">
+                    <tr>
+                        <td colspan="2">
+                            <ion-icon name="person"></ion-icon> <strong>Candidato: </strong> {{candidate.name}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ion-icon name="document-text-outline"></ion-icon> <strong>Posición: </strong> {{interviewData.position}}
+                        </td>
+                        <td>
+                            <ion-icon name="search"></ion-icon>
+                            <strong>Reclutado por: </strong>{{interviewData.name_recruiter}}
+                        </td>
+                    </tr>
+                    <ng-container *ngFor="let o of candidate.interview.options">
+                        <tr *ngIf="o.selected">
+                            <td colspan="2">
+                                <ion-icon name="calendar-number"></ion-icon>
+                                <strong>Fecha: </strong> {{o.date | date: 'd MMM, y h:mm a'}}
+                            </td>
+                        </tr>
+                    </ng-container>
+                    <tr>
+                        <td class="address" colspan="2" *ngIf="candidate.interview.channel === 'video_call'; else faceToFace">
+                            <ion-icon name="at"></ion-icon>
+                            <strong>Entrevista online: </strong>{{candidate.interview.address}}
+                        </td>
+                        <ng-template #faceToFace>
+                            <td class="address" colspan="2">
+                                <ion-icon name="earth"></ion-icon>
+                                <strong>Entrevista presencial: </strong>{{candidate.interview.address}}
+                            </td>
+                        </ng-template>
+                    </tr>
+                </tbody>
+            </table>
+        </ion-card-content>
+    </ion-card>
+</div>

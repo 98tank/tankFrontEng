@@ -1,0 +1,6 @@
+<div class="selector" style="text-align: center;">
+    <ion-card>
+        <ion-icon [ngClass]="{'active': view === 'list'}" class="active" (click)="changeView('list')" name="list"></ion-icon>
+        <ion-icon [ngClass]="{'active': view === 'card'}" (click)="changeView('card')" name="grid-outline"></ion-icon>
+    </ion-card>
+</div>

@@ -1,0 +1,13 @@
+.more {
+    max-width: 50px;
+    min-width: 40px !important;
+}
+
+.mat-row .mat-cell {
+    transition: 0.4s;
+}
+
+.mat-row:hover .mat-cell {
+    cursor: pointer;
+    background-color: #f2e0d4;
+}

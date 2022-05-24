@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="title-page">
+            <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
+            Misión en revisión
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col *ngIf="loading">
+                <app-no-missions [type]="'bajo revisión'" [icon]="'rocket-outline'"></app-no-missions>
+            </ion-col>
+            <ion-col size-md="6" size="12" *ngFor="let mur of missionUnderReview">
+                <ion-card mode="ios">
+                    <ion-card-header>
+                        <ion-card-subtitle color="tertiary">Creada el {{mur.create_date | date: 'd/MM/y - hh:mmaaa'}}</ion-card-subtitle>
+                        <ion-card-title color="secondary">
+                            <h3>{{mur.name_position}}</h3>
+                        </ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <ion-item lines="none" *ngIf="c$ | async as c">
+                            <ion-icon color="medium" name="cash" slot="start"></ion-icon>
+                            <ion-label><strong>Costo:</strong> {{(mur.net_salary * c.create_mission) | currency : 'MXN '}}
+                            </ion-label>
+                            <div tabindex="0" style="height: 0;"></div>
+                        </ion-item>
+                        <ion-item lines="none">
+                            <ion-icon color="medium" name="fitness" slot="start"></ion-icon>
+                            <ion-label><strong>Estatus de pago:</strong> <span [ngClass]="{'red': mur.status_payment === 'Pendiente', 'green': mur.status_payment === 'Pagada'}"> {{mur.status_payment}}</span>
+                            </ion-label>
+                            <div tabindex="0" style="height: 0;"></div>
+                        </ion-item>
+                        <ion-item lines="none">
+                            <ion-icon color="medium" name="rocket-sharp" slot="start"></ion-icon>
+                            <ion-label><strong>Estatus misión:</strong> Revisión
+                            </ion-label>
+                            <div tabindex="0" style="height: 0;"></div>
+                        </ion-item>
+                        <ion-buttons>
+                            <ion-button fill="solid" shape="round" color="primary" (click)="missionView(mur)">Editar misión</ion-button>
+                        </ion-buttons>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

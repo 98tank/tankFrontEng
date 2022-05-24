@@ -1,0 +1,45 @@
+<ion-card mode="ios">
+    <ion-card-header color="primary">
+        <ion-title>Candidatos propuestos</ion-title>
+    </ion-card-header>
+    <ng-container *ngIf="candidates.length > 0; else noCandidates">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>CANDIDATOS</th>
+                    <th>ESTATUS</th>
+                    <th>DETALLE</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let c of candidates">
+                    <td>
+                        <ion-icon name="person-sharp"></ion-icon>
+                    </td>
+                    <td>{{c.name}}</td>
+                    <td>{{c.status}}</td>
+                    <td>
+                        <ion-button class="more" fill="solid" shape="round" color="primary" [routerLink]="[route, c.candidate_id]">Ver más</ion-button>
+                    </td>
+                    <td>
+                        <ion-icon class="cursorP" slot="icon-only" *ngIf="!c.seen_by_the_client" color="danger" name="alert-circle-outline" (click)="presentPopover('No Visto', $event)"></ion-icon>
+                        <ion-icon class="cursorP" slot="icon-only" *ngIf="c.seen_by_the_client" color="success" name="checkmark-circle-outline" (click)="presentPopover('Visto', $event)"></ion-icon>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+    <ng-template #noCandidates>
+        <ion-card-content>
+            <ion-row>
+                <ion-col size="12" class="ion-text-center">
+                    <strong>Aún no hay candidatos asignados a esta misión</strong>
+                </ion-col>
+            </ion-row>
+        </ion-card-content>
+    </ng-template>
+
+
+</ion-card>

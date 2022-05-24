@@ -1,0 +1,55 @@
+ion-header {
+    padding: 2% 5%;
+    img {
+        max-width: 130px;
+    }
+    .close {
+        cursor: pointer;
+    }
+}
+
+ion-card.experience {
+    background: rgba(236, 94, 4, 0.1);
+    margin-bottom: 20px;
+    ion-item {
+        --background: transparent;
+    }
+}
+
+.success {
+    max-width: 300px;
+    text-align: center;
+    margin: 50px auto;
+    ion-icon.icon-s {
+        width: 80px;
+        height: 80px;
+    }
+    ion-card-title {
+        font-size: 25px;
+    }
+    ion-button {
+        margin: auto;
+        max-width: 150px;
+    }
+}
+
+ion-button {
+    --padding-start: 0;
+    --padding-end: 0;
+}
+
+a {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

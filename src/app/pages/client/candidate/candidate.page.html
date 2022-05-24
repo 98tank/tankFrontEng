@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="start" *ngIf="candidate as c">
+            <ion-back-button [defaultHref]="'/cliente/misiones-activas/mision/'+ c.mission_id" text="Atrás"></ion-back-button>
+        </ion-buttons>
+        <ion-title class="title-page">
+            <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
+            Candidato
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid fixed>
+        <ion-row *ngIf="candidate as c">
+            <ion-col size-lg="9" size-md="8" size="12">
+                <app-candidate-data [candidate]="c"></app-candidate-data>
+            </ion-col>
+            <ion-col size-lg="3" size-md="4" size="12" *ngIf="active">
+                <app-multiple-buttons [candidate]="c"></app-multiple-buttons>
+            </ion-col>
+            <ng-container *ngIf="(c.status === 'Activo') && active">
+                <ion-col size="12">
+                    <ion-buttons class="actions">
+                        <ion-button fill="solid" shape="round" color="primary" (click)="goContract(c)">Contratar</ion-button>
+                    </ion-buttons>
+                </ion-col>
+                <ion-col size="12" *ngIf="c.interview?.status === 'pending'">
+                    <app-pending-interview [candidate]="c"></app-pending-interview>
+                </ion-col>
+                <ion-col size="12" *ngIf="c.interview?.status === 'selected'">
+                    <app-interview-accepted [candidate]="c"></app-interview-accepted>
+                </ion-col>
+            </ng-container>
+
+            <ion-col size="12" *ngIf="c.status === 'Descartado'">
+                <app-reason-rejection [reason]="c.reason_discard"></app-reason-rejection>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

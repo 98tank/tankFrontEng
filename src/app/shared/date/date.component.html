@@ -1,0 +1,26 @@
+<div class="center-tex" style="text-align: center">
+    <ion-text>{{title}}</ion-text>
+    <div class="date">
+        <ion-item>
+            <ion-label position="floating">Dia</ion-label>
+            <ion-select [value]="birthdate?.day" interface="popover" cancelText="Cancelar" okText="Aceptar" (ionChange)="buildDate('day', $event)">
+                <ion-select-option *ngFor="let d of days" [value]="d">{{d}}</ion-select-option>
+            </ion-select>
+            <div tabindex="0" style="height: 0;"></div>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Mes</ion-label>
+            <ion-select [value]="birthdate?.month" interface="popover" cancelText="Cancelar" okText="Aceptar" (ionChange)="buildDate('month', $event)">
+                <ion-select-option *ngFor="let m of months" [value]="m.n">{{m.s}}</ion-select-option>
+            </ion-select>
+            <div tabindex="0" style="height: 0;"></div>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Año</ion-label>
+            <ion-select [value]="birthdate?.year" interface="popover" cancelText="Cancelar" okText="Aceptar" (ionChange)="buildDate('year', $event)">
+                <ion-select-option *ngFor="let y of years" [value]="y">{{y}}</ion-select-option>
+            </ion-select>
+            <div tabindex="0" style="height: 0;"></div>
+        </ion-item>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+.table {
+    overflow: auto;
+    ion-card-content {
+        padding: 0;
+        overflow: auto;
+        table {
+            border: none;
+            thead {
+                background: var(--ion-color-secondary);
+            }
+            tbody {
+                tr {
+                    transition: 0.3s;
+                    td:nth-child(2),
+                    td:nth-child(3) {
+                        text-align: left;
+                    }
+                    td.active {
+                        color: #ec5e04;
+                    }
+                    td.contract {
+                        color: #008000;
+                    }
+                    td.discarded {
+                        color: #a1a1a1;
+                    }
+                    td:nth-child(4) {
+                        font-weight: 600;
+                    }
+                    &.deleting {
+                        color: #fff;
+                        background: red;
+                    }
+                }
+                td {
+                    ion-icon {
+                        cursor: pointer;
+                        &:hover {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                    ion-button.more {
+                        max-width: 75px;
+                        min-width: 65px !important;
+                    }
+                }
+            }
+        }
+    }
+    @media(max-width: 450px) {
+        overflow-x: scroll;
+    }
+}

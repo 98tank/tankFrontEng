@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="start">
+            <ion-back-button [defaultHref]="'/admin/payment-history'" text="Atrás"></ion-back-button>
+        </ion-buttons>
+        <ion-title class="title-page">
+            <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
+            Pagos pendientes
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid fixed>
+        <div class="table">
+            <ion-card mode="ios">
+                <ion-card-content>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>EMPRESA</th>
+                                <th>POSICIÓN</th>
+                                <th>CONTACTO</th>
+                                <th>CREACIÓN</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let p of missionsPending | orderBy: 'status': 'asc'; trackBy: trackByFn">
+                                <td>
+                                    <ion-icon color="primary" name="person-sharp"></ion-icon>
+                                </td>
+                                <td>{{p.name_company}}</td>
+                                <td>{{p.position}}</td>
+                                <td>{{p.name}}</td>
+                                <td>{{p.create_date | date}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ion-card-content>
+            </ion-card>
+        </div>
+
+        <ion-col size="12" class="pagination-controls ion-text-center">
+            <ion-buttons class="controls" class="ion-justify-content-between">
+                <ion-button size="small" shape="round" fill="solid" color="primary" (click)="pagination('previous')" [disabled]="!buttonPrevious">
+                    <ion-icon name="chevron-back-outline"></ion-icon>
+                </ion-button>
+                <ion-button size="small" shape="round" fill="solid" color="primary" (click)="pagination('next')">
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-col>
+    </ion-grid>
+
+</ion-content>

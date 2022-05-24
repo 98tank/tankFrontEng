@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="title-page">
+            <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
+            Misiones Activas
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col *ngIf="loading">
+                <app-no-missions [type]="'activa'" [icon]="'rocket-outline'"></app-no-missions>
+            </ion-col>
+            <ion-col size-md="6" size="12" *ngFor="let mission of activeMissions">
+                <app-mission-card [mission]="mission" [route]="route" [type]="'client'"></app-mission-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

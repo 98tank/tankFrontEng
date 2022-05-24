@@ -1,0 +1,13 @@
+<ion-header class="ion-no-border header-modal">
+    <ion-toolbar>
+        <img slot="start" src="assets/img/logo_horizontal.png" alt="98Tank" />
+        <ion-buttons slot="end">
+            <ion-button (click)="closeModal()" color="primary" expand="full">
+                <ion-icon name="close-circle-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ngx-extended-pdf-viewer [src]="url+'/assets/files/'+file+'.pdf'" useBrowserLocale="true" [contextMenuAllowed]="false"></ngx-extended-pdf-viewer>
+</ion-content>

@@ -1,0 +1,258 @@
+<ion-header [translucent]="true">
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="title-page">
+            <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
+            Editar mi cuenta
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content id="register" #topPage>
+    <ion-grid fixed>
+        <ion-row class="logoBapp">
+            <ion-col size="12">
+                <ion-text>
+                    <h5>Actualiza tu cuenta como cliente</h5>
+                    <h5>Datos para indentificar tu cuenta</h5>
+                </ion-text>
+            </ion-col>
+        </ion-row>
+
+        <form *ngIf="form" [formGroup]="form" (submit)="getDataRegister()" novalidate>
+
+            <ion-row>
+                <ion-col size-md="6" size="12">
+                    <ion-item>
+                        <ion-label position="floating">Nombre del cliente</ion-label>
+                        <ion-input matInput type="text" name="company_name" formControlName="company_name" id="company_name"></ion-input>
+                    </ion-item>
+                    <div class="error" *ngIf="form.get('company_name').errors && form.get('company_name').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('company_name').hasError('required')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>El nombre del cliente es requerido.
+                        </ion-text>
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('company_name').hasError('minlength')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>El nombre del cliente debe tener al menos 2 caracteres.
+                        </ion-text>
+                    </div>
+                </ion-col>
+                <ion-col size-md="6" size="12">
+                    <ion-item class="email">
+                        <ion-label position="floating">Correo</ion-label>
+                        <ion-input [attr.disabled]="true" type="email" name="email" formControlName="email" id="email"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="12" class="ion-text-center">
+                    <ion-button shape="round" color="primary" type="button" (click)="resetPassword()">Solicitar cambio de contraseña</ion-button>
+                </ion-col>
+            </ion-row>
+
+            <ion-text>
+                <h5>Datos de la empresa</h5>
+            </ion-text>
+            <ion-row>
+                <ion-col size="12">
+                    <div class="avatar">
+                        <label for="files">
+                            <img *ngIf="imgAvatar" [src]="imgAvatar" alt="" id="imgAvatar">
+                            <div class="foto" id="list">
+                                <ion-icon color="primary" *ngIf="!imgAvatar" name="camera-outline"></ion-icon>
+                                <p *ngIf="!imgAvatar">Agregar<br>Logo de la empresa</p>
+                                <canvas #canvas id="canvas-edit" height="0" class="ion-hide"></canvas>
+                            </div>
+                        </label>
+                        <input class="ion-hide" type="file" id="files" name="files[]" (change)="uploadImg($event, 'canvas-edit')" accept="image/*" />
+                    </div>
+                    <div *ngIf="imgAvatar" class="girar" (click)="rotateImg('canvas-edit')">
+                        <ion-icon color="primary" name="camera-reverse-outline"></ion-icon> Rotar imagen
+                    </div>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="7">
+                    <ion-item>
+                        <ion-label position="floating">Razón social</ion-label>
+                        <ion-input matInput type="tel" name="business_name" formControlName="business_name" id="business_name"></ion-input>
+                    </ion-item>
+                    <div class="error" *ngIf="form.get('business_name').errors && form.get('business_name').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('business_name').hasError('required')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>La razón social es requerida.
+                        </ion-text>
+                    </div>
+                </ion-col>
+                <ion-col size="5">
+                    <ion-item>
+                        <ion-label position="floating">RFC</ion-label>
+                        <ion-input matInput type="tel" name="rfc" formControlName="rfc" id="rfc"></ion-input>
+                    </ion-item>
+                    <div class="error" *ngIf="form.get('rfc').errors && form.get('rfc').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('rfc').hasError('minlength')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>El RFC debe tener al menos 12 caracteres.
+                        </ion-text>
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('rfc').hasError('maxlength')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>El RFC debe tener maximo 13 caracteres.
+                        </ion-text>
+                    </div>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item>
+                        <ion-label position="floating">Dirección</ion-label>
+                        <ion-input matInput type="tel" name="address" formControlName="address" id="address"></ion-input>
+                    </ion-item>
+                    <div class="error" *ngIf="form.get('address').errors && form.get('address').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('address').hasError('required')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>La direccion es requerida.
+                        </ion-text>
+                    </div>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="7">
+                    <ion-item>
+                        <ion-label position="floating">Teléfono de la compañia</ion-label>
+                        <ion-input matInput type="tel" name="phone_company" formControlName="phone_company" id="phone_company"></ion-input>
+                    </ion-item>
+                    <div class="error" *ngIf="form.get('phone_company').errors && form.get('phone_company').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('phone_company').hasError('required')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>El teléfono es requerido.
+                        </ion-text>
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('phone_company').hasError('pattern')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>Solo se admiten numeros.
+                        </ion-text>
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('phone_company').hasError('minlength')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>El teléfono debe tener al menos 10 numeros.
+                        </ion-text>
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('phone_company').hasError('maxlength')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>El teléfono debe tener maximo 10 numeros.
+                        </ion-text>
+                    </div>
+                </ion-col>
+                <ion-col size="5">
+                    <ion-item>
+                        <ion-label position="floating">Extension</ion-label>
+                        <ion-input matInput type="tel" name="extension" formControlName="extension" id="extension"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+
+            <ion-text>
+                <h5>Esta información la usaremos para mejorar la experiencia</h5>
+            </ion-text>
+
+            <ion-row>
+                <ion-col size-md="7" size="12">
+                    <ion-item>
+                        <ion-label position="floating">Nombre del contacto</ion-label>
+                        <ion-input matInput type="tel" name="name_contact" formControlName="name_contact" id="name_contact"></ion-input>
+                    </ion-item>
+                    <div class="error" *ngIf="form.get('name_contact').errors && form.get('name_contact').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('name_contact').hasError('required')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>El nombre de contacto es requerida.
+                        </ion-text>
+                    </div>
+                </ion-col>
+                <ion-col size-md="5" size="12">
+                    <ion-item>
+                        <ion-label position="floating">Teléfono personal</ion-label>
+                        <ion-input matInput type="tel" name="personal_phone" formControlName="personal_phone" id="personal_phone"></ion-input>
+                    </ion-item>
+                    <div class="error" *ngIf="form.get('personal_phone').errors && form.get('personal_phone').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('personal_phone').hasError('required')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>El teléfono personal es requerido.
+                        </ion-text>
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('personal_phone').hasError('pattern')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>Solo se admiten numeros.
+                        </ion-text>
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('personal_phone').hasError('minlength')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>El teléfono debe tener al menos 10 numeros.
+                        </ion-text>
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('personal_phone').hasError('maxlength')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>El teléfono debe tener maximo 10 numeros.
+                        </ion-text>
+                    </div>
+                </ion-col>
+                <ion-col size-md="6" size="12">
+                    <ion-item>
+                        <ion-label position="floating">Giro</ion-label>
+                        <ion-select [value]="profile.giro" formControlName="giro" cancelText="Cancelar" okText="Aceptar">
+                            <ion-select-option *ngFor="let y of giro$ | async" [value]="y">{{y}}</ion-select-option>
+                        </ion-select>
+                        <div tabindex="0" style="height: 0;"></div>
+                    </ion-item>
+                    <div class="error" *ngIf="form.get('giro').errors && form.get('giro').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('giro').hasError('required')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>El giro es requerida.
+                        </ion-text>
+                    </div>
+                </ion-col>
+            </ion-row>
+
+            <ion-text>
+                <h5>Con estos datos básicos podremos procesar tus solicitudes de reembolsos en el menor tiempo posible.</h5>
+            </ion-text>
+            <ion-row>
+                <ion-col size-md="7" size="12">
+                    <ion-item>
+                        <ion-label position="floating">Banco</ion-label>
+                        <ion-select formControlName="name_bank" cancelText="Cancelar" okText="Aceptar">
+                            <ion-select-option *ngFor="let y of banks$ | async" [value]="y">{{y}}</ion-select-option>
+                        </ion-select>
+                        <div tabindex="0" style="height: 0;"></div>
+                    </ion-item>
+                    <div class="error" *ngIf="form.get('name_bank').errors && form.get('name_bank').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('name_bank').hasError('required')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>El nombre de banco es requerida.
+                        </ion-text>
+                    </div>
+                </ion-col>
+                <ion-col size-md="5" size="12">
+                    <ion-item>
+                        <ion-label position="floating">Clabe</ion-label>
+                        <ion-input matInput type="tel" name="clabe" formControlName="clabe" id="clabe"></ion-input>
+                    </ion-item>
+                    <div class="error" *ngIf="form.get('clabe').errors && form.get('clabe').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('clabe').hasError('required')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>La clabe es requerida.
+                        </ion-text>
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('clabe').hasError('pattern')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>Solo se admiten numeros.
+                        </ion-text>
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('clabe').hasError('minlength')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>La clabe debe tener al menos 18 caracteres.
+                        </ion-text>
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('clabe').hasError('maxlength')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>La clabe debe tener maximo 18 caracteres.
+                        </ion-text>
+                    </div>
+                </ion-col>
+                <ion-col size="12">
+                    <ion-item>
+                        <ion-label position="floating">Número de cuenta</ion-label>
+                        <ion-input matInput type="tel" name="account_number" formControlName="account_number" id="account_number"></ion-input>
+                    </ion-item>
+                    <div class="error" *ngIf="form.get('account_number').errors && form.get('account_number').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('account_number').hasError('pattern')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>Solo se admiten números.
+                        </ion-text>
+                    </div>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="ion-margin">
+                <ion-col>
+                    <ion-button shape="round" color="primary" type="submit" expand="full">Editar cuenta</ion-button>
+                </ion-col>
+            </ion-row>
+        </form>
+
+
+    </ion-grid>
+
+</ion-content>

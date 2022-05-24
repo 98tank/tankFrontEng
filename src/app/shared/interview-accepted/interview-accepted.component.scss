@@ -1,0 +1,13 @@
+table {
+    margin-bottom: 20px;
+    thead {
+        background: green;
+    }
+    text-align: left;
+    td.address {
+        word-break: break-all;
+    }
+    ion-icon {
+        margin-right: 10px;
+    }
+}

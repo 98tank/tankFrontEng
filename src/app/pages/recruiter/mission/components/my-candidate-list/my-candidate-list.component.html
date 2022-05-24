@@ -1,0 +1,32 @@
+<div class="table">
+    <ion-card mode="ios">
+        <ion-card-content>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">CANDIDATOS</th>
+                        <th>ESTATUS</th>
+                        <th>DETALLE</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="candidates">
+                    <tr *ngFor="let c of candidates">
+                        <td>
+                            <ion-icon name="person-sharp"></ion-icon>
+                        </td>
+                        <td>{{c.name}}</td>
+                        <td>{{c.status}}</td>
+                        <td>
+                            <ion-button class="more" fill="solid" shape="round" color="primary" [routerLink]="['/reclutador/misiones-elegidas/mision/candidato', c.candidate_id]">Ver más</ion-button>
+                        </td>
+                        <td>
+                            <ion-icon class="cursorP" slot="icon-only" *ngIf="!c.seen_by_the_client" color="danger" name="alert-circle-outline" (click)="presentPopover('No Visto', $event)"></ion-icon>
+                            <ion-icon class="cursorP" slot="icon-only" *ngIf="c.seen_by_the_client" color="success" name="checkmark-circle-outline" (click)="presentPopover('Visto', $event)"></ion-icon>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </ion-card-content>
+    </ion-card>
+</div>

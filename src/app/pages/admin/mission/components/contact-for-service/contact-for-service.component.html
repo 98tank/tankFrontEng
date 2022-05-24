@@ -1,0 +1,35 @@
+<ion-card mode="ios">
+    <ion-card-header color="primary">
+        <ion-title>Contrato de servicio</ion-title>
+    </ion-card-header>
+    <ion-card-content>
+        <ion-item>
+            <ion-icon color="primary" slot="start" name="accessibility"></ion-icon>
+            <ion-label>
+                <p>Persona de contacto</p>
+                <h2>{{m.type_contract.client.name}}</h2>
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-icon color="primary" slot="start" name="call"></ion-icon>
+            <ion-label>
+                <p>Teléfono de contacto</p>
+                <h2><a href="tel:+{{m.type_contract.client.phone}}">{{m.type_contract.client.phone}}</a></h2>
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-icon color="primary" slot="start" name="calendar-number"></ion-icon>
+            <ion-label>
+                <p>Fecha de contratación</p>
+                <h2>{{m.type_contract.date | date}}</h2>
+            </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+            <ion-icon color="primary" slot="start" name="ribbon"></ion-icon>
+            <ion-label>
+                <h2>¿Hubo comunicación con el Cliente?</h2>
+            </ion-label>
+            <ion-toggle [checked]="check" color="success" (ionChange)="changePayment($event)"></ion-toggle> {{contacted}}
+        </ion-item>
+    </ion-card-content>
+</ion-card>

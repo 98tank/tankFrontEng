@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="title-page">
+            <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
+            Misiones Terminadas
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid fixed>
+        <ion-row>
+            <app-change-of-view style="width: 100%;" [view]="view" (newView)="changeView($event)"></app-change-of-view>
+            <ion-col *ngIf="loading">
+                <app-no-missions [type]="'completada'" [icon]="'rocket-outline'"></app-no-missions>
+            </ion-col>
+            <ion-col size="12" *ngIf="view === 'list'; else card">
+                <app-item-list-mission [missions]="missionCompleted" [dateTitle]="'FINALIZACIÓN'" [field1]="'type_contract'"></app-item-list-mission>
+            </ion-col>
+            <ng-template #card>
+                <ion-col size-md="6" size="12" *ngFor="let mc of missionCompleted">
+                    <app-card-mission-completed [mission]="mc" [route]="'/admin/mision'"></app-card-mission-completed>
+                </ion-col>
+            </ng-template>
+
+        </ion-row>
+    </ion-grid>
+</ion-content>

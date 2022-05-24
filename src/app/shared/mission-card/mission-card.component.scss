@@ -1,0 +1,31 @@
+ion-buttons {
+    text-align: center;
+    ion-button {
+        min-width: 150px;
+        margin: 10px auto;
+    }
+}
+
+ion-card {
+    position: relative;
+    z-index: 1;
+    ion-card-header {
+        padding-bottom: 0px;
+        ion-card-subtitle {
+            text-transform: none;
+        }
+    }
+    ion-card-content {
+        padding-top: 10px !important;
+    }
+    .completed {
+        top: 20px;
+        z-index: 9;
+        right: -27px;
+        color: #fff;
+        padding: 5px 20px;
+        position: absolute;
+        background: #ff0000;
+        transform: rotate(45deg);
+    }
+}

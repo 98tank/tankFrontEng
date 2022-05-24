@@ -1,0 +1,67 @@
+ion-content {
+    position: relative;
+    .background {
+        background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url('../../../assets/img/fondo_login.jpg');
+        background-size: cover;
+        background-position: center top;
+    }
+    ion-grid {
+        z-index: 100;
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .login {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        img {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto 20px;
+        }
+        h3 {
+            color: #fff;
+        }
+        .title {
+            text-align: center;
+        }
+        form {
+            background: hsl(0deg 0% 0% / 60%);
+            border-radius: 10px;
+            padding: 20px 40px;
+            text-align: center;
+            color: var(--ion-color-tertiary);
+            margin-bottom: 50px;
+            ion-item {
+                margin-bottom: 15px;
+                --border-radius: 10px;
+                input:-internal-autofill-selected {
+                    background: none !important;
+                }
+            }
+            .error {
+                margin-bottom: 20px;
+                ion-text {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+        .goRegister {
+            background: hsl(0deg 0% 0% / 60%);
+            border-radius: 10px;
+            padding: 20px 40px;
+            text-align: center;
+            color: var(--ion-color-tertiary);
+        }
+        ion-button {
+            margin: 0 auto 15px;
+            max-width: 300px;
+        }
+    }
+}

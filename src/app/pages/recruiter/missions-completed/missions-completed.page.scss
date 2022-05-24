@@ -1,0 +1,12 @@
+ion-card {
+    ion-card-header {
+        padding-bottom: 0;
+    }
+}
+
+ion-buttons.button {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+}

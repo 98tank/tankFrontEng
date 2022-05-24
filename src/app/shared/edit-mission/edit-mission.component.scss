@@ -1,0 +1,26 @@
+ion-header {
+    padding: 2% 5%;
+    img {
+        max-width: 130px;
+    }
+    .close {
+        cursor: pointer;
+    }
+}
+
+.success {
+    max-width: 300px;
+    text-align: center;
+    margin: 50px auto;
+    ion-icon.icon-s {
+        width: 80px;
+        height: 80px;
+    }
+    ion-card-title {
+        font-size: 25px;
+    }
+    ion-button {
+        margin: auto;
+        max-width: 150px;
+    }
+}

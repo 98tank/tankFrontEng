@@ -1,0 +1,85 @@
+[{
+        "icon": "stats-chart",
+        "name": "Principales",
+        "redirecTo": "/admin/principal",
+        "auth": true
+    },
+    {
+        "icon": "briefcase",
+        "name": "Base Clientes",
+        "redirecTo": "/admin/clientes",
+        "auth": true
+    },
+    {
+        "icon": "person",
+        "name": "Base Reclutadores",
+        "redirecTo": "/admin/reclutadores",
+        "auth": true
+    },
+    {
+        "icon": "people",
+        "name": "Base Candidatos",
+        "redirecTo": "/admin/candidatos",
+        "auth": true
+    },
+    {
+        "icon": "search",
+        "name": "Misiones en Revisión",
+        "redirecTo": "/admin/misiones-en-revision",
+        "auth": true
+    },
+    {
+        "icon": "rocket",
+        "name": "Misiones Activas",
+        "redirecTo": "/admin/misiones-activas",
+        "auth": true
+    },
+    {
+        "icon": "golf",
+        "name": "Misiones Terminadas",
+        "redirecTo": "/admin/misiones-completadas",
+        "auth": true
+    },
+    {
+        "icon": "close-circle",
+        "name": "Misiones Canceladas",
+        "redirecTo": "/admin/misiones-canceladas",
+        "auth": true
+    },
+    {
+        "icon": "construct",
+        "name": "Usuarios Administradores",
+        "redirecTo": "/admin/users-admin",
+        "auth": true
+    },
+    {
+        "icon": "search",
+        "name": "Buscador de usuarios",
+        "redirecTo": "/admin/user-search",
+        "auth": true
+    },
+    {
+        "icon": "cash",
+        "name": "Historial de pagos",
+        "redirecTo": "/admin/payment-history",
+        "auth": true
+    },
+    {
+        "icon": "settings",
+        "name": "Editar mi cuenta",
+        "redirecTo": "/admin/edit-my-account",
+        "auth": true
+    },
+    {
+        "icon": "gift",
+        "name": "Invitaciones",
+        "redirecTo": "/admin/invitations",
+        "auth": true
+    },
+    {
+        "icon": "exit",
+        "name": "Cerrar sesión",
+        "redirecTo": "/login",
+        "auth": true
+    }
+]

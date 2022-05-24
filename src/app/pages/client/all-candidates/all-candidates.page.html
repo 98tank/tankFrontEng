@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="title-page">
+            <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
+            Todos mis candidatos
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid fixed>
+        <div class="table">
+            <ion-card mode="ios">
+                <ion-card-content>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Nombre</th>
+                                <th>Status</th>
+                                <th>Creado</th>
+                                <th>Visto</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let c of allCandidates; let i = index; trackBy: trackByFn">
+                                <td>
+                                    <ion-icon name="person"></ion-icon>
+                                </td>
+                                <td>{{c.name}}</td>
+                                <td>{{c.status}}</td>
+                                <td>{{c.create_date | date}}</td>
+                                <td>
+                                    <ion-icon *ngIf="c.seen_by_the_client === false" slot="icon-only" color="danger" name="alert-circle-outline"></ion-icon>
+                                    <ion-icon *ngIf="c.seen_by_the_client === true" slot="icon-only" color="success" name="checkmark-circle-outline"></ion-icon>
+                                </td>
+                                <td>
+                                    <ion-button class="more" fill="solid" shape="round" color="primary" [routerLink]="['/cliente/misiones-activas/mision/candidato/', c.candidate_id]">Ver candidato</ion-button>
+                                </td>
+                                <td>
+                                    <ion-button class="more" fill="solid" shape="round" color="primary" [routerLink]="['/cliente/misiones-activas/mision/', c.mission_id]">Ver Mision</ion-button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ion-card-content>
+            </ion-card>
+        </div>
+    </ion-grid>
+
+</ion-content>

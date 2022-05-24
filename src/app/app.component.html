@@ -1,0 +1,110 @@
+<ion-app>
+    <ion-split-pane contentId="main-content">
+        <ion-menu [ngClass]="{'hide': noMenu}" side="start" contentId="main-content">
+            <img class="logo" src="assets/img/logo_con_simbolo.png">
+            <ion-content *ngIf="user">
+
+                <ion-list id="inbox-list">
+                    <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+                        <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.redirecTo]" routerLinkActive="active" lines="none" detail="false" [class.selected]="selectedIndex == i">
+                            <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+                            <ion-label>{{ p.name }}</ion-label>
+                            <ion-badge *ngIf="p.name === 'Candidatos' && (user.statistics?.new_candidates > 0)" slot="end" mode="ios">{{user.statistics.new_candidates}}</ion-badge>
+                            <ion-badge *ngIf="p.name === 'Futuras entrevistas' && (user.statistics?.pending_interviews > 0)" slot="end" mode="ios">{{user.statistics.pending_interviews}}</ion-badge>
+                            <ion-badge *ngIf="p.name === 'Pagos' && (user.statistics?.pending_rewards > 0)" slot="end" mode="ios">{{user.statistics.pending_rewards}}</ion-badge>
+                            <ion-badge *ngIf="p.name === 'Historial de pagos' && (user?.statistics?.pending_rewards > 0 || user?.statistics?.pending_refound > 0)" slot="end" mode="ios">{{user.statistics.pending_rewards + user?.statistics?.pending_refound}}</ion-badge>
+                            <div tabindex="0" style="height: 0;"></div>
+                        </ion-item>
+                    </ion-menu-toggle>
+                </ion-list>
+
+                <ion-list id="labels-list">
+                    <ion-list-header>
+                        <img *ngIf="user.profile.company_name" [src]="user.profile.avatar || 'assets/img/logouser.jpg'">
+                        <ion-avatar *ngIf="user.profile.name">
+                            <img [src]="user.profile.avatar || 'assets/img/logouser.jpg'">
+                        </ion-avatar>
+                    </ion-list-header>
+
+                    <ion-item lines="none" *ngIf="user.profile.company_name">
+                        <ion-icon slot="start" name="business-outline"></ion-icon>
+                        <ion-label>{{ user.profile.company_name }}</ion-label>
+                    </ion-item>
+                    <ion-item lines="none" *ngIf="user.profile.name">
+                        <ion-icon slot="start" name="person"></ion-icon>
+                        <ion-label>{{ user.profile.name }}</ion-label>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-icon slot="start" name="mail-outline"></ion-icon>
+                        <ion-label>{{ user.profile.email }}</ion-label>
+                    </ion-item>
+                </ion-list>
+                <ion-card mode="ios" color="dark">
+                    <ion-card-header color="tertiary">
+                        <ion-title>Soporte</ion-title>
+                    </ion-card-header>
+                    <ion-item lines="none">
+                        <ion-icon slot="start" name="mail-outline"></ion-icon>
+                        <ion-label><a href="mailto:community@98tank.com">community@98tank.com</a></ion-label>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-icon slot="start" name="call-outline"></ion-icon>
+                        <ion-label><a href="tel:+5215569338105">+52(1) 55 6933 8105</a></ion-label>
+                    </ion-item>
+                </ion-card>
+                <ion-card mode="ios" color="dark">
+                    <ion-card-header color="success">
+                        <ion-title>Contacto Whatsapp</ion-title>
+                    </ion-card-header>
+                    <ion-item lines="none">
+                        <ion-label class="ion-text-center" style="margin-right: 0;">
+                            <a href="https://wa.me/16197128580?text=Hola quisiera mas información" target="_blank">
+                                <ion-icon class="whatsapp" slot="start" name="logo-whatsapp" color="success"></ion-icon>
+                            </a>
+                        </ion-label>
+                    </ion-item>
+                </ion-card>
+                <ion-card mode="ios" color="dark" *ngIf="user?.profile.type !== 'admin' && user?.profile.type !== 'superAdmin'">
+                    <ion-card-header color="tertiary">
+                        <ion-title>Legal</ion-title>
+                    </ion-card-header>
+                    <ion-item lines="none" class="cursorP" (click)="openLegal('term')">
+                        <ion-icon slot="start" name="document-text-outline"></ion-icon>
+                        <ion-label>Términos y Condiciones</ion-label>
+                    </ion-item>
+                    <ion-item lines="none" class="cursorP" (click)="openLegal('politics')">
+                        <ion-icon slot="start" name="library-outline"></ion-icon>
+                        <ion-label>Políticas de Privacidad</ion-label>
+                    </ion-item>
+                </ion-card>
+                <ion-card mode="ios" color="dark">
+                    <ion-card-header color="medium">
+                        <ion-title>Versión</ion-title>
+                    </ion-card-header>
+
+                    <ion-item *ngIf="fs?.currentVersion === fs?.lastVersion" lines="none">
+                        <ion-icon slot="start" name="shield-checkmark-outline"></ion-icon>
+                        <ion-label>Tu app esta actualizada: <br><strong>V-{{fs.currentVersion}}</strong></ion-label>
+                    </ion-item>
+                    <ng-container *ngIf="fs.currentVersion !== fs.lastVersion">
+                        <ion-item lines="none">
+                            <ion-icon slot="start" name="cloud-done-outline"></ion-icon>
+                            <ion-label>Ultima versión: <strong>{{fs.lastVersion}}</strong></ion-label>
+                        </ion-item>
+                        <ion-item lines="none">
+                            <ion-icon slot="start" name="warning-outline"></ion-icon>
+                            <ion-label>Version actual: <strong>{{fs.currentVersion}}</strong></ion-label>
+                        </ion-item>
+                    </ng-container>
+                    <div class="button-update">
+                        <ion-button *ngIf="fs.currentVersion !== fs.lastVersion" color="medium" (click)="update()">
+                            <span>Actualizar App</span>
+                        </ion-button>
+                    </div>
+                </ion-card>
+                <ion-title style="text-align: center;color: #fff; font-size: 12px;">© Copyright {{year}} 98tank.<br>Todos los derechos reservados</ion-title>
+            </ion-content>
+        </ion-menu>
+        <ion-router-outlet id="main-content"></ion-router-outlet>
+    </ion-split-pane>
+</ion-app>

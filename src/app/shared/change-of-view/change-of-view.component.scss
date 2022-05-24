@@ -1,0 +1,25 @@
+.selector {
+    ion-card {
+        width: 80px;
+        padding: 5px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        ion-icon {
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            transition: 0.5s;
+            &:nth-child(2) {
+                margin-left: 10px;
+            }
+            &:hover {
+                color: var(--ion-color-secondary);
+            }
+            &.active {
+                color: var(--ion-color-secondary);
+            }
+        }
+    }
+}

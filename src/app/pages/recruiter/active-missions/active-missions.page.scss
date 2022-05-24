@@ -1,0 +1,14 @@
+ion-chip {
+    --background: rgba(6, 19, 70, 0.1);
+}
+
+ion-chip.active {
+    --background: rgba(236, 93, 4, 0.2);
+}
+
+.filters {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}

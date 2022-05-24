@@ -1,0 +1,28 @@
+ion-card {
+    margin-left: 0;
+    margin-right: 0;
+    overflow-x: auto;
+    table {
+        border: none;
+        thead {
+            background: var(--ion-color-secondary);
+        }
+        tbody {
+            tr {
+                td:first-child {
+                    text-align: left;
+                    ion-icon {
+                        margin-right: 5px;
+                    }
+                }
+                ion-button {
+                    max-width: 80px;
+                    min-width: 80px;
+                }
+            }
+        }
+    }
+    @media(max-width: 450px) {
+        overflow-x: scroll;
+    }
+}

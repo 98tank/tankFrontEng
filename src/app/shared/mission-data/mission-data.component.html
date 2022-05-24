@@ -1,0 +1,99 @@
+<ion-card mode="ios" [ngClass]="{'contracted': contracted}">
+    <ion-card-header mode="ios" color="secondary">
+        <ion-title>Detalles de la posición</ion-title>
+    </ion-card-header>
+    <ion-card-content>
+        <ion-row>
+            <ion-col size="12">
+                <strong>Nombre de la Posición: </strong>{{mission.name_position}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Años de Experiencia: </strong>{{mission.years_of_experience}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Nivel de la posición: </strong>{{mission.position_level}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Area: </strong>{{mission.area}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Empresa: </strong>{{mission.company_name}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Rango de Edad: </strong>{{mission.age_range}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Duración del proyecto: </strong>{{mission.duration}}
+            </ion-col>
+            <ion-col size="12" *ngIf="mission.duration_details">
+                <strong>Detalle de la duración del proyecto: </strong>{{mission.duration_details}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Sexo: </strong>{{mission.sex}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Estado Civil: </strong>{{mission.civil_status}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Estudios: </strong>{{mission.studies}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Esquema Salarial: </strong>{{mission.salary_scheme}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Salario: </strong>{{mission.net_salary | currency: 'MXN '}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Prestaciones: </strong>{{mission.benefits}}
+            </ion-col>
+            <ion-col size="12" *ngIf="mission.benefits_details">
+                <strong>Detalle de las prestaciones: </strong>{{mission.benefits_details}}
+            </ion-col>
+            <ion-col size="12">
+                <strong>Zona de Trabajo: </strong>{{mission.work_zone}}
+            </ion-col>
+            <ion-col size="12">
+                <strong>Horario de trabajo y guardias: </strong>{{mission.schedule}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Estado: </strong>{{mission.state}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Disposición para Viajar: </strong>{{mission.travel}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Entrevistas necesarias: </strong>{{mission.numberInterviews}}
+            </ion-col>
+            <ion-col size="12">
+                <strong>Tiempo estimado para la contratación: </strong>{{mission.hiringTime}}
+            </ion-col>
+            <ion-col size-md="6" size="12" *ngIf="mission.ingles">
+                <strong>Ingles: </strong>{{mission.ingles}}
+            </ion-col>
+            <ion-col size="12">
+                <strong>Skill Indispensables: </strong>{{mission.indispensables_skills}}
+            </ion-col>
+            <ion-col size="12">
+                <strong>Skill Deseables: </strong>{{mission.desireble_skills}}
+            </ion-col>
+            <ion-col size="12">
+                <strong>Cursos y/o Certificaciones: </strong>{{mission.courses_and_certi}}
+            </ion-col>
+            <ion-col size="12">
+                <strong>Paqueteria y/o Software Especializados: </strong>{{mission.specialized_software}}
+            </ion-col>
+            <ion-col size="12">
+                <strong>Comentarios Adicionales para la Posición: </strong>{{mission.comments}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Estatus: </strong>
+                <ion-chip [class]="mission.status">
+                    <ion-label>{{mission.status}}</ion-label>
+                </ion-chip>
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Recompensa: </strong> <span style="font-size: 18px;">{{mission.reward | currency: 'MXN '}}</span>
+            </ion-col>
+        </ion-row>
+    </ion-card-content>
+</ion-card>

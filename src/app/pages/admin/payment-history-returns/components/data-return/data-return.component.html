@@ -1,0 +1,92 @@
+<ion-header class="ion-no-border header-modal">
+    <ion-toolbar>
+        <img slot="start" src="assets/img/logo_horizontal.png" alt="98Tank" />
+        <ion-buttons slot="end">
+            <ion-button (click)="closeModal()" color="primary" expand="full">
+                <ion-icon name="close-circle"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid>
+        <ion-card mode="ios">
+            <ion-card-header color="primary">
+                <ion-title>Solicitud de Devolución</ion-title>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item>
+                    <ion-icon color="secondary" name="rocket" slot="start"></ion-icon>
+                    <ion-label><strong>Misión: </strong>{{data.name_position}}</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-icon color="secondary" name="cash" slot="start"></ion-icon>
+                    <ion-label><strong>Salario: </strong>{{data.net_salary | currency: 'MXN '}}</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-icon color="secondary" name="arrow-undo" slot="start"></ion-icon>
+                    <ion-label *ngIf="c$ | async as c"><strong>Monto devolución: </strong>{{(data.net_salary * c.create_mission | currency: 'MXN ')}}</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-icon color="secondary" name="calendar" slot="start"></ion-icon>
+                    <ion-label><strong>Fecha de solicitud: </strong>{{data.create_date | date}}</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-icon color="secondary" name="calendar" slot="start"></ion-icon>
+                    <ion-label><strong>Fecha de actualización: </strong>{{data.update_date | date}}</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-icon color="secondary" name="book" slot="start"></ion-icon>
+                    <ion-label><strong>Razon de reembolso: </strong>{{data.reason}}</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-icon color="secondary" name="pulse" slot="start"></ion-icon>
+                    <ion-label><strong>Estatus: </strong>{{data.status}}</ion-label>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-col size="12">
+                        <app-payment-view *ngIf="data.pay !== null" [pay]="data.pay" [message]="'devolución'"></app-payment-view>
+                    </ion-col>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card mode="ios">
+            <ion-card-header color="secondary">
+                <ion-title>Adjunta recibo de Devolución</ion-title>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-row>
+                    <ng-container *ngIf="data.pay_refound">
+                        <ion-col size="12">
+                            <ion-item>
+                                <ion-label>
+                                    <h3>{{data.pay_refound?.name}}</h3>
+                                </ion-label>
+                                <ion-icon (click)="watch()" color="primary" name="eye" slot="end"></ion-icon>
+                                <ion-icon (click)="deletePay()" color="danger" name="trash" slot="end"></ion-icon>
+                                <div tabindex="0" style="height: 0;"></div>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col size="12">
+                            <ion-progress-bar *ngIf="((ms.uploadPercent | async) / 100) !== 0" [value]="(ms.uploadPercent | async) / 100"></ion-progress-bar>
+                        </ion-col>
+                    </ng-container>
+
+                    <ion-col size="12" *ngIf="!data.pay_refound">
+                        <ion-text>Debes adjuntar el comprobante de pago y guardar para dar por <strong>Pagada</strong> la devolución al cliente</ion-text>
+                    </ion-col>
+                </ion-row>
+                <br>
+                <app-attach-file (url)="getUrl($event)" [path]="'pago_devoluciones'"></app-attach-file>
+            </ion-card-content>
+        </ion-card>
+    </ion-grid>
+
+    <ion-row>
+        <ion-col size="12" class="ion-text-center">
+            <ion-button class="more" fill="solid" shape="round" color="primary" (click)="closeModal()">Salir</ion-button>
+        </ion-col>
+    </ion-row>
+
+</ion-content>

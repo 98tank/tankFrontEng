@@ -1,0 +1,17 @@
+ion-card {
+    ion-card-header {
+        text-align: center;
+    }
+    ion-card-content {
+        ion-row,
+        .button {
+            display: flex;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+        }
+        .button {
+            top: 13px;
+        }
+    }
+}

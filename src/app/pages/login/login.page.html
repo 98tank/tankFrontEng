@@ -1,0 +1,78 @@
+<ion-content>
+    <div class="background">
+        <ion-grid fixed="true">
+            <ion-row class="login">
+                <ion-col class="title" size-md="6" size="12">
+                    <img class="ion-hide-md-down" src="assets/img/logo_horizontal_blanco.png" alt="">
+                    <img class="ion-hide-md-up" src="assets/img/logo_horizontal.png" alt="">
+                </ion-col>
+                <ion-col size-md="6" size="12">
+
+                    <form [formGroup]="form" (submit)="getDataLogin()" novalidate>
+                        <h3>Inicia sesión</h3>
+                        <ion-item mode="md">
+                            <ion-label position="floating">Correo</ion-label>
+                            <ion-input type="email" name="email" formControlName="email" id="email"></ion-input>
+                        </ion-item>
+                        <div class="error" *ngIf="form.get('email').errors && form.get('email').touched">
+                            <ion-text color="danger" *ngIf="form.get('email').hasError('required')">
+                                <ion-icon name="alert-circle-outline"></ion-icon>Tu correo es requerido.
+                            </ion-text>
+                            <ion-text color="danger" *ngIf="form.get('email').hasError('pattern')">
+                                <ion-icon name="alert-circle-outline"></ion-icon>Ingresa un correo valido.
+                            </ion-text>
+                        </div>
+
+                        <ion-item mode="md">
+                            <ion-label position="floating">Contraseña</ion-label>
+                            <ion-input type="password" name="pass" formControlName="pass" id="pass"></ion-input>
+                        </ion-item>
+                        <div class="error" *ngIf="form.get('pass').errors && form.get('pass').touched">
+                            <ion-text color="danger" *ngIf="form.get('pass').hasError('required')">
+                                <ion-icon name="alert-circle-outline"></ion-icon>Tu contraseña es requerida.
+                            </ion-text>
+                            <ion-text color="danger" *ngIf="form.get('pass').hasError('minlength')">
+                                <ion-icon name="alert-circle-outline"></ion-icon>Tu contraseña debe tener al menos 6 caracteres.
+                            </ion-text>
+                        </div>
+
+                        <div class="loginError" *ngIf="loginError">
+                            <ion-text class="ion-justify-content-center" color="danger">
+                                <ion-icon name="alert-circle-outline"></ion-icon>Los datos ingresados son incorrectos
+                            </ion-text>
+                        </div>
+
+                        <ion-row class="ion-margin">
+                            <ion-col>
+                                <ion-button shape="round" color="secondary" type="submit" expand="full">Ingresar</ion-button>
+                            </ion-col>
+                            <ion-col size="12">
+                                <ion-text class="cursorP" (click)="resetPassword()">
+                                    <h6>¿Olvidaste tu contraseña?</h6>
+                                </ion-text>
+                            </ion-col>
+                        </ion-row>
+                    </form>
+
+                    <ion-row class="goRegister">
+                        <ion-col size="12">
+                            <ion-text>
+                                <h3>Regístrate como:</h3>
+                            </ion-text>
+                        </ion-col>
+                        <ion-col size="12">
+                            <ion-button shape="round" color="secondary" type="button" expand="full" [routerLink]="['/registro-cliente']">Cliente</ion-button>
+                        </ion-col>
+                        <ion-col size="12">
+                            <ion-button shape="round" color="secondary" type="button" expand="full" [routerLink]="['/registro-reclutador']">Reclutador</ion-button>
+                        </ion-col>
+                        <!-- <ion-col size="12">
+                            <ion-button shape="round" color="secondary" type="button" expand="full" [routerLink]="['/registro-admin']">Admin</ion-button>
+                        </ion-col> -->
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+
+</ion-content>

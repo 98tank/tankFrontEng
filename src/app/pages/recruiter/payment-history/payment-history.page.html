@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="title-page">
+            <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
+            Historial de Pago
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content #topPage>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col size="12">
+                <ion-title>Pagos pendientes por Candidatos posicionados</ion-title>
+            </ion-col>
+            <ion-col size="12">
+                <ion-card mode="ios">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Misión</th>
+                                <th>Candidato</th>
+                                <th>Fecha de la transacción</th>
+                                <th>Monto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let p of rewardPending">
+                                <td>
+                                    <ion-icon color="primary" name="rocket-sharp"></ion-icon>{{p.name_position}}
+                                </td>
+                                <td>{{p.name}}</td>
+                                <td>{{p.update_date | date: 'd/MM/y - hh:mmaaa'}}</td>
+                                <td *ngIf="c$ | async as c">{{p.amount | currency: 'MXN '}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ion-card>
+            </ion-col>
+            <ion-col size="12">
+                <ion-title>Pagos aprobados</ion-title>
+            </ion-col>
+            <ion-col size="12">
+                <ion-card mode="ios">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Misión</th>
+                                <th>Candidato</th>
+                                <th>Fecha de la transacción</th>
+                                <th>Monto</th>
+                                <th>Comprobante</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let p of rewardComplete">
+                                <td>
+                                    <ion-icon color="primary" name="rocket-sharp"></ion-icon>{{p.name_position}}
+                                </td>
+                                <td>{{p.name}}</td>
+                                <td>{{p.update_date | date: 'd/MM/y - hh:mmaaa'}}</td>
+                                <td *ngIf="c$ | async as c">{{p.amount | currency: 'MXN '}}</td>
+                                <td>
+                                    <ion-button shape="round" fill="solid" color="primary" (click)="openPeyment(p.pay)">Ver</ion-button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+
+</ion-content>

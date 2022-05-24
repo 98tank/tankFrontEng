@@ -1,0 +1,11 @@
+.button {
+    text-align: center;
+    label {
+        color: #fff;
+        cursor: pointer;
+        padding: 11px 30px;
+        border-radius: 20px;
+        background: var(--ion-color-secondary);
+        // background: #17a2b8;
+    }
+}

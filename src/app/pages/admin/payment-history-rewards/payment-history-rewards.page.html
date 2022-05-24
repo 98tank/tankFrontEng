@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="start">
+            <ion-back-button [defaultHref]="'/admin/payment-history'" text="Atrás"></ion-back-button>
+        </ion-buttons>
+        <ion-title class="title-page">
+            <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
+            Recompensas
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid fixed>
+        <div class="table">
+            <ion-card mode="ios">
+                <ion-card-content>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>MISIONES</th>
+                                <th>FECHA</th>
+                                <th>RECOMPENSA</th>
+                                <th>RECLUTADOR</th>
+                                <th>ESTATUS</th>
+                                <th>DETALLE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let r of rewards | orderBy: 'update_date'; trackBy: trackByFn">
+                                <td>
+                                    <ion-icon color="primary" name="rocket"></ion-icon>
+                                </td>
+                                <td>{{r.name_position}}</td>
+                                <td>{{r.update_date | date}}</td>
+                                <td>{{r.reward | currency: 'MXN '}}</td>
+                                <td>{{r.recruiter}}</td>
+                                <td>{{r.status}}</td>
+                                <td>
+                                    <ion-button class="more" fill="solid" shape="round" color="primary" (click)="more(r)">Ver más</ion-button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ion-card-content>
+            </ion-card>
+        </div>
+
+        <ion-col size="12" class="pagination-controls ion-text-center">
+            <ion-buttons class="controls" class="ion-justify-content-between">
+                <ion-button size="small" shape="round" fill="solid" color="primary" (click)="pagination('previous')" [disabled]="!buttonPrevious">
+                    <ion-icon name="chevron-back-outline"></ion-icon>
+                </ion-button>
+                <ion-button size="small" shape="round" fill="solid" color="primary" (click)="pagination('next')">
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-col>
+    </ion-grid>
+
+</ion-content>

@@ -1,0 +1,168 @@
+<ion-card mode="ios" [ngClass]="{'contracted': contracted}">
+    <ion-card-header mode="ios" color="primary" *ngIf="contracted; else noContracted">
+        <ion-title>{{title || 'Detalles del candidato'}}</ion-title>
+    </ion-card-header>
+    <ng-template #noContracted>
+        <ion-card-header mode="ios" color="secondary">
+            <ion-title>{{title || 'Detalles del candidato'}}</ion-title>
+        </ion-card-header>
+    </ng-template>
+    <ion-card-content>
+        <ion-row>
+            <ion-col size="12">
+                <strong>Nombre Completo:</strong> {{candidate.name}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Años de Experiencia:</strong> {{candidate.years_of_experience}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Sexo:</strong> {{candidate.sex}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Estado Civil:</strong> {{candidate.civil_status}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Estudios:</strong> {{candidate.studies}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Nacionalidad:</strong> {{candidate.nationality}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Permiso para trabajar:</strong> {{candidate.work_permit}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Hijos:</strong> {{candidate.sons || 0}}
+            </ion-col>
+            <ion-col *ngIf="contracted" size-md="6" size="12">
+                <ion-text color="danger">
+                    <strong>Teléfono:</strong> <a href="tel:+{{candidate.phone}}">{{candidate.phone}}</a>
+                </ion-text>
+            </ion-col>
+            <ion-col *ngIf="contracted" size-md="6" size="12">
+                <ion-text color="danger">
+                    <strong>Correo:</strong> <a href="mailto:{{candidate.email}}">{{candidate.email}}</a>
+                </ion-text>
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>CURP:</strong> {{candidate.curp}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Disponibilidad:</strong> {{candidate.availability}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Disposición para Viajar:</strong> {{candidate.travel}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Fecha de Nacimiento:</strong> {{(candidate.birthdate?.day || 0)+'/'+(candidate.birthdate?.month || 0)+'/'+(candidate.birthdate?.year || 0)}}
+            </ion-col>
+            <ion-col size-md="6" size="12">
+                <strong>Ingles:</strong> {{candidate.ingles}}
+            </ion-col>
+            <ion-col size="12">
+                <strong>Fecha de ingreso al sistema:</strong> {{candidate.create_date | date: 'MMMM d, y - hh:mmaaa'}}
+            </ion-col>
+            <ion-col size="12">
+                <strong>Lugar de Nacimiento:</strong> {{candidate.place_of_birth}}
+            </ion-col>
+            <ion-col size="12">
+                <strong>Dirección actual:</strong> {{candidate.address}}
+            </ion-col>
+            <ion-col size="12">
+                <strong>Skills:</strong> {{candidate.skills}}
+            </ion-col>
+            <ion-col size="12">
+                <strong>Cursos y/o Certificaciones:</strong> {{candidate.courses_and_certi}}
+            </ion-col>
+            <ion-col size="12">
+                <strong>Paqueteria y/o Software Especializado:</strong> {{candidate.specialized_software}}
+            </ion-col>
+            <ion-col size="12" class="ion-text-center">
+                <ion-text>
+                    <h5><strong>Experiencia laboral</strong></h5>
+                </ion-text>
+            </ion-col>
+            <ion-col size="12" *ngIf="!(!candidate.achievements_1 && !candidate.company_1 && !candidate.position_1 && !candidate.period_1)">
+                <ion-card mode="ios" class="experience">
+                    <ion-card-header class="ion-text-center">Empresa 1</ion-card-header>
+                    <ion-card-content>
+                        <ion-row>
+                            <ion-col size="12">
+                                <strong>Nombre de la Empresa: </strong> {{candidate.company_1}}
+                            </ion-col>
+                            <ion-col size="6">
+                                <strong>Periodo: </strong> {{candidate.period_1}}
+                            </ion-col>
+                            <ion-col size="6">
+                                <strong>Puesto: </strong> {{candidate.position_1}}
+                            </ion-col>
+                            <ion-col size="12">
+                                <strong>Logros principales: </strong> {{candidate.achievements_1}}
+                            </ion-col>
+                        </ion-row>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col size="12" *ngIf="!(!candidate.achievements_2 && !candidate.company_2 && !candidate.position_2 && !candidate.period_2)">
+                <ion-card mode="ios" class="experience">
+                    <ion-card-header class="ion-text-center">Empresa 2</ion-card-header>
+                    <ion-card-content>
+                        <ion-row>
+                            <ion-col size="12">
+                                <strong>Nombre de la Empresa: </strong> {{candidate.company_2}}
+                            </ion-col>
+                            <ion-col size="6">
+                                <strong>Periodo: </strong> {{candidate.period_2}}
+                            </ion-col>
+                            <ion-col size="6">
+                                <strong>Puesto: </strong> {{candidate.position_2}}
+                            </ion-col>
+                            <ion-col size="12">
+                                <strong>Logros principales: </strong> {{candidate.achievements_2}}
+                            </ion-col>
+                        </ion-row>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col size="12" *ngIf="!(!candidate.achievements_3 && !candidate.company_3 && !candidate.position_3 && !candidate.period_3)">
+                <ion-card mode="ios" class="experience">
+                    <ion-card-header class="ion-text-center">Empresa 3</ion-card-header>
+                    <ion-card-content>
+                        <ion-row>
+                            <ion-col size="12">
+                                <strong>Nombre de la Empresa: </strong> {{candidate.company_3}}
+                            </ion-col>
+                            <ion-col size="6">
+                                <strong>Periodo: </strong> {{candidate.period_3}}
+                            </ion-col>
+                            <ion-col size="6">
+                                <strong>Puesto: </strong> {{candidate.position_3}}
+                            </ion-col>
+                            <ion-col size="12">
+                                <strong>Logros principales: </strong> {{candidate.achievements_3}}
+                            </ion-col>
+                        </ion-row>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col size="12">
+                <strong>Comentarios Adicionales para la Posición:</strong> {{candidate.comments}}
+            </ion-col>
+            <ion-col size="12" *ngIf="candidate.curriculumVideo">
+                <strong>Enlace a video Curriculum:</strong> <a [href]="candidate.curriculumVideo" target="_blank" rel="noopener noreferrer">{{candidate.curriculumVideo}}</a>
+            </ion-col>
+            <ion-col size="12" *ngIf="candidate.cv">
+                <ion-card mode="ios">
+                    <ion-card-header color="primary">
+                        <ion-title>Descarga CV</ion-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <ion-item lines="none">
+                            <ion-label color="secondary">{{candidate.cv.name}}</ion-label>
+                            <ion-icon class="cursorP" color="secondary" (click)="watch()" slot="end" name="eye" style="height: 20px; width: 20px;"></ion-icon>
+                        </ion-item>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-card-content>
+</ion-card>

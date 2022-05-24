@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="title-page">
+            <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
+            Misiones Activas
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid fixed>
+        <ion-row *ngIf="area$ | async as areas" class="filters">
+            <ion-col size-md="5" size="12">
+                <ion-text>Filtra tus misiones</ion-text>
+                <ion-item>
+                    <ion-label position="floating">Areas</ion-label>
+                    <ion-select [value]="active" interface="popover" cancelText="Cancelar" okText="Aceptar" (ionChange)="filterArea($event)">
+                        <ion-select-option value="all">Todas</ion-select-option>
+                        <ion-select-option *ngFor="let a of areas" [value]="a">{{a}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <!-- <ion-col *ngIf="loading">
+                <app-no-missions [type]="'activa'" [icon]="'rocket-outline'"></app-no-missions>
+            </ion-col> -->
+            <ion-col size-md="6" size="12" *ngFor="let mission of activeMission | filter: 'area': active">
+                <app-mission-card [mission]="mission" [route]="route"></app-mission-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

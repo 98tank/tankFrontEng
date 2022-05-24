@@ -1,0 +1,17 @@
+table {
+    border: none;
+    tbody {
+        tr {
+            td:nth-child(2) {
+                text-align-last: left;
+            }
+            td:nth-child(3) {
+                text-align: center;
+            }
+        }
+        ion-button.more {
+            max-width: 100px;
+            min-width: 100px !important;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+table {
+    tbody {
+        tr {
+            td:nth-child(2) {
+                text-align-last: left;
+            }
+        }
+        ion-button.more {
+            max-width: 75px;
+            min-width: 65px !important;
+        }
+    }
+}

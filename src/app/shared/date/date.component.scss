@@ -1,0 +1,22 @@
+.date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ion-title {
+        max-width: max-content;
+    }
+    ion-select {
+        min-width: 50px;
+    }
+    ion-item {
+        &:nth-child(1) {
+            width: 90px;
+        }
+        &:nth-child(2) {
+            width: 140px;
+        }
+        &:nth-child(3) {
+            width: 110px;
+        }
+    }
+}

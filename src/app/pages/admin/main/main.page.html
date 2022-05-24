@@ -1,0 +1,155 @@
+<ion-header [translucent]="true">
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="title-page">
+            <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
+            Estadísticas
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col size="12">
+                <ion-button fill="solid" shape="round" color="primary" (click)="update()">Actualizar Cifras</ion-button>
+            </ion-col>
+            <ion-col size="12" *ngIf="!loading">
+                <ion-card mode="ios">
+                    <ion-card-header color="dark">
+                        Usuarios
+                    </ion-card-header>
+                    <ion-card-content>
+                        <app-statistics-cards [users]="users"></app-statistics-cards>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+
+            <ion-col size="12">
+                <ion-card mode="ios">
+                    <ion-card-header color="dark">
+                        Misiones y Candidatos
+                    </ion-card-header>
+                    <ion-card-content>
+                        <ion-row>
+                            <ion-col class="mini-cards" size-md="6" size="12">
+                                <ion-row>
+                                    <ion-col size-md="6" size-sm="4" size="6">
+                                        <ion-card>
+                                            <ion-card-content>
+                                                <ion-row>
+                                                    <ion-col size="4">
+                                                        <div class="count mission-cre">
+                                                            {{doughnutChartData[0][0]}}
+                                                        </div>
+                                                    </ion-col>
+                                                    <ion-col size="8">Misiones<br>Creadas</ion-col>
+                                                </ion-row>
+                                            </ion-card-content>
+                                        </ion-card>
+                                    </ion-col>
+                                    <ion-col size-md="6" size-sm="4" size="6">
+                                        <ion-card>
+                                            <ion-card-content>
+                                                <ion-row>
+                                                    <ion-col size="4">
+                                                        <div class="count mission-rev">
+                                                            {{doughnutChartData[0][1]}}
+                                                        </div>
+                                                    </ion-col>
+                                                    <ion-col size="8">Misiones<br>En Revisión</ion-col>
+                                                </ion-row>
+                                            </ion-card-content>
+                                        </ion-card>
+                                    </ion-col>
+                                    <ion-col size-md="6" size-sm="4" size="6" [routerLink]="['/admin/misiones-activas']">
+                                        <ion-card>
+                                            <ion-card-content>
+                                                <ion-row>
+                                                    <ion-col size="4">
+                                                        <div class="count mission-act">
+                                                            {{doughnutChartData[0][2]}}
+                                                        </div>
+                                                    </ion-col>
+                                                    <ion-col size="8">Misiones<br>Activas</ion-col>
+                                                </ion-row>
+                                            </ion-card-content>
+                                        </ion-card>
+                                    </ion-col>
+                                    <ion-col size-md="6" size-sm="4" size="6" [routerLink]="['/admin/misiones-completadas']">
+                                        <ion-card>
+                                            <ion-card-content>
+                                                <ion-row>
+                                                    <ion-col size="4">
+                                                        <div class="count mission-com">
+                                                            {{doughnutChartData[0][3]}}
+                                                        </div>
+                                                    </ion-col>
+                                                    <ion-col size="8">Misiones<br>Terminadas</ion-col>
+                                                </ion-row>
+                                            </ion-card-content>
+                                        </ion-card>
+                                    </ion-col>
+                                    <ion-col size-md="6" size-sm="4" size="6">
+                                        <ion-card>
+                                            <ion-card-content>
+                                                <ion-row>
+                                                    <ion-col size="4">
+                                                        <div class="count mission-can">
+                                                            {{doughnutChartData[0][4]}}
+                                                        </div>
+                                                    </ion-col>
+                                                    <ion-col size="8">Misiones<br>Canceladas</ion-col>
+                                                </ion-row>
+                                            </ion-card-content>
+                                        </ion-card>
+                                    </ion-col>
+                                    <ion-col size-md="6" size-sm="4" size="6">
+                                        <ion-card>
+                                            <ion-card-content>
+                                                <ion-row>
+                                                    <ion-col size="4">
+                                                        <div class="count cand-acep">
+                                                            {{doughnutChartData[0][5]}}
+                                                        </div>
+                                                    </ion-col>
+                                                    <ion-col size="8">Candidatos<br>Aceptados</ion-col>
+                                                </ion-row>
+                                            </ion-card-content>
+                                        </ion-card>
+                                    </ion-col>
+                                    <ion-col size-md="6" size-sm="4" size="6">
+                                        <ion-card>
+                                            <ion-card-content>
+                                                <ion-row>
+                                                    <ion-col size="4">
+                                                        <div class="count cand-rej">
+                                                            {{doughnutChartData[0][6]}}
+                                                        </div>
+                                                    </ion-col>
+                                                    <ion-col size="8">Candidatos<br>Rechazados</ion-col>
+                                                </ion-row>
+                                            </ion-card-content>
+                                        </ion-card>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-col>
+                            <ion-col class="graphic" size-md="6" size="12" *ngIf="graphic">
+                                <div>
+                                    <div>
+                                        <div style="display: block">
+                                            <canvas baseChart [colors]="pieChartColors" [legend]="barChartLegend" [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

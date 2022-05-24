@@ -1,0 +1,15 @@
+<ion-header class="ion-no-border header-modal">
+    <ion-toolbar>
+        <img slot="start" src="assets/img/logo_horizontal.png" alt="98Tank logo" />
+        <ion-buttons class="close" slot="end" *ngIf="view === 'mission'">
+            <ion-icon (click)="closeModal()" color="primary" name="close-circle-outline"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid fixed>
+        <!-- <app-request-refund *ngIf="view === 'request_refund'" [mission]="mission"></app-request-refund> -->
+        <app-candidate-data *ngIf="contracted && candidate" [contracted]="true" [title]="'Candidato contratado'" [candidate]="candidate"></app-candidate-data>
+        <app-mission-data *ngIf="view === 'mission'" [contracted]="true" [mission]="mission"></app-mission-data>
+    </ion-grid>
+</ion-content>

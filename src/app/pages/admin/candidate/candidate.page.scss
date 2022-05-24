@@ -1,0 +1,19 @@
+a {
+    color: inherit;
+    margin-left: 5px;
+    text-decoration: none;
+    &:hover {
+        font-weight: 600;
+    }
+}
+
+ion-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}

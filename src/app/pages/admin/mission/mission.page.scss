@@ -1,0 +1,11 @@
+ion-buttons.actions {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px auto;
+    max-width: 500px;
+    justify-content: center;
+    ion-button {
+        min-width: 150px;
+        margin: 10px auto;
+    }
+}

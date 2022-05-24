@@ -1,0 +1,27 @@
+<ion-col>
+    <div class="pay">
+        <ion-row>
+            <ion-col size="12" *ngIf="pay?.filePath">
+                <ion-item>
+                    <ion-label>
+                        <h3>{{pay.name}}</h3>
+                    </ion-label>
+                    <ion-icon (click)="watch()" color="primary" name="eye-outline" slot="end"></ion-icon>
+                    <ion-icon (click)="deletePay()" color="danger" name="trash-outline" slot="end"></ion-icon>
+                    <div tabindex="0" style="height: 0;"></div>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-progress-bar *ngIf="((ms.uploadPercent | async) / 100) !== 0" [value]="(ms.uploadPercent | async) / 100"></ion-progress-bar>
+            </ion-col>
+            <ion-col size="12">
+                <ion-text>
+                    <p>Para iniciar la busqueda de esta misión tienes que pagar {{tankPrice | currency : 'MXN '}} pesos, por favor suba su ticket de deposito o comprobante de transferencia.</p>
+                </ion-text>
+            </ion-col>
+            <ion-col size="12">
+                <app-attach-file (url)="getUrl($event)" [path]="'pago_misiones'"></app-attach-file>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-col>

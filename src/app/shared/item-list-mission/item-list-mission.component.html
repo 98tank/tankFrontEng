@@ -1,0 +1,35 @@
+<div class="table">
+    <ion-card mode="ios">
+        <ion-card-content>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>POSICIÓN</th>
+                        <th>F.{{dateTitle}}</th>
+                        <th *ngIf="delete">BORRAR</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let m of missions | nestedOrder: field1: 'date': 'desc' " [ngClass]="{'deleting': m.mission_id === id}">
+                        <td>
+                            <ion-icon name="rocket-outline"></ion-icon>
+                        </td>
+                        <td>{{m.name_position}}</td>
+                        <td *ngIf="m.type_contract?.date; else canceledTD">{{m.type_contract.date | date: 'd/MM/y - hh:mmaaa'}}</td>
+                        <ng-template #canceledTD>
+                            <td>{{m.update_date | date: 'd/MM/y - hh:mmaaa'}}</td>
+                        </ng-template>
+                        <td *ngIf="delete">
+                            <ion-icon (click)="openAlertDetele(m)" (mouseenter)="mouseEnter(m.mission_id)" (mouseleave)="mouseLeave(null)" name="trash-outline"></ion-icon>
+                        </td>
+                        <td>
+                            <ion-button class="more" fill="solid" shape="round" color="primary" [routerLink]="['/admin/mision/', m.mission_id]">Ver más</ion-button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </ion-card-content>
+    </ion-card>
+</div>

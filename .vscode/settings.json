@@ -1,0 +1,18 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#061347",
+        "activityBar.foreground": "#ec5e04",
+        "activityBar.inactiveForeground": "#8dbdd8",
+        "activityBarBadge.background": "#fff",
+        "activityBarBadge.foreground": "#ff0000",
+        "titleBar.activeBackground": "#061347",
+        "titleBar.inactiveBackground": "#061347",
+        "titleBar.activeForeground": "#fff",
+        "titleBar.inactiveForeground": "#fff",
+        "statusBar.background": "#061347",
+        "statusBarItem.hoverBackground": "#0b5b68",
+        "statusBar.foreground": "#fff"
+    },
+    "peacock.color": "#f90",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+}

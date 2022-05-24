@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="reclutador/misiones-activas" text="Atras"></ion-back-button>
+        </ion-buttons>
+        <ion-title class="title-page" *ngIf="mission$ | async as mission">
+            <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
+            {{mission.name_position}}
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid fixed *ngIf="mission$ | async as m">
+        <app-mission-data [mission]="m"></app-mission-data>
+        <ion-row>
+            <ion-col size="12" class="ion-text-center" *ngIf="m.status === 'Activa'">
+                <ion-button *ngIf="!exist" color="primary" fill="solid" shape="round" (click)="addSelectMission(m)">Elegir misión</ion-button>
+                <ion-button *ngIf="exist" color="primary" fill="solid" shape="round" [routerLink]="['/reclutador/misiones-elegidas/mision/crear-candidato', m.mission_id]">Agregar Candidato</ion-button>
+                <!-- <ion-buttons class="actions"></ion-buttons> -->
+            </ion-col>
+            <ion-col size="12">
+                <app-my-candidate-list *ngIf="missionId && auth.userUid" [missionId]="missionId" [uid]="auth.userUid"></app-my-candidate-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

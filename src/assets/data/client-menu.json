@@ -1,0 +1,67 @@
+[{
+        "icon": "stats-chart",
+        "name": "Principal",
+        "redirecTo": "/cliente/principal",
+        "auth": true
+    },
+    {
+        "icon": "bulb",
+        "name": "Crear Misión",
+        "redirecTo": "/cliente/crear-mision",
+        "auth": true
+    },
+    {
+        "icon": "search",
+        "name": "Misiones en revisión",
+        "redirecTo": "/cliente/misiones-en-revision",
+        "auth": true
+    },
+    {
+        "icon": "rocket",
+        "name": "Misiones activas",
+        "redirecTo": "/cliente/misiones-activas",
+        "auth": true
+    },
+    {
+        "icon": "close-circle",
+        "name": "Misiones canceladas",
+        "redirecTo": "/cliente/misiones-canceladas",
+        "auth": true
+    },
+    {
+        "icon": "golf",
+        "name": "Misiones terminadas",
+        "redirecTo": "/cliente/misiones-culminadas",
+        "auth": true
+    },
+    {
+        "icon": "people",
+        "name": "Candidatos",
+        "redirecTo": "/cliente/todos-los-candidates",
+        "auth": true
+    },
+    {
+        "icon": "cash",
+        "name": "Historial de pagos",
+        "redirecTo": "/cliente/historial-de-pago",
+        "auth": true
+    },
+    {
+        "icon": "calendar",
+        "name": "Futuras entrevistas",
+        "redirecTo": "/cliente/futuras-entrevistas",
+        "auth": true
+    },
+    {
+        "icon": "settings",
+        "name": "Editar mi cuenta",
+        "redirecTo": "/cliente/editar-perfil",
+        "auth": true
+    },
+    {
+        "icon": "exit",
+        "name": "Cerrar sesión",
+        "redirecTo": "/login",
+        "auth": true
+    }
+]

@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="title-page">
+            <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
+            Misiones Canceladas
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col *ngIf="loading">
+                <app-no-missions [type]="'cancelada'" [icon]="'rocket-outline'"></app-no-missions>
+            </ion-col>
+            <app-change-of-view style="width: 100%;" [view]="view" (newView)="changeView($event)"></app-change-of-view>
+            <ion-col size="12" *ngIf="view === 'list'; else card">
+                <app-item-list-mission [missions]="missionCanceled" [dateTitle]="'CANCELACIÓN'" [delete]="true" (reload)="getMissionCanceled()"></app-item-list-mission>
+            </ion-col>
+            <ng-template #card>
+                <ion-col size-md="6" size="12" *ngFor="let mc of missionCanceled | orderBy: 'update_date' : 'desc'">
+                    <ion-card>
+                        <ion-card-header>
+                            <ion-card-subtitle color="tertiary">Cancelada el {{mc.update_date | date: 'd/MM/y - hh:mmaaa'}}</ion-card-subtitle>
+                            <ion-card-title color="secondary">
+                                <h3>{{mc.name_position}}</h3>
+                            </ion-card-title>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <ion-item>
+                                <ion-icon color="secondary" name="rocket-sharp" slot="start"></ion-icon>
+                                <ion-label><strong>Estatus Misión:</strong>
+                                    <ion-chip color="danger">
+                                        <ion-label>Cancelada</ion-label>
+                                    </ion-chip>
+                                </ion-label>
+                                <div tabindex="0" style="height: 0;"></div>
+                            </ion-item>
+                            <ion-item *ngIf="mc.request_refound">
+                                <ion-icon name="cash-outline" slot="start"></ion-icon>
+                                <ion-label><strong>Reembolso:</strong>
+                                    <ion-chip color="success" *ngIf="mc.request_refound.status === 'Pagada'">
+                                        <ion-label>Pagada</ion-label>
+                                    </ion-chip>
+                                    <ion-chip color="medium" *ngIf="mc.request_refound.status === 'Pendiente'">
+                                        <ion-label>En revisión</ion-label>
+                                    </ion-chip>
+                                    <ion-chip color="dark" *ngIf="mc.request_refound.status === 'Denegada'">
+                                        <ion-label>Denegada</ion-label>
+                                    </ion-chip>
+                                </ion-label>
+                                <div tabindex="0" style="height: 0;"></div>
+                            </ion-item>
+                            <ion-card-content *ngIf="mc?.reason_cancelled || mc.request_refound?.reason">
+                                <ion-text>
+                                    <p *ngIf="mc?.reason_cancelled"><strong>Razón del rechazo: </strong>{{mc.reason_cancelled}}</p>
+                                    <p *ngIf="mc.request_refound?.reason"><strong>Razón del reembolso: </strong>{{mc.request_refound.reason}}</p>
+                                </ion-text>
+                            </ion-card-content>
+                            <ion-buttons>
+                                <ion-button fill="solid" shape="round" color="primary" [routerLink]="['/admin/mision', mc.mission_id]">Ver Misión</ion-button>
+                            </ion-buttons>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+            </ng-template>
+        </ion-row>
+    </ion-grid>
+</ion-content>
