@@ -14,11 +14,11 @@
                 <ion-card class="success">
                     <ion-card-header>
                         <ion-icon class="icon-s" color="success" name="checkmark-done-circle-outline"></ion-icon>
-                        <ion-card-title>La misión fue Actualizada con éxito</ion-card-title>
+                        <ion-card-title>The mission was updated successfully</ion-card-title>
                     </ion-card-header>
 
                     <ion-card-content>
-                        <ion-button fill="solid" shape="block" color="primary" (click)="closeModal(true)">Salir</ion-button>
+                        <ion-button fill="solid" shape="block" color="primary" (click)="closeModal(true)">Exit</ion-button>
                     </ion-card-content>
                 </ion-card>
             </ion-col>
@@ -27,21 +27,21 @@
             <ion-row>
                 <ion-col size="12">
                     <ion-item>
-                        <ion-label position="floating">Nombre de la posición</ion-label>
+                        <ion-label position="floating">Position Name</ion-label>
                         <ion-input type="text" name="name_position" formControlName="name_position" id="name_position"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('name_position').errors && form.get('name_position').touched">
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('name_position').hasError('required')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>El nombre es requerido.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('name_position').hasError('minlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>El nombre debe tener al menos dos caracteres.
+                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least two characters.
                         </ion-text>
                     </div>
                 </ion-col>
                 <ion-col size-md="4" size="6">
                     <ion-item>
-                        <ion-label position="floating">Años de experiencia</ion-label>
+                        <ion-label position="floating">Years of Experience</ion-label>
                         <ion-select interface="popover" formControlName="years_of_experience" cancelText="Cancelar" okText="Aceptar">
                             <ion-select-option *ngFor="let y of mf.years_of_experience" [value]="y">{{y}}</ion-select-option>
                         </ion-select>
@@ -50,7 +50,7 @@
 
                     <div class="error" *ngIf="form.get('years_of_experience').errors && form.get('years_of_experience').touched">
                         <ion-text class="ion-justify-content-center" color="danger">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Completar experiencia.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                     </div>
                 </ion-col>
@@ -65,7 +65,7 @@
 
                     <div class="error" *ngIf="form.get('area').errors &&  form.get('area').touched">
                         <ion-text class="ion-justify-content-center" color="danger">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Completar el area
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                     </div>
                 </ion-col>
@@ -73,7 +73,7 @@
 
                 <ion-col size-md="4" size="6">
                     <ion-item>
-                        <ion-label position="floating">Sexo</ion-label>
+                        <ion-label position="floating">Gender</ion-label>
                         <ion-select interface="popover" formControlName="sex" cancelText="Cancelar" okText="Aceptar">
                             <ion-select-option *ngFor="let y of mf.sex" [value]="y">{{y}}</ion-select-option>
                         </ion-select>
@@ -81,13 +81,13 @@
                     </ion-item>
                     <div class="error" *ngIf="form.get('sex').errors &&  form.get('sex').touched">
                         <ion-text class="ion-justify-content-center" color="danger">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Indicar el sexo
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                     </div>
                 </ion-col>
                 <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">Nivel de la posición</ion-label>
+                        <ion-label position="floating">Position level</ion-label>
                         <ion-select interface="popover" formControlName="position_level" cancelText="Cancelar" okText="Aceptar">
                             <ion-select-option *ngFor="let y of mf.position_level" [value]="y">{{y}}</ion-select-option>
                         </ion-select>
@@ -95,14 +95,14 @@
                     </ion-item>
                     <div class="error" *ngIf="form.get('position_level').errors &&  form.get('position_level').touched">
                         <ion-text class="ion-justify-content-center" color="danger">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Indique el nivel
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field. 
                         </ion-text>
                     </div>
                 </ion-col>
 
                 <ion-col size-md="6" size="12">
                     <ion-item>
-                        <ion-label position="floating">Duracion del proyecto</ion-label>
+                        <ion-label position="floating">Project Duration</ion-label>
                         <ion-select interface="popover" formControlName="duration" cancelText="Cancelar" okText="Aceptar">
                             <ion-select-option *ngFor="let y of mf.duration" [value]="y">{{y}}</ion-select-option>
                         </ion-select>
@@ -110,28 +110,28 @@
                     </ion-item>
                     <div class="error" *ngIf="form.get('duration').errors &&  form.get('duration').touched">
                         <ion-text class="ion-justify-content-center" color="danger">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Completar la duration
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                     </div>
                 </ion-col>
 
                 <ion-col size-md="7" size="12">
                     <ion-item>
-                        <ion-label position="floating">Especifique la duración de ser necesario</ion-label>
+                        <ion-label position="floating">Specify the duration if necessary</ion-label>
                         <ion-textarea type="text" name="duration_details" formControlName="duration_details" id="duration_details"></ion-textarea>
                     </ion-item>
                 </ion-col>
                 <ion-col size-md="5" size="12">
                     <ion-item>
-                        <ion-label position="floating">Entrevistas necesarias</ion-label>
+                        <ion-label position="floating">Number of interviews required</ion-label>
                         <ion-textarea type="text" name="numberInterviews" formControlName="numberInterviews" id="numberInterviews"></ion-textarea>
                     </ion-item>
                     <div class="error" *ngIf="form.get('numberInterviews').errors && form.get('numberInterviews').touched">
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('numberInterviews').hasError('required')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Campo requerido.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('numberInterviews').hasError('pattern')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Solo se admiten número.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Only numbers.
                         </ion-text>
                     </div>
                 </ion-col>
