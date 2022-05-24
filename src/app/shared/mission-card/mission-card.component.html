@@ -9,16 +9,16 @@
     <ion-item>
         <ion-label>Edad: {{mission.age_range}}</ion-label>
         <ion-note slot="end">
-            <ion-chip color="success" *ngIf="mission.status === 'active'">
+            <ion-chip color="success" *ngIf="mission.status === 'Active'">
                 <ion-label>Activa</ion-label>
             </ion-chip>
-            <ion-chip color="medium" *ngIf="mission.status === 'pending'">
+            <ion-chip color="medium" *ngIf="mission.status === 'Pending'">
                 <ion-label>En revisión</ion-label>
             </ion-chip>
-            <ion-chip color="danger" *ngIf="mission.status === 'cancelled'">
+            <ion-chip color="danger" *ngIf="mission.status === 'Cancelled'">
                 <ion-label>Bloqueada</ion-label>
             </ion-chip>
-            <ion-chip color="dark" *ngIf="mission.status === 'closed'">
+            <ion-chip color="dark" *ngIf="mission.status === 'Accomplished'">
                 <ion-label>Cerradas</ion-label>
             </ion-chip>
         </ion-note>
@@ -51,11 +51,11 @@
 
         <div tabindex="0" style="height: 0;"></div>
     </ion-item>
-    <ion-buttons *ngIf="mission.status !== 'Completada'">
+    <ion-buttons *ngIf="mission.status !== 'Accomplished'">
         <ion-button fill="solid" shape="round" color="primary" [routerLink]="[route, mission.mission_id]">Ver Misión</ion-button>
     </ion-buttons>
-    <ion-card-content class="ion-text-center" *ngIf="mission.status === 'Completada'">
+    <ion-card-content class="ion-text-center" *ngIf="mission.status === 'Accomplished'">
         <ion-text color="danger">Esta misión fue completada por el cliente</ion-text>
     </ion-card-content>
-    <div class="completed" *ngIf="mission.status === 'Completada'">Completada</div>
+    <div class="completed" *ngIf="mission.status === 'Accomplished'">Completada</div>
 </ion-card>

@@ -56,7 +56,7 @@ export class SelectedMissionsPage implements OnInit, OnDestroy {
           this.loading = false;
           const data = d.data();
           this.subscription2 = this.fs.getDocObserver(`missions/${data.mission_id}`).pipe(take(1)).subscribe((m: MissionData) => {
-            if (m && (m.status === 'Activa' || m.status === 'Completada')) {
+            if (m && (m.status === 'Active' || m.status === 'Accomplished')) {
               this.selectedMissions.push(m);
               this.selectedMissions.sort((a, b) => {
                 if (a.status > b.status) { return 1; }

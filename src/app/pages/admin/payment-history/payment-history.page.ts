@@ -81,12 +81,12 @@ export class PaymentHistoryPage implements OnInit, OnDestroy {
     if (dataMission.size > 0) {
       dataMission.forEach(d => {
         const m: MissionData = d.data() as MissionData;
-        if (m.status_payment === 'Pagada'){
+        if (m.status_payment === 'Paid'){
           this.paidMissions.quantity = ++counter;
           amount = amount + m.net_salary;
           this.paidMissions.amount = amount;
         }
-        if (m.status_payment === 'Pendiente'){
+        if (m.status_payment === 'Pending'){
           this.missionPending.quantity = ++counter1;
           amount1 = amount1 + m.net_salary;
           this.missionPending.amount = amount1;
