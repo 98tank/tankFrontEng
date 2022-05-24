@@ -42,7 +42,7 @@ export class MainPage implements OnInit, OnDestroy {
   }
 
   getMyStatistics() {
-    this.fs.getColFilter(`missions`, 'status', '==', 'Activa').get().then(res => {
+    this.fs.getColFilter(`missions`, 'status', '==', 'Active').get().then(res => {
       this.doughnutChartData[0][0] = res.size;
       this.subscription = this.auth.getAuth().subscribe(u => {
         if (u?.uid) {
@@ -54,7 +54,7 @@ export class MainPage implements OnInit, OnDestroy {
               let counter = 0;
               r.forEach(d => {
                 const c: CandidateData = d.data() as CandidateData;
-                if (c.status === 'Activo') { this.doughnutChartData[0][1] = ++active; }
+                if (c.status === 'Active') { this.doughnutChartData[0][1] = ++active; }
                 if (c.status === 'Contratado') { this.doughnutChartData[0][2] = ++hired; }
                 if (c.status === 'Descartado') { this.doughnutChartData[0][3] = ++rejected; }
                 ++counter;

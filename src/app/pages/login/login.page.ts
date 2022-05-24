@@ -53,7 +53,7 @@ export class LoginPage implements OnInit, OnDestroy {
             const uid = res.user.uid;
             this.subscription = this.fs.getDocObserver(`users/${uid}`).pipe(pluck('profile'), take(1)).subscribe(async (p: Profile) => {
               await this.loadingController.dismiss();
-              if (p.status === 'Activo') {
+              if (p.status === 'Active') {
                 this.form.reset();
                 if (p.type === 'client') { this.router.navigate(['/cliente/principal']); }
                 if (p.type === 'recruiter') { this.router.navigate(['/reclutador/principal']); }

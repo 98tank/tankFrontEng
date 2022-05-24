@@ -62,7 +62,7 @@ export class MissionsCanceledPage implements OnInit {
   async createRefound(data: RequestRefound) {
     const requestRefound: RequestRefound = data;
     const request: Refound = {
-      status: 'Pendiente',
+      status: 'Pending',
       reason: data.reason,
       update_date: requestRefound.update_date
     };

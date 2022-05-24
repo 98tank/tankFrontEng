@@ -17,13 +17,13 @@ export interface Profile {
     rfc?: string;
     giro?: string;
     name?: string;
-    type?: string;
+    type?: 'client' | 'recruiter' | 'admin' | 'superAdmin';
     curp?: string;
     clabe?: number;
     email?: string;
     sector?: string;
     avatar?: string;
-    status?: string;
+    status?: 'Active' | 'Block';
     career?: string;
     address?: string;
     nickname?: string;

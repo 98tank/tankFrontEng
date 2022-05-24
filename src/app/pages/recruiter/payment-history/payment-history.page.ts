@@ -46,7 +46,7 @@ export class PaymentHistoryPage implements OnInit, OnDestroy {
       if (r.size > 0) {
         r.docs.forEach(async (d, idx, arr) => {
           let reward: Reward = d.data() as Reward;
-          if (reward.status === 'Pendiente') {
+          if (reward.status === 'Pending') {
             await this.fs.updateDoc(`reward/${reward.id_reward}`, { seen_by_admin: true });
             this.subscription2 = this.fs.getDocObserver(`missions/${reward.mission_id}`).pipe(take(1)).subscribe((m: MissionData) => {
               reward = {
@@ -57,7 +57,7 @@ export class PaymentHistoryPage implements OnInit, OnDestroy {
               this.rewardPending.push(reward);
             });
           }
-          if (reward.status === 'Pagada') {
+          if (reward.status === 'Paid') {
             this.subscription2 = this.fs.getDocObserver(`missions/${reward.mission_id}`).pipe(take(1)).subscribe((m: MissionData) => {
               reward = {
                 ...reward,

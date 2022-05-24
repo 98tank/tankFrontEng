@@ -77,7 +77,7 @@ export class ContractPage implements OnInit {
   async changeStatusAllRelatedCandidates(candidate: CandidateData, date: number) {
     let counter = 0;
     const idCand: string[] = [];
-    const dataCandidate = await this.fs.getColFilter('candidates', 'mission_id', '==', candidate.mission_id).where('candidate_id', '!=', candidate.candidate_id).where('status', '==', 'Activo').get();
+    const dataCandidate = await this.fs.getColFilter('candidates', 'mission_id', '==', candidate.mission_id).where('candidate_id', '!=', candidate.candidate_id).where('status', '==', 'Active').get();
     if (dataCandidate.size > 0) {
       dataCandidate.forEach(d => {
         ++counter;
@@ -117,7 +117,7 @@ export class ContractPage implements OnInit {
       update_date: date,
       seen_by_admin: false,
       seen_by_recruiter: false,
-      status: 'Pendiente',
+      status: 'Pending',
       id_reward: idReward,
       name: this.candidate.name,
       mission_id: this.candidate.mission_id,

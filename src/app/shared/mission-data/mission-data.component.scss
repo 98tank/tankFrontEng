@@ -14,21 +14,21 @@ ion-col {
     background: rgb(236 94 4 / 0.1);
 }
 
-.Cancelada {
+.Cancelled {
     --background: var(--ion-color-danger);
     ion-label {
         --color: var(--ion-color-danger-contrast);
     }
 }
 
-.Pendiente {
+.Pending {
     --background: var(--ion-color-medium);
     ion-label {
         --color: var(--ion-color-medium-contrast);
     }
 }
 
-.Activa {
+.Active {
     --background: var(--ion-color-success);
     ion-label {
         --color: var(--ion-color-success-contrast);

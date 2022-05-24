@@ -158,7 +158,7 @@ export class RegisterRecruiterPage implements OnInit {
             registerDate: date,
             update_Date: date,
             type: 'recruiter',
-            status: 'Activo',
+            status: 'Active',
             avatar: this.imgAvatar || '',
             clabe: parseFloat(data.clabe),
             personal_phone: parseFloat(data.personal_phone),

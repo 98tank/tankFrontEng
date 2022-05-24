@@ -16,7 +16,7 @@
 <ion-content>
     <ion-grid fixed *ngIf="mission$ | async as m">
         <app-mission-data [mission]="m"></app-mission-data>
-        <ion-row *ngIf="m.status === 'Activa' && auth.userUid === m.uid">
+        <ion-row *ngIf="m.status === 'Active' && auth.userUid === m.uid">
             <ion-col size="12">
                 <ion-buttons class="actions">
                     <ion-button color="primary" fill="solid" shape="round" (click)="editMission(m)">Editar misión</ion-button>

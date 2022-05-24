@@ -27,7 +27,7 @@ export class MissionUnderReviewPage implements OnInit {
   }
 
   getMissionUnderReview() {
-    this.fs.getColFilter('missions', 'uid', '==', this.auth.userUid).where('status', '==', 'Pendiente').orderBy('create_date', 'desc').get().then(res => {
+    this.fs.getColFilter('missions', 'uid', '==', this.auth.userUid).where('status', '==', 'Pending').orderBy('create_date', 'desc').get().then(res => {
       this.missionUnderReview = [];
       if (res.size === 0) {
         this.loading = true;

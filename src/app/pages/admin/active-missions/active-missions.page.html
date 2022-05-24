@@ -27,7 +27,7 @@
 
         <ion-row>
             <!-- <ion-col *ngIf="loading">
-                <app-no-missions [type]="'activa'" [icon]="'rocket-outline'"></app-no-missions>
+                <app-no-missions [type]="'Active'" [icon]="'rocket-outline'"></app-no-missions>
             </ion-col> -->
             <ion-col size-md="6" size="12" *ngFor="let mission of activeMission | filter: 'area': active">
                 <app-mission-card [mission]="mission" [route]="route"></app-mission-card>

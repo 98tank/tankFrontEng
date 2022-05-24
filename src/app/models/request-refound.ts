@@ -3,7 +3,7 @@ import { File } from './mission-data';
 export interface RequestRefound {
     pay?: File;
     reason: string;
-    status: string;
+    status: 'Paid' | 'Pending' | 'Denied';
     net_salary: number;
     request_id: string;
     mission_id: string;

@@ -150,7 +150,7 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
       ...this.form.value,
       guards: 'No',
       block: false,
-      status: 'Activo',
+      status: 'Active',
       candidate_id: id,
       create_date: date,
       update_date: date,

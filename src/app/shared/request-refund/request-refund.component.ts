@@ -45,7 +45,7 @@ export class RequestRefundComponent implements OnInit {
       request_id: id,
       create_date: date,
       update_date: date,
-      status: 'Pendiente',
+      status: 'Pending',
       seen_by_admin: false,
       pay: this.mission.pay,
       uid_client: this.mission.uid,

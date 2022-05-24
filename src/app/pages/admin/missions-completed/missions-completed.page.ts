@@ -26,7 +26,7 @@ export class MissionsCompletedPage implements OnInit {
   getMissionCompleted() {
     let counter = 0;
     const missionCompletedTemp = [];
-    this.fs.getColFilter('missions', 'status', '==', 'Completada').get().then(res => {
+    this.fs.getColFilter('missions', 'status', '==', 'Accomplished').get().then(res => {
       if (res.size > 0) {
         res.forEach(d => {
           ++counter;

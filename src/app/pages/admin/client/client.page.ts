@@ -52,7 +52,7 @@ export class ClientPage implements OnInit, OnDestroy {
         }, {
           text: 'Yes',
           handler: () => {
-            this.fs.updateDoc(`users/${uid}`, {'profile.status': 'Activo'})
+            this.fs.updateDoc(`users/${uid}`, {'profile.status': 'Active'})
           }
         }
       ]
@@ -76,7 +76,7 @@ export class ClientPage implements OnInit, OnDestroy {
         }, {
           text: 'Yes',
           handler: (d) => {
-            this.fs.updateDoc(`users/${uid}`, {'profile.status': 'Bloqueado', 'profile.reason_block': d.reason_block || ''});
+            this.fs.updateDoc(`users/${uid}`, {'profile.status': 'Block', 'profile.reason_block': d.reason_block || ''});
           }
         }
       ]

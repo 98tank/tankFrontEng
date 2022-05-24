@@ -36,7 +36,7 @@
         </ion-row> -->
         <ion-row>
             <ion-col *ngIf="noMission">
-                <app-no-missions [type]="'activa'" [icon]="'rocket-outline'"></app-no-missions>
+                <app-no-missions [type]="'Active'" [icon]="'rocket-outline'"></app-no-missions>
             </ion-col>
             <ng-container *ngIf="loading">
                 <ion-col size-md="6" size="12" *ngFor="let s of [1,1]">
