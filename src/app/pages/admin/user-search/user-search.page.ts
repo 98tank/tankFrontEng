@@ -104,8 +104,8 @@ export class UserSearchPage implements OnInit {
         ++counter;
         const m: CandidateData = d.data() as CandidateData;
         if (m.status === 'Active') { ++active; }
-        if (m.status === 'Contratado') { ++hired; }
-        if (m.status === 'Descartado') { ++discarded; }
+        if (m.status === 'Hired') { ++hired; }
+        if (m.status === 'Discarded') { ++discarded; }
         if (counter === dataFirebaseMissions.size) {
           this.candidates = [active, hired, discarded];
          }
