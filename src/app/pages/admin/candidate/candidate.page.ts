@@ -62,42 +62,18 @@ export class CandidatePage implements OnInit, OnDestroy {
 
   async alertDelete(candidate: CandidateData) {
     const alert = await this.alertController.create({
-      header: '¿Borrar Candidato?',
+      header: '¿Delete Candidate?',
       mode: 'ios',
       cssClass: 'delete-alert',
-      message: `<ion-icon class="red" name="trash-outline"></ion-icon> El borrado es irreversible, y eliminara toda la data del candidato <strong>${candidate.name}</strong>, incluyendo la analítica, mensajes, archivos y cualquier otra información relacionada a él.`,
-      subHeader: `¿Desea borrar definitivamente el candidato ${candidate.name} de la base de datos?`,
+      message: `<ion-icon class="red" name="trash-outline"></ion-icon> Delete cannot be restored - Candidate information will be erased permanently including analytics, messages, files and all other related information.`,
+      subHeader: `¿Confirm Candidate Database Delete?`,
       buttons: [
         {
           text: 'No',
         }, {
-          text: 'Borrar',
+          text: 'Delete',
           role: 'cancel',
           handler: () => { this.delete(candidate); }
-        }
-      ]
-    });
-    await alert.present();
-  }
-
-  async blockUser(uid: string) {
-    const alert = await this.alertController.create({
-      header: '¿Bloquear Cliente?',
-      mode: 'ios',
-      inputs: [{
-        name: 'reason_block',
-        type: 'text',
-        placeholder: 'Motivo del bloqueo'
-      }],
-      buttons: [
-        {
-          text: 'No',
-        }, {
-          text: 'Si',
-          role: 'cancel',
-          handler: (d) => {
-            this.fs.updateDoc(`users/${uid}`, {'profile.status': 'Block', 'profile.reason_block': d.reason_block || ''});
-          }
         }
       ]
     });

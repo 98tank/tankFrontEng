@@ -24,8 +24,8 @@
                         <ion-button class="more" fill="solid" shape="round" color="primary" [routerLink]="[route, c.candidate_id]">More Info</ion-button>
                     </td>
                     <td>
-                        <ion-icon class="cursorP" slot="icon-only" *ngIf="!c.seen_by_the_client" color="danger" name="alert-circle-outline" (click)="presentPopover('No Visto', $event)"></ion-icon>
-                        <ion-icon class="cursorP" slot="icon-only" *ngIf="c.seen_by_the_client" color="success" name="checkmark-circle-outline" (click)="presentPopover('Visto', $event)"></ion-icon>
+                        <ion-icon class="cursorP" slot="icon-only" *ngIf="!c.seen_by_the_client" color="danger" name="alert-circle-outline" (click)="presentPopover('Pending Review', $event)"></ion-icon>
+                        <ion-icon class="cursorP" slot="icon-only" *ngIf="c.seen_by_the_client" color="success" name="checkmark-circle-outline" (click)="presentPopover('Reviewed', $event)"></ion-icon>
                     </td>
                 </tr>
             </tbody>

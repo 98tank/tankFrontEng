@@ -42,9 +42,9 @@ export class EditPaymentsAdminComponent implements OnInit {
 
   async presentAlert() {
     const alert = await this.alertController.create({
-      header: '¡Exito!',
+      header: '¡Success!',
       mode: 'ios',
-      message: 'La recompensa para esta posición ha sido actualizada, y sera visible para todo los reclutadores.',
+      message: 'The reward for this position has been updated, and will be visible to all recruiters.',
       buttons: ['OK']
     });
     await alert.present();
