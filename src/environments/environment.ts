@@ -5,24 +5,14 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyCuBMgcsNFtu8KXF88dVj3I6ndzwn27JFw',
-    authDomain: 'tank-development.firebaseapp.com',
-    projectId: 'tank-development',
-    storageBucket: 'tank-development.appspot.com',
-    messagingSenderId: '676047934734',
-    appId: '1:676047934734:web:4a2e62de4f2aa1f345f35f'
+    apiKey: 'AIzaSyDGN0Hlm1PAQN5DZdQfZq5tlZp9TeAf45I',
+    authDomain: 'tank-english-dev.firebaseapp.com',
+    projectId: 'tank-english-dev',
+    storageBucket: 'tank-english-dev.appspot.com',
+    messagingSenderId: '1056216382366',
+    appId: '1:1056216382366:web:15512acb2c886eaa6bf48f'
   },
   api: 'https://us-central1-tank-development.cloudfunctions.net'
-  // firebase: {
-  //   apiKey: 'AIzaSyA_-hGMiqDE7VQzEreIWwotuXW00dk2DKM',
-  //   authDomain: 'tank-98.firebaseapp.com',
-  //   databaseURL: 'https://tank-98.firebaseio.com',
-  //   projectId: 'tank-98',
-  //   storageBucket: 'tank-98.appspot.com',
-  //   messagingSenderId: '188697387783',
-  //   appId: '1:188697387783:web:6fcbbc3389eb0628011ba2'
-  // },
-  // api: 'https://us-central1-tank-98.cloudfunctions.net'
 };
 
 /*
