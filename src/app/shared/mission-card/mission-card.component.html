@@ -1,25 +1,25 @@
 <ion-card mode="ios">
     <ion-card-header>
-        <ion-card-subtitle color="tertiary">Creada el {{mission.create_date | date: 'd/MM/y - hh:mmaaa'}}</ion-card-subtitle>
+        <ion-card-subtitle color="tertiary">Created on {{mission.create_date | date: 'd/MM/y - hh:mmaaa'}}</ion-card-subtitle>
         <ion-card-title color="secondary">
             <h3>{{mission.name_position}}</h3>
         </ion-card-title>
     </ion-card-header>
 
     <ion-item>
-        <ion-label>Edad: {{mission.age_range}}</ion-label>
+        <ion-label>Age: {{mission.age_range}}</ion-label>
         <ion-note slot="end">
             <ion-chip color="success" *ngIf="mission.status === 'Active'">
-                <ion-label>Activa</ion-label>
+                <ion-label>Active</ion-label>
             </ion-chip>
             <ion-chip color="medium" *ngIf="mission.status === 'Pending'">
-                <ion-label>En revisión</ion-label>
+                <ion-label>Pending</ion-label>
             </ion-chip>
             <ion-chip color="danger" *ngIf="mission.status === 'Cancelled'">
-                <ion-label>Bloqueada</ion-label>
+                <ion-label>Cancelled</ion-label>
             </ion-chip>
             <ion-chip color="dark" *ngIf="mission.status === 'Accomplished'">
-                <ion-label>Cerradas</ion-label>
+                <ion-label>Accomplished</ion-label>
             </ion-chip>
         </ion-note>
         <div tabindex="0" style="height: 0;"></div>
@@ -32,30 +32,30 @@
 
     <ion-item>
         <ion-icon color="secondary" name="hourglass-outline" slot="start"></ion-icon>
-        <ion-label>Duración: {{mission.duration}}</ion-label>
+        <ion-label>Duration: {{mission.duration}}</ion-label>
         <div tabindex="0" style="height: 0;"></div>
     </ion-item>
 
     <ion-item>
         <ion-icon color="secondary" name="cash-outline" slot="start"></ion-icon>
-        <ion-label>Salario: {{mission.net_salary | currency : 'MXN '}}</ion-label>
+        <ion-label>Salary: {{mission.net_salary | currency : 'MXN '}}</ion-label>
         <div tabindex="0" style="height: 0;"></div>
     </ion-item>
 
     <ion-item lines="none" *ngIf="c$ | async as c">
         <ion-icon color="secondary" name="logo-usd" slot="start"></ion-icon>
-        <ion-label *ngIf="type === 'client'; else recruiter">Costo: {{(mission.net_salary * c.create_mission) | currency : 'MXN '}}</ion-label>
+        <ion-label *ngIf="type === 'client'; else recruiter">Cost: {{(mission.net_salary * c.create_mission) | currency : 'MXN '}}</ion-label>
         <ng-template #recruiter>
-            <ion-label>Recompensa: {{mission.reward | currency : 'MXN '}}</ion-label>
+            <ion-label>Reward: {{mission.reward | currency : 'MXN '}}</ion-label>
         </ng-template>
 
         <div tabindex="0" style="height: 0;"></div>
     </ion-item>
     <ion-buttons *ngIf="mission.status !== 'Accomplished'">
-        <ion-button fill="solid" shape="round" color="primary" [routerLink]="[route, mission.mission_id]">Ver Misión</ion-button>
+        <ion-button fill="solid" shape="round" color="primary" [routerLink]="[route, mission.mission_id]">Browse Mission</ion-button>
     </ion-buttons>
     <ion-card-content class="ion-text-center" *ngIf="mission.status === 'Accomplished'">
         <ion-text color="danger">Esta misión fue completada por el cliente</ion-text>
     </ion-card-content>
-    <div class="completed" *ngIf="mission.status === 'Accomplished'">Completada</div>
+    <div class="completed" *ngIf="mission.status === 'Accomplished'">Accomplished</div>
 </ion-card>

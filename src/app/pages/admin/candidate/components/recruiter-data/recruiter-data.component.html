@@ -1,23 +1,23 @@
 <ion-card mode="ios">
     <ion-card-header mode="ios" color="primary">
-        <ion-title>Detalles del Reclutador</ion-title>
+        <ion-title>Recruiter Details</ion-title>
     </ion-card-header>
 
 
     <ion-list *ngIf="recruiter$ | async as r">
         <ion-item>
             <ion-icon color="secondary" name="person" slot="start"></ion-icon>
-            <ion-label><strong>Nombre:</strong> {{r.profile.name}}</ion-label>
+            <ion-label><strong>Name:</strong> {{r.profile.name}}</ion-label>
             <div tabindex="0" style="height: 0;"></div>
         </ion-item>
         <ion-item>
             <ion-icon color="secondary" name="mail" slot="start"></ion-icon>
-            <ion-label><strong>Email:</strong> <a href="mailto:{{r.profile.email}}">{{r.profile.email}}</a></ion-label>
+            <ion-label><strong>E-mail:</strong> <a href="mailto:{{r.profile.email}}">{{r.profile.email}}</a></ion-label>
             <div tabindex="0" style="height: 0;"></div>
         </ion-item>
         <ion-item lines="none">
             <ion-icon color="secondary" name="call" slot="start"></ion-icon>
-            <ion-label><strong>Telefono:</strong> <a href="tel:{{r.profile.phone_company}}">{{r.profile.personal_phone}}</a></ion-label>
+            <ion-label><strong>Telephone Number:</strong> <a href="tel:{{r.profile.phone_company}}">{{r.profile.personal_phone}}</a></ion-label>
             <div tabindex="0" style="height: 0;"></div>
         </ion-item>
     </ion-list>

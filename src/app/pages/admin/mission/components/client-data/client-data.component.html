@@ -1,44 +1,44 @@
 <ion-card mode="ios">
     <ion-card-header mode="ios" color="primary">
-        <ion-title>Detalles del cliente</ion-title>
+        <ion-title>Preferred Skills</ion-title>
     </ion-card-header>
 
 
     <ion-list *ngIf="client$ | async as c">
         <ion-item-divider>
             <ion-label color="secondary">
-                Cliente
+                Client
             </ion-label>
         </ion-item-divider>
         <ion-item>
             <ion-icon color="secondary" name="business" slot="start"></ion-icon>
-            <ion-label><strong>Nombre:</strong> {{c.profile.company_name}}</ion-label>
+            <ion-label><strong>Name:</strong> {{c.profile.company_name}}</ion-label>
             <div tabindex="0" style="height: 0;"></div>
         </ion-item>
         <ion-item>
             <ion-icon color="secondary" name="mail" slot="start"></ion-icon>
-            <ion-label><strong>Email:</strong> <a href="mailto:{{c.profile.email}}">{{c.profile.email}}</a></ion-label>
+            <ion-label><strong>E-mail:</strong> <a href="mailto:{{c.profile.email}}">{{c.profile.email}}</a></ion-label>
             <div tabindex="0" style="height: 0;"></div>
         </ion-item>
         <ion-item lines="none">
             <ion-icon color="secondary" name="call" slot="start"></ion-icon>
-            <ion-label><strong>Telefono:</strong> <a href="tel:{{c.profile.phone_company}}">{{c.profile.phone_company}}</a></ion-label>
+            <ion-label><strong>Telephone Number:</strong> <a href="tel:{{c.profile.phone_company}}">{{c.profile.phone_company}}</a></ion-label>
             <div tabindex="0" style="height: 0;"></div>
         </ion-item>
 
         <ion-item-divider>
             <ion-label color="secondary">
-                Persona de contacto
+                Contact Details
             </ion-label>
         </ion-item-divider>
         <ion-item>
             <ion-icon color="secondary" name="person" slot="start"></ion-icon>
-            <ion-label><strong>Nombre:</strong> {{c.profile.name_contact}}</ion-label>
+            <ion-label><strong>Name:</strong> {{c.profile.name_contact}}</ion-label>
             <div tabindex="0" style="height: 0;"></div>
         </ion-item>
         <ion-item lines="none">
             <ion-icon color="secondary" name="phone-portrait" slot="start"></ion-icon>
-            <ion-label><strong>Telefono:</strong> <a href="tel:{{c.profile.personal_phone}}">{{c.profile.personal_phone}}</a></ion-label>
+            <ion-label><strong>Telephone Number:</strong> <a href="tel:{{c.profile.personal_phone}}">{{c.profile.personal_phone}}</a></ion-label>
             <div tabindex="0" style="height: 0;"></div>
         </ion-item>
     </ion-list>
