@@ -36,7 +36,7 @@
                                 </td>
                                 <td>{{r.name_position}}</td>
                                 <td>{{r.update_date | date}}</td>
-                                <td *ngIf="c$ | async as c">{{((r.net_salary * c.create_mission ) | currency: 'MXN ')}}</td>
+                                <td *ngIf="c$ | async as c">{{((r.net_salary * c.create_mission ) | currency: '$ ')}}</td>
                                 <td>{{r.status}}</td>
                                 <td>
                                     <ion-button class="more" fill="solid" shape="round" color="primary" (click)="more(r)">Ver más</ion-button>

@@ -22,7 +22,7 @@
                         <ion-row>
                             <ion-col class="quantity" size="3">{{missionPending.quantity}}</ion-col>
                             <ion-col class="amount" size="9">
-                                <ion-icon name="cash-outline"></ion-icon>{{missionPending.amount * c.create_mission | currency: 'MXN '}}
+                                <ion-icon name="cash-outline"></ion-icon>{{missionPending.amount * c.create_mission | currency: '$ '}}
                             </ion-col>
                             <ion-col class="more" size="12">Ver Más</ion-col>
                         </ion-row>
@@ -39,7 +39,7 @@
                             <ion-row>
                                 <ion-col class="quantity" size="3">{{paidMissions.quantity}}</ion-col>
                                 <ion-col class="amount" size="9">
-                                    <ion-icon name="cash-outline"></ion-icon>{{paidMissions.amount * c.create_mission | currency: 'MXN '}}
+                                    <ion-icon name="cash-outline"></ion-icon>{{paidMissions.amount * c.create_mission | currency: '$ '}}
                                 </ion-col>
                                 <ion-col class="more" size="12">Ver Más</ion-col>
                             </ion-row>
@@ -61,7 +61,7 @@
                         <ion-row>
                             <ion-col class="quantity" size="3">{{rewardsPendiente.quantity}}</ion-col>
                             <ion-col class="amount" size="9">
-                                <ion-icon name="cash-outline"></ion-icon>{{rewardsPendiente.amount | currency: 'MXN '}}
+                                <ion-icon name="cash-outline"></ion-icon>{{rewardsPendiente.amount | currency: '$ '}}
                             </ion-col>
                             <ion-col class="more" size="12">Ver Más</ion-col>
                         </ion-row>
@@ -77,7 +77,7 @@
                         <ion-row>
                             <ion-col class="quantity" size="3">{{rewardsPagada.quantity}}</ion-col>
                             <ion-col class="amount" size="9">
-                                <ion-icon name="cash-outline"></ion-icon>{{rewardsPagada.amount | currency: 'MXN '}}
+                                <ion-icon name="cash-outline"></ion-icon>{{rewardsPagada.amount | currency: '$ '}}
                             </ion-col>
                             <ion-col class="more" size="12">Ver Más</ion-col>
                         </ion-row>
@@ -97,7 +97,7 @@
                         <ion-row>
                             <ion-col class="quantity" size="3">{{returnsPending.quantity}}</ion-col>
                             <ion-col class="amount" size="9">
-                                <ion-icon name="cash-outline"></ion-icon>{{returnsPending.amount * c.create_mission | currency: 'MXN '}}
+                                <ion-icon name="cash-outline"></ion-icon>{{returnsPending.amount * c.create_mission | currency: '$ '}}
                             </ion-col>
                             <ion-col class="more" size="12">Ver Más</ion-col>
                         </ion-row>
@@ -113,7 +113,7 @@
                         <ion-row>
                             <ion-col class="quantity" size="3">{{returnsPagada.quantity}}</ion-col>
                             <ion-col class="amount" size="9">
-                                <ion-icon name="cash-outline"></ion-icon>{{returnsPagada.amount * c.create_mission | currency: 'MXN '}}
+                                <ion-icon name="cash-outline"></ion-icon>{{returnsPagada.amount * c.create_mission | currency: '$ '}}
                             </ion-col>
                             <ion-col class="more" size="12">Ver Más</ion-col>
                         </ion-row>
@@ -129,7 +129,7 @@
                         <ion-card-content>
                             <ion-row>
                                 <ion-col class="amount" size="12">
-                                    <ion-icon name="cash-outline"></ion-icon>{{(paidMissions.amount * c.create_mission) - rewardsPagada.amount - (returnsPagada.amount * c.create_mission) | currency: 'MXN '}}
+                                    <ion-icon name="cash-outline"></ion-icon>{{(paidMissions.amount * c.create_mission) - rewardsPagada.amount - (returnsPagada.amount * c.create_mission) | currency: '$ '}}
                                 </ion-col>
                             </ion-row>
                         </ion-card-content>
