@@ -12,7 +12,8 @@ export const environment = {
     messagingSenderId: '1056216382366',
     appId: '1:1056216382366:web:15512acb2c886eaa6bf48f'
   },
-  api: 'https://us-central1-tank-development.cloudfunctions.net'
+  // api: 'http://localhost:5000/tank-english-dev/us-central1'
+  api: 'https://us-central1-tank-english-dev.cloudfunctions.net'
 };
 
 /*
