@@ -18,7 +18,7 @@ export class EditMissionComponent implements OnInit {
   success = false;
   isSuperAdmin: boolean;
   states$: Observable<string[]>;
-  hiringTime = ['1 a 3 semanas', '4 a 6 semanas', 'más de 6 semanas'];
+  hiringTime = ['1 to 3 weeks', '4 to 6 weeks', 'more than 6 weeks'];
 
   constructor(
     public ms: MediaService,
@@ -69,7 +69,6 @@ export class EditMissionComponent implements OnInit {
       sex: [this.mission.sex, Validators.required],
       civil_status: [this.mission.civil_status, Validators.required],
       studies: [this.mission.studies, Validators.required],
-      salary_scheme: [this.mission.salary_scheme, Validators.required],
       net_salary: [this.mission.net_salary],
       benefits: [this.mission.benefits, Validators.required],
       benefits_details: [this.mission.benefits_details],
