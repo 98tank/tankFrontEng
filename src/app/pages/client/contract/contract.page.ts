@@ -68,7 +68,7 @@ export class ContractPage implements OnInit {
       contacted: 'No'
     };
     this.fs.updateDoc(`missions/${this.candidate.mission_id}`, { status: 'Accomplished', type_contract: tc,  update_date: date });
-    this.fs.updateDoc(`candidates/${this.candidate.candidate_id}`, { status: 'Contratado', type_contract: tc,  update_date: date });
+    this.fs.updateDoc(`candidates/${this.candidate.candidate_id}`, { status: 'Hired', type_contract: tc,  update_date: date });
     this.changeStatusAllRelatedCandidates(this.candidate, date);
     this.createReward(date);
     this.sendNotificationsEmail(type);
@@ -84,7 +84,7 @@ export class ContractPage implements OnInit {
         const c: CandidateData = d.data() as CandidateData;
         idCand.push(c.candidate_id);
         if (dataCandidate.size === counter) {
-          idCand.forEach((cid: string) => this.fs.updateDoc(`candidates/${cid}`, {status: 'Descartado', update_date: date}));
+          idCand.forEach((cid: string) => this.fs.updateDoc(`candidates/${cid}`, {status: 'Discarded', update_date: date}));
         }
       });
     }
@@ -130,7 +130,7 @@ export class ContractPage implements OnInit {
   async sendNotificationsEmail(type: string) {
     if (type === 'direct') {
       const subjecRecruitert  = `98Tank - Nueva contratación Directa`;
-      const messageRecruitert = `Tu candidato ${this.candidate.name} ha sido contratado, ya puedes cobrar la recompensa para la posición.`;
+      const messageRecruitert = `Tu candidato ${this.candidate.name} ha sido Hired, ya puedes cobrar la recompensa para la posición.`;
       const urlRecruiter      = `${window.location.origin}/reclutador/historial-de-pago`;
       const rec               = await this.eas.sendEmail(this.candidate.uid_recruiter, messageRecruitert, urlRecruiter, subjecRecruitert);
 
@@ -140,13 +140,13 @@ export class ContractPage implements OnInit {
       const cli               = await this.eas.sendEmail(this.candidate.uid_client, messageClient, urlClient, subjecClient);
 
       const subjectAdmin      = `98Tank - Nueva contratación por Directa`;
-      const messageAdmin      = `El Candidatos ${this.candidate.name} fue contratado en forma directa. Ya se puede proceder a pagar la recompensa al reclutador`;
+      const messageAdmin      = `El Candidatos ${this.candidate.name} fue Hired en forma directa. Ya se puede proceder a pagar la recompensa al reclutador`;
       const urlAdmin          = `${window.location.origin}/admin/payment-history/rewards`;
       const adm               = await this.eas.sendEmailAdmins(messageAdmin, urlAdmin, subjectAdmin);
     }
     if (type === 'service') {
       const subjecRecruitert  = `98Tank - Nueva contratación por Servicios`;
-      const messageRecruitert = `Tu candidato ${this.candidate.name} ha sido contratado, ya puedes cobrar la recompensa para la posición.`;
+      const messageRecruitert = `Tu candidato ${this.candidate.name} ha sido Hired, ya puedes cobrar la recompensa para la posición.`;
       const urlRecruiter      = `${window.location.origin}/reclutador/historial-de-pago`;
       const rec               = await this.eas.sendEmail(this.candidate.uid_recruiter, messageRecruitert, urlRecruiter, subjecRecruitert);
 
@@ -156,7 +156,7 @@ export class ContractPage implements OnInit {
       const cli               = await this.eas.sendEmail(this.candidate.uid_client, messageClient, urlClient, subjecClient);
 
       const subjectAdmin      = `98Tank - Nueva contratación por Servicio`;
-      const messageAdmin      = `El Candidatos ${this.candidate.name} fue contratado en forma de servicios. Los datos proporcionados por el cliente para contactarlo son los siguientes, NOMBRE: ${this.form.value.name} , TELEFONO: ${this.form.value.phone}`;
+      const messageAdmin      = `El Candidatos ${this.candidate.name} fue Hired en forma de servicios. Los datos proporcionados por el cliente para contactarlo son los siguientes, NOMBRE: ${this.form.value.name} , TELEFONO: ${this.form.value.phone}`;
       const urlAdmin          = `${window.location.origin}/admin/mision/${this.candidate.mission_id}`;
       const adm               = await this.eas.sendEmailAdmins(messageAdmin, urlAdmin, subjectAdmin);
     }

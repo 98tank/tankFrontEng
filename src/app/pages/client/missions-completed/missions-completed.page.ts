@@ -24,7 +24,7 @@ export class MissionsCompletedPage implements OnInit {
   }
 
   getMissionCompleted() {
-    this.fs.getColFilter('missions', 'uid', '==', this.auth.userUid).where('status', '==', 'Completada').orderBy('type_contract.date', 'desc').get().then(res => {
+    this.fs.getColFilter('missions', 'uid', '==', this.auth.userUid).where('status', '==', 'Accomplished').orderBy('type_contract.date', 'desc').get().then(res => {
       this.closedMission = [];
       if (res.size === 0) { this.loading = true; }
       res.forEach(d =>  this.closedMission.push(d.data() as MissionData) );

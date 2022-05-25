@@ -87,10 +87,10 @@ export class MainPage implements OnInit {
   }
 
   getCandidatesInMissions() {
-    this.fs.getColFilter('candidates', 'status', '==', 'Contratado').get()
+    this.fs.getColFilter('candidates', 'status', '==', 'Hired').get()
       .then(r => {
       this.doughnutChartData[0][5] = r.size;
-      this.fs.getColFilter('candidates', 'status', '==', 'Descartado').get()
+      this.fs.getColFilter('candidates', 'status', '==', 'Discarded').get()
       .then(re => {
         this.doughnutChartData[0][6] = re.size;
         this.graphic = true;

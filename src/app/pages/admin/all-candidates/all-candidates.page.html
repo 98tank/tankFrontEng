@@ -71,7 +71,7 @@
                                 <td>{{c.name}}</td>
                                 <td style="font-weight: 400;">{{c.name_position}}</td>
                                 <td>{{c.create_date | date}}</td>
-                                <td [ngClass]="{'active': c.status === 'Active', 'contract': c.status === 'Contratado', 'discarded': c.status === 'Descartado'}">{{c.status}}</td>
+                                <td [ngClass]="{'active': c.status === 'Active', 'contract': c.status === 'Hired', 'discarded': c.status === 'Discarded'}">{{c.status}}</td>
                                 <td>
                                     <ion-button class="more" fill="solid" shape="round" color="primary" [routerLink]="['/admin/candidato/', c.candidate_id]">Ver</ion-button>
                                 </td>
