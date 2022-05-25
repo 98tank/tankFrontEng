@@ -86,7 +86,7 @@ export class UserSearchPage implements OnInit {
         if (m.status === 'Pending') { ++pending; }
         if (m.status === 'Cancelled') { ++cancelled; }
         if (counter === dataFirebaseMissions.size) {
-          this.missions = [active, completed, pending, cancelled];
+          this.missions = [active, completed, cancelled, pending];
          }
       });
     }

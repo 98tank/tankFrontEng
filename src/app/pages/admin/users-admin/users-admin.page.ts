@@ -54,25 +54,25 @@ export class UsersAdminPage implements OnInit, OnDestroy {
 
   async moderar(u: User) {
     const actionSheet = await this.actionSheetController.create({
-      header: 'Selecciones la accion que desea realizar',
+      header: 'Select action',
       cssClass: 'emergente',
       mode: 'ios',
       buttons: [ {
         cssClass: 'activate',
-        text: 'Activar',
+        text: 'Activate',
         icon: 'checkmark-circle-sharp',
         handler: () => {
           this.fs.updateDoc(`users/${u.profile.uid}`, {'profile.status': 'Active'}).then(() => this.getAdmins());
         }
       }, {
-        text: 'Bloquear',
+        text: 'Block',
         role: 'destructive',
         icon: 'cloud-offline',
           handler: () => {
           this.fs.updateDoc(`users/${u.profile.uid}`, {'profile.status': 'Block'}).then(() => this.getAdmins());
         }
       }, {
-        text: 'Cancelar',
+        text: 'Cancel',
         icon: 'close',
         role: 'cancel'
       }]
