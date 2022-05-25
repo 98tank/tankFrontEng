@@ -27,7 +27,7 @@ export class ModalComponent implements OnInit {
   }
 
   getHiredCandidate() {
-    this.fs.getColFilter('candidates', 'mission_id', '==', this.mission.mission_id).where('status', '==', 'Contratado').get().then(r => {
+    this.fs.getColFilter('candidates', 'mission_id', '==', this.mission.mission_id).where('status', '==', 'Hired').get().then(r => {
       if (r.size > 0) {
         r.forEach(d => this.candidate = d.data() as CandidateData);
       }

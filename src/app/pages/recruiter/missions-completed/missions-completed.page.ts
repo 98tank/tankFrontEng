@@ -39,7 +39,7 @@ export class MissionsCompletedPage implements OnInit, OnDestroy {
   }
 
   getHiredCandidate(uid: string) {
-    this.fs.getColFilter('candidates', 'uid_recruiter', '==', uid).where('status', '==', 'Contratado').orderBy('type_contract.date', 'desc').get().then(res => {
+    this.fs.getColFilter('candidates', 'uid_recruiter', '==', uid).where('status', '==', 'Hired').orderBy('type_contract.date', 'desc').get().then(res => {
       if (res.size === 0) { this.loading = true; }
       if (res.size > 0) {
         res.forEach(d => {

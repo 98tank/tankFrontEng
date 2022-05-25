@@ -62,7 +62,7 @@ export class MultipleButtonsComponent implements OnInit {
 
   async openAlertDiscard() {
     const alert = await this.alertController.create({
-      header: 'El candidato será descartado',
+      header: 'El candidato será Discarded',
       message: 'Indique la razón para descartarlo.',
       mode: 'ios',
       inputs: [
@@ -83,7 +83,7 @@ export class MultipleButtonsComponent implements OnInit {
   discardCandidate(e) {
     if (e.reason) {
       const reason = e.reason || '';
-      this.fs.updateDoc(`candidates/${this.candidate.candidate_id}`, {status: 'Descartado', reason_discard: reason});
+      this.fs.updateDoc(`candidates/${this.candidate.candidate_id}`, {status: 'Discarded', reason_discard: reason});
     }
   }
 
