@@ -14,7 +14,7 @@
     <ion-grid fixed>
         <ion-row>
             <ion-col *ngIf="loading">
-                <app-no-missions [type]="'cancelada'" [icon]="'rocket-outline'"></app-no-missions>
+                <app-no-missions [type]="'Cancelled'" [icon]="'rocket-outline'"></app-no-missions>
             </ion-col>
             <app-change-of-view style="width: 100%;" [view]="view" (newView)="changeView($event)"></app-change-of-view>
             <ion-col size="12" *ngIf="view === 'list'; else card">

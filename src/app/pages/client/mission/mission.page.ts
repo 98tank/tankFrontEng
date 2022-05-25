@@ -52,7 +52,7 @@ export class MissionPage implements OnInit {
 
   canceledMission(mission: MissionData) {
     const date = this.ss.getDate().getTime();
-    this.fs.updateDoc(`missions/${mission.mission_id}`, { status: 'Cancelada', update_date: date })
+    this.fs.updateDoc(`missions/${mission.mission_id}`, { status: 'Cancelled', update_date: date })
       .then(() => this.router.navigate(['/cliente/misiones-canceladas']));
   }
 
