@@ -23,10 +23,10 @@
                 <strong>Age Range: </strong>{{mission.age_range}}
             </ion-col>
             <ion-col size-md="6" size="12">
-                <strong>Project Duration: </strong>{{mission.duration}}
+                <strong>Job Type: </strong>{{mission.duration}}
             </ion-col>
             <ion-col size="12" *ngIf="mission.duration_details">
-                <strong>Project Duration Detail: </strong>{{mission.duration_details}}
+                <strong>Job Type Detail: </strong>{{mission.duration_details}}
             </ion-col>
             <ion-col size-md="6" size="12">
                 <strong>Gender: </strong>{{mission.sex}}
@@ -36,9 +36,6 @@
             </ion-col>
             <ion-col size-md="6" size="12">
                 <strong>Education: </strong>{{mission.studies}}
-            </ion-col>
-            <ion-col size-md="6" size="12">
-                <strong>Salarial Schema: </strong>{{mission.salary_scheme}}
             </ion-col>
             <ion-col size-md="6" size="12">
                 <strong>Salary: </strong>{{mission.net_salary | currency: '$ '}}
