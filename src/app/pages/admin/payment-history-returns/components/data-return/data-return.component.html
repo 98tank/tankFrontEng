@@ -12,48 +12,48 @@
     <ion-grid>
         <ion-card mode="ios">
             <ion-card-header color="primary">
-                <ion-title>Solicitud de Devolución</ion-title>
+                <ion-title>Reimbursement Form</ion-title>
             </ion-card-header>
             <ion-card-content>
                 <ion-item>
                     <ion-icon color="secondary" name="rocket" slot="start"></ion-icon>
-                    <ion-label><strong>Misión: </strong>{{data.name_position}}</ion-label>
+                    <ion-label><strong>Mission: </strong>{{data.name_position}}</ion-label>
                 </ion-item>
                 <ion-item>
                     <ion-icon color="secondary" name="cash" slot="start"></ion-icon>
-                    <ion-label><strong>Salario: </strong>{{data.net_salary | currency: '$ '}}</ion-label>
+                    <ion-label><strong>Monthly Salary: </strong>{{data.net_salary | currency: '$ '}}</ion-label>
                 </ion-item>
                 <ion-item>
                     <ion-icon color="secondary" name="arrow-undo" slot="start"></ion-icon>
-                    <ion-label *ngIf="c$ | async as c"><strong>Monto devolución: </strong>{{(data.net_salary * c.create_mission | currency: '$ ')}}</ion-label>
+                    <ion-label *ngIf="c$ | async as c"><strong>Reimbursement Ammount: </strong>{{(data.net_salary * c.create_mission | currency: '$ ')}}</ion-label>
                 </ion-item>
                 <ion-item>
                     <ion-icon color="secondary" name="calendar" slot="start"></ion-icon>
-                    <ion-label><strong>Fecha de solicitud: </strong>{{data.create_date | date}}</ion-label>
+                    <ion-label><strong>Date of Request: </strong>{{data.create_date | date}}</ion-label>
                 </ion-item>
                 <ion-item>
                     <ion-icon color="secondary" name="calendar" slot="start"></ion-icon>
-                    <ion-label><strong>Fecha de actualización: </strong>{{data.update_date | date}}</ion-label>
+                    <ion-label><strong>Updated on: </strong>{{data.update_date | date}}</ion-label>
                 </ion-item>
                 <ion-item>
                     <ion-icon color="secondary" name="book" slot="start"></ion-icon>
-                    <ion-label><strong>Razon de reembolso: </strong>{{data.reason}}</ion-label>
+                    <ion-label><strong>Reason for Reimbursement: </strong>{{data.reason}}</ion-label>
                 </ion-item>
                 <ion-item>
                     <ion-icon color="secondary" name="pulse" slot="start"></ion-icon>
-                    <ion-label><strong>Estatus: </strong>{{data.status}}</ion-label>
+                    <ion-label><strong>Status: </strong>{{data.status}}</ion-label>
                 </ion-item>
-                <ion-item lines="none">
+            <!-- <ion-item lines="none">
                     <ion-col size="12">
                         <app-payment-view *ngIf="data.pay !== null" [pay]="data.pay" [message]="'devolución'"></app-payment-view>
                     </ion-col>
-                </ion-item>
+                </ion-item>  -->
             </ion-card-content>
         </ion-card>
 
         <ion-card mode="ios">
             <ion-card-header color="secondary">
-                <ion-title>Adjunta recibo de Devolución</ion-title>
+                <ion-title>Attach receipt for Reimbursement</ion-title>
             </ion-card-header>
             <ion-card-content>
                 <ion-row>
@@ -74,7 +74,7 @@
                     </ng-container>
 
                     <ion-col size="12" *ngIf="!data.pay_refound">
-                        <ion-text>Debes adjuntar el comprobante de pago y guardar para dar por <strong>Pagada</strong> la devolución al cliente</ion-text>
+                        <ion-text>You must attach the payment receipt and save it in order to acknowledge the reimbursement to the client</ion-text>
                     </ion-col>
                 </ion-row>
                 <br>
@@ -85,7 +85,7 @@
 
     <ion-row>
         <ion-col size="12" class="ion-text-center">
-            <ion-button class="more" fill="solid" shape="round" color="primary" (click)="closeModal()">Salir</ion-button>
+            <ion-button class="more" fill="solid" shape="round" color="primary" (click)="closeModal()">Exit</ion-button>
         </ion-col>
     </ion-row>
 

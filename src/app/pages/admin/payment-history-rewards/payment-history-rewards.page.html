@@ -1,11 +1,11 @@
 <ion-header [translucent]="true">
     <ion-toolbar mode="ios">
         <ion-buttons slot="start">
-            <ion-back-button [defaultHref]="'/admin/payment-history'" text="Atrás"></ion-back-button>
+            <ion-back-button [defaultHref]="'/admin/payment-history'" text="Back"></ion-back-button>
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Recompensas
+            Rewards
         </ion-title>
         <ion-buttons slot="end">
             <ion-menu-button></ion-menu-button>
@@ -22,12 +22,12 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>MISIONES</th>
-                                <th>FECHA</th>
-                                <th>RECOMPENSA</th>
-                                <th>RECLUTADOR</th>
-                                <th>ESTATUS</th>
-                                <th>DETALLE</th>
+                                <th>MISSIONS</th>
+                                <th>DATE</th>
+                                <th>REWARD</th>
+                                <th>RECRUITER</th>
+                                <th>STATUS</th>
+                                <th>DETAIL</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,7 +41,7 @@
                                 <td>{{r.recruiter}}</td>
                                 <td>{{r.status}}</td>
                                 <td>
-                                    <ion-button class="more" fill="solid" shape="round" color="primary" (click)="more(r)">Ver más</ion-button>
+                                    <ion-button class="more" fill="solid" shape="round" color="primary" (click)="more(r)">More Info</ion-button>
                                 </td>
                             </tr>
                         </tbody>
