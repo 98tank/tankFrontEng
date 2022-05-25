@@ -26,7 +26,7 @@ export class MissionsCanceledPage implements OnInit {
   }
 
   getMissionCanceled() {
-    this.fs.getColFilter('missions', 'uid', '==', this.auth.userUid).where('status', '==', 'Cancelada').orderBy('update_date', 'desc').get().then(res => {
+    this.fs.getColFilter('missions', 'uid', '==', this.auth.userUid).where('status', '==', 'Cancelled').orderBy('update_date', 'desc').get().then(res => {
       this.cancelledMissions = [];
       if (res.size === 0) { this.loading = true; }
       res.forEach(d =>  this.cancelledMissions.push(d.data() as MissionData) );
