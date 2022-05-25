@@ -43,17 +43,17 @@ export class DataRewardComponent implements OnInit {
   getUrl(event: File) {
     const date: number = this.ss.getDate().getTime();
     this.data.pay = event;
-    this.data.status = 'Pagada';
-    this.fs.updateDoc(`reward/${this.data.id_reward}`, { pay: this.data.pay, status: 'Pagada', update_date: date });
+    this.data.status = 'Paid';
+    this.fs.updateDoc(`reward/${this.data.id_reward}`, { pay: this.data.pay, status: 'Paid', update_date: date });
   }
 
   deletePay() {
     if (this.data.pay?.filePath) {
       this.ms.deleteImgStorage(this.data.pay.filePath);
       this.data.pay = null;
-      this.data.status = 'Pendiente';
-      this.fs.updateDoc(`reward/${this.data.id_reward}`, { status: 'Pendiente' });
-      this.fs.deleteField(`reward/${this.data.id_reward}`, 'pay');
+      this.data.status = 'Pending';
+      this.fs.updateDoc(`reward/${this.data.id_reward}`, { status: 'Pending' });
+      this.fs.deleteField(`reward/${this.data.id_reward}`, 'Paid');
     }
   }
 

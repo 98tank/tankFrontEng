@@ -131,7 +131,7 @@ export class RegisterClientPage implements OnInit {
             email: data.email.toLowerCase(),
             registerDate: date,
             type: 'client',
-            status: 'Activo',
+            status: 'Active',
             avatar: this.imgAvatar || '',
             clabe: parseFloat(data.clabe),
             phone_company: parseFloat(data.phone_company || 0),
@@ -142,7 +142,7 @@ export class RegisterClientPage implements OnInit {
         this.fs.setDoc(`users/${uid}`, user).then( async () => {
           await this.creando.dismiss();
           this.form.reset();
-          this.successfulRegistration(user.profile.email);
+          this.successfullRegistration(user.profile.email);
           this.eas.sendEmailWelcome(user.profile.email, user.profile.uid);
           // this.router.navigate(['/cliente/principal']);
         }).catch(async e => {
@@ -189,7 +189,7 @@ export class RegisterClientPage implements OnInit {
     await this.creando.present();
   }
 
-  async successfulRegistration(email: string) {
+  async successfullRegistration(email: string) {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
       header: 'Registro Exitoso',

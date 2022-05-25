@@ -5,7 +5,7 @@
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Misiones Terminadas
+            Completed Missions
         </ion-title>
     </ion-toolbar>
 </ion-header>
@@ -19,7 +19,7 @@
             <ion-col size-md="6" size="12" *ngFor="let mc of closedMission">
                 <ion-card mode="ios">
                     <ion-card-header>
-                        <ion-card-subtitle color="tertiary">Terminada el {{mc.type_contract.date | date: 'd/MM/y - hh:mmaaa'}}</ion-card-subtitle>
+                        <ion-card-subtitle color="tertiary">COMPLETED ON {{mc.type_contract.date | date: 'd/MM/y - hh:mmaaa'}}</ion-card-subtitle>
                         <ion-card-title color="secondary">
                             <h3>{{mc.name_position}}</h3>
                         </ion-card-title>
@@ -27,15 +27,15 @@
                     <ion-card-content>
                         <ion-item lines="none">
                             <ion-icon color="secondary" name="rocket-sharp" slot="start"></ion-icon>
-                            <ion-label><strong>Estatus Misión:</strong>
+                            <ion-label><strong>Mission Status:</strong>
                                 <ion-chip color="medium">
-                                    <ion-label>Terminada</ion-label>
+                                    <ion-label>Accomplished</ion-label>
                                 </ion-chip>
                             </ion-label>
                             <div tabindex="0" style="height: 0;"></div>
                         </ion-item>
                         <ion-buttons class="button">
-                            <ion-button fill="solid" shape="round" color="primary" (click)="missionView(mc, 'mission')">Ver Misión</ion-button>
+                            <ion-button fill="solid" shape="round" color="primary" (click)="missionView(mc, 'mission')">Open Mission</ion-button>
                         </ion-buttons>
                     </ion-card-content>
                 </ion-card>

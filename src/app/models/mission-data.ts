@@ -4,10 +4,10 @@ export interface MissionData {
     pay: File;
     uid: string;
     area: string;
-    sex: string;
+    sex: 'Male' | 'Famele' | 'Indistinct';
     state?: string;
     levels: string;
-    status: string;
+    status: 'Pending' | 'Active' | 'Cancelled' | 'Accomplished' | 'Rejected';
     travel: string;
     reward?: number;
     studies: string;
@@ -29,8 +29,7 @@ export interface MissionData {
     company_name?: string;
     name_position: string;
     business_days: string;
-    salary_scheme: string;
-    status_payment?: string;
+    status_payment?: 'Paid' | 'Pending';
     position_level?: string;
     request_refound: Refound;
     numberInterviews: number;

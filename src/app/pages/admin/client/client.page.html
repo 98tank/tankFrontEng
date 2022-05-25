@@ -1,11 +1,11 @@
 <ion-header [translucent]="true">
     <ion-toolbar mode="ios">
         <ion-buttons slot="start">
-            <ion-back-button [defaultHref]="'/admin/clientes'" text="Atrás"></ion-back-button>
+            <ion-back-button [defaultHref]="'/admin/clientes'" text="Back"></ion-back-button>
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Cliente
+            Client
         </ion-title>
         <ion-buttons slot="end">
             <ion-menu-button></ion-menu-button>
@@ -24,64 +24,64 @@
                     <ion-card-content>
                         <ion-row>
                             <ion-col size-md="6" size="12">
-                                <strong>Nombre del cliente:</strong> {{p.company_name}}
+                                <strong>Client name:</strong> {{p.company_name}}
                             </ion-col>
                             <ion-col size-md="6" size="12">
-                                <strong>Email:</strong> {{p.email}}
+                                <strong>E-mail:</strong> {{p.email}}
                             </ion-col>
                             <ion-col size-md="6" size="12">
-                                <strong>Razón social:</strong> {{p.business_name}}
+                                <strong>Company name:</strong> {{p.business_name}}
                             </ion-col>
                             <ion-col size-md="6" size="12">
-                                <strong>RFC:</strong> {{p.rfc}}
+                                <strong>TAX ID:</strong> {{p.rfc}}
                             </ion-col>
                             <ion-col size="12">
-                                <strong>Dirección actual:</strong> {{p.address}}
+                                <strong>Current Address:</strong> {{p.address}}
                             </ion-col>
                             <ion-col size-md="6" size="12">
-                                <strong>Teléfono de la compañia:</strong>
+                                <strong>Company Phone  Number:</strong>
                                 <a [href]="'tel:'+p.phone_company">{{p.phone_company}}</a>
                             </ion-col>
                             <ion-col size-md="6" size="12">
-                                <strong>Extensión:</strong> {{p.extension}}
+                                <strong>Extension Number:</strong> {{p.extension}}
                             </ion-col>
                             <ion-col size-md="6" size="12">
-                                <strong>Nombre del contacto:</strong> {{p.name_contact}}
+                                <strong>Contact Name:</strong> {{p.name_contact}}
                             </ion-col>
                             <ion-col size-md="6" size="12">
-                                <strong>Teléfono personal:</strong>
+                                <strong>Mobile/Personal Number:</strong>
                                 <a [href]="'tel:'+p.personal_phone">{{p.personal_phone}}</a>
                             </ion-col>
                             <ion-col size-md="6" size="12">
-                                <strong>Giro:</strong> {{p.giro}}
+                                <strong>Business Activity:</strong> {{p.giro}}
                             </ion-col>
                             <ion-col size-md="6" size="12">
-                                <strong>Banco:</strong> {{p.name_bank}}
+                                <strong>Bank:</strong> {{p.name_bank}}
                             </ion-col>
                             <ion-col size-md="6" size="12">
-                                <strong>Clabe interbancaria:</strong> {{p.clabe}}
+                                <strong>ABA|Swift Code:</strong> {{p.clabe}}
                             </ion-col>
                             <ion-col size-md="6" size="12">
-                                <strong>Ultima sesión:</strong> {{p.lastSession | date: 'MMMM d, y - hh:mmaaa'}}
+                                <strong>Last session:</strong> {{p.lastSession | date: 'MMMM d, y - hh:mmaaa'}}
                             </ion-col>
                         </ion-row>
                     </ion-card-content>
                 </ion-card>
-                <ion-card mode="ios" *ngIf="p.status === 'Bloqueado'">
+                <ion-card mode="ios" *ngIf="p.status === 'Block'">
                     <ion-card-header color="danger">
-                        <ion-card-subtitle class="ion-text-center">Usuario bloqueado</ion-card-subtitle>
+                        <ion-card-subtitle class="ion-text-center">User Blocked</ion-card-subtitle>
                     </ion-card-header>
                     <ion-card-content>
                         <ion-text>
-                            Razón del bloqueo: {{p.reason_block}}
+                            Reason for blocking: {{p.reason_block}}
                         </ion-text>
                     </ion-card-content>
                 </ion-card>
             </ion-col>
             <ion-col size="12">
                 <ion-buttons class="">
-                    <ion-button *ngIf="(p.status !== 'Activo')" fill="solid" shape="round" color="primary" (click)="activeUser(p.uid)">Activar</ion-button>
-                    <ion-button *ngIf="(p.status !== 'Bloqueado')" fill="solid" shape="round" color="primary" (click)="blockUser(p.uid)">Bloquear</ion-button>
+                    <ion-button *ngIf="(p.status !== 'Active')" fill="solid" shape="round" color="primary" (click)="activeUser(p.uid)">To Activate</ion-button>
+                    <ion-button *ngIf="(p.status !== 'Block')" fill="solid" shape="round" color="primary" (click)="blockUser(p.uid)">Block</ion-button>
                 </ion-buttons>
             </ion-col>
         </ion-row>

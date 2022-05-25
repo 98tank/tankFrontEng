@@ -44,9 +44,9 @@ export class MainPage implements OnInit {
             let counter = 0;
             r.forEach(d => {
               const m: MissionData = d.data() as MissionData;
-              if (m.status === 'Pendiente') { this.doughnutChartData[0][1] = ++review; }
-              if (m.status === 'Activa') { this.doughnutChartData[0][2] = ++active; }
-              if (m.status === 'Completada') { this.doughnutChartData[0][3] = ++completed; }
+              if (m.status === 'Pending') { this.doughnutChartData[0][1] = ++review; }
+              if (m.status === 'Active') { this.doughnutChartData[0][2] = ++active; }
+              if (m.status === 'Accomplished') { this.doughnutChartData[0][3] = ++completed; }
               ++counter;
               if (r.size === counter) { this.getMyMissions(u.uid); }
             });
@@ -71,10 +71,10 @@ export class MainPage implements OnInit {
   }
 
   getCandidatesInMyMissions(missions: string[]) {
-    this.fs.getColFilter('candidates', 'mission_id', 'in', missions).where('status', '==', 'Contratado').get()
+    this.fs.getColFilter('candidates', 'mission_id', 'in', missions).where('status', '==', 'Hired').get()
       .then(r => {
       this.doughnutChartData[0][4] = r.size;
-      this.fs.getColFilter('candidates', 'mission_id', 'in', missions).where('status', '==', 'Descartado').get()
+      this.fs.getColFilter('candidates', 'mission_id', 'in', missions).where('status', '==', 'Discarded').get()
       .then(re => {
         this.doughnutChartData[0][5] = re.size;
         this.graphic = true;

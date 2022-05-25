@@ -10,7 +10,7 @@ export interface CandidateData {
     curp?: string;
     sons?: string;
     block: boolean;
-    status: string;
+    status: 'Active' | 'Discarded' | 'Hired';
     skills: string;
     guards: string;
     travel: string;

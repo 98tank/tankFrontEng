@@ -5,7 +5,7 @@
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Historial de Pagos
+            Payment History
         </ion-title>
     </ion-toolbar>
 </ion-header>
@@ -16,15 +16,15 @@
             <ion-col size-md="6" size="12">
                 <ion-card mode="ios" class="pending" color="dark" [routerLink]="['/admin/payment-history/pending']">
                     <ion-card-header>
-                        <ion-title>Misiones Pendientes de Pago</ion-title>
+                        <ion-title>Missions with pending payment</ion-title>
                     </ion-card-header>
                     <ion-card-content>
                         <ion-row>
                             <ion-col class="quantity" size="3">{{missionPending.quantity}}</ion-col>
                             <ion-col class="amount" size="9">
-                                <ion-icon name="cash-outline"></ion-icon>{{missionPending.amount * c.create_mission | currency: 'MXN '}}
+                                <ion-icon name="cash-outline"></ion-icon>{{missionPending.amount * c.create_mission | currency: '$ '}}
                             </ion-col>
-                            <ion-col class="more" size="12">Ver Más</ion-col>
+                            <ion-col class="more" size="12">More Info</ion-col>
                         </ion-row>
                     </ion-card-content>
                 </ion-card>
@@ -39,9 +39,9 @@
                             <ion-row>
                                 <ion-col class="quantity" size="3">{{paidMissions.quantity}}</ion-col>
                                 <ion-col class="amount" size="9">
-                                    <ion-icon name="cash-outline"></ion-icon>{{paidMissions.amount * c.create_mission | currency: 'MXN '}}
+                                    <ion-icon name="cash-outline"></ion-icon>{{paidMissions.amount * c.create_mission | currency: '$ '}}
                                 </ion-col>
-                                <ion-col class="more" size="12">Ver Más</ion-col>
+                                <ion-col class="more" size="12">More Info</ion-col>
                             </ion-row>
                         </ion-card-content>
                     </ion-card>
@@ -50,7 +50,7 @@
             <ion-col size-md="6" size="12">
                 <ion-card mode="ios" class="rewards" color="dark" [routerLink]="['/admin/payment-history/rewards']">
                     <ion-card-header>
-                        <ion-title>Recompensas Pendientes
+                        <ion-title>Pending Rewards
                             <ng-container *ngIf="user$ | async as u">
                                 <ion-badge color="danger" mode="ios" *ngIf="u.statistics.pending_rewards > 0">{{u.statistics.pending_rewards}}</ion-badge>
                             </ng-container>
@@ -61,9 +61,9 @@
                         <ion-row>
                             <ion-col class="quantity" size="3">{{rewardsPendiente.quantity}}</ion-col>
                             <ion-col class="amount" size="9">
-                                <ion-icon name="cash-outline"></ion-icon>{{rewardsPendiente.amount | currency: 'MXN '}}
+                                <ion-icon name="cash-outline"></ion-icon>{{rewardsPendiente.amount | currency: '$ '}}
                             </ion-col>
-                            <ion-col class="more" size="12">Ver Más</ion-col>
+                            <ion-col class="more" size="12">More Info</ion-col>
                         </ion-row>
                     </ion-card-content>
                 </ion-card>
@@ -71,15 +71,15 @@
             <ion-col size-md="6" size="12">
                 <ion-card mode="ios" class="rewards" color="secondary" [routerLink]="['/admin/payment-history/rewards']">
                     <ion-card-header>
-                        <ion-title>Recompensas Pagadas</ion-title>
+                        <ion-title>Payed Rewards</ion-title>
                     </ion-card-header>
                     <ion-card-content>
                         <ion-row>
                             <ion-col class="quantity" size="3">{{rewardsPagada.quantity}}</ion-col>
                             <ion-col class="amount" size="9">
-                                <ion-icon name="cash-outline"></ion-icon>{{rewardsPagada.amount | currency: 'MXN '}}
+                                <ion-icon name="cash-outline"></ion-icon>{{rewardsPagada.amount | currency: '$ '}}
                             </ion-col>
-                            <ion-col class="more" size="12">Ver Más</ion-col>
+                            <ion-col class="more" size="12">More Info</ion-col>
                         </ion-row>
                     </ion-card-content>
                 </ion-card>
@@ -87,8 +87,7 @@
             <ion-col size-md="6" size="12">
                 <ion-card mode="ios" class="returns" color="dark" [routerLink]="['/admin/payment-history/returns']">
                     <ion-card-header>
-                        <ion-title>Devoluciones Pendientes
-                            <ng-container *ngIf="user$ | async as u">
+                        <ion-title>Pending Reimbursements<ng-container *ngIf="user$ | async as u">
                                 <ion-badge color="danger" mode="ios" *ngIf="u.statistics.pending_refound > 0">{{u.statistics.pending_refound}}</ion-badge>
                             </ng-container>
                         </ion-title>
@@ -97,9 +96,9 @@
                         <ion-row>
                             <ion-col class="quantity" size="3">{{returnsPending.quantity}}</ion-col>
                             <ion-col class="amount" size="9">
-                                <ion-icon name="cash-outline"></ion-icon>{{returnsPending.amount * c.create_mission | currency: 'MXN '}}
+                                <ion-icon name="cash-outline"></ion-icon>{{returnsPending.amount * c.create_mission | currency: '$ '}}
                             </ion-col>
-                            <ion-col class="more" size="12">Ver Más</ion-col>
+                            <ion-col class="more" size="12">More Info</ion-col>
                         </ion-row>
                     </ion-card-content>
                 </ion-card>
@@ -107,15 +106,15 @@
             <ion-col size-md="6" size="12">
                 <ion-card mode="ios" class="returns" color="danger" [routerLink]="['/admin/payment-history/returns']">
                     <ion-card-header>
-                        <ion-title>Devoluciones Pagadas</ion-title>
+                        <ion-title>Payed Reimbursements</ion-title>
                     </ion-card-header>
                     <ion-card-content>
                         <ion-row>
                             <ion-col class="quantity" size="3">{{returnsPagada.quantity}}</ion-col>
                             <ion-col class="amount" size="9">
-                                <ion-icon name="cash-outline"></ion-icon>{{returnsPagada.amount * c.create_mission | currency: 'MXN '}}
+                                <ion-icon name="cash-outline"></ion-icon>{{returnsPagada.amount * c.create_mission | currency: '$ '}}
                             </ion-col>
-                            <ion-col class="more" size="12">Ver Más</ion-col>
+                            <ion-col class="more" size="12">More Info</ion-col>
                         </ion-row>
                     </ion-card-content>
                 </ion-card>
@@ -129,7 +128,7 @@
                         <ion-card-content>
                             <ion-row>
                                 <ion-col class="amount" size="12">
-                                    <ion-icon name="cash-outline"></ion-icon>{{(paidMissions.amount * c.create_mission) - rewardsPagada.amount - (returnsPagada.amount * c.create_mission) | currency: 'MXN '}}
+                                    <ion-icon name="cash-outline"></ion-icon>{{(paidMissions.amount * c.create_mission) - rewardsPagada.amount - (returnsPagada.amount * c.create_mission) | currency: '$ '}}
                                 </ion-col>
                             </ion-row>
                         </ion-card-content>

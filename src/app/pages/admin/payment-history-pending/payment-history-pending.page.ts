@@ -30,7 +30,7 @@ export class PaymentHistoryPendingPage implements OnInit {
     if (action === 'previous') {
       document = this.firstDocument;
       if (document) {
-        this.fs.getColFilter('missions', 'status_payment', '==', 'Pendiente').orderBy('create_date', 'asc').endBefore(document)
+        this.fs.getColFilter('missions', 'status_payment', '==', 'Pending').orderBy('create_date', 'asc').endBefore(document)
           .limitToLast(40)
           .get().then((res) => {
             this.firstDocument = res.docs[0];
@@ -38,7 +38,7 @@ export class PaymentHistoryPendingPage implements OnInit {
             this.LoadDataUser(res);
           });
       } else {
-        this.fs.getColFilter('missions', 'status_payment', '==', 'Pendiente').orderBy('create_date', 'asc')
+        this.fs.getColFilter('missions', 'status_payment', '==', 'Pending').orderBy('create_date', 'asc')
           .limit(40)
           .get().then((res) => {
             this.firstDocument = res.docs[0];
@@ -49,7 +49,7 @@ export class PaymentHistoryPendingPage implements OnInit {
     } else {
       document = this.lastDocument;
       if (document) {
-        this.fs.getColFilter('missions', 'status_payment', '==', 'Pendiente').orderBy('create_date', 'asc').startAfter(document)
+        this.fs.getColFilter('missions', 'status_payment', '==', 'Pending').orderBy('create_date', 'asc').startAfter(document)
           .limit(40)
           .get().then((res) => {
             this.firstDocument = res.docs[0];
@@ -61,7 +61,7 @@ export class PaymentHistoryPendingPage implements OnInit {
             }
           });
       } else {
-        this.fs.getColFilter('missions', 'status_payment', '==', 'Pendiente').orderBy('create_date', 'asc')
+        this.fs.getColFilter('missions', 'status_payment', '==', 'Pending').orderBy('create_date', 'asc')
           .limit(40)
           .get().then((res) => {
             this.firstDocument = res.docs[0];

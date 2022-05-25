@@ -109,7 +109,7 @@ export class RegisterAdminPage implements OnInit {
             registerDate: date,
             update_Date: date,
             type: 'admin',
-            status: 'Pendiente',
+            status: 'Pending',
             avatar: this.imgAvatar || '',
             uid
           }

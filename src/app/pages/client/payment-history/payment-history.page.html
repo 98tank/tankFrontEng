@@ -32,7 +32,7 @@
                                     <ion-icon color="primary" name="rocket-sharp"></ion-icon>{{p.name_position}}
                                 </td>
                                 <td>{{p.create_date | date}}</td>
-                                <td *ngIf="c$ | async as c">{{((p.net_salary * c.create_mission) | currency: 'MXN ')}}</td>
+                                <td *ngIf="c$ | async as c">{{((p.net_salary * c.create_mission) | currency: '$ ')}}</td>
                                 <td class="ion-text-capitalize">{{p.status}}</td>
                                 <td>
                                     <ion-button *ngIf="p.pay.filePath; else noPay" expand="block" shape="round" fill="solid" color="primary" (click)="watch(p.pay)">Ver</ion-button>
@@ -62,7 +62,7 @@
                                     <ion-icon color="primary" name="rocket-sharp"></ion-icon>{{r.name_position}}
                                 </td>
                                 <td>{{r.create_date | date}}</td>
-                                <td *ngIf="c$ | async as c">{{((r.net_salary * c.create_mission) | currency: 'MXN ')}}</td>
+                                <td *ngIf="c$ | async as c">{{((r.net_salary * c.create_mission) | currency: '$ ')}}</td>
                                 <td class="ion-text-capitalize">{{r.status}}</td>
                                 <td>
                                     <ion-button expand="block" shape="round" fill="solid" color="primary" (click)="watch(r.pay)">Ver</ion-button>

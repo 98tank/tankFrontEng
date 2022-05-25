@@ -21,7 +21,7 @@ export class MainPage implements OnInit {
   public barChartLegend = false;
   public doughnutChartType: ChartType = 'doughnut';
   public doughnutChartData: MultiDataSet = [[0, 0, 0, 0, 0, 0, 0]];
-  public doughnutChartLabels: Label[] = ['Misiones creadas', 'Misiones en revisión', 'Misiones activas', 'Misiones terminadas', 'Misiones canceladas', 'Candidatos aceptados', 'Candidatos rechazados'];
+  public doughnutChartLabels: Label[] = ['Created Missions', 'Missions under Review', 'Active Missions', 'Missions Accomplished', 'Cancelled Missions', ' Accepted Candidates', 'Rejected Missions'];
   public pieChartColors = [{backgroundColor: ['#061347', '#a8a8a8', '#ec5e04', '#8dbdd8', '#000000', '#03a45e', '#e42300'], }, ];
   users: UsersCard = {
     admins: 0,
@@ -75,10 +75,10 @@ export class MainPage implements OnInit {
         let counter = 0;
         r.forEach(d => {
           const m: MissionData = d.data() as MissionData;
-          if (m.status === 'Pendiente') { this.doughnutChartData[0][1] = ++review; }
-          if (m.status === 'Activa') { this.doughnutChartData[0][2] = ++active; }
-          if (m.status === 'Completada') { this.doughnutChartData[0][3] = ++completed; }
-          if (m.status === 'Cancelada') { this.doughnutChartData[0][4] = ++cancel; }
+          if (m.status === 'Pending') { this.doughnutChartData[0][1] = ++review; }
+          if (m.status === 'Active') { this.doughnutChartData[0][2] = ++active; }
+          if (m.status === 'Accomplished') { this.doughnutChartData[0][3] = ++completed; }
+          if (m.status === 'Cancelled') { this.doughnutChartData[0][4] = ++cancel; }
           ++counter;
           if (r.size === counter) { this.getCandidatesInMissions(); }
         });
@@ -87,10 +87,10 @@ export class MainPage implements OnInit {
   }
 
   getCandidatesInMissions() {
-    this.fs.getColFilter('candidates', 'status', '==', 'Contratado').get()
+    this.fs.getColFilter('candidates', 'status', '==', 'Hired').get()
       .then(r => {
       this.doughnutChartData[0][5] = r.size;
-      this.fs.getColFilter('candidates', 'status', '==', 'Descartado').get()
+      this.fs.getColFilter('candidates', 'status', '==', 'Discarded').get()
       .then(re => {
         this.doughnutChartData[0][6] = re.size;
         this.graphic = true;

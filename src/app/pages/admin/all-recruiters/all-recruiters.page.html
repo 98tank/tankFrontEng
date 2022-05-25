@@ -5,39 +5,39 @@
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Reclutadores
+            Recruiters
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-grid fixed>
-        <app-users-summations [text]="'Total Reclutadores'" [qty]="totalRecruiter"></app-users-summations>
+        <app-users-summations [text]="'Total Recruiters'" [qty]="totalRecruiter"></app-users-summations>
         <div class="materialtable">
             <ion-card mode="ios">
                 <ion-card-content class="ion-no-padding">
-                    <ion-searchbar debounce="200" type="search" animated placeholder="Buscar reclutador" autocorrect="on" (ionChange)="applyFilter($event)"></ion-searchbar>
+                    <ion-searchbar debounce="200" type="search" animated placeholder="Find a Recruiters" autocorrect="on" (ionChange)="applyFilter($event)"></ion-searchbar>
 
-                    <table mat-table [dataSource]="dataSource" matSort matSort matSortActive="Ult.Sesión" matSortDirection="desc" aria-describedby="Clientes">
-                        <ng-container matColumnDef="Email">
-                            <th mat-header-cell mat-sort-header *matHeaderCellDef scope="row">Correo</th>
+                    <table mat-table [dataSource]="dataSource" matSort matSort matSortActive="Last.Session" matSortDirection="desc" aria-describedby="Recruiters">
+                        <ng-container matColumnDef="E-mail">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef scope="row">E-mail</th>
                             <td mat-cell *matCellDef="let element">{{ element.email }}</td>
                         </ng-container>
-                        <ng-container matColumnDef="Reclutador">
-                            <th mat-header-cell mat-sort-header *matHeaderCellDef scope="row">Reclutador</th>
+                        <ng-container matColumnDef="Recruiters">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef scope="row">Recruiter</th>
                             <td mat-cell *matCellDef="let element">{{ element.name }}</td>
                         </ng-container>
-                        <ng-container matColumnDef="Regístro">
-                            <th mat-header-cell mat-sort-header *matHeaderCellDef scope="row">Regístro</th>
+                        <ng-container matColumnDef="Register">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef scope="row">Register</th>
                             <td mat-cell *matCellDef="let element">{{ element.registerDate | date }}</td>
                         </ng-container>
-                        <ng-container matColumnDef="Ult.Sesión">
-                            <th mat-header-cell mat-sort-header *matHeaderCellDef scope="row">Ult.Sesión</th>
+                        <ng-container matColumnDef="Last.Session">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef scope="row">Last.Session</th>
                             <td mat-cell *matCellDef="let element">{{ element.lastSession | date: 'MMMM d, y - hh:mmaaa' }}</td>
                         </ng-container>
-                        <ng-container matColumnDef="Estatus">
-                            <th mat-header-cell mat-sort-header *matHeaderCellDef scope="row">Estatus</th>
-                            <td mat-cell [ngClass]="{'active': element.status === 'Activo', 'pending': element.status === 'Pendiente', 'block': element.status === 'Bloqueado'}" *matCellDef="let element">{{ element.status }}</td>
+                        <ng-container matColumnDef="Status">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef scope="row">Status</th>
+                            <td mat-cell [ngClass]="{'active': element.status === 'Active', 'pending': element.status === 'Pending', 'block': element.status === 'Block'}" *matCellDef="let element">{{ element.status }}</td>
                         </ng-container>
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                         <tr mat-row (click)="clickedRows(row)" *matRowDef="let row; columns: displayedColumns"></tr>
@@ -71,7 +71,7 @@
                                 <td>{{r.profile.name}}</td>
                                 <td>{{r.profile.registerDate | date}}</td>
                                 <td>{{r.profile.lastSession | date}}</td>
-                                <td [ngClass]="{'active': r.profile.status === 'Activo', 'block': r.profile.status === 'Bloqueado'}">{{r.profile.status}}</td>
+                                <td [ngClass]="{'active': r.profile.status === 'Active', 'block': r.profile.status === 'Block'}">{{r.profile.status}}</td>
                                 <td>
                                     <ion-button class="more" fill="solid" shape="round" color="primary" [routerLink]="['/admin/reclutador/', r.profile.uid]">Ver</ion-button>
                                 </td>

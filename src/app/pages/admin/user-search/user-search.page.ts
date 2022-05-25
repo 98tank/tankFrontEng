@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, LoadingController } from '@ionic/angular';
-import { MissionData, User } from 'src/app/models';
+import { MissionData, User, CandidateData } from 'src/app/models';
 import { FirebaseService, SharedService } from 'src/app/services';
 
 @Component({
@@ -81,12 +81,12 @@ export class UserSearchPage implements OnInit {
       dataFirebaseMissions.forEach(d => {
         ++counter;
         const m: MissionData = d.data() as MissionData;
-        if (m.status === 'Activa') { ++active; }
-        if (m.status === 'Completada') { ++completed; }
-        if (m.status === 'Pendiente') { ++pending; }
-        if (m.status === 'Cancelada') { ++cancelled; }
+        if (m.status === 'Active') { ++active; }
+        if (m.status === 'Accomplished') { ++completed; }
+        if (m.status === 'Pending') { ++pending; }
+        if (m.status === 'Cancelled') { ++cancelled; }
         if (counter === dataFirebaseMissions.size) {
-          this.missions = [active, completed, pending, cancelled];
+          this.missions = [active, completed, cancelled, pending];
          }
       });
     }
@@ -102,10 +102,10 @@ export class UserSearchPage implements OnInit {
       this.candidates = [0, 0, 0];
       dataFirebaseMissions.forEach(d => {
         ++counter;
-        const m: MissionData = d.data() as MissionData;
-        if (m.status === 'Activo') { ++active; }
-        if (m.status === 'Contratado') { ++hired; }
-        if (m.status === 'Descartado') { ++discarded; }
+        const m: CandidateData = d.data() as CandidateData;
+        if (m.status === 'Active') { ++active; }
+        if (m.status === 'Hired') { ++hired; }
+        if (m.status === 'Discarded') { ++discarded; }
         if (counter === dataFirebaseMissions.size) {
           this.candidates = [active, hired, discarded];
          }

@@ -1,6 +1,6 @@
 <ion-card mode="ios">
     <ion-card-header>
-        <ion-card-subtitle color="tertiary">Terminada el {{mission.type_contract.date | date: 'd/MM/y - hh:mmaaa'}}</ion-card-subtitle>
+        <ion-card-subtitle color="tertiary">COMPLETED ON {{mission.type_contract.date | date: 'd/MM/y - hh:mmaaa'}}</ion-card-subtitle>
         <ion-card-title color="secondary">
             <h3>{{mission.name_position}}</h3>
         </ion-card-title>
@@ -8,15 +8,15 @@
     <ion-card-content>
         <ion-item lines="none">
             <ion-icon color="secondary" name="rocket-sharp" slot="start"></ion-icon>
-            <ion-label><strong>Estatus Misión:</strong>
+            <ion-label><strong>Status Mission:</strong>
                 <ion-chip color="medium">
-                    <ion-label>Terminada</ion-label>
+                    <ion-label>Accomplished</ion-label>
                 </ion-chip>
             </ion-label>
             <div tabindex="0" style="height: 0;"></div>
         </ion-item>
         <ion-buttons class="button">
-            <ion-button fill="solid" shape="round" color="primary" [routerLink]="[route, mission.mission_id]">Ver Misión</ion-button>
+            <ion-button fill="solid" shape="round" color="primary" [routerLink]="[route, mission.mission_id]">Open Mission</ion-button>
         </ion-buttons>
     </ion-card-content>
 </ion-card>

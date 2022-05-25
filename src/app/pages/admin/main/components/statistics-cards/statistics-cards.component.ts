@@ -16,11 +16,11 @@ export class StatisticsCardsComponent implements OnInit {
   @Input() users: UsersCard;
   public barChartLegend = false;
   public barChartType: ChartType = 'horizontalBar';
-  public barChartLabels: Label[] = ['Usuarios'];
+  public barChartLabels: Label[] = ['Users'];
   public barChartData: ChartDataSets[] = [
-    { data: [6], label: 'Clientes', backgroundColor: ['#061347'], hoverBackgroundColor: ['#1f2b59'] },
-    { data: [14], label: 'Reclutadores', backgroundColor: ['#ec5e04'], hoverBackgroundColor: ['#ee6e1d'] },
-    { data: [5], label: 'Administradores', backgroundColor: ['#8dbdd8'], hoverBackgroundColor: ['#98c4dc'] },
+    { data: [6], label: 'Clients', backgroundColor: ['#061347'], hoverBackgroundColor: ['#1f2b59'] },
+    { data: [14], label: 'Recruiters', backgroundColor: ['#ec5e04'], hoverBackgroundColor: ['#ee6e1d'] },
+    { data: [5], label: 'Administrators', backgroundColor: ['#8dbdd8'], hoverBackgroundColor: ['#98c4dc'] },
   ];
   public barChartOptions: ChartOptions = {
     maintainAspectRatio: false,

@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
     <ion-toolbar mode="ios">
         <ion-buttons slot="start">
-            <ion-back-button defaultHref="cliente/misiones-activas" text="Atras"></ion-back-button>
+            <ion-back-button defaultHref="cliente/misiones-activas" text="Back"></ion-back-button>
         </ion-buttons>
         <ion-title class="title-page" *ngIf="mission$ | async as mission">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
@@ -16,11 +16,11 @@
 <ion-content>
     <ion-grid fixed *ngIf="mission$ | async as m">
         <app-mission-data [mission]="m"></app-mission-data>
-        <ion-row *ngIf="m.status === 'Activa' && auth.userUid === m.uid">
+        <ion-row *ngIf="m.status === 'Active' && auth.userUid === m.uid">
             <ion-col size="12">
                 <ion-buttons class="actions">
-                    <ion-button color="primary" fill="solid" shape="round" (click)="editMission(m)">Editar misión</ion-button>
-                    <ion-button color="primary" fill="solid" shape="round" (click)="cancelMission(m)">Cancelar misión</ion-button>
+                    <ion-button color="primary" fill="solid" shape="round" (click)="editMission(m)">Edit Mission</ion-button>
+                    <ion-button color="primary" fill="solid" shape="round" (click)="cancelMission(m)">Cancel Mission</ion-button>
                 </ion-buttons>
             </ion-col>
             <ion-col size="12">

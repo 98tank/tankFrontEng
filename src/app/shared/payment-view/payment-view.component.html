@@ -1,12 +1,12 @@
 <ion-card *ngIf="pay.url; else noPay" mode="ios" (click)="openPeyment()" class="cursorP">
     <ion-card-header mode="ios" color="secondary">
-        <ion-title>Pago para generar la misión</ion-title>
+        <ion-title>Payment</ion-title>
     </ion-card-header>
     <ion-card-content>
         <ion-row>
             <ion-col size="12">
                 <ion-item lines="none">
-                    <strong>Archivo adjuntado: </strong>{{pay.name}}
+                    <strong>Attached Files: </strong>{{pay.name}}
                     <ion-icon slot="end" color="secondary" name="eye-outline"></ion-icon>
                 </ion-item>
             </ion-col>
@@ -17,12 +17,12 @@
 <ng-template #noPay>
     <ion-card mode="ios">
         <ion-card-header mode="ios" color="dark">
-            <ion-title>Detalles del Pago</ion-title>
+            <ion-title>Payment detail</ion-title>
         </ion-card-header>
         <ion-card-content>
             <ion-row>
                 <ion-col size="12" class="ion-text-center">
-                    <strong>No existe ningun pago cargado para esta {{message}}</strong>
+                    <strong>No payment receipt found {{message}}</strong>
                 </ion-col>
             </ion-row>
         </ion-card-content>

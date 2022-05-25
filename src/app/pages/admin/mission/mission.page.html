@@ -1,11 +1,11 @@
 <ion-header [translucent]="true">
     <ion-toolbar mode="ios">
         <ion-buttons slot="start">
-            <ion-back-button [defaultHref]="'/admin/misiones-activas'" text="Atrás"></ion-back-button>
+            <ion-back-button [defaultHref]="'/admin/misiones-activas'" text="Back"></ion-back-button>
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Mision
+            Mission
         </ion-title>
         <ion-buttons slot="end">
             <ion-menu-button></ion-menu-button>
@@ -16,16 +16,16 @@
 <ion-content>
     <ion-grid fixed *ngIf="mission$ | async as m">
         <app-mission-data [mission]="m"></app-mission-data>
-        <app-contact-for-service [m]="m" *ngIf="m.status === 'Completada'"></app-contact-for-service>
+        <app-contact-for-service [m]="m" *ngIf="m.status === 'Completed'"></app-contact-for-service>
         <app-payment-view [pay]="m.pay" [message]="'misión'"></app-payment-view>
         <app-edit-payments-admin [mission]="m"></app-edit-payments-admin>
         <ion-row>
             <ion-col size="12">
                 <ion-buttons class="actions">
-                    <ion-button *ngIf="m.status === 'Pendiente'" color="primary" fill="solid" shape="round" (click)="changeStatus(m, 'Activa')">Activar misión</ion-button>
-                    <ion-button color="primary" fill="solid" shape="round" (click)="editAllMission(m)" *ngIf="((adminType$ | async) === 'superAdmin')">Editar misión</ion-button>
-                    <ion-button color="primary" fill="solid" shape="round" (click)="changeStatus(m, 'Activa')" *ngIf="m.status === 'Cancelada'">Activar misións</ion-button>
-                    <ion-button *ngIf="m.status !== 'Cancelada'" color="primary" fill="solid" shape="round" (click)="changeStatus(m, 'Cancelada')">Cancelar misión</ion-button>
+                    <ion-button *ngIf="m.status === 'Pending'" color="primary" fill="solid" shape="round" (click)="changeStatus(m, 'Active')">Active mission</ion-button>
+                    <ion-button color="primary" fill="solid" shape="round" (click)="editAllMission(m)" *ngIf="((adminType$ | async) === 'superAdmin')">Edit mission</ion-button>
+                    <ion-button color="primary" fill="solid" shape="round" (click)="changeStatus(m, 'Active')" *ngIf="m.status === 'Cancelled'">Active mission</ion-button>
+                    <ion-button *ngIf="m.status !== 'Cancelled'" color="primary" fill="solid" shape="round" (click)="changeStatus(m, 'Cancelled')">Cancel mission</ion-button>
                 </ion-buttons>
             </ion-col>
         </ion-row>

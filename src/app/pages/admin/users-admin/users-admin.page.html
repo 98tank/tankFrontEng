@@ -5,7 +5,7 @@
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Usuarios Administradores
+            Admin Users
         </ion-title>
     </ion-toolbar>
 </ion-header>
@@ -19,8 +19,8 @@
                         <ion-avatar slot="start">
                             <img [src]="u.profile.avatar || 'assets/img/logouser.jpg'">
                         </ion-avatar>
-                        <ion-card-subtitle><strong>{{i+1}}.- </strong>Se unió a la app en {{u.profile.registerDate | date: 'MMMM d, y - hh:mmaaa'}}</ion-card-subtitle>
-                        <ion-card-subtitle>Ultima sesión {{u.profile.lastSession | date: 'MMMM d, y - hh:mmaaa'}}</ion-card-subtitle>
+                        <ion-card-subtitle><strong>{{i+1}}.- </strong>Joined on {{u.profile.registerDate | date: 'MMMM d, y - hh:mmaaa'}}</ion-card-subtitle>
+                        <ion-card-subtitle>Last session {{u.profile.lastSession | date: 'MMMM d, y - hh:mmaaa'}}</ion-card-subtitle>
                         <ion-card-title mode="md" color="primary">
                             <ion-avatar slot="start">
                                 <img [src]="u.profile.avatar || 'assets/img/logouser.jpg'">
@@ -32,27 +32,27 @@
                         </ion-avatar>
                         <ion-label>{{u.profile.name}} {{u.profile.lastName}} {{u.profile.lastNameS}}</ion-label>
                         <ion-note slot="end">
-                            <ion-chip color="success" *ngIf="u.profile.status === 'Activo'">
-                                <ion-label>Activo</ion-label>
+                            <ion-chip color="success" *ngIf="u.profile.status === 'Active'">
+                                <ion-label>Active</ion-label>
                             </ion-chip>
-                            <ion-chip color="dark" *ngIf="u.profile.status === 'Bloqueado'">
-                                <ion-label>Bloqueado</ion-label>
+                            <ion-chip color="dark" *ngIf="u.profile.status === 'Block'">
+                                <ion-label>Block</ion-label>
                             </ion-chip>
-                            <ion-chip color="medium" *ngIf="u.profile.status === 'Pendiente'">
-                                <ion-label>Pendiente</ion-label>
+                            <ion-chip color="medium" *ngIf="u.profile.status === 'Pending'">
+                                <ion-label>Pending</ion-label>
                             </ion-chip>
                         </ion-note>
                     </ion-item>
 
                     <ion-card-content>
-                        <strong>Tipo: </strong> {{u.profile.type}}<br>
-                        <strong>Email: </strong> {{u.profile.email}}<br>
-                        <strong>Cumpleaños: </strong> {{u.profile.birthdate | date: 'MMMM d, y'}}
+                        <strong>Type: </strong> {{u.profile.type}}<br>
+                        <strong>E-mail: </strong> {{u.profile.email}}<br>
+                        <strong>Anniversary: </strong> {{u.profile.birthdate | date: 'MMMM d, y'}}
 
                     </ion-card-content>
                     <ng-container *ngIf="typeAdmin$ | async as t">
                         <div *ngIf="t === 'superAdmin'" class="button">
-                            <ion-button mode="ios" class="mod" fill="outline" (click)="moderar(u)">Moderar</ion-button>
+                            <ion-button mode="ios" class="mod" fill="outline" (click)="moderar(u)">Moderate</ion-button>
                         </div>
                     </ng-container>
 

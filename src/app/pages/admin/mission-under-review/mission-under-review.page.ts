@@ -24,7 +24,7 @@ export class MissionUnderReviewPage {
 
   getPendingMisions() {
     this.missionPending = [];
-    this.fs.getColFilter('missions', 'status', '==', 'Pendiente').get().then(res => {
+    this.fs.getColFilter('missions', 'status', '==', 'Pending').get().then(res => {
       if (res.size > 0) {
         res.forEach(d => {
           const m: MissionData = d.data() as MissionData;

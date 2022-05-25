@@ -26,7 +26,7 @@ export class ActiveMissionsPage {
 
   getPendingMisions() {
     this.activeMission = [];
-    this.fs.getColFilter('missions', 'status', '==', 'Activa').orderBy('create_date', 'desc').get().then(res => {
+    this.fs.getColFilter('missions', 'status', '==', 'Active').orderBy('create_date', 'desc').get().then(res => {
       if (res.size > 0) {
         res.forEach(d => {
           const m: MissionData = d.data() as MissionData;

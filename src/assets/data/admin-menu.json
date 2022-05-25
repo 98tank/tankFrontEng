@@ -1,84 +1,84 @@
 [{
         "icon": "stats-chart",
-        "name": "Principales",
+        "name": "Home",
         "redirecTo": "/admin/principal",
         "auth": true
     },
     {
         "icon": "briefcase",
-        "name": "Base Clientes",
+        "name": "Client Base",
         "redirecTo": "/admin/clientes",
         "auth": true
     },
     {
         "icon": "person",
-        "name": "Base Reclutadores",
+        "name": "Recruiter Base",
         "redirecTo": "/admin/reclutadores",
         "auth": true
     },
     {
         "icon": "people",
-        "name": "Base Candidatos",
+        "name": "Candidate Base",
         "redirecTo": "/admin/candidatos",
         "auth": true
     },
     {
         "icon": "search",
-        "name": "Misiones en Revisión",
+        "name": "Missions under review",
         "redirecTo": "/admin/misiones-en-revision",
         "auth": true
     },
     {
         "icon": "rocket",
-        "name": "Misiones Activas",
+        "name": "Active Missions",
         "redirecTo": "/admin/misiones-activas",
         "auth": true
     },
     {
         "icon": "golf",
-        "name": "Misiones Terminadas",
+        "name": "Missions Accomplished",
         "redirecTo": "/admin/misiones-completadas",
         "auth": true
     },
     {
         "icon": "close-circle",
-        "name": "Misiones Canceladas",
+        "name": "Cancelled Missions",
         "redirecTo": "/admin/misiones-canceladas",
         "auth": true
     },
     {
         "icon": "construct",
-        "name": "Usuarios Administradores",
+        "name": "Admin User",
         "redirecTo": "/admin/users-admin",
         "auth": true
     },
     {
         "icon": "search",
-        "name": "Buscador de usuarios",
+        "name": "User Finder",
         "redirecTo": "/admin/user-search",
         "auth": true
     },
     {
         "icon": "cash",
-        "name": "Historial de pagos",
+        "name": "Payment History",
         "redirecTo": "/admin/payment-history",
         "auth": true
     },
     {
         "icon": "settings",
-        "name": "Editar mi cuenta",
+        "name": "Edit My Account",
         "redirecTo": "/admin/edit-my-account",
         "auth": true
     },
     {
         "icon": "gift",
-        "name": "Invitaciones",
+        "name": "Invitations",
         "redirecTo": "/admin/invitations",
         "auth": true
     },
     {
         "icon": "exit",
-        "name": "Cerrar sesión",
+        "name": "Sign Out",
         "redirecTo": "/login",
         "auth": true
     }

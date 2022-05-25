@@ -20,13 +20,13 @@
                 <app-candidate-data [candidate]="c"></app-candidate-data>
             </ion-col>
             <ng-container *ngIf="auth.userUid === c.uid_recruiter">
-                <ion-col size="12" *ngIf="c.status === 'Activo'">
+                <ion-col size="12" *ngIf="c.status === 'Active'">
                     <ion-buttons class="actions">
                         <ion-button color="primary" fill="solid" shape="round" (click)="openEditCandidate(c)">Editar Candidato</ion-button>
                         <ion-button color="primary" fill="solid" shape="round" (click)="openAlertDelete(c, c.mission_id)">Eliminar Candidato</ion-button>
                     </ion-buttons>
                 </ion-col>
-                <ng-container *ngIf="c.status === 'Activo'">
+                <ng-container *ngIf="c.status === 'Active'">
                     <ion-col size="12" *ngIf="c.interview?.status === 'pending'">
                         <app-pending-interview [candidate]="c" [recruiter]="true"></app-pending-interview>
                     </ion-col>
@@ -35,7 +35,7 @@
                     </ion-col>
                 </ng-container>
 
-                <ion-col size="12" *ngIf="c.status === 'Descartado'">
+                <ion-col size="12" *ngIf="c.status === 'Discarded'">
                     <app-reason-rejection [reason]="c.reason_discard"></app-reason-rejection>
                 </ion-col>
             </ng-container>

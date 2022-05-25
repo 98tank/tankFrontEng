@@ -10,41 +10,37 @@
             </ion-avatar>
             <ion-row>
                 <ion-col size="12" class="type">{{user.profile.type}}</ion-col>
-                <ion-col size="12" *ngIf="user.profile.type === 'client'" class="title">Misiones</ion-col>
-                <ion-col size="12" *ngIf="user.profile.type === 'recruiter'" class="title">Candidatos</ion-col>
+                <ion-col size="12" *ngIf="user.profile.type === 'client'" class="title">Missions</ion-col>
+                <ion-col size="12" *ngIf="user.profile.type === 'recruiter'" class="title">Candidates</ion-col>
                 <ion-col size="12" *ngIf="user.profile.type === 'admin' || user.profile.type === 'superAdmin'" class="title">Admin</ion-col>
                 <ng-container *ngIf="missions">
-                    <ion-col size="3"><span>{{missions[0]}}</span><br>Activas</ion-col>
-                    <ion-col size="3"><span>{{missions[1]}}</span><br>Completadas</ion-col>
-                    <ion-col size="3"><span>{{missions[2]}}</span><br>Canceladas</ion-col>
-                    <ion-col size="3"><span>{{missions[3]}}</span><br>Revision</ion-col>
+                    <ion-col size="3"><span>{{missions[0]}}</span><br>Actives</ion-col>
+                    <ion-col size="3"><span>{{missions[1]}}</span><br>Accomplished</ion-col>
+                    <ion-col size="3"><span>{{missions[2]}}</span><br>Cancelled</ion-col>
+                    <ion-col size="3"><span>{{missions[3]}}</span><br>Under Review</ion-col>
                 </ng-container>
                 <ng-container *ngIf="candidates">
-                    <ion-col size="4"><span>{{candidates[0]}}</span><br>Activos</ion-col>
-                    <ion-col size="4"><span>{{candidates[1]}}</span><br>Contratados</ion-col>
-                    <ion-col size="4"><span>{{candidates[2]}}</span><br>Descartado</ion-col>
+                    <ion-col size="4"><span>{{candidates[0]}}</span><br>Actives</ion-col>
+                    <ion-col size="4"><span>{{candidates[1]}}</span><br>Hireds</ion-col>
+                    <ion-col size="4"><span>{{candidates[2]}}</span><br>Discarded</ion-col>
                 </ng-container>
 
                 <ion-col size="12">
                     <ion-item lines="none" *ngIf="user.profile.company_name">
                         <ion-icon color="secondary" slot="start" name="business-outline"></ion-icon>
-                        <p><strong>Compañia: </strong>{{ user.profile.company_name }}</p>
+                        <p><strong>Company: </strong>{{ user.profile.company_name }}</p>
                     </ion-item>
                     <ion-item lines="none">
                         <ion-icon color="secondary" slot="start" name="phone-portrait"></ion-icon>
-                        <p><strong>Telefono Personal: </strong><a href="tel:+{{user.profile.personal_phone}}">{{user.profile.personal_phone}}</a></p>
+                        <p><strong>Mobile/Personal Number: </strong><a href="tel:+{{user.profile.personal_phone}}">{{user.profile.personal_phone}}</a></p>
                     </ion-item>
                     <ion-item lines="none">
                         <ion-icon color="secondary" slot="start" name="call"></ion-icon>
-                        <p><strong>Telefono de la empresa: </strong><a href="tel:+{{user.profile.personal_phone}}">{{user.profile.personal_phone}}</a></p>
-                    </ion-item>
-                    <ion-item lines="none" *ngIf="user.profile.curp">
-                        <ion-icon color="secondary" slot="start" name="eye"></ion-icon>
-                        <p><strong>CURP: </strong>{{ user.profile.curp }}</p>
+                        <p><strong>Mobile/Company Number: </strong><a href="tel:+{{user.profile.personal_phone}}">{{user.profile.personal_phone}}</a></p>
                     </ion-item>
                     <ion-item lines="none">
                         <ion-icon color="secondary" slot="start" name="home"></ion-icon>
-                        <p><strong>Dirección: </strong>{{ user.profile.address }}</p>
+                        <p><strong>Current Address: </strong>{{ user.profile.address }}</p>
                     </ion-item>
                 </ion-col>
                 <ion-col size="12">
@@ -52,27 +48,27 @@
                         <ion-radio-group [value]="user.profile.type" (ionChange)="emitType($event)">
                             <ion-list-header>
                                 <ion-label>
-                                    Rol
+                                    Role
                                 </ion-label>
                             </ion-list-header>
 
                             <ion-item *ngIf="user.profile.business_name">
-                                <ion-label>Cliente</ion-label>
+                                <ion-label>Client</ion-label>
                                 <ion-radio value="client"></ion-radio>
                             </ion-item>
 
                             <ion-item *ngIf="user.profile.nickname">
-                                <ion-label>Reclutador</ion-label>
+                                <ion-label>Recruiter</ion-label>
                                 <ion-radio value="recruiter"></ion-radio>
                             </ion-item>
 
                             <ion-item>
-                                <ion-label>Administrador</ion-label>
+                                <ion-label>Admin</ion-label>
                                 <ion-radio value="admin"></ion-radio>
                             </ion-item>
 
                             <ion-item lines="none">
-                                <ion-label>Super Aministrador</ion-label>
+                                <ion-label>Super Admin</ion-label>
                                 <ion-radio value="superAdmin"></ion-radio>
                             </ion-item>
                         </ion-radio-group>
@@ -80,11 +76,11 @@
                 </ion-col>
                 <ion-col>
                     <ng-container *ngIf="user.profile.type === 'client' || user.profile.type === 'recruiter'; else NoDelete">
-                        <ion-button (click)="openAlertDetele(user.profile)">Borrar Usuario</ion-button>
+                        <ion-button (click)="openAlertDetele(user.profile)">Delete User</ion-button>
                         <br>
                     </ng-container>
                     <ng-template #NoDelete>
-                        <ion-text>Para borrar este usuario debe estar en tipo Cliente o Reclutador.</ion-text>
+                        <ion-text>To delete this user must be in type Client or Recruiter.</ion-text>
                     </ng-template>
                 </ion-col>
             </ion-row>

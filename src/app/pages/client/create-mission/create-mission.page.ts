@@ -20,7 +20,7 @@ export class CreateMissionPage implements OnInit {
   tankPrice: number;
   states$: Observable<string[]>;
   @ViewChild('topPage') content: IonContent;
-  hiringTime = ['1 a 3 semanas', '4 a 6 semanas', 'más de 6 semanas'];
+  hiringTime = ['1 to 3 weeks', '4 to 6 weeks', 'more than 6 weeks'];
 
   constructor(
     public ms: MediaService,
@@ -103,10 +103,10 @@ export class CreateMissionPage implements OnInit {
       numberInterviews: parseFloat(this.form.value.numberInterviews) || 0,
       uid: this.auth.userUid,
       mission_id: id,
-      status_payment: 'Pendiente',
+      status_payment: 'Pending',
       pay: {},
       net_salary: parseFloat(this.form.value.net_salary),
-      status: 'Pendiente'
+      status: 'Pending'
     };
     this.fs.setDoc(`missions/${id}`, newMission).then(() => {
       this.form.reset();

@@ -12,52 +12,52 @@
     <ion-grid>
         <ion-card mode="ios">
             <ion-card-header color="primary">
-                <ion-title>Candidato Contratado</ion-title>
+                <ion-title>Hired Candidate</ion-title>
             </ion-card-header>
             <ion-card-content>
                 <ion-item>
                     <ion-icon color="secondary" name="person" slot="start"></ion-icon>
-                    <ion-label><strong>Candidato: </strong>{{data.name_candidate}}</ion-label>
+                    <ion-label><strong>Candidate: </strong>{{data.name_candidate}}</ion-label>
                 </ion-item>
                 <ion-item>
                     <ion-icon color="secondary" name="cube" slot="start"></ion-icon>
-                    <ion-label><strong>Tipo de contrato: </strong>{{data.contract_type.type}}</ion-label>
+                    <ion-label><strong>Type of Contract: </strong>{{data.contract_type.type}}</ion-label>
                 </ion-item>
                 <ion-item>
                     <ion-icon color="secondary" name="cash" slot="start"></ion-icon>
-                    <ion-label><strong>Sueldo Neto: </strong>{{data.net_salary | currency: 'MXN '}}</ion-label>
+                    <ion-label><strong>Net Salary: </strong>{{data.net_salary | currency: '$ '}}</ion-label>
                 </ion-item>
                 <ion-item>
                     <ion-icon color="secondary" name="trophy" slot="start"></ion-icon>
-                    <ion-label><strong>Recompensa: </strong>{{ data.reward | currency: 'MXN '}}</ion-label>
+                    <ion-label><strong>Reward: </strong>{{ data.reward | currency: '$ '}}</ion-label>
                 </ion-item>
                 <ion-item>
                     <ion-icon color="secondary" name="person-add" slot="start"></ion-icon>
-                    <ion-label><strong>Reclutado por: </strong>{{data.recruiter}}</ion-label>
+                    <ion-label><strong>Recruited by: </strong>{{data.recruiter}}</ion-label>
                 </ion-item>
                 <ion-item>
                     <ion-icon color="secondary" name="mail" slot="start"></ion-icon>
-                    <ion-label><strong>Correo del reclutador: </strong>{{data.email}}</ion-label>
+                    <ion-label><strong>Recruiter E-mail: </strong>{{data.email}}</ion-label>
                 </ion-item>
                 <ion-item>
                     <ion-icon color="secondary" name="business" slot="start"></ion-icon>
-                    <ion-label><strong>Banco: </strong>{{data.name_bank}}</ion-label>
+                    <ion-label><strong>Bank: </strong>{{data.name_bank}}</ion-label>
                 </ion-item>
                 <ion-item>
                     <ion-icon color="secondary" name="warning" slot="start"></ion-icon>
-                    <ion-label><strong>Cuenta clabe: </strong>{{data.clabe}}</ion-label>
+                    <ion-label><strong>ABA|Swift Code: </strong>{{data.clabe}}</ion-label>
                 </ion-item>
                 <ion-item>
                     <ion-icon color="secondary" name="warning" slot="start"></ion-icon>
-                    <ion-label><strong>Numero de cuenta: </strong>{{data.account_number}}</ion-label>
+                    <ion-label><strong>Account Number: </strong>{{data.account_number}}</ion-label>
                 </ion-item>
                 <ion-item lines="none">
                     <ion-icon color="secondary" name="pulse-outline" slot="start"></ion-icon>
-                    <ion-label><strong>Estatus: </strong>{{data.status}}</ion-label>
+                    <ion-label><strong>Status: </strong>{{data.status}}</ion-label>
                 </ion-item>
                 <ion-card mode="ios">
                     <ion-card-header color="secondary">
-                        <ion-title>Adjunto recibo de pago</ion-title>
+                        <ion-title>Attach Payment receipt</ion-title>
                     </ion-card-header>
                     <ion-card-content>
                         <ion-col size="12" *ngIf="data.pay !== null">
@@ -74,7 +74,7 @@
                             <ion-progress-bar *ngIf="((ms.uploadPercent | async) / 100) !== 0" [value]="(ms.uploadPercent | async) / 100"></ion-progress-bar>
                         </ion-col>
                         <ion-col size="12" *ngIf="data.pay === null">
-                            <ion-text>Debes adjuntar el comprobante de pago y guardar para dar por <strong>Pagada</strong> la recompensa al reclutador</ion-text>
+                            <ion-text>You must attach payment receipt and save it in order to acknowledge the Reward for the Recruiter.</ion-text>
                         </ion-col>
                         <ion-item lines="none" class="center">
                             <app-attach-file (url)="getUrl($event)" [path]="'pago_recompensas'"></app-attach-file>
@@ -86,7 +86,7 @@
     </ion-grid>
     <ion-row>
         <ion-col size="12" class="ion-text-center">
-            <ion-button class="more" fill="solid" shape="round" color="primary" (click)="closeModal()">Salir</ion-button>
+            <ion-button class="more" fill="solid" shape="round" color="primary" (click)="closeModal()">Exit</ion-button>
         </ion-col>
     </ion-row>
 </ion-content>

@@ -25,7 +25,7 @@ export class EditPaymentsAdminComponent implements OnInit {
 
   statusPayment(){
     this.paid = this.mission.status_payment;
-    if (this.paid === 'Pagada') {
+    if (this.paid === 'Paid') {
       this.check = true;
     } else {
       this.check = false;
@@ -42,9 +42,9 @@ export class EditPaymentsAdminComponent implements OnInit {
 
   async presentAlert() {
     const alert = await this.alertController.create({
-      header: '¡Exito!',
+      header: '¡Success!',
       mode: 'ios',
-      message: 'La recompensa para esta posición ha sido actualizada, y sera visible para todo los reclutadores.',
+      message: 'The reward for this position has been updated, and will be visible to all recruiters.',
       buttons: ['OK']
     });
     await alert.present();
@@ -52,7 +52,7 @@ export class EditPaymentsAdminComponent implements OnInit {
 
   changePayment(e) {
     const date: number = this.ss.getDate().getTime();
-    e.detail.checked ? this.paid = 'Pagada' : this.paid = 'Pendiente';
+    e.detail.checked ? this.paid = 'Paid' : this.paid = 'Pending';
     this.fs.updateDoc(`missions/${this.mission.mission_id}`, { status_payment: this.paid, update_date: date });
   }
 

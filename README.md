@@ -8,7 +8,7 @@
     * Host: Firebase
     * API: RestFull Firebase
     * Cloud Functions
-    * Technology: Ionic 6.1.4  Angular 13.3.6
+    * Technology: Ionic 6.1.6  Angular 13.3.10
     * Language: HTML5 + SCSS + TYPESCRIPT
 
 

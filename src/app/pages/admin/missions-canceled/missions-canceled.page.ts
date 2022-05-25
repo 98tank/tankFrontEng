@@ -25,7 +25,7 @@ export class MissionsCanceledPage implements OnInit {
 
   getMissionCanceled() {
     this.missionCanceled = [];
-    this.fs.getCollectionWithOrder('missions').where('status', '==', 'Cancelada').get().then(res => {
+    this.fs.getCollectionWithOrder('missions').where('status', '==', 'Cancelled').get().then(res => {
       if (res.size > 0) {
         res.forEach(d => {
           const m: MissionData = d.data() as MissionData;

@@ -22,7 +22,7 @@
             <ion-col size-lg="3" size-md="4" size="12" *ngIf="active">
                 <app-multiple-buttons [candidate]="c"></app-multiple-buttons>
             </ion-col>
-            <ng-container *ngIf="(c.status === 'Activo') && active">
+            <ng-container *ngIf="(c.status === 'Active') && active">
                 <ion-col size="12">
                     <ion-buttons class="actions">
                         <ion-button fill="solid" shape="round" color="primary" (click)="goContract(c)">Contratar</ion-button>
@@ -36,7 +36,7 @@
                 </ion-col>
             </ng-container>
 
-            <ion-col size="12" *ngIf="c.status === 'Descartado'">
+            <ion-col size="12" *ngIf="c.status === 'Discarded'">
                 <app-reason-rejection [reason]="c.reason_discard"></app-reason-rejection>
             </ion-col>
         </ion-row>
