@@ -73,17 +73,17 @@ export class LoginPage implements OnInit, OnDestroy {
     this.loadingController.dismiss();
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
-      header: 'Primero debes verificar tu cuenta',
-      subHeader: `¡Revisa la bandeja de entrada en tu correo para validar tu registro!`,
-      message: '<ion-icon class="green" name="mail-outline"></ion-icon> ¿Enviar nuevamente el codigo?',
+      header: 'You must first verify your account',
+      subHeader: `Check your email inbox to validate your registration!`,
+      message: '<ion-icon class="green" name="mail-outline"></ion-icon> Send the code again?',
       backdropDismiss: false,
       mode: 'ios',
       buttons: [{
-        text: 'Salir',
+        text: 'Cancel',
         role: 'cancel',
         handler: () => { this.auth.logout(); }
       }, {
-        text: 'Enviar',
+        text: 'Send',
         handler: () => {
           this.auth.sendEmailVerification().then(() => this.auth.logout() );
         }
@@ -95,7 +95,7 @@ export class LoginPage implements OnInit, OnDestroy {
   async userBlocked() {
     this.loadingController.dismiss();
     const alert = await this.alertController.create({
-      header: 'Esta usuario a sido bloqueado',
+      header: 'This user has been blocked',
       mode: 'ios',
       buttons: ['OK']
     });
@@ -107,8 +107,8 @@ export class LoginPage implements OnInit, OnDestroy {
     this.auth.logout();
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
-      header: 'Los datos son incorrectos!!!',
-      message: '<ion-icon class="red" name="close-circle-outline"></ion-icon> Por favor vuelve a intentarlo',
+      header: 'Incorrect data!!!',
+      message: '<ion-icon class="red" name="close-circle-outline"></ion-icon> Please try again',
       mode: 'ios',
       buttons: ['OK']
     });
@@ -123,9 +123,9 @@ export class LoginPage implements OnInit, OnDestroy {
   async resetPassword() {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
-      header: '¿Has olvidado tu contraseña?',
+      header: 'Forgot Password?',
       mode: 'ios',
-      message: '<ion-icon class="green" name="mail-outline"></ion-icon> ¡Le enviaremos un correo electrónico con instrucciones!',
+      message: '<ion-icon class="green" name="mail-outline"></ion-icon> We will send you an email with instructions!',
       inputs: [
         {
           name: 'email',
@@ -137,13 +137,13 @@ export class LoginPage implements OnInit, OnDestroy {
       ],
       buttons: [
         {
-          text: 'Cancelar',
+          text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => { },
         },
         {
-          text: 'Enviar',
+          text: 'Send',
           handler: (e) => {
             if (e.email) { this.eas.sendEmailNotification( e.email, 'reset'); }
            }
