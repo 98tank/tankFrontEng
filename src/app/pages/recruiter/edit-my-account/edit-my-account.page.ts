@@ -148,11 +148,11 @@ export class EditMyAccountPage implements OnInit, OnDestroy {
       message: `¡Le enviaremos las instrucciones a la siguiente dirección de correo electrónico! <br> <strong>${this.user.profile.email}</strong>`,
       buttons: [
         {
-          text: 'Cancelar',
+          text: 'Cancel',
           role: 'cancel',
         },
         {
-          text: 'Enviar',
+          text: 'Submitt',
           handler: () => { this.eas.sendEmailNotification(this.user.profile.email, 'reset'); }
         },
       ],

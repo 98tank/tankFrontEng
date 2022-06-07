@@ -125,7 +125,7 @@ export class LoginPage implements OnInit, OnDestroy {
       cssClass: 'delete-alert',
       header: 'Forgot Password?',
       mode: 'ios',
-      message: '<ion-icon class="green" name="mail-outline"></ion-icon> We will send you an email with instructions!',
+      message: '<ion-icon class="green" name="mail-outline"></ion-icon> Please enter your email to sent instructions',
       inputs: [
         {
           name: 'email',
@@ -143,7 +143,7 @@ export class LoginPage implements OnInit, OnDestroy {
           handler: () => { },
         },
         {
-          text: 'Send',
+          text: 'Submitt',
           handler: (e) => {
             if (e.email) { this.eas.sendEmailNotification( e.email, 'reset'); }
            }

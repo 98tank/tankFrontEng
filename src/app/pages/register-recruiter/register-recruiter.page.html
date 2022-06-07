@@ -135,7 +135,7 @@
                     </div>
                 </ion-col>
                 <ion-col size="12">
-                    <app-date (date)="buildDate($event)" [title]="'Fecha de Nacimiento'"></app-date>
+                    <app-date (date)="buildDate($event)" [title]="'Date of Birth'"></app-date>
                     <div class="error" *ngIf="!dateValid">
                         <ion-text class="ion-justify-content-center" color="danger">
                             <ion-icon name="alert-circle-outline"></ion-icon>Date of Birth.
