@@ -27,7 +27,7 @@
                                 <strong>Recruiter Name:</strong> {{p.name}}
                             </ion-col>
                             <ion-col size-md="6" size="12">
-                                <strong>E-mail:</strong> {{p.email}}
+                                <strong>Email:</strong> {{p.email}}
                             </ion-col>
                             <ion-col size-md="6" size="12">
                                 <strong>Date of Birth:</strong> {{p.birthdate?.day+'/'+p.birthdate?.month+'/'+p.birthdate?.year}}
@@ -36,16 +36,16 @@
                                 <strong>Member Since:</strong> {{p.registerDate | date}}
                             </ion-col>
                             <ion-col size-md="6" size="12">
-                                <strong>TIN Number:</strong> {{p.rfc}}
+                                <strong>TAX ID:</strong> {{p.rfc}}
                             </ion-col>
                             <ion-col size="12">
                                 <strong>Current Address:</strong> {{p.address}}
                             </ion-col>
                             <ion-col size-md="6" size="12">
-                                <strong>Passport Card:</strong> {{p.curp}}
+                                <strong>Last 4 digits to SSN:</strong> {{p.curp}}
                             </ion-col>
                             <ion-col size-md="6" size="12">
-                                <strong>Mobile/Personal Number:</strong>
+                                <strong>Mobile Number:</strong>
                                 <a [href]="'tel:'+p.personal_phone"> {{p.personal_phone}}</a>
                             </ion-col>
                             <ion-col size-md="6" size="12">
@@ -64,7 +64,7 @@
                                 <strong>Bank:</strong> {{p.name_bank}}
                             </ion-col>
                             <ion-col size-md="6" size="12">
-                                <strong>ABA|Swift Code:</strong> {{p.clabe}}
+                                <strong>Routing number:</strong> {{p.clabe}}
                             </ion-col>
                             <ion-col size-md="6" size="12">
                                 <strong>Last session:</strong> {{p.lastSession | date: 'MMMM d, y - hh:mmaaa'}}

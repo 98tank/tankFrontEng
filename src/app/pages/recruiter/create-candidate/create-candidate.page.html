@@ -126,7 +126,7 @@
                 </ion-col>
                 <ion-col size-md="4" size="6">
                     <ion-item>
-                        <ion-label position="floating">Work Permit</ion-label>
+                        <ion-label position="floating">US Citizent/ US Resident/US Work Visa</ion-label>
                         <ion-select interface="popover" formControlName="work_permit" cancelText="Cancelar" okText="Aceptar">
                             <ion-select-option value="Si">Yes</ion-select-option>
                             <ion-select-option value="No">No</ion-select-option>
@@ -172,7 +172,7 @@
                 </ion-col>
                 <ion-col size-md="6" size="12">
                     <ion-item class="email">
-                        <ion-label position="floating">E-mail</ion-label>
+                        <ion-label position="floating">Email</ion-label>
                         <ion-input type="email" name="email" formControlName="email" id="email"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('email').errors && form.get('email').touched">
@@ -180,7 +180,7 @@
                             <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('email').hasError('pattern')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Enter a valid e-mail.</ion-text>
+                            <ion-icon name="alert-circle-outline"></ion-icon>Enter a valid email.</ion-text>
                     </div>
                 </ion-col>
 
@@ -282,7 +282,7 @@
                         <ion-textarea type="text" name="skills" formControlName="skills" id="skills"></ion-textarea>
                         <div class="error" *ngIf="form.get('skills').errors && form.get('skills').touched">
                             <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('skills').hasError('required')">
-                                <ion-icon name="alert-circle-outline"></ion-icon>Indicate the skills for the role.
+                                <ion-icon name="alert-circle-outline"></ion-icon>Indicate the skills for the position.
                             </ion-text>
                             <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('skills').hasError('minlength')">
                                 <ion-icon name="alert-circle-outline"></ion-icon>It must have at least two characters.
@@ -315,7 +315,7 @@
 
                 <ion-col size="12" class="ion-text-center">
                     <ion-text>
-                        <h5>Work Experience</h5>
+                        <h5>Working Experience</h5>
                     </ion-text>
                 </ion-col>
 
@@ -331,13 +331,13 @@
                             </ion-col>
                             <ion-col size="6">
                                 <ion-item>
-                                    <ion-label position="floating">Tenure</ion-label>
+                                    <ion-label position="floating">Working Period</ion-label>
                                     <ion-input type="text" name="period_1" formControlName="period_1" id="period_1"></ion-input>
                                 </ion-item>
                             </ion-col>
                             <ion-col size="6">
                                 <ion-item>
-                                    <ion-label position="floating">Role</ion-label>
+                                    <ion-label position="floating">Job Title</ion-label>
                                     <ion-input type="text" name="position_1" formControlName="position_1" id="position_1"></ion-input>
                                 </ion-item>
                             </ion-col>
@@ -362,13 +362,13 @@
                             </ion-col>
                             <ion-col size="6">
                                 <ion-item>
-                                    <ion-label position="floating">Tenure</ion-label>
+                                    <ion-label position="floating">Working Period</ion-label>
                                     <ion-input type="text" name="period_2" formControlName="period_2" id="period_2"></ion-input>
                                 </ion-item>
                             </ion-col>
                             <ion-col size="6">
                                 <ion-item>
-                                    <ion-label position="floating">Role</ion-label>
+                                    <ion-label position="floating">Job Title</ion-label>
                                     <ion-input type="text" name="position_2" formControlName="position_2" id="position_2"></ion-input>
                                 </ion-item>
                             </ion-col>
@@ -393,13 +393,13 @@
                             </ion-col>
                             <ion-col size="6">
                                 <ion-item>
-                                    <ion-label position="floating">Tenure</ion-label>
+                                    <ion-label position="floating">Working Period</ion-label>
                                     <ion-input type="text" name="period_3" formControlName="period_3" id="period_3"></ion-input>
                                 </ion-item>
                             </ion-col>
                             <ion-col size="6">
                                 <ion-item>
-                                    <ion-label position="floating">Role</ion-label>
+                                    <ion-label position="floating">Job Title</ion-label>
                                     <ion-input type="text" name="position_3" formControlName="position_3" id="position_3"></ion-input>
                                 </ion-item>
                             </ion-col>
@@ -414,7 +414,7 @@
                 </ion-col>
                 <ion-col size="12">
                     <ion-item>
-                        <ion-label position="floating">Additional comments for the Role</ion-label>
+                        <ion-label position="floating">Additional Comments</ion-label>
                         <ion-textarea type="text" name="comments" formControlName="comments" id="comments"></ion-textarea>
                     </ion-item>
                     <div class="error" *ngIf="form.get('comments').errors && form.get('comments').touched">

@@ -11,7 +11,7 @@
                     <form [formGroup]="form" (submit)="getDataLogin()" novalidate>
                         <h3>Sign in</h3>
                         <ion-item mode="md">
-                            <ion-label position="floating">E-mail</ion-label>
+                            <ion-label position="floating">Email</ion-label>
                             <ion-input type="email" name="email" formControlName="email" id="email"></ion-input>
                         </ion-item>
                         <div class="error" *ngIf="form.get('email').errors && form.get('email').touched">

@@ -22,8 +22,8 @@
             <ng-container *ngIf="auth.userUid === c.uid_recruiter">
                 <ion-col size="12" *ngIf="c.status === 'Active'">
                     <ion-buttons class="actions">
-                        <ion-button color="primary" fill="solid" shape="round" (click)="openEditCandidate(c)">Edit Candidate</ion-button>
-                        <ion-button color="primary" fill="solid" shape="round" (click)="openAlertDelete(c, c.mission_id)">Remove Candidate</ion-button>
+                        <ion-button color="primary" fill="solid" shape="round" (click)="openEditCandidate(c)">Edit</ion-button>
+                        <ion-button color="primary" fill="solid" shape="round" (click)="openAlertDelete(c, c.mission_id)">Remove</ion-button>
                     </ion-buttons>
                 </ion-col>
                 <ng-container *ngIf="c.status === 'Active'">

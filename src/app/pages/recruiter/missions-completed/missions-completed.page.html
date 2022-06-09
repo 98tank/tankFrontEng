@@ -5,7 +5,7 @@
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Completed Missions
+            Missions Accomplished
         </ion-title>
     </ion-toolbar>
 </ion-header>
@@ -14,7 +14,7 @@
     <ion-grid fixed>
         <ion-row>
             <ion-col *ngIf="loading">
-                <app-no-missions [type]="'You dont have missions completed'" [icon]="'rocket-outline'"></app-no-missions>
+                <app-no-missions [type]="'No missions accomplished'" [icon]="'rocket-outline'"></app-no-missions>
             </ion-col>
             <ion-col size-md="6" size="12" *ngFor="let mc of closedMission">
                 <ion-card mode="ios">

@@ -139,7 +139,7 @@ export class EditMyAccountPage implements OnInit, OnDestroy {
       header: 'Forgot password?',
       mode: 'ios',
       cssClass: 'reset-pass',
-      message: `Please check the following E-mail address as the instructions  to change your password will be sent there. <br> <strong>${this.user.profile.email}</strong>`,
+      message: `Please check the following Email address as the instructions  to change your password will be sent there. <br> <strong>${this.user.profile.email}</strong>`,
       buttons: [
         {
           text: 'Cancel',

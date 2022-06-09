@@ -18,14 +18,14 @@
                             <img *ngIf="imgAvatar" [src]="imgAvatar" alt="" id="imgAvatar">
                             <div class="foto" id="list">
                                 <ion-icon color="primary" *ngIf="!imgAvatar" name="camera-outline"></ion-icon>
-                                <p *ngIf="!imgAvatar">Add<br>Avatar</p>
+                                <p *ngIf="!imgAvatar">Add<br>Picture</p>
                                 <canvas #canvas id="canvas-recruiter" height="0" class="ion-hide"></canvas>
                             </div>
                         </label>
                         <input class="ion-hide" type="file" id="files" name="files[]" (change)="uploadImg($event, 'canvas-recruiter')" accept="image/*" />
                     </div>
                     <div *ngIf="imgAvatar" class="girar" (click)="rotateImg('canvas-recruiter')">
-                        <ion-icon color="primary" name="camera-reverse-outline"></ion-icon> Rotate Avatar
+                        <ion-icon color="primary" name="camera-reverse-outline"></ion-icon> Rotate Picture
                     </div>
                 </ion-col>
                 <ion-col size="6">
@@ -63,12 +63,12 @@
             <ion-row>
                 <ion-col size-md="6" size="12">
                     <ion-item class="email">
-                        <ion-label position="floating">E-mail</ion-label>
+                        <ion-label position="floating">Email</ion-label>
                         <ion-input type="email" name="email" formControlName="email" id="email"></ion-input>
                     </ion-item>
                     <div class="error textMailExists" *ngIf="mailExists">
                         <ion-text class="ion-justify-content-center" color="danger">
-                            <ion-icon name="alert-circle-outline"></ion-icon>This e-mail already exists in our system.
+                            <ion-icon name="alert-circle-outline"></ion-icon>This email already exists in our system.
                         </ion-text>
                     </div>
                     <div class="error" *ngIf="form.get('email').errors && form.get('email').touched">
@@ -76,13 +76,13 @@
                             <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('email').hasError('pattern')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Enter a valid e-mail.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Enter a valid email.
                         </ion-text>
                     </div>
                 </ion-col>
                 <ion-col size-md="6" size="12">
                     <ion-item class="email">
-                        <ion-label position="floating">Confirm E-mail</ion-label>
+                        <ion-label position="floating">Confirm Email</ion-label>
                         <ion-input type="email" name="confirm_email" formControlName="confirm_email" id="confirm_email"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.hasError('emailNotEqual') &&  form.get('confirm_email').touched">
@@ -166,7 +166,7 @@
                 </ion-col> -->
                 <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">Telephone Number</ion-label>
+                        <ion-label position="floating">Mobile Number</ion-label>
                         <ion-input matInput type="tel" name="personal_phone" formControlName="personal_phone" id="personal_phone"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('personal_phone').errors && form.get('personal_phone').touched">
@@ -206,7 +206,7 @@
                 </ion-col>
                 <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">TIN Number</ion-label>
+                        <ion-label position="floating">TAX ID</ion-label>
                         <ion-input matInput type="text" name="rfc" formControlName="rfc" id="rfc"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('rfc').errors && form.get('rfc').touched">
@@ -214,10 +214,10 @@
                             <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('rfc').hasError('minlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least nine numbers.
+                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least nine characters.
                         </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('rfc').hasError('maxlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Must have maximum nine numbers.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Must have maximum nine characters.
                         </ion-text>
                     </div>
                 </ion-col>
@@ -231,7 +231,7 @@
                 </ion-col>
                 <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">Major in</ion-label>
+                        <ion-label position="floating">Degree</ion-label>
                         <ion-input matInput type="text" name="career" formControlName="career" id="career"></ion-input>
                     </ion-item>
                 </ion-col>
@@ -266,7 +266,7 @@
                 </ion-col>
                 <ion-col size-md="5" size="12">
                     <ion-item>
-                        <ion-label position="floating">ABA|Swift Code</ion-label>
+                        <ion-label position="floating">Routing number</ion-label>
                         <ion-input matInput type="tel" name="clabe" formControlName="clabe" id="clabe"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('clabe').errors && form.get('clabe').touched">

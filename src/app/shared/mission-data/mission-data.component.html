@@ -1,17 +1,17 @@
 <ion-card mode="ios" [ngClass]="{'contracted': contracted}">
     <ion-card-header mode="ios" color="secondary">
-        <ion-title>Role Details</ion-title>
+        <ion-title>Job Title Details</ion-title>
     </ion-card-header>
     <ion-card-content>
         <ion-row>
             <ion-col size="12">
-                <strong>Role Name: </strong>{{mission.name_position}}
+                <strong>Job Title Name: </strong>{{mission.name_position}}
             </ion-col>
             <ion-col size-md="6" size="12">
                 <strong>Years of Experience: </strong>{{mission.years_of_experience}}
             </ion-col>
             <ion-col size-md="6" size="12">
-                <strong>Role Level: </strong>{{mission.position_level}}
+                <strong>Job Title Level: </strong>{{mission.position_level}}
             </ion-col>
             <ion-col size-md="6" size="12">
                 <strong>Area: </strong>{{mission.area}}
@@ -80,7 +80,7 @@
                 <strong>Software Skills: </strong>{{mission.specialized_software}}
             </ion-col>
             <ion-col size="12">
-                <strong>Additional Comments for the Role: </strong>{{mission.comments}}
+                <strong>Additional Comments: </strong>{{mission.comments}}
             </ion-col>
             <ion-col size-md="6" size="12">
                 <strong>Status: </strong>
