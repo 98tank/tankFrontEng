@@ -8,7 +8,6 @@ export interface CandidateData {
     email: string;
     phone: string;
     curp?: string;
-    sons?: string;
     block: boolean;
     status: 'Active' | 'Discarded' | 'Hired';
     skills: string;
@@ -32,7 +31,6 @@ export interface CandidateData {
     create_date: number;
     update_date: number;
     work_permit: string;
-    civil_status: string;
     candidate_id: string;
     availability: string;
     uid_client?: string;

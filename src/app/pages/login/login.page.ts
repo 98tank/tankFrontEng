@@ -83,7 +83,7 @@ export class LoginPage implements OnInit, OnDestroy {
         role: 'cancel',
         handler: () => { this.auth.logout(); }
       }, {
-        text: 'Submitt',
+        text: 'Submit',
         handler: () => {
           this.auth.sendEmailVerification().then(() => this.auth.logout() );
         }
@@ -143,7 +143,7 @@ export class LoginPage implements OnInit, OnDestroy {
           handler: () => { },
         },
         {
-          text: 'Submitt',
+          text: 'Submit',
           handler: (e) => {
             if (e.email) { this.eas.sendEmailNotification( e.email, 'reset'); }
            }

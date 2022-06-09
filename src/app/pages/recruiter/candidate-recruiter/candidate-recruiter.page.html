@@ -1,11 +1,11 @@
 <ion-header [translucent]="true">
     <ion-toolbar mode="ios">
         <ion-buttons slot="start" *ngIf="candidate$ | async as c">
-            <ion-back-button [defaultHref]="'reclutador/misiones-activas/mision/'+c.mission_id" text="Atras"></ion-back-button>
+            <ion-back-button [defaultHref]="'reclutador/misiones-activas/mision/'+c.mission_id" text="Back"></ion-back-button>
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Candidato
+            Candidate
         </ion-title>
         <ion-buttons slot="end">
             <ion-menu-button></ion-menu-button>
@@ -22,8 +22,8 @@
             <ng-container *ngIf="auth.userUid === c.uid_recruiter">
                 <ion-col size="12" *ngIf="c.status === 'Active'">
                     <ion-buttons class="actions">
-                        <ion-button color="primary" fill="solid" shape="round" (click)="openEditCandidate(c)">Editar Candidato</ion-button>
-                        <ion-button color="primary" fill="solid" shape="round" (click)="openAlertDelete(c, c.mission_id)">Eliminar Candidato</ion-button>
+                        <ion-button color="primary" fill="solid" shape="round" (click)="openEditCandidate(c)">Edit Candidate</ion-button>
+                        <ion-button color="primary" fill="solid" shape="round" (click)="openAlertDelete(c, c.mission_id)">Remove Candidate</ion-button>
                     </ion-buttons>
                 </ion-col>
                 <ng-container *ngIf="c.status === 'Active'">

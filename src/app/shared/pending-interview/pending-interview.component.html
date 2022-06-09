@@ -4,39 +4,39 @@
             <table>
                 <thead style="background: #c1c1c1;">
                     <tr>
-                        <th>Estatus de la entrevista</th>
-                        <th colspan="2" style="color: red;">Pendiente de Aprobación</th>
+                        <th>Interview Status</th>
+                        <th colspan="2" style="color: red;">Pending approval</th>
                     </tr>
                 </thead>
                 <tbody *ngIf="interviewData">
                     <tr>
                         <td colspan="3">
                             <ion-icon name="person"></ion-icon>
-                            <strong>Candidato: </strong> {{candidate.name}}
+                            <strong>Candidate: </strong> {{candidate.name}}
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <ion-icon name="document-text-outline"></ion-icon>
-                            <strong>Posición: </strong> {{interviewData.position}}
+                            <strong>Role: </strong> {{interviewData.position}}
                         </td>
                         <td colspan="2">
                             <ion-icon name="search"></ion-icon>
-                            <strong>Reclutado por: </strong>{{interviewData.name_recruiter}}
+                            <strong>Recruited by: </strong>{{interviewData.name_recruiter}}
                         </td>
                     </tr>
                     <tr *ngIf="recruiter">
                         <td colspan="3" class="center">
-                            <strong>Seleccione una de las dos opciones propuestas para la entrevista</strong>
+                            <strong>Select one options for the interview</strong>
                         </td>
                     </tr>
                     <tr *ngFor="let o of candidate.interview.options; let i = index">
                         <td>
                             <ion-icon name="calendar-number"></ion-icon>
-                            <strong>Fecha: </strong> {{o.date | date: 'd MMM, y h:mm a'}}
+                            <strong>Date: </strong> {{o.date | date: 'd MMM, y h:mm a'}}
                         </td>
                         <td *ngIf="recruiter; else noRecruiter">
-                            <ion-button class="more" fill="solid" shape="round" color="primary" (click)="selectInterviewDate(i)">Elegir</ion-button>
+                            <ion-button class="more" fill="solid" shape="round" color="primary" (click)="selectInterviewDate(i)">Choose</ion-button>
                         </td>
                         <ng-template #noRecruiter>
                             <td></td>
@@ -45,12 +45,12 @@
                     <tr>
                         <td class="address" colspan="3" *ngIf="candidate.interview.channel === 'video_call'; else faceToFace">
                             <ion-icon name="at"></ion-icon>
-                            <strong>Entrevista online: </strong><a [href]="candidate.interview.address">{{candidate.interview.address}}</a>
+                            <strong>Online interview: </strong><a [href]="candidate.interview.address">{{candidate.interview.address}}</a>
                         </td>
                         <ng-template #faceToFace>
                             <td class="address" colspan="3">
                                 <ion-icon name="earth"></ion-icon>
-                                <strong>Entrevista presencial: </strong>{{candidate.interview.address}}
+                                <strong>On-site Interview: </strong>{{candidate.interview.address}}
                             </td>
                         </ng-template>
                     </tr>

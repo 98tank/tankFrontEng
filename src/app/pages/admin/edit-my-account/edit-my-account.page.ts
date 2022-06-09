@@ -146,7 +146,7 @@ export class EditMyAccountPage implements OnInit, OnDestroy {
           role: 'cancel',
         },
         {
-          text: 'Submitt',
+          text: 'Submit',
           handler: () => { this.eas.sendEmailNotification(this.user.profile.email, 'reset'); }
         },
       ],

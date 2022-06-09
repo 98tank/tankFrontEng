@@ -5,7 +5,7 @@
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Misiones Terminadas
+            Completed Missions
         </ion-title>
     </ion-toolbar>
 </ion-header>
@@ -14,12 +14,12 @@
     <ion-grid fixed>
         <ion-row>
             <ion-col *ngIf="loading">
-                <app-no-missions [type]="'completada'" [icon]="'rocket-outline'"></app-no-missions>
+                <app-no-missions [type]="'You dont have missions completed'" [icon]="'rocket-outline'"></app-no-missions>
             </ion-col>
             <ion-col size-md="6" size="12" *ngFor="let mc of closedMission">
                 <ion-card mode="ios">
                     <ion-card-header>
-                        <ion-card-subtitle color="tertiary">Terminada el {{mc.type_contract.date | date: 'd/MM/y - hh:mmaaa'}}</ion-card-subtitle>
+                        <ion-card-subtitle color="tertiary">Completed on {{mc.type_contract.date | date: 'd/MM/y - hh:mmaaa'}}</ion-card-subtitle>
                         <ion-card-title color="secondary">
                             <h3>{{mc.name_position}}</h3>
                         </ion-card-title>
@@ -27,20 +27,20 @@
                     <ion-card-content>
                         <ion-item lines="none">
                             <ion-icon color="secondary" name="rocket-sharp" slot="start"></ion-icon>
-                            <ion-label><strong>Estatus Misión:</strong>
+                            <ion-label><strong>Mission Status:</strong>
                                 <ion-chip color="medium">
-                                    <ion-label>Terminada</ion-label>
+                                    <ion-label>Completed</ion-label>
                                 </ion-chip>
                             </ion-label>
                             <div tabindex="0" style="height: 0;"></div>
                         </ion-item>
                         <ion-item lines="none">
                             <ion-icon name="logo-usd" slot="start"></ion-icon>
-                            <ion-label><strong>Recompensa: </strong>{{mc.reward | currency: '$ '}}</ion-label>
+                            <ion-label><strong>Reward: </strong>{{mc.reward | currency: '$ '}}</ion-label>
                             <div tabindex="0" style="height: 0;"></div>
                         </ion-item>
                         <ion-buttons class="button">
-                            <ion-button fill="solid" shape="round" color="primary" (click)="missionView(mc, 'mission')">Ver Misión</ion-button>
+                            <ion-button fill="solid" shape="round" color="primary" (click)="missionView(mc, 'mission')">Browse Mission</ion-button>
                         </ion-buttons>
                     </ion-card-content>
                 </ion-card>
