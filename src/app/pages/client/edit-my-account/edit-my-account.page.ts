@@ -141,17 +141,17 @@ export class EditMyAccountPage implements OnInit, OnDestroy {
 
   async resetPassword() {
     const alert = await this.alertController.create({
-      header: '¿Has olvidado tu contraseña?',
+      header: 'Forgot Password?',
       mode: 'ios',
       cssClass: 'reset-pass',
-      message: `¡Le enviaremos las instrucciones a la siguiente dirección de correo electrónico! <br> <strong>${this.profile.email}</strong>`,
+      message: `Please enter your email to sent instructions <br> <strong>${this.profile.email}</strong>`,
       buttons: [
         {
-          text: 'Cancelar',
+          text: 'Cancel',
           role: 'cancel',
         },
         {
-          text: 'Enviar',
+          text: 'Submit',
           handler: () => { this.eas.sendEmailNotification(this.profile.email, 'reset'); }
         },
       ],

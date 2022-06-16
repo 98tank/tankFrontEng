@@ -212,8 +212,8 @@ export class RegisterRecruiterPage implements OnInit {
   async successfulRegistration(email: string) {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
-      header: 'Registro Exitoso',
-      message: `<ion-icon class="green" name="mail-unread-outline"></ion-icon> ¡Recibiras un correo en tu dirección <br> <strong>${email}</strong> para validar tu registro!`,
+      header: 'Registration completed',
+      message: `<ion-icon class="green" name="mail-unread-outline"></ion-icon> You will receive an email to <br> <strong>${email}</strong> Please confirm your registration!`,
       mode: 'ios',
       buttons: [{
         text: 'Ok',
@@ -227,8 +227,8 @@ export class RegisterRecruiterPage implements OnInit {
   async presentAlertConfirm() {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
-      header: 'Ocurrio un error inesperado',
-      message: '<ion-icon class="red" name="trending-down-outline"></ion-icon> Por favor vuelve a intentarlo',
+      header: 'An unexpected error occurred.',
+      message: '<ion-icon class="red" name="trending-down-outline"></ion-icon> please try again',
       mode: 'ios',
       buttons: [{
           text: 'ok',

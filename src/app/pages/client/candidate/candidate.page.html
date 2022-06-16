@@ -5,7 +5,7 @@
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Candidato
+            Candidate
         </ion-title>
         <ion-buttons slot="end">
             <ion-menu-button></ion-menu-button>
@@ -25,7 +25,7 @@
             <ng-container *ngIf="(c.status === 'Active') && active">
                 <ion-col size="12">
                     <ion-buttons class="actions">
-                        <ion-button fill="solid" shape="round" color="primary" (click)="goContract(c)">Contratar</ion-button>
+                        <ion-button fill="solid" shape="round" color="primary" (click)="goContract(c)">Hire</ion-button>
                     </ion-buttons>
                 </ion-col>
                 <ion-col size="12" *ngIf="c.interview?.status === 'pending'">

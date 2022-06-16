@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class AllRecruitersPage {
   totalRecruiter: number;
   displayedColumns: string[] = [
-    'E-mail',
+    'Email',
     'Recruiters',
     'Register',
     'Last.Session',
@@ -65,7 +65,7 @@ export class AllRecruitersPage {
 
   changeSort(expresion: string): string {
     switch (expresion) {
-      case 'E-mail':
+      case 'Email':
         return 'email';
       case 'Recruiters':
         return 'name';

@@ -1,48 +1,48 @@
 [{
         "icon": "stats-chart",
-        "name": "Principal",
+        "name": "Home",
         "redirecTo": "/reclutador/principal",
         "auth": true
     },
     {
         "icon": "rocket",
-        "name": "Misiones activas",
+        "name": "Active Missions",
         "redirecTo": "/reclutador/misiones-activas",
         "auth": true
     },
     {
         "icon": "close-circle",
-        "name": "Misiones Elegidas",
+        "name": "Selected Missions",
         "redirecTo": "/reclutador/misiones-elegidas",
         "auth": true
     },
     {
         "icon": "golf",
-        "name": "Misiones terminadas",
+        "name": "Missions Accomplished",
         "redirecTo": "/reclutador/misiones-culminadas",
         "auth": true
     },
     {
         "icon": "cash",
-        "name": "Pagos",
+        "name": "Payments",
         "redirecTo": "/reclutador/historial-de-pago",
         "auth": true
     },
     {
         "icon": "calendar",
-        "name": "Futuras entrevistas",
+        "name": "Scheduled Interviews",
         "redirecTo": "/reclutador/futuras-entrevistas",
         "auth": true
     },
     {
         "icon": "settings",
-        "name": "Editar mi cuenta",
+        "name": "Edit My Account",
         "redirecTo": "/reclutador/editar-perfil",
         "auth": true
     },
     {
         "icon": "exit",
-        "name": "Cerrar sesión",
+        "name": "Sign Out",
         "redirecTo": "/login",
         "auth": true
     }

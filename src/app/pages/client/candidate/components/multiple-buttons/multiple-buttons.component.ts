@@ -53,8 +53,8 @@ export class MultipleButtonsComponent implements OnInit {
   async sendNotificationsEmail() {
     const snapshopData = await this.fs.getDoc(`missions/${this.candidate.mission_id}`);
     const mission: MissionData = snapshopData.data();
-    const subject = `98Tank - Nueva entrevista propuesta`;
-    const messageRecruiter = `Tienes una propuesta de entrevista por aceptar en la misión ${mission.name_position}.`;
+    const subject = `98Tank - New proposed interview`;
+    const messageRecruiter = `You have an interview proposal to accept in the mission ${mission.name_position}.`;
     const url = `${window.location.origin}/reclutador/misiones-elegidas/mision/candidato/${this.candidate.candidate_id}`;
     const resp = await this.eas.sendEmail(this.candidate.uid_recruiter, messageRecruiter, url, subject);
     console.log(resp);
@@ -62,19 +62,19 @@ export class MultipleButtonsComponent implements OnInit {
 
   async openAlertDiscard() {
     const alert = await this.alertController.create({
-      header: 'El candidato será Discarded',
-      message: 'Indique la razón para descartarlo.',
+      header: 'The candidate will be Discarded',
+      message: 'Indicate the reason for discarding it.',
       mode: 'ios',
       inputs: [
         {
           name: 'reason',
           type: 'text',
-          placeholder: 'Razon'
+          placeholder: 'Reason'
         },
       ],
       buttons: [
-        { text: 'Salir', role: 'cancel' },
-        { text: 'Descartar', handler: (e) => { this.discardCandidate(e); }
+        { text: 'Exit', role: 'cancel' },
+        { text: 'Discard', handler: (e) => { this.discardCandidate(e); }
       }]
     });
     await alert.present();
@@ -89,11 +89,11 @@ export class MultipleButtonsComponent implements OnInit {
 
   async openAlertActive() {
     const alert = await this.alertController.create({
-      header: '¿Desea activar este candidato?',
-      message: 'Presione OK para activar',
+      header: 'Do you want to activate this candidate?',
+      message: 'Press OK to activate',
       mode: 'ios',
       buttons: [
-        { text: 'Salir', role: 'cancel' },
+        { text: 'Extit', role: 'cancel' },
         { text: 'OK', handler: (e) => { this.activateCandidate(); }
       }]
     });

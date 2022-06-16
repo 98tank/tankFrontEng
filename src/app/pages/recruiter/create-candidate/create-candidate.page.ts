@@ -74,10 +74,8 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
       years_of_experience: ['', Validators.required],
       place_of_birth: ['', [Validators.required, Validators.minLength(2)]],
       sex: ['', Validators.required],
-      civil_status: ['', Validators.required],
       studies: ['', Validators.required],
       availability: ['', Validators.required],
-      sons: ['', Validators.required],
       phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[0-9]+$/)]],
       email: ['', [Validators.required, Validators.pattern(/^\w+([\.\+\-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/)]],
       address: ['', [Validators.required, Validators.minLength(2)]],
@@ -127,12 +125,12 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
   async presentAlertConfirm() {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
-      header: '¿Crear este candidato?',
+      header: 'Create this candidate?',
       mode: 'ios',
-      message: '<ion-icon class="yellow" name="person-add"></ion-icon> Al presionar "Ok" se creara el candidato con los datos proporcionados, y este sera asignado a esta mision',
+      message: '<ion-icon class="yellow" name="person-add"></ion-icon> Press OK to create the candidate for this mission',
       buttons: [
         {
-          text: 'Revisar',
+          text: 'Review',
           role: 'cancel',
         }, {
           text: 'Ok',
