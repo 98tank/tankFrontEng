@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AlertController, IonContent } from '@ionic/angular';
 import { DateInterface, User } from 'src/app/models';
 import { AuthService, ExternalApiService, FirebaseService, MediaService, SharedService } from 'src/app/services';
@@ -14,7 +14,7 @@ import { pluck } from 'rxjs/operators';
 export class EditMyAccountPage implements OnInit, OnDestroy {
   user: User;
   creando: any;
-  form: FormGroup;
+  form: UntypedFormGroup;
   mailExists = false;
   currentAge: number;
   dateValid = true;
@@ -31,7 +31,7 @@ export class EditMyAccountPage implements OnInit, OnDestroy {
     private auth: AuthService,
     private ss: SharedService,
     private fs: FirebaseService,
-    private formBuild: FormBuilder,
+    private formBuild: UntypedFormBuilder,
     private eas: ExternalApiService,
     private alertController: AlertController) { }
 

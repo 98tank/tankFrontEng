@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService, ExternalApiService, FirebaseService } from 'src/app/services';
 import { pluck, take } from 'rxjs/operators';
@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
 })
 export class LoginPage implements OnInit, OnDestroy {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   loginError = false;
   subscription: Subscription = new Subscription();
 
@@ -22,7 +22,7 @@ export class LoginPage implements OnInit, OnDestroy {
     private router: Router,
     private auth: AuthService,
     private fs: FirebaseService,
-    private formBuild: FormBuilder,
+    private formBuild: UntypedFormBuilder,
     private eas: ExternalApiService,
     private alertController: AlertController,
     private loadingController: LoadingController

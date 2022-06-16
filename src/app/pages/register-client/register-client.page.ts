@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControlOptions } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, AbstractControlOptions } from '@angular/forms';
 import { AuthService, ExternalApiService, FirebaseService, MediaService, SharedService } from 'src/app/services';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -15,7 +15,7 @@ import { PdfViewComponent } from 'src/app/shared/pdf-view/pdf-view.component';
 })
 export class RegisterClientPage implements OnInit {
   creando: any;
-  form: FormGroup;
+  form: UntypedFormGroup;
   mailExists = false;
   imgAvatar: string = null;
   banks$: Observable<string[]>;
@@ -30,7 +30,7 @@ export class RegisterClientPage implements OnInit {
     private auth: AuthService,
     private ss: SharedService,
     private fs: FirebaseService,
-    private formBuild: FormBuilder,
+    private formBuild: UntypedFormBuilder,
     private eas: ExternalApiService,
     private modalController: ModalController,
     private alertController: AlertController,

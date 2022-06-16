@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { DateAdapter } from '@angular/material/core';
 import { AlertController, IonContent } from '@ionic/angular';
 import { Observable, Subscription } from 'rxjs';
@@ -14,7 +14,7 @@ import { AuthService, ExternalApiService, FirebaseService, MediaService, SharedS
 })
 export class EditMyAccountPage implements OnInit, OnDestroy {
   creando: any;
-  form: FormGroup;
+  form: UntypedFormGroup;
   mailExists = false;
   user: User;
   date: DateInterface;
@@ -34,7 +34,7 @@ export class EditMyAccountPage implements OnInit, OnDestroy {
     private auth: AuthService,
     private ss: SharedService,
     private fs: FirebaseService,
-    private formBuild: FormBuilder,
+    private formBuild: UntypedFormBuilder,
     private eas: ExternalApiService,
     private alertController: AlertController,
     private adapter: DateAdapter<any>) {

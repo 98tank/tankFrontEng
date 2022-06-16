@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControlOptions } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, AbstractControlOptions } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, IonContent, LoadingController, ModalController, Platform } from '@ionic/angular';
 import { Observable } from 'rxjs';
@@ -15,7 +15,7 @@ import { PdfViewComponent } from 'src/app/shared/pdf-view/pdf-view.component';
 })
 export class RegisterRecruiterPage implements OnInit {
   creando: any;
-  form: FormGroup;
+  form: UntypedFormGroup;
   dateValid = true;
   currentDate: Date;
   mailExists = false;
@@ -34,7 +34,7 @@ export class RegisterRecruiterPage implements OnInit {
     private auth: AuthService,
     private ss: SharedService,
     private fs: FirebaseService,
-    private formBuild: FormBuilder,
+    private formBuild: UntypedFormBuilder,
     private eas: ExternalApiService,
     private modalController: ModalController,
     private alertController: AlertController,
