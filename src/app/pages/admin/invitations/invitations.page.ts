@@ -1,4 +1,4 @@
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ExternalApiService } from 'src/app/services';
 import { AlertController, LoadingController } from '@ionic/angular';
@@ -9,10 +9,10 @@ import { AlertController, LoadingController } from '@ionic/angular';
   styleUrls: ['./invitations.page.scss'],
 })
 export class InvitationsPage implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   constructor(
-    private buildForm: FormBuilder,
+    private buildForm: UntypedFormBuilder,
     private eas: ExternalApiService,
     private alertController: AlertController,
     private loadingController: LoadingController

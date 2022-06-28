@@ -1,7 +1,7 @@
 import { pluck } from 'rxjs/operators';
 import { Component, OnInit, Input } from '@angular/core';
 import { MissionData, MissionFields, File, User } from 'src/app/models';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { AuthService, FirebaseService, MediaService, SharedService } from 'src/app/services';
 import { PickerController, ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 })
 export class EditMissionComponent implements OnInit {
   @Input() mission: MissionData;
-  form: FormGroup;
+  form: UntypedFormGroup;
   mf: MissionFields;
   success = false;
   isSuperAdmin: boolean;
@@ -26,7 +26,7 @@ export class EditMissionComponent implements OnInit {
     private auth: AuthService,
     private fs: FirebaseService,
     private modal: ModalController,
-    private formBuild: FormBuilder) {
+    private formBuild: UntypedFormBuilder) {
    }
 
   ngOnInit() {

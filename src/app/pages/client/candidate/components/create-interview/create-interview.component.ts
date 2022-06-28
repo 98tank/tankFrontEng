@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { SharedService } from 'src/app/services';
 
 @Component({
@@ -10,7 +10,7 @@ import { SharedService } from 'src/app/services';
 })
 export class CreateInterviewComponent implements OnInit {
   @Input() candidateId: string;
-  form: FormGroup;
+  form: UntypedFormGroup;
   success = false;
   address: string;
   date: string = null;
@@ -18,7 +18,7 @@ export class CreateInterviewComponent implements OnInit {
 
   constructor(
     private ss: SharedService,
-    private formBuild: FormBuilder,
+    private formBuild: UntypedFormBuilder,
     private modal: ModalController,
   ) { }
 

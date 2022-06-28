@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { MissionData, RequestRefound } from 'src/app/models';
 import { FirebaseService, SharedService } from 'src/app/services';
@@ -11,7 +11,7 @@ import { FirebaseService, SharedService } from 'src/app/services';
 })
 export class RequestRefundComponent implements OnInit {
   @Input() mission: MissionData;
-  form: FormGroup;
+  form: UntypedFormGroup;
   success = false;
   refound: RequestRefound;
 
@@ -19,7 +19,7 @@ export class RequestRefundComponent implements OnInit {
     private ss: SharedService,
     private fs: FirebaseService,
     private modal: ModalController,
-    private formBuild: FormBuilder,
+    private formBuild: UntypedFormBuilder,
   ) { }
 
   ngOnInit() {

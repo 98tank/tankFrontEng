@@ -1,6 +1,6 @@
 import { pluck } from 'rxjs/operators';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, AbstractControlOptions, AsyncValidatorFn, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { AbstractControl, AbstractControlOptions, AsyncValidatorFn, UntypedFormBuilder, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AlertController, IonContent, ModalController } from '@ionic/angular';
 import { Subscription, Observable } from 'rxjs';
@@ -16,7 +16,7 @@ import { SeeAttachedComponent } from 'src/app/shared/see-attached/see-attached.c
 export class CreateCandidatePage implements OnInit, OnDestroy {
   cf: any;
   cv: File;
-  form: FormGroup;
+  form: UntypedFormGroup;
   success = false;
   dateValid = true;
   currentDate: Date;
@@ -33,7 +33,7 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
     public auth: AuthService,
     private fs: FirebaseService,
     private route: ActivatedRoute,
-    private formBuild: FormBuilder,
+    private formBuild: UntypedFormBuilder,
     private eas: ExternalApiService,
     private alertController: AlertController,
     private modalController: ModalController,
