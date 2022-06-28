@@ -97,14 +97,14 @@
                             <img *ngIf="imgAvatar" [src]="imgAvatar" alt="" id="imgAvatar">
                             <div class="foto" id="list">
                                 <ion-icon color="primary" *ngIf="!imgAvatar" name="camera-outline"></ion-icon>
-                                <p *ngIf="!imgAvatar">Agregar<br>Logo de la empresa</p>
+                                <p *ngIf="!imgAvatar">Add<br>Company Logo</p>
                                 <canvas #canvas id="canvas-client" height="0" class="ion-hide"></canvas>
                             </div>
                         </label>
                         <input class="ion-hide" type="file" id="files" name="files[]" (change)="uploadImg($event, 'canvas-client')" accept="image/*" />
                     </div>
                     <div *ngIf="imgAvatar" class="girar" (click)="rotateImg('canvas-client')">
-                        <ion-icon color="primary" name="camera-reverse-outline"></ion-icon> Rotar imagen
+                        <ion-icon color="primary" name="camera-reverse-outline"></ion-icon> Rotate Company Logo
                     </div>
                 </ion-col>
             </ion-row>

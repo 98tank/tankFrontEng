@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { CandidateData, Reward, TypeContract } from 'src/app/models';
@@ -11,7 +11,7 @@ import { ExternalApiService, FirebaseService, SharedService } from 'src/app/serv
   styleUrls: ['./contract.page.scss'],
 })
 export class ContractPage implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
   contract: string;
   candidate: CandidateData;
 
@@ -20,7 +20,7 @@ export class ContractPage implements OnInit {
     private ss: SharedService,
     private fs: FirebaseService,
     private eas: ExternalApiService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private alertController: AlertController,
   ) { }
 

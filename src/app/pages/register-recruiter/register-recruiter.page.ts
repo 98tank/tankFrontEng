@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControlOptions } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, AbstractControlOptions } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, IonContent, LoadingController, ModalController, Platform } from '@ionic/angular';
 import { Observable } from 'rxjs';
@@ -15,7 +15,7 @@ import { PdfViewComponent } from 'src/app/shared/pdf-view/pdf-view.component';
 })
 export class RegisterRecruiterPage implements OnInit {
   creando: any;
-  form: FormGroup;
+  form: UntypedFormGroup;
   dateValid = true;
   currentDate: Date;
   mailExists = false;
@@ -34,7 +34,7 @@ export class RegisterRecruiterPage implements OnInit {
     private auth: AuthService,
     private ss: SharedService,
     private fs: FirebaseService,
-    private formBuild: FormBuilder,
+    private formBuild: UntypedFormBuilder,
     private eas: ExternalApiService,
     private modalController: ModalController,
     private alertController: AlertController,
@@ -212,8 +212,8 @@ export class RegisterRecruiterPage implements OnInit {
   async successfulRegistration(email: string) {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
-      header: 'Registro Exitoso',
-      message: `<ion-icon class="green" name="mail-unread-outline"></ion-icon> ¡Recibiras un correo en tu dirección <br> <strong>${email}</strong> para validar tu registro!`,
+      header: 'Registration completed',
+      message: `<ion-icon class="green" name="mail-unread-outline"></ion-icon> You will receive an email to <br> <strong>${email}</strong> Please confirm your registration!`,
       mode: 'ios',
       buttons: [{
         text: 'Ok',
@@ -227,8 +227,8 @@ export class RegisterRecruiterPage implements OnInit {
   async presentAlertConfirm() {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
-      header: 'Ocurrio un error inesperado',
-      message: '<ion-icon class="red" name="trending-down-outline"></ion-icon> Por favor vuelve a intentarlo',
+      header: 'An unexpected error occurred.',
+      message: '<ion-icon class="red" name="trending-down-outline"></ion-icon> please try again',
       mode: 'ios',
       buttons: [{
           text: 'ok',

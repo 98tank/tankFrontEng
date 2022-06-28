@@ -14,7 +14,7 @@
     <ion-grid fixed>
         <ion-row *ngIf="area$ | async as areas" class="filters">
             <ion-col size-md="5" size="12">
-                <ion-text>Filter Missions</ion-text>
+                <ion-text>Select your Missions</ion-text>
                 <ion-item>
                     <ion-label position="floating">Areas</ion-label>
                     <ion-select [value]="active" interface="popover" cancelText="Cancelar" okText="Aceptar" (ionChange)="filterArea($event)">

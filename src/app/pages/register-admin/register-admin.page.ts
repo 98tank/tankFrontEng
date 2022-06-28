@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, IonContent, LoadingController } from '@ionic/angular';
 import { Observable } from 'rxjs';
@@ -14,7 +14,7 @@ import { AuthService, ExternalApiService, FirebaseService, MediaService, SharedS
 })
 export class RegisterAdminPage implements OnInit {
   creando: any;
-  form: FormGroup;
+  form: UntypedFormGroup;
   mailExists = false;
   imgAvatar: string = null;
   studies$: Observable<string[]>;
@@ -26,7 +26,7 @@ export class RegisterAdminPage implements OnInit {
     private auth: AuthService,
     private ss: SharedService,
     private fs: FirebaseService,
-    private formBuild: FormBuilder,
+    private formBuild: UntypedFormBuilder,
     private eas: ExternalApiService,
     private alertController: AlertController,
     private loadingController: LoadingController) { }
