@@ -14,7 +14,7 @@ import { FirebaseService } from 'src/app/services';
 export class AllCandidatesPage implements AfterViewInit {
 
   displayedColumns = [
-    'E-mail',
+    'Email',
     'Name',
     'Position',
     'Joined-on',
@@ -82,7 +82,7 @@ export class AllCandidatesPage implements AfterViewInit {
 
   changeSort(expresion: string): string {
     switch (expresion) {
-      case 'E-mail':
+      case 'Email':
         return 'email';
       case 'Name':
         return 'name';

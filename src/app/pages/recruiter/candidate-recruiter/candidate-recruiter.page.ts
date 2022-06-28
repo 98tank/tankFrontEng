@@ -53,13 +53,13 @@ export class CandidateRecruiterPage implements OnInit, OnDestroy {
 
   async openAlertDelete(candidate: CandidateData, missionId: string) {
     const alert = await this.alertController.create({
-      header: 'Borrar',
+      header: 'Delete',
       mode: 'ios',
       cssClass: 'delete-alert',
-      message: `<ion-icon class="yellow" name="warning"></ion-icon> El candidato sera borrado permanentemente de nuestra base de datos.`,
+      message: `<ion-icon class="yellow" name="warning"></ion-icon> The Candidate will be Permanently Deleted.`,
       buttons: [
-        { text: 'Salir', role: 'cancel' },
-        { text: 'Eliminar', handler: () => this.deleteCandidate(candidate, missionId) }
+        { text: 'Exit', role: 'cancel' },
+        { text: 'Remove', handler: () => this.deleteCandidate(candidate, missionId) }
       ]
     });
     await alert.present();
