@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AlertController, IonContent } from '@ionic/angular';
 import { Observable, Subscription } from 'rxjs';
 import { pluck, take } from 'rxjs/operators';
@@ -13,7 +13,7 @@ import { AuthService, ExternalApiService, FirebaseService, MediaService, SharedS
 })
 export class EditMyAccountPage implements OnInit, OnDestroy {
   creando: any;
-  form: FormGroup;
+  form: UntypedFormGroup;
   mailExists = false;
   imgAvatar: string = null;
   banks$: Observable<string[]>;
@@ -29,7 +29,7 @@ export class EditMyAccountPage implements OnInit, OnDestroy {
     private auth: AuthService,
     private ss: SharedService,
     private fs: FirebaseService,
-    private formBuild: FormBuilder,
+    private formBuild: UntypedFormBuilder,
     private eas: ExternalApiService,
     private alertController: AlertController) { }
 
@@ -141,17 +141,17 @@ export class EditMyAccountPage implements OnInit, OnDestroy {
 
   async resetPassword() {
     const alert = await this.alertController.create({
-      header: '¿Has olvidado tu contraseña?',
+      header: 'Forgot Password?',
       mode: 'ios',
       cssClass: 'reset-pass',
-      message: `¡Le enviaremos las instrucciones a la siguiente dirección de correo electrónico! <br> <strong>${this.profile.email}</strong>`,
+      message: `Please enter your email to sent instructions <br> <strong>${this.profile.email}</strong>`,
       buttons: [
         {
-          text: 'Cancelar',
+          text: 'Cancel',
           role: 'cancel',
         },
         {
-          text: 'Enviar',
+          text: 'Submit',
           handler: () => { this.eas.sendEmailNotification(this.profile.email, 'reset'); }
         },
       ],

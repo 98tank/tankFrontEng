@@ -4,9 +4,9 @@
             <table>
                 <thead>
                     <tr>
-                        <th colspan="2">CANDIDATOS</th>
-                        <th>ESTATUS</th>
-                        <th>DETALLE</th>
+                        <th colspan="2">CANDIDATES</th>
+                        <th>STATUS</th>
+                        <th>DETAILS</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -18,7 +18,7 @@
                         <td>{{c.name}}</td>
                         <td>{{c.status}}</td>
                         <td>
-                            <ion-button class="more" fill="solid" shape="round" color="primary" [routerLink]="['/reclutador/misiones-elegidas/mision/candidato', c.candidate_id]">Ver más</ion-button>
+                            <ion-button class="more" fill="solid" shape="round" color="primary" [routerLink]="['/reclutador/misiones-elegidas/mision/candidato', c.candidate_id]">More Info</ion-button>
                         </td>
                         <td>
                             <ion-icon class="cursorP" slot="icon-only" *ngIf="!c.seen_by_the_client" color="danger" name="alert-circle-outline" (click)="presentPopover('Pending Review', $event)"></ion-icon>

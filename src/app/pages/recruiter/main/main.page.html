@@ -5,7 +5,7 @@
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Estadísticas
+            Stats
         </ion-title>
     </ion-toolbar>
 </ion-header>
@@ -14,12 +14,12 @@
     <ion-grid fixed>
         <ion-row>
             <ion-col size="12">
-                <ion-button fill="solid" shape="round" color="primary" (click)="update()">Actualizar Cifras</ion-button>
+                <ion-button fill="solid" shape="round" color="primary" (click)="update()">Update Dashbord</ion-button>
             </ion-col>
             <ion-col size="12">
                 <ion-card mode="ios">
                     <ion-card-header color="dark">
-                        Misiones y Candidatos
+                        Missions and Candidates
                     </ion-card-header>
                     <ion-card-content>
                         <ion-row>
@@ -34,7 +34,7 @@
                                                             {{doughnutChartData[0][0]}}
                                                         </div>
                                                     </ion-col>
-                                                    <ion-col size="8">Misiones<br>Activas</ion-col>
+                                                    <ion-col size="8">Active<br>Missions</ion-col>
                                                 </ion-row>
                                             </ion-card-content>
                                         </ion-card>
@@ -48,7 +48,7 @@
                                                             {{doughnutChartData[0][1]}}
                                                         </div>
                                                     </ion-col>
-                                                    <ion-col size="8">Mis Candidatos<br>Activos</ion-col>
+                                                    <ion-col size="8">Active<br>Candidates</ion-col>
                                                 </ion-row>
                                             </ion-card-content>
                                         </ion-card>
@@ -62,7 +62,7 @@
                                                             {{doughnutChartData[0][2]}}
                                                         </div>
                                                     </ion-col>
-                                                    <ion-col size="8">Mis Candidatos<br>Aceptados</ion-col>
+                                                    <ion-col size="8">Accepted<br>Candidates</ion-col>
                                                 </ion-row>
                                             </ion-card-content>
                                         </ion-card>
@@ -76,7 +76,7 @@
                                                             {{doughnutChartData[0][3]}}
                                                         </div>
                                                     </ion-col>
-                                                    <ion-col size="8">Mis Candidatos<br>Rechazados</ion-col>
+                                                    <ion-col size="8">Rejected<br>Candidates</ion-col>
                                                 </ion-row>
                                             </ion-card-content>
                                         </ion-card>

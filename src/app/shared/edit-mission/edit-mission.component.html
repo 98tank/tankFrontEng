@@ -87,7 +87,7 @@
                 </ion-col>
                 <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">Position level</ion-label>
+                        <ion-label position="floating">Position Level</ion-label>
                         <ion-select interface="popover" formControlName="position_level" cancelText="Cancelar" okText="Aceptar">
                             <ion-select-option *ngFor="let y of mf.position_level" [value]="y">{{y}}</ion-select-option>
                         </ion-select>
@@ -275,36 +275,36 @@
                 </ion-col>
                 <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">WorkScheduleing and On Call</ion-label>
+                        <ion-label position="floating">Work schedule and On Call</ion-label>
                         <ion-input type="text" name="schedule" formControlName="schedule" id="schedule"></ion-input>
                     </ion-item>
                 </ion-col>
                 <ion-col size="12">
                     <ion-card mode="ios">
                         <ion-card-header color="tertiary">
-                            <ion-title>Ingles</ion-title>
+                            <ion-title>English</ion-title>
                         </ion-card-header>
                         <ion-radio-group mode="md" formControlName="ingles">
                             <ion-item>
-                                <ion-label>Básico</ion-label>
+                                <ion-label>Essential</ion-label>
                                 <ion-radio slot="start" value="Básico"></ion-radio>
                             </ion-item>
 
                             <ion-item>
-                                <ion-label>Técnico</ion-label>
+                                <ion-label>Technical</ion-label>
                                 <ion-radio slot="start" value="Técnico"></ion-radio>
                             </ion-item>
 
                             <ion-item>
-                                <ion-label>Intermedio</ion-label>
+                                <ion-label>Intermediate</ion-label>
                                 <ion-radio slot="start" value="Intermedio"></ion-radio>
                             </ion-item>
                             <ion-item>
-                                <ion-label>Avanzado</ion-label>
+                                <ion-label>Advanced</ion-label>
                                 <ion-radio slot="start" value="Avanzado"></ion-radio>
                             </ion-item>
                             <ion-item lines="none">
-                                <ion-label>No requerido</ion-label>
+                                <ion-label>No required</ion-label>
                                 <ion-radio slot="start" value="No requerido"></ion-radio>
                             </ion-item>
                         </ion-radio-group>
@@ -359,7 +359,7 @@
                 </ion-col>
                 <ion-col size="12">
                     <ion-item>
-                        <ion-label position="floating">Additional comments for the Role</ion-label>
+                        <ion-label position="floating">Additional Comments</ion-label>
                         <ion-textarea type="text" name="comments" formControlName="comments" id="comments"></ion-textarea>
                     </ion-item>
                     <div class="error" *ngIf="form.get('comments').errors && form.get('comments').touched">

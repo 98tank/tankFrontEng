@@ -1,6 +1,6 @@
 import { pluck } from 'rxjs/operators';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { CandidateData, Country, DateInterface, File } from 'src/app/models';
 import { FirebaseService, MediaService, SharedService } from 'src/app/services';
@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./edit-candidate.component.scss'],
 })
 export class EditCandidateComponent implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
   @Input() candidate: CandidateData;
   cf: any;
   currentDate: Date;
@@ -28,7 +28,7 @@ export class EditCandidateComponent implements OnInit {
     private ss: SharedService,
     private fs: FirebaseService,
     private modal: ModalController,
-    private formBuild: FormBuilder,
+    private formBuild: UntypedFormBuilder,
     private modalController: ModalController) { }
 
   ngOnInit() {
@@ -60,10 +60,8 @@ export class EditCandidateComponent implements OnInit {
       years_of_experience: [this.candidate.years_of_experience, Validators.required],
       place_of_birth: [this.candidate.place_of_birth, [Validators.required, Validators.minLength(2)]],
       sex: [this.candidate.sex, Validators.required],
-      civil_status: [this.candidate.civil_status, Validators.required],
       studies: [this.candidate.studies, Validators.required],
       availability: [this.candidate.availability, Validators.required],
-      sons: [this.candidate.sons, Validators.required],
       ingles: [this.candidate.ingles, Validators.required],
       phone: [this.candidate.phone, [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[0-9]+$/)]],
       email: [this.candidate.email, [Validators.required, Validators.pattern(/^\w+([\.\+\-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/)]],

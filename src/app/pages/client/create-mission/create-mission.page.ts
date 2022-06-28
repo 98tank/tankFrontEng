@@ -1,6 +1,6 @@
 import { pluck } from 'rxjs/operators';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { FirebaseService, SharedService, AuthService, MediaService, ExternalApiService } from 'src/app/services';
 import { IonContent } from '@ionic/angular';
 import { MissionFields, MissionData, File } from 'src/app/models';
@@ -15,7 +15,7 @@ import { Observable } from 'rxjs';
 export class CreateMissionPage implements OnInit {
   pay: File;
   success = false;
-  form: FormGroup;
+  form: UntypedFormGroup;
   mf: MissionFields;
   tankPrice: number;
   states$: Observable<string[]>;
@@ -27,7 +27,7 @@ export class CreateMissionPage implements OnInit {
     private ss: SharedService,
     private auth: AuthService,
     private fs: FirebaseService,
-    private formBuild: FormBuilder,
+    private formBuild: UntypedFormBuilder,
     private eas: ExternalApiService,
     private alertController: AlertController) { }
 

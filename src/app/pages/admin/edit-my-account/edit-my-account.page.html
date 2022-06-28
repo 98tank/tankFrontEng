@@ -29,14 +29,14 @@
                           <img *ngIf="imgAvatar" [src]="imgAvatar" alt="" id="imgAvatar">
                           <div class="foto" id="list">
                               <ion-icon color="primary" *ngIf="!imgAvatar" name="camera-outline"></ion-icon>
-                              <p *ngIf="!imgAvatar">Add<br>Avatar</p>
+                              <p *ngIf="!imgAvatar">Add<br>Picture</p>
                               <canvas #canvas id="canvas-recruiter" height="0" class="ion-hide"></canvas>
                           </div>
                       </label>
                         <input class="ion-hide" type="file" id="files" name="files[]" (change)="uploadImg($event, 'canvas-recruiter')" accept="image/*" />
                     </div>
                     <div *ngIf="imgAvatar" class="girar" (click)="rotateImg('canvas-recruiter')">
-                        <ion-icon color="primary" name="camera-reverse-outline"></ion-icon> Rotate Image
+                        <ion-icon color="primary" name="camera-reverse-outline"></ion-icon> Rotate Picture
                     </div>
                 </ion-col>
                 <ion-col size="6" *ngIf="user.profile.nickname">
@@ -72,7 +72,7 @@
                 </ion-col>
                 <ion-col size-md="6" size="12">
                     <ion-item class="email">
-                        <ion-label position="floating">E-mail</ion-label>
+                        <ion-label position="floating">Email</ion-label>
                         <ion-input [attr.disabled]="true" type="email" name="email" formControlName="email" id="email"></ion-input>
                     </ion-item>
                     <div class="error textMailExists" *ngIf="mailExists">
@@ -118,7 +118,7 @@
 
                 <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">Telephone Number</ion-label>
+                        <ion-label position="floating">Mobile Number</ion-label>
                         <ion-input matInput type="tel" name="personal_phone" formControlName="personal_phone" id="personal_phone"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('personal_phone').errors && form.get('personal_phone').touched">
@@ -138,29 +138,29 @@
                 </ion-col>
                 <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">CURP</ion-label>
+                        <ion-label position="floating">Last 4 digits to SSN</ion-label>
                         <ion-input matInput type="tel" name="curp" formControlName="curp" id="curp"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('curp').errors && form.get('curp').touched">
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('curp').hasError('minlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Must have eighteen numbers.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Must have four numbers.
                         </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('curp').hasError('maxlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Must have eighteen numbers.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Must have four numbers.
                         </ion-text>
                     </div>
                 </ion-col>
                 <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">TIN Number</ion-label>
+                        <ion-label position="floating">TAX ID</ion-label>
                         <ion-input matInput type="tel" name="rfc" formControlName="rfc" id="rfc"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('rfc').errors && form.get('rfc').touched">
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('rfc').hasError('minlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>must have twelve numbers.
+                            <ion-icon name="alert-circle-outline"></ion-icon>must have nine characters.
                         </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('rfc').hasError('maxlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>must have twelve numbers.
+                            <ion-icon name="alert-circle-outline"></ion-icon>must have nine characters.
                         </ion-text>
                     </div>
                 </ion-col>
@@ -174,7 +174,7 @@
                 </ion-col>
                 <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">Major in</ion-label>
+                        <ion-label position="floating">Degree</ion-label>
                         <ion-input matInput type="tel" name="career" formControlName="career" id="career"></ion-input>
                     </ion-item>
                 </ion-col>
