@@ -8,7 +8,6 @@ export interface MissionFields {
     duration: string[];
     benefits: string[];
     languages: string[];
-    civil_status: string[];
     business_days: string[];
     salary_scheme: string[];
     position_level: string[];

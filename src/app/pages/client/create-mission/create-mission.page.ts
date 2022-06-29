@@ -61,10 +61,8 @@ export class CreateMissionPage implements OnInit {
       area: ['', Validators.required],
       duration: ['', Validators.required],
       duration_details: [''],
-      age_range: [''],
       ingles: ['No requerido'],
       sex: ['', Validators.required],
-      civil_status: ['', Validators.required],
       studies: ['', Validators.required],
       salary_scheme: ['', Validators.required],
       net_salary: ['', [Validators.required, Validators.pattern(/^[0-9]+$/)]],
@@ -118,12 +116,12 @@ export class CreateMissionPage implements OnInit {
   async presentAlertConfirm() {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
-      header: '¿Generar esta misión?',
+      header: 'Do you want to create this mission?',
       mode: 'ios',
-      message: '<ion-icon class="yellow" name="rocket-outline"></ion-icon> Al presionar "Ok" se creara la misión con los datos proporcionados, y esta pasara a revisión por parte de nuestos Administradores',
+      message: '<ion-icon class="yellow" name="rocket-outline"></ion-icon> Pressing "Ok" will create the mission and go to review to be accepted',
       buttons: [
         {
-          text: 'Revisar',
+          text: 'Review',
           role: 'cancel',
         }, {
           text: 'Ok',

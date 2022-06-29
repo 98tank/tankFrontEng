@@ -1,66 +1,66 @@
 [{
         "icon": "stats-chart",
-        "name": "Principal",
+        "name": "Home",
         "redirecTo": "/cliente/principal",
         "auth": true
     },
     {
         "icon": "bulb",
-        "name": "Crear Misión",
+        "name": "Create Missions",
         "redirecTo": "/cliente/crear-mision",
         "auth": true
     },
     {
         "icon": "search",
-        "name": "Misiones en revisión",
+        "name": "Missions in review",
         "redirecTo": "/cliente/misiones-en-revision",
         "auth": true
     },
     {
         "icon": "rocket",
-        "name": "Misiones activas",
+        "name": "Active Missions",
         "redirecTo": "/cliente/misiones-activas",
         "auth": true
     },
     {
         "icon": "close-circle",
-        "name": "Misiones canceladas",
+        "name": "Canceled Missions",
         "redirecTo": "/cliente/misiones-canceladas",
         "auth": true
     },
     {
         "icon": "golf",
-        "name": "Misiones terminadas",
+        "name": "Completed  Missions",
         "redirecTo": "/cliente/misiones-culminadas",
         "auth": true
     },
     {
         "icon": "people",
-        "name": "Candidatos",
+        "name": "Candidates",
         "redirecTo": "/cliente/todos-los-candidates",
         "auth": true
     },
     {
         "icon": "cash",
-        "name": "Historial de pagos",
+        "name": "Payments",
         "redirecTo": "/cliente/historial-de-pago",
         "auth": true
     },
     {
         "icon": "calendar",
-        "name": "Futuras entrevistas",
+        "name": "Scheduled Interviews",
         "redirecTo": "/cliente/futuras-entrevistas",
         "auth": true
     },
     {
         "icon": "settings",
-        "name": "Editar mi cuenta",
+        "name": "Edit My Account",
         "redirecTo": "/cliente/editar-perfil",
         "auth": true
     },
     {
         "icon": "exit",
-        "name": "Cerrar sesión",
+        "name": "Sign Out",
         "redirecTo": "/login",
         "auth": true
     }

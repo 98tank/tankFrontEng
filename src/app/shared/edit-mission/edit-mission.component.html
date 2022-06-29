@@ -27,7 +27,7 @@
             <ion-row>
                 <ion-col size="12">
                     <ion-item>
-                        <ion-label position="floating">Position Name</ion-label>
+                        <ion-label position="floating">Job Title</ion-label>
                         <ion-input type="text" name="name_position" formControlName="name_position" id="name_position"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('name_position').errors && form.get('name_position').touched">
@@ -87,7 +87,7 @@
                 </ion-col>
                 <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">Position Level</ion-label>
+                        <ion-label position="floating">Kind of Position</ion-label>
                         <ion-select interface="popover" formControlName="position_level" cancelText="Cancelar" okText="Aceptar">
                             <ion-select-option *ngFor="let y of mf.position_level" [value]="y">{{y}}</ion-select-option>
                         </ion-select>
@@ -151,27 +151,6 @@
                     </div>
                 </ion-col>
 
-                <ion-col size-md="12" size="12">
-                    <ion-item>
-                        <ion-label position="floating">Age Range</ion-label>
-                        <ion-input type="text" name="age_range" formControlName="age_range" id="age_range"></ion-input>
-                    </ion-item>
-                </ion-col>
-                <ion-col size-md="4" size="6">
-                    <ion-item>
-                        <ion-label position="floating">Civil Status</ion-label>
-                        <ion-select interface="popover" formControlName="civil_status" cancelText="Cancelar" okText="Aceptar">
-                            <ion-select-option *ngFor="let y of mf.civil_status" [value]="y">{{y}}</ion-select-option>
-                        </ion-select>
-                        <div tabindex="0" style="height: 0;"></div>
-                    </ion-item>
-
-                    <div class="error" *ngIf="form.get('civil_status').errors &&  form.get('civil_status').touched">
-                        <ion-text class="ion-justify-content-center" color="danger">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.  
-                        </ion-text>
-                    </div>
-                </ion-col>
                 <ion-col size-md="4" size="6">
                     <ion-item>
                         <ion-label position="floating">Education</ion-label>
@@ -304,7 +283,7 @@
                                 <ion-radio slot="start" value="Avanzado"></ion-radio>
                             </ion-item>
                             <ion-item lines="none">
-                                <ion-label>No required</ion-label>
+                                <ion-label>Not required</ion-label>
                                 <ion-radio slot="start" value="No requerido"></ion-radio>
                             </ion-item>
                         </ion-radio-group>
