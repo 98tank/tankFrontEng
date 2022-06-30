@@ -124,7 +124,7 @@ export class EditMyAccountPage implements OnInit, OnDestroy {
     console.log(this.form.value);
     const alert = await this.alertController.create({
       cssClass: 'update-alert',
-      header: 'Perfil Actualizado',
+      header: 'Updated profile',
       mode: 'ios',
       message: '<ion-icon class="green" name="checkmark-circle"></ion-icon>',
       buttons: [

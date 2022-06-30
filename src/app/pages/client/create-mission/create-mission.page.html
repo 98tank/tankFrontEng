@@ -235,7 +235,7 @@
                     <ion-item>
                         <ion-label position="floating">State</ion-label>
                         <ion-select interface="popover" formControlName="state" cancelText="Cancelar" okText="Aceptar">
-                            <ion-select-option *ngFor="let y of states$ | async" [value]="y">{{y}}</ion-select-option>
+                            <ion-select-option *ngFor="let y of states$ | async" [value]="y.name">{{y.name}}</ion-select-option>
                         </ion-select>
                         <div tabindex="0" style="height: 0;"></div>
                     </ion-item>

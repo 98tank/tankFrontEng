@@ -19,7 +19,7 @@
             <ion-col size-md="6" size="12" *ngFor="let mc of closedMission">
                 <ion-card mode="ios">
                     <ion-card-header>
-                        <ion-card-subtitle color="tertiary">COMPLETED ON {{mc.type_contract.date | date: 'd/MM/y - hh:mmaaa'}}</ion-card-subtitle>
+                        <ion-card-subtitle color="tertiary">FINISHED ON {{mc.type_contract.date | date: 'd/MM/y - hh:mmaaa'}}</ion-card-subtitle>
                         <ion-card-title color="secondary">
                             <h3>{{mc.name_position}}</h3>
                         </ion-card-title>

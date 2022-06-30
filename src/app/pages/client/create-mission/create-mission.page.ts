@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { FirebaseService, SharedService, AuthService, MediaService, ExternalApiService } from 'src/app/services';
 import { IonContent } from '@ionic/angular';
-import { MissionFields, MissionData, File } from 'src/app/models';
+import { MissionFields, MissionData, File, States } from 'src/app/models';
 import { AlertController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 
@@ -18,7 +18,7 @@ export class CreateMissionPage implements OnInit {
   form: UntypedFormGroup;
   mf: MissionFields;
   tankPrice: number;
-  states$: Observable<string[]>;
+  states$: Observable<States[]>;
   @ViewChild('topPage') content: IonContent;
   hiringTime = ['1 to 3 weeks', '4 to 6 weeks', 'more than 6 weeks'];
 

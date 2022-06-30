@@ -3,28 +3,28 @@
         <ion-icon color="success" name="checkmark-circle-sharp"></ion-icon>
     </ion-card-header>
     <ion-card-content>
-        Su solicitud de reembolso fue generada, recibira respuesta via correo por parte del Administrador de 98 Tank.
+        Your Reimbursements request was generated, you will receive a response by mail.
     </ion-card-content>
-    <ion-button fill="solid" shape="round" color="primary" type="button" (click)="closeModal()">Salir</ion-button>
+    <ion-button fill="solid" shape="round" color="primary" type="button" (click)="closeModal()">Exit</ion-button>
 </ion-card>
 <ion-card mode="ios" *ngIf="!success">
     <ion-card-header mode="ios" color="secondary">
-        <ion-title>Solicitar reembolso</ion-title>
+        <ion-title>Request Refund</ion-title>
     </ion-card-header>
     <ion-card-content>
         <form [formGroup]="form" (submit)="createData()" novalidate>
             <ion-item lines="none">
                 <ion-text>
-                    <p>Por favor indicanos la razón por la cual estas solicitando el reembolso.</p>
+                    <p>Please Indicate the Reason for the Reimbursements.</p>
                 </ion-text>
             </ion-item>
             <ion-item>
-                <ion-label position="floating">Razón</ion-label>
+                <ion-label position="floating">Reason</ion-label>
                 <ion-input type="text" formControlName="reason" name="reason" id="reason"></ion-input>
             </ion-item>
             <ion-buttons class="request">
-                <ion-button fill="solid" shape="round" color="primary" type="submit">Enviar</ion-button>
-                <ion-button fill="solid" shape="round" color="medium" type="button" (click)="closeModal()">Cancelar</ion-button>
+                <ion-button fill="solid" shape="round" color="primary" type="submit">Submit</ion-button>
+                <ion-button fill="solid" shape="round" color="medium" type="button" (click)="closeModal()">Cancel</ion-button>
             </ion-buttons>
         </form>
     </ion-card-content>

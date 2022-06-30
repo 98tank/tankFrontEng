@@ -5,7 +5,7 @@
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Misiones Canceladas
+            Canceled Missions
         </ion-title>
     </ion-toolbar>
 </ion-header>
@@ -19,7 +19,7 @@
             <ion-col size-md="6" size="12" *ngFor="let mc of cancelledMissions">
                 <ion-card>
                     <ion-card-header>
-                        <ion-card-subtitle color="tertiary">Creada el {{mc.create_date | date: 'd/MM/y - hh:mmaaa'}}</ion-card-subtitle>
+                        <ion-card-subtitle color="tertiary">Created on {{mc.create_date | date: 'd/MM/y - hh:mmaaa'}}</ion-card-subtitle>
                         <ion-card-title color="secondary">
                             <h3>{{mc.name_position}}</h3>
                         </ion-card-title>
@@ -27,37 +27,37 @@
                     <ion-card-content>
                         <ion-item>
                             <ion-icon color="secondary" name="rocket-sharp" slot="start"></ion-icon>
-                            <ion-label><strong>Estatus Misión:</strong>
+                            <ion-label><strong>Mission Status:</strong>
                                 <ion-chip color="danger">
-                                    <ion-label>Cancelada</ion-label>
+                                    <ion-label>Cancelled</ion-label>
                                 </ion-chip>
                             </ion-label>
                             <div tabindex="0" style="height: 0;"></div>
                         </ion-item>
                         <ion-item *ngIf="mc.request_refound">
                             <ion-icon name="cash-outline" slot="start"></ion-icon>
-                            <ion-label><strong>Reembolso:</strong>
+                            <ion-label><strong>Reimbursements:</strong>
                                 <ion-chip color="success" *ngIf="mc.request_refound.status === 'Paid'">
-                                    <ion-label>Pagada</ion-label>
+                                    <ion-label>Paid</ion-label>
                                 </ion-chip>
                                 <ion-chip color="medium" *ngIf="mc.request_refound.status === 'Pending'">
-                                    <ion-label>En revisión</ion-label>
+                                    <ion-label>In Review</ion-label>
                                 </ion-chip>
                                 <ion-chip color="dark" *ngIf="mc.request_refound.status === 'Denegada'">
-                                    <ion-label>Denegada</ion-label>
+                                    <ion-label>Denied</ion-label>
                                 </ion-chip>
                             </ion-label>
                             <div tabindex="0" style="height: 0;"></div>
                         </ion-item>
                         <ion-card-content *ngIf="mc?.reason_cancelled || mc.request_refound?.reason">
                             <ion-text>
-                                <p *ngIf="mc?.reason_cancelled"><strong>Razón del rechazo: </strong>{{mc.reason_cancelled}}</p>
-                                <p *ngIf="mc.request_refound?.reason"><strong>Razón del reembolso: </strong>{{mc.request_refound.reason}}</p>
+                                <p *ngIf="mc?.reason_cancelled"><strong>Reason for Discard: </strong>{{mc.reason_cancelled}}</p>
+                                <p *ngIf="mc.request_refound?.reason"><strong>Reason for Reimbursement: </strong>{{mc.request_refound.reason}}</p>
                             </ion-text>
                         </ion-card-content>
                         <ion-buttons>
-                            <ion-button *ngIf="!mc.request_refound" fill="solid" shape="round" color="primary" (click)="openRefound(mc)">Pedir reembolso</ion-button>
-                            <ion-button fill="solid" shape="round" color="primary" (click)="missionView(mc, 'mission')">Ver Misión</ion-button>
+                            <ion-button *ngIf="!mc.request_refound" fill="solid" shape="round" color="primary" (click)="openRefound(mc)">Request Refund</ion-button>
+                            <ion-button fill="solid" shape="round" color="primary" (click)="missionView(mc, 'mission')">Browse Mission</ion-button>
                         </ion-buttons>
                     </ion-card-content>
                 </ion-card>
