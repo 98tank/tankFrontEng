@@ -30,7 +30,7 @@
     },
     {
         "icon": "golf",
-        "name": "Completed  Missions",
+        "name": "Missions Accomplished",
         "redirecTo": "/cliente/misiones-culminadas",
         "auth": true
     },
