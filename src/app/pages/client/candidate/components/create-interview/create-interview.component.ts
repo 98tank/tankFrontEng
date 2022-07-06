@@ -18,8 +18,8 @@ export class CreateInterviewComponent implements OnInit {
 
   constructor(
     private ss: SharedService,
-    private formBuild: UntypedFormBuilder,
     private modal: ModalController,
+    private formBuild: UntypedFormBuilder,
   ) { }
 
   ngOnInit() {
