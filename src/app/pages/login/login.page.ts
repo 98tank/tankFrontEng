@@ -46,7 +46,7 @@ export class LoginPage implements OnInit, OnDestroy {
 
   async getDataLogin() {
     if (this.form.valid) {
-      await this.presentLoading('Autenticando...');
+      await this.presentLoading('Authenticating...');
       this.auth.loginEmail(this.form.value.email, this.form.value.pass).then((res) => {
         if (res.user.emailVerified === true) {
           if (res.user.uid) {

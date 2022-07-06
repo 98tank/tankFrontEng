@@ -30,7 +30,7 @@ export class FutureInterviewsPage implements OnInit {
 
   getMyMissions(uid: string) {
     const correntDate: number = this.ss.getDate().getTime();
-    this.fs.getColFilter('candidates', 'uid_recruiter', '==', uid).where('interview.status', '==', 'selected').get().then(r => {
+    this.fs.getColFilter('candidates', 'uid_recruiter', '==', uid).where('interview.status', '==', 'selected').where('status', '==', 'Active').get().then(r => {
       if (r.size > 0) {
         r.forEach(d => {
           const c: Option[] = d.data().interview.options;
