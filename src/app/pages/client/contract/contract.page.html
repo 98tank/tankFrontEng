@@ -5,7 +5,7 @@
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Contratar candidato
+            Hire Candidate
         </ion-title>
         <ion-buttons slot="end">
             <ion-menu-button></ion-menu-button>
@@ -19,14 +19,14 @@
             <ion-col>
                 <ion-card mode="ios">
                     <ion-card-header mode="ios" color="primary">
-                        <ion-title>Contratar</ion-title>
+                        <ion-title>Hire</ion-title>
                     </ion-card-header>
                     <ion-radio-group (ionChange)="setContract($event)">
                         <ion-item>
                             <ion-radio mode="md" slot="start" value="direct"></ion-radio>
                             <ion-text>
                                 <p>
-                                    <strong>Contratar Directamente: </strong> La contratación la hace directamente y nosotros le proporcionaremos los datos del candidato para que se ponga en contacto con él.
+                                    <strong>Direct Recruitment: </strong> is done directly and we will provide you with the Hiringcandidate's data so that they can contact him.
                                 </p>
                             </ion-text>
                             <div tabindex="0" style="height: 0;"></div>
@@ -35,7 +35,7 @@
                             <ion-radio mode="md" slot="start" value="service"></ion-radio>
                             <ion-text>
                                 <p>
-                                    <strong>Contratar como Servicio: </strong> Le solicitaremos sus datos de contacto para explicarle sobre nuestro servicio.
+                                    <strong>Contract as a service: </strong> We will request your contact information to explain our service.
                                 </p>
                             </ion-text>
                             <div tabindex="0" style="height: 0;"></div>
@@ -45,82 +45,82 @@
 
                 <ion-card mode="ios" *ngIf="contract === 'direct'">
                     <ion-card-header mode="ios" color="secondary">
-                        <ion-title>Felicidades</ion-title>
+                        <ion-title>Congratulations</ion-title>
                     </ion-card-header>
                     <ion-card-content>
                         <ion-text>
-                            <p>Gracias por utilizar los servícios de 98 Tank y seleccionar a uno de nuestros reclutados para colaborar con ustedes.</p>
-                            <p>Los datos del recurso para que te pongas en contacto con el y realices la contratacion son:</p>
+                            <p>Thank you for using the services of 98 Tank and selecting one of our recruiters to collaborate with you.</p>
+                            <p>The data of the resource to contact the candidate and carry out the hiring are:</p>
                         </ion-text>
                         <ion-item>
                             <ion-icon slot="start" name="person-sharp"></ion-icon>
-                            <ion-label><strong class="ion-hide-sm-down">Nombre: </strong> {{candidate.name}}</ion-label>
+                            <ion-label><strong class="ion-hide-sm-down">Name: </strong> {{candidate.name}}</ion-label>
                             <div tabindex="0" style="height: 0;"></div>
                         </ion-item>
                         <ion-item>
                             <ion-icon slot="start" name="phone-portrait"></ion-icon>
-                            <ion-label><strong class="ion-hide-sm-down">Telefono: </strong> <a [href]="'tel:'+candidate.phone">{{candidate.phone}}</a></ion-label>
+                            <ion-label><strong class="ion-hide-sm-down">Phone: </strong> <a [href]="'tel:'+candidate.phone">{{candidate.phone}}</a></ion-label>
                             <div tabindex="0" style="height: 0;"></div>
                         </ion-item>
                         <ion-item>
                             <ion-icon slot="start" name="mail"></ion-icon>
-                            <ion-label><strong class="ion-hide-sm-down">Correo: </strong> <a [href]="'mailto:'+candidate.email">{{candidate.email}}</a></ion-label>
+                            <ion-label><strong class="ion-hide-sm-down">Email: </strong> <a [href]="'mailto:'+candidate.email">{{candidate.email}}</a></ion-label>
                             <div tabindex="0" style="height: 0;"></div>
                         </ion-item>
                         <ion-text>
-                            <p>Tambien recibiras esta información por correo.</p>
+                            <p>You will also receive this information by mail.</p>
                         </ion-text>
                         <ion-buttons>
-                            <ion-button fill="solid" shape="round" color="primary" (click)="updateSuccess()">Salir</ion-button>
+                            <ion-button fill="solid" shape="round" color="primary" (click)="updateSuccess()">Exit</ion-button>
                         </ion-buttons>
                     </ion-card-content>
                 </ion-card>
 
                 <ion-card mode="ios" *ngIf="contract === 'service'">
                     <ion-card-header mode="ios" color="secondary">
-                        <ion-title>Felicidades</ion-title>
+                        <ion-title>Congratulations</ion-title>
                     </ion-card-header>
                     <ion-card-content>
                         <ion-text>
-                            <p>Gracias por utilizar los servicios de 98 Tank y seleccionar a uno de nuestros reclutados para colaborar con ustedes.</p>
-                            <p>En las proximas horas unos de nuestros asesores se pondra en contacto con usted para darle la información necesaria y brindarle una excelente experiencia en el servicio.</p>
-                            <p> Por favor proporcionanos los siguientes datos:</p>
+                            <p>Thank you for using the services of 98 Tank and selecting one of our recruiters to collaborate with you.</p>
+                            <p>In the next few hours one of our advisors will contact you to give you the necessary information.</p>
+                            <p>Please provide us with the following information:</p>
                         </ion-text>
                         <form [formGroup]="form" (submit)="getData()" novalidate>
                             <ion-item>
-                                <ion-label position="floating">Nombre completo</ion-label>
+                                <ion-label position="floating">Full Name:</ion-label>
                                 <ion-input type="text" formControlName="name" name="name" id="name"></ion-input>
                                 <div tabindex="0" style="height: 0;"></div>
                             </ion-item>
                             <div class="error" *ngIf="form.get('name').errors && form.get('name').touched">
                                 <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('name').hasError('required')">
-                                    <ion-icon name="alert-circle-outline"></ion-icon>Indica el nombre del contacto.
+                                    <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                                 </ion-text>
                                 <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('name').hasError('minlength')">
-                                    <ion-icon name="alert-circle-outline"></ion-icon>Debe tener al menos dos caracteres.
+                                    <ion-icon name="alert-circle-outline"></ion-icon>It must have at least two characters.
                                 </ion-text>
                             </div>
                             <ion-item>
-                                <ion-label position="floating">Telefono</ion-label>
+                                <ion-label position="floating">Phone</ion-label>
                                 <ion-input formControlName="phone" type="tel" id="phone"></ion-input>
                                 <div tabindex="0" style="height: 0;"></div>
                             </ion-item>
                             <div class="error" *ngIf="form.get('phone').errors && form.get('phone').touched">
                                 <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('phone').hasError('required')">
-                                    <ion-icon name="alert-circle-outline"></ion-icon>El teléfono es requerido.
+                                    <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                                 </ion-text>
                                 <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('phone').hasError('pattern')">
-                                    <ion-icon name="alert-circle-outline"></ion-icon>Solo se admiten numeros.
+                                    <ion-icon name="alert-circle-outline"></ion-icon>Only numbers.
                                 </ion-text>
                                 <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('phone').hasError('minlength')">
-                                    <ion-icon name="alert-circle-outline"></ion-icon>El telefono debe tener al menos 10 numeros.
+                                    <ion-icon name="alert-circle-outline"></ion-icon>It must have at least ten numbers. 
                                 </ion-text>
                                 <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('phone').hasError('maxlength')">
-                                    <ion-icon name="alert-circle-outline"></ion-icon>El telefono debe tener maximo 10 numeros.
+                                    <ion-icon name="alert-circle-outline"></ion-icon>Must have maximum ten numbers.
                                 </ion-text>
                             </div>
                             <ion-buttons>
-                                <ion-button fill="solid" shape="round" color="primary" type="submit">Enviar</ion-button>
+                                <ion-button fill="solid" shape="round" color="primary" type="submit">Submit</ion-button>
                             </ion-buttons>
                         </form>
                     </ion-card-content>

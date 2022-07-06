@@ -5,7 +5,7 @@
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Historial de pagos
+            Payment History
         </ion-title>
     </ion-toolbar>
 </ion-header>
@@ -14,16 +14,16 @@
     <ion-grid fixed>
         <ion-row>
             <ion-col size="12">
-                <p>Transacciones Recientes por Misiones Creadas</p>
+                <p>Recent Transactions by Missions</p>
                 <ion-card mode="ios">
                     <table>
                         <thead>
                             <tr>
-                                <th>Misión</th>
-                                <th>Fecha de la transacción</th>
-                                <th>Monto</th>
-                                <th>Estatus</th>
-                                <th>Comprobante</th>
+                                <th>Mission</th>
+                                <th>Transaction Date</th>
+                                <th>Ammount</th>
+                                <th>Status</th>
+                                <th>Voucher</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,8 +35,8 @@
                                 <td *ngIf="c$ | async as c">{{((p.net_salary * c.create_mission) | currency: '$ ')}}</td>
                                 <td class="ion-text-capitalize">{{p.status}}</td>
                                 <td>
-                                    <ion-button *ngIf="p.pay.filePath; else noPay" expand="block" shape="round" fill="solid" color="primary" (click)="watch(p.pay)">Ver</ion-button>
-                                    <ng-template #noPay>Falta comprobante</ng-template>
+                                    <ion-button *ngIf="p.pay.filePath; else noPay" expand="block" shape="round" fill="solid" color="primary" (click)="watch(p.pay)">View</ion-button>
+                                    <ng-template #noPay>Missing Voucher</ng-template>
                                 </td>
                             </tr>
                         </tbody>
@@ -44,16 +44,16 @@
                 </ion-card>
             </ion-col>
             <ion-col size="12">
-                <p>Devoluciones de 98 TANK al cliente</p>
+                <p>Reimbursements from 98Tank to the client</p>
                 <ion-card mode="ios">
                     <table>
                         <thead>
                             <tr>
-                                <th>Misións Canceladas</th>
-                                <th>Fecha de la solicitud</th>
-                                <th>Monto</th>
-                                <th>Estatus</th>
-                                <th>Comprobante</th>
+                                <th>Cancelled Missions</th>
+                                <th>Date of Request</th>
+                                <th>Ammount</th>
+                                <th>Status</th>
+                                <th>Voucher</th>
                             </tr>
                         </thead>
                         <tbody>

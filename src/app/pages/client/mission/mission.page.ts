@@ -39,11 +39,11 @@ export class MissionPage implements OnInit {
 
   async cancelMission(mission: MissionData) {
     const alert = await this.alertController.create({
-      header: 'Esta seguro que desea Cancelar la misión',
-      message: 'Presione OK para Cancelar misión',
+      header: 'Are you sure you want to Cancel the mission?',
+      message: 'Press OK to Cancel Mission',
       mode: 'ios',
       buttons: [
-        { text: 'Salir', role: 'cancel' },
+        { text: 'Exit', role: 'Cancel' },
         { text: 'OK', handler: () => { this.canceledMission(mission); } }
       ]
     });

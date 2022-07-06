@@ -1,6 +1,6 @@
 import { pluck } from 'rxjs/operators';
 import { Component, OnInit, Input } from '@angular/core';
-import { MissionData, MissionFields, File, User } from 'src/app/models';
+import { MissionData, MissionFields, File, User, States } from 'src/app/models';
 import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { AuthService, FirebaseService, MediaService, SharedService } from 'src/app/services';
 import { PickerController, ModalController } from '@ionic/angular';
@@ -17,7 +17,7 @@ export class EditMissionComponent implements OnInit {
   mf: MissionFields;
   success = false;
   isSuperAdmin: boolean;
-  states$: Observable<string[]>;
+  states$: Observable<States[]>;
   hiringTime = ['1 to 3 weeks', '4 to 6 weeks', 'more than 6 weeks'];
 
   constructor(
@@ -65,9 +65,7 @@ export class EditMissionComponent implements OnInit {
       ingles: [this.mission.ingles, Validators.required],
       duration: [this.mission.duration, Validators.required],
       duration_details: [this.mission.duration_details],
-      age_range: [this.mission.age_range],
       sex: [this.mission.sex, Validators.required],
-      civil_status: [this.mission.civil_status, Validators.required],
       studies: [this.mission.studies, Validators.required],
       net_salary: [this.mission.net_salary],
       benefits: [this.mission.benefits, Validators.required],
