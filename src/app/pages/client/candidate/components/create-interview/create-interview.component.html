@@ -21,7 +21,7 @@
                         <p>Choose 2 available dates for the interview, the recruiter will verify the availability of the candidate to coordinate the interview.</p>
                     </ion-text>
                 </ion-col>
-                <ion-col size="6">
+                <ion-col size="12" class="ion-hide">
                     <ion-text color="secondary">
                         <h5>First Option</h5>
                     </ion-text>
@@ -32,8 +32,30 @@
                             <ngx-mat-datetime-picker #picker1 showSpinners="true"></ngx-mat-datetime-picker>
                         </mat-form-field>
                     </ion-item>
+                    <div class="error" *ngIf="form.get('date_option1').errors && form.get('date_option1').touched">
+                        <ion-text class="ion-justify-content-center" color="danger">
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
+                        </ion-text>
+                    </div>
                 </ion-col>
-                <ion-col size="6">
+                <ion-col size="12">
+                    <ion-text color="secondary">
+                        <h5>First Option</h5>
+                    </ion-text>
+                    <ion-item>
+                        <mat-form-field>
+                            <input matInput [ngxMatDatetimePicker]="picker3" [min]="date" placeholder="Date" formControlName="date_option1">
+                            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                            <ngx-mat-datetime-picker #picker3 showSpinners="true"></ngx-mat-datetime-picker>
+                        </mat-form-field>
+                    </ion-item>
+                    <div class="error" *ngIf="form.get('date_option1').errors && form.get('date_option1').touched">
+                        <ion-text class="ion-justify-content-center" color="danger">
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
+                        </ion-text>
+                    </div>
+                </ion-col>
+                <ion-col size="12">
                     <ion-text color="secondary">
                         <h5>Second Option</h5>
                     </ion-text>

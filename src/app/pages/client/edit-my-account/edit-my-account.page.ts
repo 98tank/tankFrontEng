@@ -121,7 +121,6 @@ export class EditMyAccountPage implements OnInit, OnDestroy {
   }
 
   async updateSuccess() {
-    console.log(this.form.value);
     const alert = await this.alertController.create({
       cssClass: 'update-alert',
       header: 'Updated profile',

@@ -45,7 +45,7 @@ export class MissionUnderReviewPage implements OnInit {
     });
     await modal.present();
     const { data } = await modal.onWillDismiss();
-    if (data.data) {
+    if (data?.data) {
       this.getMissionUnderReview();
     }
   }

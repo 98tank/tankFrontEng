@@ -53,7 +53,7 @@ export class UserSearchPage implements OnInit {
   async presentLoading() {
     const loading = await this.loadingController.create({
       mode: 'ios',
-      message: 'Buscando...',
+      message: 'Searching...',
     });
     await loading.present();
   }
@@ -62,8 +62,8 @@ export class UserSearchPage implements OnInit {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
       mode: 'ios',
-      header: 'NO EXISTE',
-      message: `<ion-icon class="red" name="close-circle-outline"></ion-icon> El correo <strong>${email}</strong>, no pertence a nuestra base de datos.`,
+      header: 'DOES NOT EXIST!',
+      message: `<ion-icon class="red" name="close-circle-outline"></ion-icon> The mail <strong>${email}</strong>, does not belong to our database.`,
       buttons: ['OK']
     });
     await alert.present();

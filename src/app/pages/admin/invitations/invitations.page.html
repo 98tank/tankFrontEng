@@ -5,7 +5,7 @@
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Enviar invitaciones a 98Tank
+            Send invites to 98Tank
         </ion-title>
     </ion-toolbar>
 </ion-header>
@@ -14,11 +14,11 @@
     <ion-grid fixed>
         <ion-card mode="ios">
             <ion-card-header color="secondary">
-                <ion-title>Vista previa de la invitacion</ion-title>
+                <ion-title>Preview of the invitation</ion-title>
             </ion-card-header>
             <div class="fondo"></div>
             <ion-card-header>
-                <ion-card-subtitle>Destinatario</ion-card-subtitle>
+                <ion-card-subtitle>Receiver</ion-card-subtitle>
                 <ion-card-title>{{form.value.mail}}</ion-card-title>
             </ion-card-header>
             <ion-card-content>
@@ -29,56 +29,56 @@
 
         <ion-card mode="ios">
             <ion-card-header color="tertiary">
-                <ion-title>Llena los siguientes campos</ion-title>
+                <ion-title>Fill in the following fields</ion-title>
             </ion-card-header>
             <ion-card-content>
                 <form [formGroup]="form" (submit)="openAlerSend()" novalidate>
                     <ion-row>
                         <ion-col size-md="6" size="12">
                             <ion-item>
-                                <ion-label position="floating">Nombre del invitado</ion-label>
+                                <ion-label position="floating">Guest Name</ion-label>
                                 <ion-input matInput type="text" name="name" formControlName="name" id="name"></ion-input>
                             </ion-item>
                             <div class="error" *ngIf="form.get('name').errors && form.get('name').touched">
                                 <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('name').hasError('required')">
-                                    <ion-icon name="alert-circle-outline"></ion-icon>El nombre del invitado es requerido.
+                                    <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                                 </ion-text>
                                 <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('name').hasError('minlength')">
-                                    <ion-icon name="alert-circle-outline"></ion-icon>El nombre del invitado debe tener al menos 2 caracteres.
+                                    <ion-icon name="alert-circle-outline"></ion-icon>It must have at least two characters.
                                 </ion-text>
                             </div>
                         </ion-col>
                         <ion-col size-md="6" size="12">
                             <ion-item>
-                                <ion-label position="floating">Correo del invitado</ion-label>
+                                <ion-label position="floating">Guest Email</ion-label>
                                 <ion-input matInput type="email" name="mail" formControlName="mail" id="mail"></ion-input>
                             </ion-item>
                             <div class="error" *ngIf="form.get('mail').errors && form.get('mail').touched">
                                 <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('mail').hasError('required')">
-                                    <ion-icon name="alert-circle-outline"></ion-icon>El Correo del invitado es requerido.
+                                    <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                                 </ion-text>
                                 <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('mail').hasError('pattern')">
-                                    <ion-icon name="alert-circle-outline"></ion-icon>Ingrese un correo valido.
+                                    <ion-icon name="alert-circle-outline"></ion-icon>Enter a valid email.
                                 </ion-text>
                             </div>
                         </ion-col>
                         <ion-col size="12">
                             <ion-item>
-                                <ion-label position="floating">Mensaje para el invitado</ion-label>
+                                <ion-label position="floating">Message to the guest</ion-label>
                                 <ion-textarea matInput type="message" name="message" formControlName="message" id="message"></ion-textarea>
                             </ion-item>
                             <div class="error" *ngIf="form.get('message').errors && form.get('message').touched">
                                 <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('message').hasError('required')">
-                                    <ion-icon name="alert-circle-outline"></ion-icon>El mensaje para el invitado es requerido.
+                                    <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                                 </ion-text>
                                 <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('message').hasError('minlength')">
-                                    <ion-icon name="alert-circle-outline"></ion-icon>El mensaje para el invitado debe tener al menos 2 caracteres.
+                                    <ion-icon name="alert-circle-outline"></ion-icon>It must have at least two characters.
                                 </ion-text>
                             </div>
                         </ion-col>
                         <ion-col size="12">
                             <ion-col>
-                                <ion-button shape="round" color="primary" type="submit">Enviar invitacion</ion-button>
+                                <ion-button shape="round" color="primary" type="submit">Submit Invitation</ion-button>
                             </ion-col>
                         </ion-col>
                     </ion-row>
