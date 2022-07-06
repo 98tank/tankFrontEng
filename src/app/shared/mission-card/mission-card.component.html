@@ -54,7 +54,7 @@
         <ion-button fill="solid" shape="round" color="primary" [routerLink]="[route, mission.mission_id]">Browse Mission</ion-button>
     </ion-buttons>
     <ion-card-content class="ion-text-center" *ngIf="mission.status === 'Accomplished'">
-        <ion-text color="danger">Esta misión fue completada por el cliente</ion-text>
+        <ion-text color="danger">This mission was completed by the customer</ion-text>
     </ion-card-content>
     <div class="completed" *ngIf="mission.status === 'Accomplished'">Accomplished</div>
 </ion-card>

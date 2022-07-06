@@ -44,18 +44,18 @@ export class ItemListMissionComponent implements OnInit {
     const alert = await this.alertController.create({
       mode: 'ios',
       cssClass: 'delete-alert',
-      header: 'BORRAR MISIÓN!',
-      message: `<ion-icon class="yellow" name="warning-outline"></ion-icon> El borrado es irreversible, y eliminara toda la data relacionada a la mision <strong>${mission.name_position}</strong>, incluyendo la analítica, mensajes, archivos, candidatos y cualquier otra información que los usuarios pudieran generar por medio de dicha misión.`,
-      subHeader: `¿Desea borrar definitivamente la misión ${mission.name_position} de la base de datos?`,
+      header: 'MISSION DELETE!',
+      message: `<ion-icon class="yellow" name="warning-outline"></ion-icon> The deletion is irreversible, and will remove all data related to the mission <strong>${mission.name_position}</strong>, including analytics, messages, files, candidates and any other information that users may generate through said mission.`,
+      subHeader: `You want to permanently delete the mission ${mission.name_position} from the database?`,
       buttons: [
         {
-          text: 'Cancelar',
+          text: 'Cancel',
           cssClass: 'secondary',
         }, {
-          text: 'Borrar',
+          text: 'Delete',
           role: 'cancel',
           handler: async () => {
-            await this.presentLoading('Borrando Misión');
+            await this.presentLoading('Deleting Mission');
             this.deleteMission(mission);
           }
         }
