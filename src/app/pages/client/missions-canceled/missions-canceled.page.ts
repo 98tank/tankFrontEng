@@ -73,8 +73,8 @@ export class MissionsCanceledPage implements OnInit {
   }
 
   async sendNotificationsEmail(request: RequestRefound) {
-      const subjectAdmin = `98Tank - Solicitud de reembolso`;
-      const messageAdmin = `El Cliente ${request.uid_client} Solicito un reembolso de la mision ${request.name_position}.`;
+      const subjectAdmin = `98Tank - Request refund`;
+      const messageAdmin = `The client ${request.uid_client}  of the mission ${request.name_position}.`;
       const urlAdmin     = `${window.location.origin}/admin/payment-history/returns`;
       this.eas.sendEmailAdmins(messageAdmin, urlAdmin, subjectAdmin);
   }

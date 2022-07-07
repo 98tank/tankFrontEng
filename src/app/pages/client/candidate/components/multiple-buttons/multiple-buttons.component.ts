@@ -57,7 +57,6 @@ export class MultipleButtonsComponent implements OnInit {
     const messageRecruiter = `You have an interview proposal to accept in the mission ${mission.name_position}.`;
     const url = `${window.location.origin}/reclutador/misiones-elegidas/mision/candidato/${this.candidate.candidate_id}`;
     const resp = await this.eas.sendEmail(this.candidate.uid_recruiter, messageRecruiter, url, subject);
-    console.log(resp);
   }
 
   async openAlertDiscard() {

@@ -16,7 +16,7 @@ export class MainPage implements OnInit {
   public barChartLegend = false;
   public doughnutChartType: ChartType = 'doughnut';
   public doughnutChartData: MultiDataSet = [ [0, 0, 0, 0, 0, 0] ];
-  public doughnutChartLabels: Label[] = ['Misiones creadas', 'Misiones en revisión', 'Misiones activas', 'Misiones culminadas', 'Candidatos aceptados', 'Candidatos rechazados'];
+  public doughnutChartLabels: Label[] = ['Missions Created', 'Missions In Review', 'Active Missions', 'Missions Accomplished', 'Accepted Candidates', 'Rejected Candidates'];
   public pieChartColors = [ { backgroundColor: ['#061347', '#a8a8a8', '#ec5e04', '#8dbdd8', '#03a45e', '#e42300'], }, ];
 
   constructor(
@@ -58,7 +58,7 @@ export class MainPage implements OnInit {
 
   getMyMissions(uid: string) {
     this.fs.getColFilter('missions', 'uid', '==', uid).get().then(res => {
-      const m: string[] = [''];
+      const m: string[] = [];
       if (res.size > 0) {
         let counter = 0;
         res.forEach(d => {
@@ -71,15 +71,24 @@ export class MainPage implements OnInit {
   }
 
   getCandidatesInMyMissions(missions: string[]) {
-    this.fs.getColFilter('candidates', 'mission_id', 'in', missions).where('status', '==', 'Hired').get()
-      .then(r => {
-      this.doughnutChartData[0][4] = r.size;
-      this.fs.getColFilter('candidates', 'mission_id', 'in', missions).where('status', '==', 'Discarded').get()
-      .then(re => {
-        this.doughnutChartData[0][5] = re.size;
-        this.graphic = true;
-      });
-    });
+    const segmentArray = [];
+    for (let index = 0; index < missions.length; index += 10) {
+      const element = missions.slice(index, index + 10);
+      segmentArray.push(element)
+    }
+    if (segmentArray.length > 0) {
+      segmentArray.forEach(segmentIds => {
+        this.fs.getColFilter('candidates', 'mission_id', 'in', segmentIds).where('status', '==', 'Hired').get()
+          .then(r => {
+            this.doughnutChartData[0][4] = r.size;
+            this.fs.getColFilter('candidates', 'mission_id', 'in', segmentIds).where('status', '==', 'Discarded').get()
+            .then(re => {
+              this.doughnutChartData[0][5] = re.size;
+              this.graphic = true;
+            });
+        });
+      });  
+    }
   }
 
 }

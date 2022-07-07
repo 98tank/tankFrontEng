@@ -107,7 +107,7 @@ export class LoginPage implements OnInit, OnDestroy {
     this.auth.logout();
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
-      header: 'Incorrect data!!!',
+      header: 'Incorrect data!',
       message: '<ion-icon class="red" name="close-circle-outline"></ion-icon> Please try again',
       mode: 'ios',
       buttons: ['OK']
