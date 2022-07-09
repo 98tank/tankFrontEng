@@ -10,7 +10,7 @@ import { File } from 'src/app/models';
 export class AttachFileComponent implements OnInit {
   @Output() url = new EventEmitter<object>();
   data: Partial<File>;
-  currentFile: File = null;
+  @Input() currentFile?: File = null;
   @Input() path: string;
 
   constructor(
@@ -22,12 +22,6 @@ export class AttachFileComponent implements OnInit {
 
   async onLoad(event) {
     if (event.target.files[0]) {
-      // if (!this.currentFile) {
-      //   this.data = await this.ms.onUploadFles(this.path, event.target.files[0]);
-      // } else {
-      //   this.ms.deleteImgStorage(this.currentFile.filePath);
-      //   this.data = await this.ms.onUploadFles(this.path, event.target.files[0]);
-      // }
       if (this.currentFile) { await this.ms.deleteImgStorage(this.currentFile.filePath); }
       this.data = await this.ms.onUploadFles(this.path, event.target.files[0]);
       this.currentFile = {
@@ -37,6 +31,8 @@ export class AttachFileComponent implements OnInit {
         type: event.target.files[0].type,
       };
       this.url.emit(this.currentFile);
+      const inputElement: any = document.getElementById('file');
+      inputElement.value = '';
     }
   }
 
