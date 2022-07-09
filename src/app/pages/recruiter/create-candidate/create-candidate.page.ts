@@ -168,6 +168,7 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
       .then(() => {
         this.success = true;
         this.date = null;
+        this.cv = null;
         this.form.reset();
         this.sendNotificationsEmail();
       });
