@@ -17,7 +17,7 @@ export class MainPage implements OnInit, OnDestroy {
   public doughnutChartType: ChartType = 'doughnut';
   public doughnutChartData: MultiDataSet = [
     [0, 0, 0, 0] ];
-  public doughnutChartLabels: Label[] = ['Misiones activas', 'Mis Candidatos activos', 'Mis Candidatos aceptados', 'Mis Candidatos rechazados'];
+  public doughnutChartLabels: Label[] = ['Active Missions', 'Active Candidates', 'Accepted Candidates', 'Rejected Candidates'];
   public pieChartColors = [
     {
       backgroundColor: ['#061347', '#ec5e04', '#03a45e', '#e42300'],

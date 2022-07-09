@@ -30,6 +30,16 @@ export class InvitationsPage implements OnInit {
     });
   }
 
+  getData(event){
+    event.preventDefault();
+    if (this.form.valid) {
+      this.openAlerSend();
+    } else  {
+      this.form.markAllAsTouched();
+    }
+
+  }
+
   async openAlerSend() {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
@@ -90,10 +100,8 @@ export class InvitationsPage implements OnInit {
     const message = d.message;
     const url = '';
     const subject = 'Invitation to 98Tank';
-    console.log(email, name, message, url, subject);
     const notification: any = await this.eas.sendEmailReferral(email, name, message, url, subject);
     await this.loadingController.dismiss();
-    console.log(notification);
     if (notification.sent) {
       await this.openSuccess();
     } else {

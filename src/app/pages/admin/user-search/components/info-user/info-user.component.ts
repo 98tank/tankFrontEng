@@ -52,7 +52,6 @@ export class InfoUserComponent implements OnInit {
     await this.presentLoading('Borrando Usuario');
     const resDelete = await this.eas.deleteUser(p.uid, p.type);
     await this.loadingController.dismiss();
-    console.log({resDelete});
     !resDelete ? this.alertError() : this.alertSuccess();
   }
 

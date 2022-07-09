@@ -175,8 +175,6 @@ export class RegisterClientPage implements OnInit {
       SO: window.navigator.appVersion  || '',
       platforms: this.platform.platforms() || ''
     };
-    console.log(e);
-    console.log(data);
     this.fs.addDoc(`track_error`, data);
   }
 

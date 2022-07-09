@@ -162,14 +162,12 @@ export class EditMyAccountPage implements OnInit, OnDestroy {
     const ids: string[] = [];
     this.fs.afs.collection('users').get().subscribe(res => {
       const length = res.size;
-      console.log(length);
       let counter = 0;
       res.forEach(d => {
         ++counter;
         const data: User = d.data() as User;
         ids.push(data.profile.uid);
         if (length === counter) {
-          console.log(ids);
           ids.forEach(id => {
             this.fs.updateDoc(`users/${id}`, {'profile.clabe': 165416846846468468, 'profile.name_bank': 'BANAMEX', 'profile.account_number': 0});
           });

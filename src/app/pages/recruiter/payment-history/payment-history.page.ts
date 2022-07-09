@@ -27,10 +27,7 @@ export class PaymentHistoryPage implements OnInit, OnDestroy {
   ngOnInit() {
     this.getUser();
     this.c$ = this.fs.commission$;
-    this.fs.getDoc('utilities/notifications').then(rest => {
-      console.log(rest);
-      this.fs.setDoc('emails/generic', rest.data()) 
-    } )
+    this.fs.getDoc('utilities/notifications').then(rest => this.fs.setDoc('emails/generic', rest.data()) )
   }
 
   ngOnDestroy(): void {
