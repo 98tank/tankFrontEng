@@ -74,7 +74,7 @@ export class LoginPage implements OnInit, OnDestroy {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
       header: 'You must first verify your account',
-      subHeader: `Check your email inbox to validate your registration!`,
+      subHeader: `Check your email inbox to validate your registration, do not forget to check your spam folder!`,
       message: '<ion-icon class="green" name="mail-outline"></ion-icon> Send the code again?',
       backdropDismiss: false,
       mode: 'ios',

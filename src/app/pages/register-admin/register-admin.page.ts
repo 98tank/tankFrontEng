@@ -93,7 +93,7 @@ export class RegisterAdminPage implements OnInit {
   }
 
   sendRegister(data) {
-    this.presentLoading('Creando...');
+    this.presentLoading('Creating...');
     const date: number = this.ss.getDate().getTime();
     this.auth.userRegister(data.email, data.pass).then((res: any) => {
       if (res.user.uid) {
@@ -141,8 +141,8 @@ export class RegisterAdminPage implements OnInit {
   async presentAlertConfirm() {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
-      header: 'Ocurrio un error inesperado',
-      message: '<ion-icon class="red" name="trending-down-outline"></ion-icon> Por favor vuelve a intentarlo',
+      header: 'An unexpected error occurred',
+      message: '<ion-icon class="red" name="trending-down-outline"></ion-icon> please try again',
       mode: 'ios',
       buttons: [{
           text: 'ok',
@@ -156,8 +156,8 @@ export class RegisterAdminPage implements OnInit {
   async newAdmin() {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
-      header: 'El registro fue exitoso',
-      message: `<ion-icon class="green" name="mail-unread-outline"></ion-icon> Tu cuenta esta en revisión, recibirás un correo en la direccion ${this.form.value.email} sobre el cambio de estatus.`,
+      header: 'Registration completed',
+      message: `<ion-icon class="green" name="mail-unread-outline"></ion-icon> Your account is under review, you will receive an email at the address ${this.form.value.email} about change of status.`,
       mode: 'ios',
       backdropDismiss: false,
       buttons: [{

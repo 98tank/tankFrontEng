@@ -125,7 +125,7 @@ export class RegisterRecruiterPage implements OnInit {
   }
 
   async sendRegister(data) {
-    await this.presentLoading('Creando...');
+    await this.presentLoading('Creating...');
     const date: number = this.ss.getDate().getTime();
     let userError = {
       profile: {
@@ -213,7 +213,7 @@ export class RegisterRecruiterPage implements OnInit {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
       header: 'Registration completed',
-      message: `<ion-icon class="green" name="mail-unread-outline"></ion-icon> You will receive an email to <br> <strong>${email}</strong> Please confirm your registration!`,
+      message: `<ion-icon class="green" name="mail-unread-outline"></ion-icon> You will receive an email to <br> <strong>${email}</strong> please confirm your registration, do not forget to check your spam folder!`,
       mode: 'ios',
       buttons: [{
         text: 'Ok',
@@ -227,7 +227,7 @@ export class RegisterRecruiterPage implements OnInit {
   async presentAlertConfirm() {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
-      header: 'An unexpected error occurred.',
+      header: 'An unexpected error occurred',
       message: '<ion-icon class="red" name="trending-down-outline"></ion-icon> please try again',
       mode: 'ios',
       buttons: [{
