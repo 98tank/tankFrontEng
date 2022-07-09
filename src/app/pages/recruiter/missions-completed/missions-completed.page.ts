@@ -24,12 +24,14 @@ export class MissionsCompletedPage implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.getUser();
   }
 
   ngOnDestroy(): void {
     this.subscription1.add(this.subscription2);
     this.subscription1.unsubscribe();
+  }
+  ionViewWillEnter(){
+    this.getUser();
   }
 
   getUser() {
@@ -42,9 +44,10 @@ export class MissionsCompletedPage implements OnInit, OnDestroy {
     this.fs.getColFilter('candidates', 'uid_recruiter', '==', uid).where('status', '==', 'Hired').orderBy('type_contract.date', 'desc').get().then(res => {
       if (res.size === 0) { this.loading = true; }
       if (res.size > 0) {
-        res.forEach(d => {
+        res.forEach(async d => {
           const c = d.data() as MissionData;
-          this.subscription2 = this.fs.getDocObserver(`missions/${c.mission_id}`).subscribe((m: MissionData) => this.closedMission.push(m));
+          const queryMission = await this.fs.getDoc(`missions/${c.mission_id}`);
+          this.closedMission.push(queryMission.data());
         });
       }
     });
