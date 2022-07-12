@@ -64,7 +64,7 @@
                                 <td>{{p.update_date | date: 'd/MM/y - hh:mmaaa'}}</td>
                                 <td *ngIf="c$ | async as c">{{p.amount | currency: '$ '}}</td>
                                 <td>
-                                    <ion-button shape="round" fill="solid" color="primary" (click)="openPeyment(p.pay)">Ver</ion-button>
+                                    <ion-button shape="round" fill="solid" color="primary" (click)="openPeyment(p.pay)">More Info</ion-button>
                                 </td>
                             </tr>
                         </tbody>

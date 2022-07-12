@@ -22,7 +22,7 @@
                 <ion-card-title>{{form.value.mail}}</ion-card-title>
             </ion-card-header>
             <ion-card-content>
-                Estimad@ {{form.value.name}}, {{form.value.message}}
+                Dear {{form.value.name}}, {{form.value.message}}
             </ion-card-content>
         </ion-card>
 
@@ -32,7 +32,7 @@
                 <ion-title>Fill in the following fields</ion-title>
             </ion-card-header>
             <ion-card-content>
-                <form [formGroup]="form" (submit)="openAlerSend()" novalidate>
+                <form [formGroup]="form" (submit)="getData($event)" novalidate>
                     <ion-row>
                         <ion-col size-md="6" size="12">
                             <ion-item>

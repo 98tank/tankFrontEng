@@ -120,7 +120,6 @@ export class UserSearchPage implements OnInit {
   }
 
   resetUser() {
-    console.log('Borrado');
     this.userSearch = null;
   }
 

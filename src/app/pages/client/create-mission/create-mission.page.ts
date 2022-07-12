@@ -153,9 +153,9 @@ export class CreateMissionPage implements OnInit {
   }
 
   async sendNotificationsEmail(namePosition: string, missionID: string) {
-    const subject = `98Tank - Misión creada`;
-    const messageClient = `Tu misión "${namePosition}", ha sido creada con exito, y pasó a un estado de revisión por parte de los Administradores de 98Tank, en breve nos pondremos en contacto con contigo.`;
-    const messageAdmins = `Fue creada la misión "${namePosition}", con el mission_id='${missionID}' `;
+    const subject = `98Tank - Mission created`;
+    const messageClient = `Your mission "${namePosition}", has been created successfully, and it has been reviewed by the 98Tank Administrators, we will contact you shortly.`;
+    const messageAdmins = `The mission was created "${namePosition}", with the mission_id='${missionID}' `;
     const url = `${window.location.origin}/client/misiones-en-revision`;
     const urlAdmin = `${window.location.origin}/admin/mision/${missionID}`;
     const resp = await Promise.all([

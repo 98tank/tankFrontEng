@@ -51,7 +51,6 @@ export class ContractPage implements OnInit {
 
   getData() {
     if (this.form.valid) {
-      console.log('Client contact details', this.form.value);
       this.updateSuccess();
       this.saveContract('service', this.form.value);
     } else {
@@ -140,7 +139,7 @@ export class ContractPage implements OnInit {
       const cli               = await this.eas.sendEmail(this.candidate.uid_client, messageClient, urlClient, subjecClient);
 
       const subjectAdmin      = `98Tank - New Direct hire`;
-      const messageAdmin      = `The candidate ${this.candidate.name} has been hired, you can proceed with the pending payment`;
+      const messageAdmin      = `The candidate ${this.candidate.name} has been hired, you can proceed with the pending payment.`;
       const urlAdmin          = `${window.location.origin}/admin/payment-history/rewards`;
       const adm               = await this.eas.sendEmailAdmins(messageAdmin, urlAdmin, subjectAdmin);
     }

@@ -223,25 +223,25 @@
                         <ion-radio-group mode="md" formControlName="ingles">
                             <ion-item>
                                 <ion-label>Essential</ion-label>
-                                <ion-radio slot="start" value="Básico"></ion-radio>
+                                <ion-radio slot="start" value="Essential"></ion-radio>
                             </ion-item>
 
                             <ion-item>
                                 <ion-label>Technical</ion-label>
-                                <ion-radio slot="start" value="Técnico"></ion-radio>
+                                <ion-radio slot="start" value="Technical"></ion-radio>
                             </ion-item>
 
                             <ion-item>
                                 <ion-label>Intermediate</ion-label>
-                                <ion-radio slot="start" value="Intermedio"></ion-radio>
+                                <ion-radio slot="start" value="Intermediate"></ion-radio>
                             </ion-item>
                             <ion-item>
                                 <ion-label>Advanced</ion-label>
-                                <ion-radio slot="start" value="Avanzado"></ion-radio>
+                                <ion-radio slot="start" value="Advanced"></ion-radio>
                             </ion-item>
                             <ion-item lines="none">
-                                <ion-label>No</ion-label>
-                                <ion-radio slot="start" value="No"></ion-radio>
+                                <ion-label>Not Required</ion-label>
+                                <ion-radio slot="start" value="Not Required"></ion-radio>
                             </ion-item>
                         </ion-radio-group>
                     </ion-card>
@@ -424,7 +424,7 @@
                                     </ion-button>
                                 </ion-col>
                                 <ion-col size-md="6" size="12" class="center">
-                                    <app-attach-file (url)="getUrl($event)" [path]="'cv'"></app-attach-file>
+                                    <app-attach-file (url)="getUrl($event)" [path]="'cv'" [currentFile]="candidate.cv"></app-attach-file>
                                 </ion-col>
                             </ion-row>
                         </ion-card-content>

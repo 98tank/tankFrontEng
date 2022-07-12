@@ -91,7 +91,6 @@ export class UsersAdminPage implements OnInit, OnDestroy {
         const u: User = d.data() as User;
         idUser.push(u.profile.uid);
         if (dataUser.size === counter1) {
-          console.log('Borrar users', idUser);
           idUser.forEach(async id => await this.fs.deleteField(`users/${id}`, 'profile.birthdate'));
         }
       });
@@ -105,7 +104,6 @@ export class UsersAdminPage implements OnInit, OnDestroy {
         const u: CandidateData = d.data() as CandidateData;
         idCandidates.push(u.candidate_id);
         if (dataCandidates.size === counter2) {
-          console.log('Borrado Candidatos', idCandidates);
           idCandidates.forEach(async id => await this.fs.deleteField(`candidates/${id}`, 'birthdate'));
         }
       });
