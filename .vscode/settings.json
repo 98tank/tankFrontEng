@@ -14,5 +14,6 @@
         "statusBar.foreground": "#fff"
     },
     "peacock.color": "#f90",
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "ionic.externalAddress": true
 }
