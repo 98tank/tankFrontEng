@@ -1,15 +1,15 @@
 {
-  "hosting": {
-    "site": "tank-english-prod",
-    "public": "www",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [{
-        "source": "**",
-        "destination": "/index.html"
-    }]
-  }
+    "hosting": {
+        "site": "tank-english-prod",
+        "public": "www",
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+        ],
+        "rewrites": [{
+            "source": "**",
+            "destination": "/index.html"
+        }]
+    }
 }
