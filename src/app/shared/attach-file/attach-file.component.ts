@@ -24,7 +24,6 @@ export class AttachFileComponent implements OnInit {
   async onLoad(event) {
     if (event.target.files[0]) {
       if (event.target.files[0].type === "application/pdf" || event.target.files[0].type.includes('image')) {
-        console.log(event.target.files[0]);
         if (this.currentFile) {
           await this.ms.deleteImgStorage(this.currentFile.filePath);
         }
