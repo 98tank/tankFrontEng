@@ -8,7 +8,7 @@
                 </ion-col>
                 <ion-col size-md="6" size="12">
 
-                    <form [formGroup]="form" (submit)="getDataLogin()" novalidate>
+                    <form [formGroup]="form" (submit)="getDataLogin()" (keyup.enter)="getDataLogin()" novalidate>
                         <h3>Sign in</h3>
                         <ion-item mode="md">
                             <ion-label position="floating">Email</ion-label>

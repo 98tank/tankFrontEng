@@ -5,8 +5,8 @@
             <ion-col size="12">
                 <img src="assets/img/logo_horizontal.png" alt="">
                 <ion-text>
-                    <h5>Crea tu cuenta como Admin</h5>
-                    <h5>El Administrador principal analizara los datos suministrados para poder aprobar tu usuario</h5>
+                    <h5>Admin Profile</h5>
+                    <h5>The main administrator will analyze the data provided in order to approve your user.</h5>
                 </ion-text>
             </ion-col>
         </ion-row>
@@ -36,10 +36,10 @@
                     </ion-item>
                     <div class="error" *ngIf="form.get('nickname').errors && form.get('nickname').touched">
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('nickname').hasError('required')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>El nombre es requerido.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('nickname').hasError('minlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>El nombre debe tener al menos 2 caracteres.
+                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least two characters.
                         </ion-text>
                     </div>
                 </ion-col>
@@ -47,15 +47,15 @@
             <ion-row>
                 <ion-col size="12">
                     <ion-item>
-                        <ion-label position="floating">Nombre</ion-label>
+                        <ion-label position="floating">Name</ion-label>
                         <ion-input matInput type="text" name="name" formControlName="name" id="name"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('name').errors && form.get('name').touched">
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('name').hasError('required')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>El nombre es requerido.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('name').hasError('minlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>El nombre debe tener al menos 2 caracteres.
+                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least two characters.
                         </ion-text>
                     </div>
                 </ion-col>
@@ -64,31 +64,31 @@
             <ion-row>
                 <ion-col size-md="6" size="12">
                     <ion-item class="email">
-                        <ion-label position="floating">Correo</ion-label>
+                        <ion-label position="floating">Email</ion-label>
                         <ion-input type="email" name="email" formControlName="email" id="email"></ion-input>
                     </ion-item>
                     <div class="error textMailExists" *ngIf="mailExists">
                         <ion-text class="ion-justify-content-center" color="danger">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Este correo ya existe en nuestos sistema.
+                            <ion-icon name="alert-circle-outline"></ion-icon>This email already exists in our system.
                         </ion-text>
                     </div>
                     <div class="error" *ngIf="form.get('email').errors && form.get('email').touched">
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('email').hasError('required')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Tu correo es requerido.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('email').hasError('pattern')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Ingresa un correo valido.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Enter a valid email.
                         </ion-text>
                     </div>
                 </ion-col>
                 <ion-col size-md="6" size="12">
                     <ion-item class="email">
-                        <ion-label position="floating">Confirmar Correo</ion-label>
+                        <ion-label position="floating">Confirm Email</ion-label>
                         <ion-input type="confirm_email" name="confirm_email" formControlName="confirm_email" id="confirm_email"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.hasError('emailNotEqual') &&  form.get('confirm_email').touched">
                         <ion-text class="ion-justify-content-center" color="danger">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Los correos no coinciden.
+                            <ion-icon name="alert-circle-outline"></ion-icon>The emails do not match.
                         </ion-text>
                     </div>
                 </ion-col>
@@ -97,106 +97,102 @@
             <ion-row>
                 <ion-col size-md="6" size="12">
                     <ion-item>
-                        <ion-label position="floating">Contraseña</ion-label>
+                        <ion-label position="floating">Password</ion-label>
                         <ion-input type="password" name="pass" formControlName="pass" id="pass"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('pass').errors && form.get('pass').touched">
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('pass').hasError('required')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Tu contraseña es requerida.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('pass').hasError('minlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Tu contraseña debe tener al menos 6 caracteres.
+                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least six characters.
                         </ion-text>
                     </div>
                 </ion-col>
                 <ion-col size-md="6" size="12">
                     <ion-item>
-                        <ion-label position="floating">Confirma tu contraseña</ion-label>
+                        <ion-label position="floating">Confirm Password</ion-label>
                         <ion-input type="password" name="confirm_pass" formControlName="confirm_pass" id="confirm_pass"></ion-input>
                     </ion-item>
 
                     <div class="error" *ngIf="form.hasError('passwordsNotEqual') &&  form.get('confirm_pass').touched">
                         <ion-text class="ion-justify-content-center" color="danger">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Las contraseñas no coinciden.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Passwords do not match.
                         </ion-text>
                     </div>
                 </ion-col>
             </ion-row>
 
-            <ion-text>
-                <h5>Esta información la usaremos para mejorar la experiencia</h5>
-            </ion-text>
-
             <ion-row>
                 <ion-col size="12">
                     <ion-item>
-                        <ion-label position="floating">Dirección</ion-label>
+                        <ion-label position="floating">Address</ion-label>
                         <ion-input matInput type="tel" name="address" formControlName="address" id="address"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('address').errors && form.get('address').touched">
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('address').hasError('required')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>La direccion es requerida.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                     </div>
                 </ion-col>
                 <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">Fecha de nacimiento</ion-label>
+                        <ion-label position="floating">Date of Birth</ion-label>
                         <ion-datetime name="birthdate" formControlName="birthdate" id="birthdate" cancelText="Cancelar" doneText="Aceptar"></ion-datetime>
                         <div tabindex="0" style="height: 0;"></div>
                     </ion-item>
                 </ion-col>
                 <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">Teléfono</ion-label>
+                        <ion-label position="floating">Mobile Number</ion-label>
                         <ion-input matInput type="tel" name="personal_phone" formControlName="personal_phone" id="personal_phone"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('personal_phone').errors && form.get('personal_phone').touched">
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('personal_phone').hasError('required')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>El teléfono es requerido.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('personal_phone').hasError('pattern')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Solo se admiten números.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Only numbers.
                         </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('personal_phone').hasError('minlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>El teléfono debe tener al menos 10 números.
+                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least ten numbers.
                         </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('personal_phone').hasError('maxlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>El teléfono debe tener maximo 10 números.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Must have maximum ten numbers.
                         </ion-text>
                     </div>
                 </ion-col>
                 <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">CURP</ion-label>
+                        <ion-label position="floating">Last 4 digits to SSN</ion-label>
                         <ion-input matInput type="tel" name="curp" formControlName="curp" id="curp"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('curp').errors && form.get('curp').touched">
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('curp').hasError('minlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>El curp debe tener al menos 18 caracteres.
+                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least four numbers.
                         </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('curp').hasError('maxlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>El curp debe tener maximo 18 caracteres.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Must have maximum four numbers.
                         </ion-text>
                     </div>
                 </ion-col>
                 <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">RFC</ion-label>
+                        <ion-label position="floating">TAX ID</ion-label>
                         <ion-input matInput type="tel" name="rfc" formControlName="rfc" id="rfc"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('rfc').errors && form.get('rfc').touched">
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('rfc').hasError('minlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>El RFC debe tener al menos 12 caracteres.
+                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least nine characters.
                         </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('rfc').hasError('maxlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>El RFC debe tener maximo 13 caracteres.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Must have maximum nine characters.
                         </ion-text>
                     </div>
                 </ion-col>
                 <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">Nivel de estudio</ion-label>
+                        <ion-label position="floating">Education</ion-label>
                         <ion-select interface="popover" formControlName="level_of_study" cancelText="Cancelar" okText="Aceptar">
                             <ion-select-option *ngFor="let y of studies$ | async" [value]="y">{{y}}</ion-select-option>
                         </ion-select>
@@ -204,7 +200,7 @@
                 </ion-col>
                 <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">Carrera</ion-label>
+                        <ion-label position="floating">Degree</ion-label>
                         <ion-input matInput type="tel" name="career" formControlName="career" id="career"></ion-input>
                     </ion-item>
                 </ion-col>
@@ -212,7 +208,7 @@
 
             <ion-row class="ion-margin">
                 <ion-col>
-                    <ion-button shape="round" color="primary" type="submit" expand="full">Crear cuenta</ion-button>
+                    <ion-button shape="round" color="primary" type="submit" expand="full">Create Account</ion-button>
                 </ion-col>
             </ion-row>
         </form>

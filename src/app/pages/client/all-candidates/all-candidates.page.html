@@ -5,7 +5,7 @@
         </ion-buttons>
         <ion-title class="title-page">
             <ion-icon mode="ios" slot="icon-only" name="bulb-outline"></ion-icon>
-            Todos mis candidatos
+            My Candidates
         </ion-title>
     </ion-toolbar>
 </ion-header>
@@ -19,10 +19,10 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Nombre</th>
+                                <th>Name</th>
                                 <th>Status</th>
-                                <th>Creado</th>
-                                <th>Visto</th>
+                                <th>Creation</th>
+                                <th>Viewed</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -40,10 +40,10 @@
                                     <ion-icon *ngIf="c.seen_by_the_client === true" slot="icon-only" color="success" name="checkmark-circle-outline"></ion-icon>
                                 </td>
                                 <td>
-                                    <ion-button class="more" fill="solid" shape="round" color="primary" [routerLink]="['/cliente/misiones-activas/mision/candidato/', c.candidate_id]">Ver candidato</ion-button>
+                                    <ion-button class="more" fill="solid" shape="round" color="primary" [routerLink]="['/cliente/misiones-activas/mision/candidato/', c.candidate_id]">View Candidate</ion-button>
                                 </td>
                                 <td>
-                                    <ion-button class="more" fill="solid" shape="round" color="primary" [routerLink]="['/cliente/misiones-activas/mision/', c.mission_id]">Ver Mision</ion-button>
+                                    <ion-button class="more" fill="solid" shape="round" color="primary" [routerLink]="['/cliente/misiones-activas/mision/', c.mission_id]">View Mission</ion-button>
                                 </td>
                             </tr>
                         </tbody>

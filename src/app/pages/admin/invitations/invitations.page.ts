@@ -30,22 +30,32 @@ export class InvitationsPage implements OnInit {
     });
   }
 
+  getData(event){
+    event.preventDefault();
+    if (this.form.valid) {
+      this.openAlerSend();
+    } else  {
+      this.form.markAllAsTouched();
+    }
+
+  }
+
   async openAlerSend() {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
       mode: 'ios',
-      header: '¿Enviar invitacion?',
+      header: 'Send Invitation?',
       backdropDismiss: false,
-      message: `<ion-icon  class="yellow" name="warning"></ion-icon>Desea enviarle a <strong>${this.form.value.name}</strong> una invitacion a <strong>98Tank</strong> por medio del correo <strong>${this.form.value.mail}</strong>?`,
+      message: `<ion-icon  class="yellow" name="warning"></ion-icon>You want to send <strong>${this.form.value.name}</strong> an invitation from <strong>98Tank</strong> by email <strong>${this.form.value.mail}</strong>?`,
       buttons: [
         {
-          text: 'Cerrar',
+          text: 'Cancel',
           cssClass: 'secondary',
         }, {
-          text: 'Enviar',
+          text: 'Submit',
           role: 'cancel',
           handler: async () => {
-            await this.presentLoading('Enviado invitacion...');
+            await this.presentLoading('Sending Invitation...');
             this.sendMail();
           }
         }
@@ -58,9 +68,9 @@ export class InvitationsPage implements OnInit {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
       mode: 'ios',
-      header: 'Exito!',
+      header: 'Success!',
       backdropDismiss: false,
-      message: `<ion-icon  class="green" name="checkmark-circle"></ion-icon>Se envió correctamente la invitación a <strong>${this.form.value.name}</strong> al correo <strong>${this.form.value.mail}</strong>`,
+      message: `<ion-icon  class="green" name="checkmark-circle"></ion-icon>The invitation was successfully sent to <strong>${this.form.value.name}</strong> to the email. <strong>${this.form.value.mail}</strong>`,
       buttons: ['Ok']
     });
     await alert.present();
@@ -70,9 +80,9 @@ export class InvitationsPage implements OnInit {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
       mode: 'ios',
-      header: 'Error!',
+      header: 'Mistake!',
       backdropDismiss: false,
-      message: `<ion-icon  class="red" name="trending-down-outline"></ion-icon>Ocurrio un error en el envío del correo, por favor vuelva a intentarlo`,
+      message: `<ion-icon  class="red" name="trending-down-outline"></ion-icon>There was an error sending the email, please try again`,
       buttons: ['Ok']
     });
     await alert.present();
@@ -89,11 +99,9 @@ export class InvitationsPage implements OnInit {
     const name = d.name;
     const message = d.message;
     const url = '';
-    const subject = 'Invitación a 98Tank';
-    console.log(email, name, message, url, subject);
+    const subject = 'Invitation to 98Tank';
     const notification: any = await this.eas.sendEmailReferral(email, name, message, url, subject);
     await this.loadingController.dismiss();
-    console.log(notification);
     if (notification.sent) {
       await this.openSuccess();
     } else {

@@ -168,14 +168,15 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
       .then(() => {
         this.success = true;
         this.date = null;
+        this.cv = null;
         this.form.reset();
         this.sendNotificationsEmail();
       });
   }
 
   async sendNotificationsEmail() {
-    const subject = `98Tank - Nuevo candidato`;
-    const messageClient = `Tienes un nuevo candidato posteado en tu mision ${this.mission.name_position}`;
+    const subject = `98Tank - New candidate`;
+    const messageClient = `You have a new candidate posted in your mission ${this.mission.name_position}`;
     const url = `${window.location.origin}/cliente/misiones-activas/mision/${this.mission.mission_id}`;
     const resp = await this.eas.sendEmail(this.mission.uid, messageClient, url, subject);
   }

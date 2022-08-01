@@ -18,14 +18,12 @@ export interface MissionData {
     schedule: string;
     work_zone: string;
     languages: string;
-    age_range: string;
     net_salary: number;
     hiringTime: string;
     tank_price?: number;
     mission_id?: string;
     create_date: number;
     update_date: number;
-    civil_status: string;
     company_name?: string;
     name_position: string;
     business_days: string;

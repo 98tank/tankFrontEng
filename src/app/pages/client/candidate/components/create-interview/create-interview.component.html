@@ -10,43 +10,65 @@
                 <ion-icon color="success" name="checkmark-circle-sharp"></ion-icon>
             </ion-card-header>
             <ion-card-content>
-                Su solicitud de entrevista fue enviada de forma exitosa, el reclutador le confimará alguna de las dos fechas pautadas por usted.
+                Your interview request was sent successfully, the recruiter will confirm one of the two dates scheduled by you.
             </ion-card-content>
-            <ion-button fill="solid" shape="round" color="primary" type="button" (click)="emitData()">Salir</ion-button>
+            <ion-button fill="solid" shape="round" color="primary" type="button" (click)="emitData()">Exit</ion-button>
         </ion-card>
         <form *ngIf="!success" [formGroup]="form" (submit)="getData()" novalidate>
             <ion-row>
                 <ion-col size="12">
                     <ion-text class="ion-text-center">
-                        <p>Por favor elegir 2 fechas disponibles que tenga para la entrevista, el reclutador se ajustará a una de las 2 opciones según la disponibilidad del candidato.</p>
+                        <p>Choose 2 available dates for the interview, the recruiter will verify the availability of the candidate to coordinate the interview.</p>
                     </ion-text>
                 </ion-col>
-                <ion-col size="6">
+                <ion-col size="12" class="ion-hide">
                     <ion-text color="secondary">
-                        <h5>Primera Opción</h5>
+                        <h5>First Option</h5>
                     </ion-text>
                     <ion-item>
                         <mat-form-field>
-                            <input matInput [ngxMatDatetimePicker]="picker1" [min]="date" placeholder="Fecha" formControlName="date_option1">
+                            <input matInput [ngxMatDatetimePicker]="picker1" [min]="date" placeholder="Date" formControlName="date_option1">
                             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                             <ngx-mat-datetime-picker #picker1 showSpinners="true"></ngx-mat-datetime-picker>
                         </mat-form-field>
                     </ion-item>
+                    <div class="error" *ngIf="form.get('date_option1').errors && form.get('date_option1').touched">
+                        <ion-text class="ion-justify-content-center" color="danger">
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
+                        </ion-text>
+                    </div>
                 </ion-col>
-                <ion-col size="6">
+                <ion-col size="12">
                     <ion-text color="secondary">
-                        <h5>Segunda Opción</h5>
+                        <h5>First Option</h5>
                     </ion-text>
                     <ion-item>
                         <mat-form-field>
-                            <input matInput [ngxMatDatetimePicker]="picker2" [min]="date" placeholder="Fecha" formControlName="date_option2">
+                            <input matInput [ngxMatDatetimePicker]="picker3" [min]="date" placeholder="Date" formControlName="date_option1">
+                            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                            <ngx-mat-datetime-picker #picker3 showSpinners="true"></ngx-mat-datetime-picker>
+                        </mat-form-field>
+                    </ion-item>
+                    <div class="error" *ngIf="form.get('date_option1').errors && form.get('date_option1').touched">
+                        <ion-text class="ion-justify-content-center" color="danger">
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
+                        </ion-text>
+                    </div>
+                </ion-col>
+                <ion-col size="12">
+                    <ion-text color="secondary">
+                        <h5>Second Option</h5>
+                    </ion-text>
+                    <ion-item>
+                        <mat-form-field>
+                            <input matInput [ngxMatDatetimePicker]="picker2" [min]="date" placeholder="Date" formControlName="date_option2">
                             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                             <ngx-mat-datetime-picker #picker2 showSpinners="true"></ngx-mat-datetime-picker>
                         </mat-form-field>
                     </ion-item>
                     <div class="error" *ngIf="form.get('date_option2').errors && form.get('date_option2').touched">
                         <ion-text class="ion-justify-content-center" color="danger">
-                            <ion-icon name="alert-circle-outline"></ion-icon>La fecha es requerida.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                     </div>
                 </ion-col>
@@ -55,43 +77,43 @@
                 <ion-col size="12">
                     <ion-radio-group formControlName="channel" (ionChange)="selectMedio($event)">
                         <ion-text color="secondary">
-                            <h5>Elija el medio por el cual desea realizar la entrevista</h5>
+                            <h5>Choose how you would conduct the interview</h5>
                         </ion-text>
 
                         <ion-item>
-                            <ion-label>Videollamada</ion-label>
+                            <ion-label>Call Conference</ion-label>
                             <ion-radio mode="md" slot="start" value="video_call"></ion-radio>
                             <div tabindex="0" style="height: 0;"></div>
                         </ion-item>
 
                         <ion-item>
-                            <ion-label>Presencial</ion-label>
+                            <ion-label>On-site Interview</ion-label>
                             <ion-radio mode="md" slot="start" value="face-to-face"></ion-radio>
                             <div tabindex="0" style="height: 0;"></div>
                         </ion-item>
                     </ion-radio-group>
                     <div class="error" *ngIf="form.get('channel').errors && form.get('channel').touched">
                         <ion-text class="ion-justify-content-center" color="danger">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Elija una opcion.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Choose an option.
                         </ion-text>
                     </div>
                 </ion-col>
                 <ion-col>
                     <ion-item *ngIf="(address === 'video_call') || (address === 'face-to-face')">
-                        <ion-label position="floating" *ngIf="address === 'video_call'">URL para la videollamada</ion-label>
-                        <ion-label position="floating" *ngIf="address === 'face-to-face'">Indique la Dirección</ion-label>
+                        <ion-label position="floating" *ngIf="address === 'video_call'">URL for the video call</ion-label>
+                        <ion-label position="floating" *ngIf="address === 'face-to-face'">Indicate the Address</ion-label>
                         <ion-input type="text" name="address" formControlName="address" id="address"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('address').errors && form.get('address').touched">
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('address').hasError('required')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Complete este campo.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                     </div>
                 </ion-col>
                 <ion-col size="12">
                     <ion-buttons class="button_action">
-                        <ion-button fill="solid" shape="round" color="primary" type="submit">Confirmar</ion-button>
-                        <ion-button fill="solid" shape="round" color="medium" type="button" (click)="closeModal()">Cancelar</ion-button>
+                        <ion-button fill="solid" shape="round" color="primary" type="submit">Confirm</ion-button>
+                        <ion-button fill="solid" shape="round" color="medium" type="button" (click)="closeModal()">Cancel</ion-button>
                     </ion-buttons>
                 </ion-col>
             </ion-row>

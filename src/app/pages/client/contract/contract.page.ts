@@ -51,7 +51,6 @@ export class ContractPage implements OnInit {
 
   getData() {
     if (this.form.valid) {
-      console.log('Establacer contacto con el cliente, estos son los datos', this.form.value);
       this.updateSuccess();
       this.saveContract('service', this.form.value);
     } else {
@@ -94,8 +93,8 @@ export class ContractPage implements OnInit {
     const alert = await this.alertController.create({
       cssClass: 'update-alert',
       backdropDismiss: false,
-      header: 'La misión ha sido completada con éxito',
-      subHeader: 'Te llevaremos al área de misiones completadas',
+      header: 'Mission accomplished successfully',
+      subHeader: 'Missions Accomplished',
       mode: 'ios',
       message: '<ion-icon class="green" name="checkmark-circle"></ion-icon>',
       buttons: [
@@ -129,34 +128,34 @@ export class ContractPage implements OnInit {
 
   async sendNotificationsEmail(type: string) {
     if (type === 'direct') {
-      const subjecRecruitert  = `98Tank - Nueva contratación Directa`;
-      const messageRecruitert = `Tu candidato ${this.candidate.name} ha sido Hired, ya puedes cobrar la recompensa para la posición.`;
+      const subjecRecruitert  = `98Tank - New Direct hire`;
+      const messageRecruitert = `Your Candidate ${this.candidate.name} has been selected for immediate hiring, time to collect.`;
       const urlRecruiter      = `${window.location.origin}/reclutador/historial-de-pago`;
       const rec               = await this.eas.sendEmail(this.candidate.uid_recruiter, messageRecruitert, urlRecruiter, subjecRecruitert);
 
-      const subjecClient      = `98Tank - Nueva contratación Directa`;
-      const messageClient     = `Contrataste a ${this.candidate.name}, ya puedes tener acceso a la data completa del candidato incluyendo su telefono y correo.`;
+      const subjecClient      = `98Tank - New Direct hire`;
+      const messageClient     = `You have hired ${this.candidate.name}, Contact information below.`;
       const urlClient         = `${window.location.origin}/cliente/misiones-culminadas`;
       const cli               = await this.eas.sendEmail(this.candidate.uid_client, messageClient, urlClient, subjecClient);
 
-      const subjectAdmin      = `98Tank - Nueva contratación por Directa`;
-      const messageAdmin      = `El Candidatos ${this.candidate.name} fue Hired en forma directa. Ya se puede proceder a pagar la recompensa al reclutador`;
+      const subjectAdmin      = `98Tank - New Direct hire`;
+      const messageAdmin      = `The candidate ${this.candidate.name} has been hired, you can proceed with the pending payment.`;
       const urlAdmin          = `${window.location.origin}/admin/payment-history/rewards`;
       const adm               = await this.eas.sendEmailAdmins(messageAdmin, urlAdmin, subjectAdmin);
     }
     if (type === 'service') {
-      const subjecRecruitert  = `98Tank - Nueva contratación por Servicios`;
-      const messageRecruitert = `Tu candidato ${this.candidate.name} ha sido Hired, ya puedes cobrar la recompensa para la posición.`;
+      const subjecRecruitert  = `98Tank - New Hire as a Service`;
+      const messageRecruitert = `Your Candidate ${this.candidate.name} has been selected for immediate hiring, time to collect.`;
       const urlRecruiter      = `${window.location.origin}/reclutador/historial-de-pago`;
       const rec               = await this.eas.sendEmail(this.candidate.uid_recruiter, messageRecruitert, urlRecruiter, subjecRecruitert);
 
-      const subjecClient      = `98Tank - Nueva contratación por Servicios`;
-      const messageClient     = `Contrataste a ${this.candidate.name}, en breve un representante de 98Tank le contactara para brindarle mas información sobre el servicio.`;
+      const subjecClient      = `98Tank - New Hire as a Service`;
+      const messageClient     = `You hired ${this.candidate.name}, an 98Tank agent Will contact you soon.`;
       const urlClient         = `${window.location.origin}/cliente/misiones-culminadas`;
       const cli               = await this.eas.sendEmail(this.candidate.uid_client, messageClient, urlClient, subjecClient);
 
-      const subjectAdmin      = `98Tank - Nueva contratación por Servicio`;
-      const messageAdmin      = `El Candidatos ${this.candidate.name} fue Hired en forma de servicios. Los datos proporcionados por el cliente para contactarlo son los siguientes, NOMBRE: ${this.form.value.name} , TELEFONO: ${this.form.value.phone}`;
+      const subjectAdmin      = `98Tank - New Hire as a Service`;
+      const messageAdmin      = `You have hired ${this.candidate.name} Contact information below. NAME: ${this.form.value.name} , PHONE: ${this.form.value.phone}`;
       const urlAdmin          = `${window.location.origin}/admin/mision/${this.candidate.mission_id}`;
       const adm               = await this.eas.sendEmailAdmins(messageAdmin, urlAdmin, subjectAdmin);
     }

@@ -89,7 +89,6 @@ export class CandidatePage implements OnInit, OnDestroy {
   }
 
   async delete(candidate: CandidateData) {
-    console.log(candidate);
     await this.fs.deleteDoc(`candidates/${candidate.candidate_id}`);
     if (candidate.cv?.filePath) { this.ms.deleteImgStorage(candidate.cv.filePath); }
   }

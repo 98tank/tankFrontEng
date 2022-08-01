@@ -46,7 +46,7 @@ export class LoginPage implements OnInit, OnDestroy {
 
   async getDataLogin() {
     if (this.form.valid) {
-      await this.presentLoading('Autenticando...');
+      await this.presentLoading('Authenticating...');
       this.auth.loginEmail(this.form.value.email, this.form.value.pass).then((res) => {
         if (res.user.emailVerified === true) {
           if (res.user.uid) {
@@ -74,7 +74,7 @@ export class LoginPage implements OnInit, OnDestroy {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
       header: 'You must first verify your account',
-      subHeader: `Check your email inbox to validate your registration!`,
+      subHeader: `Check your email inbox to validate your registration, do not forget to check your spam folder!`,
       message: '<ion-icon class="green" name="mail-outline"></ion-icon> Send the code again?',
       backdropDismiss: false,
       mode: 'ios',
@@ -107,7 +107,7 @@ export class LoginPage implements OnInit, OnDestroy {
     this.auth.logout();
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
-      header: 'Incorrect data!!!',
+      header: 'Incorrect data!',
       message: '<ion-icon class="red" name="close-circle-outline"></ion-icon> Please try again',
       mode: 'ios',
       buttons: ['OK']

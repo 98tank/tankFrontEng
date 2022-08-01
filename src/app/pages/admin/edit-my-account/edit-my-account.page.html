@@ -157,10 +157,10 @@
                     </ion-item>
                     <div class="error" *ngIf="form.get('rfc').errors && form.get('rfc').touched">
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('rfc').hasError('minlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>must have nine characters.
+                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least nine characters.
                         </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('rfc').hasError('maxlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>must have nine characters.
+                            <ion-icon name="alert-circle-outline"></ion-icon>Must have maximum nine characters.
                         </ion-text>
                     </div>
                 </ion-col>
@@ -182,7 +182,7 @@
 
             <ion-row class="ion-margin">
                 <ion-col>
-                    <ion-button shape="round" color="primary" type="submit" expand="full">Edit Account</ion-button>
+                    <ion-button shape="round" color="primary" type="submit" expand="full">Submit</ion-button>
                 </ion-col>
             </ion-row>
         </form>
