@@ -187,36 +187,27 @@
                 <ion-col size="6">
                     <ion-item>
                         <ion-label position="floating">Last 4 digits to SSN </ion-label>
-                        <ion-input matInput type="text" name="curp" formControlName="curp" id="curp"></ion-input>
+                        <ion-input matInput type="text" name="ssn" formControlName="ssn" id="ssn"></ion-input>
                     </ion-item>
-                    <div class="error" *ngIf="form.get('curp').errors && form.get('curp').touched">
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('curp').hasError('required')">
+                    <div class="error" *ngIf="form.get('ssn').errors && form.get('ssn').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('ssn').hasError('required')">
                             <ion-icon name="alert-circle-outline"></ion-icon>Required field.
-                        </ion-text>
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('curp').hasError('minlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least four numbers.
-                        </ion-text>
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('curp').hasError('maxlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Must have maximum four numbers.
-                        </ion-text>
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('curp').hasError('pattern')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Enter a valid SSN.
                         </ion-text>
                     </div>
                 </ion-col>
                 <ion-col size="6">
                     <ion-item>
                         <ion-label position="floating">TAX ID</ion-label>
-                        <ion-input matInput type="text" name="rfc" formControlName="rfc" id="rfc"></ion-input>
+                        <ion-input matInput type="text" name="taxId" formControlName="taxId" id="taxId"></ion-input>
                     </ion-item>
-                    <div class="error" *ngIf="form.get('rfc').errors && form.get('rfc').touched">
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('rfc').hasError('required')">
+                    <div class="error" *ngIf="form.get('taxId').errors && form.get('taxId').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('taxId').hasError('required')">
                             <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('rfc').hasError('minlength')">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('taxId').hasError('minlength')">
                             <ion-icon name="alert-circle-outline"></ion-icon>It must have at least nine characters.
                         </ion-text>
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('rfc').hasError('maxlength')">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('taxId').hasError('maxlength')">
                             <ion-icon name="alert-circle-outline"></ion-icon>Must have maximum nine characters.
                         </ion-text>
                     </div>
@@ -253,10 +244,7 @@
                 <ion-col size-md="7" size="12">
                     <ion-item>
                         <ion-label position="floating">Bank</ion-label>
-                        <ion-select interface="popover" formControlName="name_bank" cancelText="Cancelar" okText="Aceptar">
-                            <ion-select-option *ngFor="let y of banks$ | async" [value]="y">{{y}}</ion-select-option>
-                        </ion-select>
-                        <div tabindex="0" style="height: 0;"></div>
+                        <ion-input matInput type="text" name="name_bank" formControlName="name_bank" id="name_bank"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('name_bank').errors && form.get('name_bank').touched">
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('name_bank').hasError('required')">
@@ -270,17 +258,8 @@
                         <ion-input matInput type="tel" name="clabe" formControlName="clabe" id="clabe"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('clabe').errors && form.get('clabe').touched">
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('clabe').hasError('required')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
-                        </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('clabe').hasError('pattern')">
                             <ion-icon name="alert-circle-outline"></ion-icon>Only numbers.
-                        </ion-text>
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('clabe').hasError('minlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least eighteen numbers.
-                        </ion-text>
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('clabe').hasError('maxlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Must have maximum eighteen numbers.
                         </ion-text>
                     </div>
                 </ion-col>

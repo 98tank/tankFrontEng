@@ -76,7 +76,7 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
       sex: ['', Validators.required],
       studies: ['', Validators.required],
       availability: ['', Validators.required],
-      phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[0-9]+$/)]],
+      phone: ['', Validators.required],
       email: ['', [Validators.required, Validators.pattern(/^\w+([\.\+\-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/)]],
       address: ['', [Validators.required, Validators.minLength(2)]],
       guards: [''],
