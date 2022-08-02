@@ -144,27 +144,24 @@
                 <ion-col size="6">
                     <ion-item>
                         <ion-label position="floating">Last 4 digits to SSN</ion-label>
-                        <ion-input [attr.disabled]="true" matInput type="tel" name="curp" formControlName="curp" id="curp"></ion-input>
+                        <ion-input matInput type="tel" name="ssn" formControlName="ssn" id="ssn"></ion-input>
                     </ion-item>
-                    <div class="error" *ngIf="form.get('curp').errors && form.get('curp').touched">
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('curp').hasError('minlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least four numbers.
-                        </ion-text>
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('curp').hasError('maxlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Must have maximum four numbers.
+                    <div class="error" *ngIf="form.get('ssn').errors && form.get('ssn').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('ssn').hasError('minlength')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                     </div>
                 </ion-col>
                 <ion-col size="6">
                     <ion-item>
                         <ion-label position="floating">TAX ID</ion-label>
-                        <ion-input [attr.disabled]="true" matInput type="tel" name="rfc" formControlName="rfc" id="rfc"></ion-input>
+                        <ion-input [attr.disabled]="true" matInput type="tel" name="taxId" formControlName="taxId" id="taxId"></ion-input>
                     </ion-item>
-                    <div class="error" *ngIf="form.get('rfc').errors && form.get('rfc').touched">
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('rfc').hasError('minlength')">
+                    <div class="error" *ngIf="form.get('taxId').errors && form.get('taxId').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('taxId').hasError('minlength')">
                             <ion-icon name="alert-circle-outline"></ion-icon>It must have at least nine characters.
                         </ion-text>
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('rfc').hasError('maxlength')">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('taxId').hasError('maxlength')">
                             <ion-icon name="alert-circle-outline"></ion-icon>Must have maximum nine characters.
                         </ion-text>
                     </div>

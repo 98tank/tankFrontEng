@@ -119,11 +119,7 @@
                 <ion-col size-md="4" size="6">
                     <ion-item>
                         <ion-label position="floating">US Citizent/ US Resident/US Work Visa</ion-label>
-                        <ion-select interface="popover" formControlName="work_permit" cancelText="Cancelar" okText="Aceptar">
-                            <ion-select-option value="Si">Yes</ion-select-option>
-                            <ion-select-option value="No">No</ion-select-option>
-                        </ion-select>
-                        <div tabindex="0" style="height: 0;"></div>
+                        <ion-input type="text" name="work_permit" formControlName="work_permit" id="work_permit"></ion-input>
                     </ion-item>
 
                     <div class="error" *ngIf="form.get('work_permit').errors &&  form.get('work_permit').touched">
@@ -153,7 +149,7 @@
                 </ion-col>
                 <ion-col size-md="6" size="12">
                     <ion-item>
-                        <ion-label position="floating">Availability  to Start</ion-label>
+                        <ion-label position="floating">Availability to Start</ion-label>
                         <ion-input type="text" name="availability" formControlName="availability" id="availability"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('availability').errors && form.get('availability').touched">

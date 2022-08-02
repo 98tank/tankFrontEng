@@ -40,7 +40,6 @@ export class RegisterClientPage implements OnInit {
   ngOnInit() {
     this.auth.logout();
     this.buildForm();
-    this.getBanks();
     this.getGiro();
   }
 
@@ -64,15 +63,15 @@ export class RegisterClientPage implements OnInit {
       confirm_pass: [''],
       pass: ['', [Validators.required, Validators.minLength(6)]],
       business_name: ['', [Validators.required, Validators.minLength(2)]],
-      rfc: ['', [Validators.minLength(12), Validators.maxLength(13)]],
+      taxId: ['', Validators.required],
       address: ['', [Validators.required, Validators.minLength(2)]],
-      phone_company: ['', [Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[0-9]+$/)]],
+      phone_company: ['', Validators.required],
       extension: ['', Validators.pattern(/^[0-9]+$/)],
       name_contact: ['', Validators.required],
-      personal_phone: ['', [Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[0-9]+$/)]],
+      personal_phone: ['', Validators.required],
       giro: ['', Validators.required],
       name_bank: ['', Validators.required],
-      clabe: ['', [Validators.pattern(/^[0-9]+$/), Validators.minLength(18), Validators.maxLength(18), Validators.required]],
+      clabe: ['',  Validators.pattern(/^[0-9]+$/)],
       account_number: ['', Validators.pattern(/^[0-9]+$/)],
     },
     {
@@ -176,10 +175,6 @@ export class RegisterClientPage implements OnInit {
       platforms: this.platform.platforms() || ''
     };
     this.fs.addDoc(`track_error`, data);
-  }
-
-  getBanks() {
-    this.banks$ = this.ss.getDataJsonLocal('', 'assets/data/banks.json').pipe(pluck('banks'));
   }
 
   private async presentLoading(message: string) {

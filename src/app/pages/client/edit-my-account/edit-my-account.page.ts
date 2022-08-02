@@ -70,7 +70,7 @@ export class EditMyAccountPage implements OnInit, OnDestroy {
         company_name: [this.profile.company_name, [Validators.required, Validators.minLength(2)]],
         email: [this.profile.email],
         business_name: [this.profile.business_name, [Validators.required, Validators.minLength(2)]],
-        rfc: [this.profile.rfc, [Validators.minLength(12), Validators.maxLength(13)]],
+        taxId: [this.profile.taxId, [Validators.minLength(12), Validators.maxLength(13)]],
         address: [this.profile.address, [Validators.required, Validators.minLength(2)]],
         phone_company: [this.profile.phone_company || '', [Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[0-9]+$/)]],
         extension: [this.profile.extension],

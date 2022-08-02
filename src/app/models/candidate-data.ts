@@ -5,9 +5,11 @@ export interface CandidateData {
     cv?: File;
     sex: string;
     name: string;
+    lastName: string;
     email: string;
     phone: string;
     curp?: string;
+    ssn?: string;
     block: boolean;
     status: 'Active' | 'Discarded' | 'Hired';
     skills: string;
@@ -31,6 +33,7 @@ export interface CandidateData {
     create_date: number;
     update_date: number;
     work_permit: string;
+    stateOfResidence: string;
     candidate_id: string;
     availability: string;
     uid_client?: string;
