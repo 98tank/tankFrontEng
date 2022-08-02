@@ -14,9 +14,10 @@ export interface Statistics {
 
 export interface Profile {
     uid: string;
-    rfc?: string;
+    taxId?: string;
     giro?: string;
     name?: string;
+    ssn?: string;
     type?: 'client' | 'recruiter' | 'admin' | 'superAdmin';
     curp?: string;
     clabe?: number;

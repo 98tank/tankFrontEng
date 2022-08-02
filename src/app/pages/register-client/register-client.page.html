@@ -123,13 +123,13 @@
                 <ion-col size="5">
                     <ion-item>
                         <ion-label position="floating">TAX ID</ion-label>
-                        <ion-input matInput type="text" name="rfc" formControlName="rfc" id="rfc"></ion-input>
+                        <ion-input matInput type="text" name="taxId" formControlName="taxId" id="taxId"></ion-input>
                     </ion-item>
-                    <div class="error" *ngIf="form.get('rfc').errors && form.get('rfc').touched">
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('rfc').hasError('minlength')">
+                    <div class="error" *ngIf="form.get('taxId').errors && form.get('taxId').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('taxId').hasError('minlength')">
                             <ion-icon name="alert-circle-outline"></ion-icon>It must have at least nine characters.
                         </ion-text>
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('rfc').hasError('maxlength')">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('taxId').hasError('maxlength')">
                             <ion-icon name="alert-circle-outline"></ion-icon>Must have maximum nine characters.
                         </ion-text>
                     </div>
@@ -239,10 +239,7 @@
                 <ion-col size-md="7" size="12">
                     <ion-item>
                         <ion-label position="floating">Bank</ion-label>
-                        <ion-select interface="popover" formControlName="name_bank" cancelText="Cancelar" okText="Aceptar">
-                            <ion-select-option *ngFor="let y of banks$ | async" [value]="y">{{y}}</ion-select-option>
-                        </ion-select>
-                        <div tabindex="0" style="height: 0;"></div>
+                        <ion-input matInput type="text" name="name_bank" formControlName="name_bank" id="name_bank"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('name_bank').errors && form.get('name_bank').touched">
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('name_bank').hasError('required')">
@@ -256,17 +253,8 @@
                         <ion-input matInput type="tel" name="clabe" formControlName="clabe" id="clabe"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('clabe').errors && form.get('clabe').touched">
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('clabe').hasError('required')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
-                        </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('clabe').hasError('pattern')">
                             <ion-icon name="alert-circle-outline"></ion-icon>Only numbers.
-                        </ion-text>
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('clabe').hasError('minlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least eighteen numbers.
-                        </ion-text>
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('clabe').hasError('maxlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Must have maximum eighteen numbers.
                         </ion-text>
                     </div>
                 </ion-col>

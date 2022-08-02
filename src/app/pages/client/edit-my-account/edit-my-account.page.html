@@ -86,13 +86,13 @@
                 <ion-col size="5">
                     <ion-item>
                         <ion-label position="floating">TAX ID</ion-label>
-                        <ion-input matInput type="tel" name="rfc" formControlName="rfc" id="rfc"></ion-input>
+                        <ion-input matInput type="tel" name="taxId" formControlName="taxId" id="taxId"></ion-input>
                     </ion-item>
-                    <div class="error" *ngIf="form.get('rfc').errors && form.get('rfc').touched">
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('rfc').hasError('minlength')">
+                    <div class="error" *ngIf="form.get('taxId').errors && form.get('taxId').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('taxId').hasError('minlength')">
                             <ion-icon name="alert-circle-outline"></ion-icon>It must have at least nine characters.
                         </ion-text>
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('rfc').hasError('maxlength')">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('taxId').hasError('maxlength')">
                             <ion-icon name="alert-circle-outline"></ion-icon>Must have maximum nine characters.
                         </ion-text>
                     </div>

@@ -46,7 +46,7 @@ export class EditMissionComponent implements OnInit {
   }
 
   getStates() {
-    this.states$ = this.ss.getDataJsonLocal('', 'assets/data/states.json').pipe(pluck('states'));
+    this.states$ = this.ss.getDataJsonLocal('', 'assets/data/states.json');
   }
 
   getMissionFields() {
