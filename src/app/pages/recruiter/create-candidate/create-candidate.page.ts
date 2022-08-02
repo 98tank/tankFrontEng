@@ -17,15 +17,15 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
   dataCurrentCurp: any;
   cf: any;
   cv: File;
-  form: UntypedFormGroup;
   success = false;
   dateValid = true;
   currentDate: Date;
   currentAge: number;
   date: DateInterface;
   mission: MissionData;
-  countries$: Observable<Country[]>;
+  form: UntypedFormGroup;
   states$: Observable<any>;
+  countries$: Observable<Country[]>;
   @ViewChild('topPage') content: IonContent;
   subscription: Subscription = new Subscription();
 
@@ -35,8 +35,8 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
     public auth: AuthService,
     private fs: FirebaseService,
     private route: ActivatedRoute,
-    private formBuild: UntypedFormBuilder,
     private eas: ExternalApiService,
+    private formBuild: UntypedFormBuilder,
     private alertController: AlertController,
     private modalController: ModalController,
   ) { }
@@ -179,15 +179,15 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
         cv: this.cv
       };
     }
-    console.log({candidate});
-    // this.fs.setDoc(`candidates/${id}`, candidate)
-    //   .then(() => {
-    //     this.success = true;
-    //     this.date = null;
-    //     this.cv = null;
-    //     this.form.reset();
-    //     this.sendNotificationsEmail();
-    //   });
+    this.fs.setDoc(`candidates/${id}`, candidate)
+      .then(() => {
+        this.success = true;
+        this.date = null;
+        this.dataCurrentCurp = null;
+        this.cv = null;
+        this.form.reset();
+        this.sendNotificationsEmail();
+      });
   }
 
   async sendNotificationsEmail() {
@@ -247,9 +247,9 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
     const curp = `${c.name.slice(0, 2)}${c.lastName.slice(0, 2)}${c.stateOfResidence}${c.ssn}`.toUpperCase();
     const queryCURP = await this.fs.getColFilter('candidates', 'curp', '==', curp).where('mission_id', '==', this.mission.mission_id).get();
     if (queryCURP.size > 0) {
-      return {curp};
-    } else {
       return { curpExists: true };
+    } else {
+      return {curp};
     }
   }
 
