@@ -32,9 +32,9 @@
         </ion-row>
         <form [formGroup]="form" (submit)="getDataForm()" novalidate *ngIf="cf && !success">
             <ion-row>
-                <ion-col size-md="8" size="12">
+                <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">Full  Name</ion-label>
+                        <ion-label position="floating">First Name</ion-label>
                         <ion-input type="text" name="name" formControlName="name" id="name"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('name').errors && form.get('name').touched">
@@ -45,8 +45,21 @@
                         </ion-text>
                     </div>
                 </ion-col>
+                <ion-col size="6">
+                    <ion-item>
+                        <ion-label position="floating">Last Name</ion-label>
+                        <ion-input type="text" name="lastName" formControlName="lastName" id="lastName"></ion-input>
+                    </ion-item>
+                    <div class="error" *ngIf="form.get('lastName').errors && form.get('lastName').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('lastName').hasError('required')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.</ion-text>
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('lastName').hasError('minlength')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least two characters.
+                        </ion-text>
+                    </div>
+                </ion-col>
 
-                <ion-col size-md="4" size="12">
+                <ion-col size="6">
                     <ion-item>
                         <ion-label position="floating">Years of Experience</ion-label>
                         <ion-select interface="popover" formControlName="years_of_experience" cancelText="Cancelar" okText="Aceptar">
@@ -59,21 +72,7 @@
                             <ion-icon name="alert-circle-outline"></ion-icon>Required field.</ion-text>
                     </div>
                 </ion-col>
-
-                <ion-col size-md="8" size="12">
-                    <ion-item>
-                        <ion-label position="floating">Place of Birth</ion-label>
-                        <ion-input type="text" name="place_of_birth" formControlName="place_of_birth" id="place_of_birth"></ion-input>
-                    </ion-item>
-                    <div class="error" *ngIf="form.get('place_of_birth').errors && form.get('place_of_birth').touched">
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('place_of_birth').hasError('required')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.</ion-text>
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('place_of_birth').hasError('minlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least two characters.
-                        </ion-text>
-                    </div>
-                </ion-col>
-                <ion-col size-md="4" size="6">
+                <ion-col size="6">
                     <ion-item>
                         <ion-label position="floating">Gender</ion-label>
                         <ion-select interface="popover" formControlName="sex" cancelText="Cancelar" okText="Aceptar">
@@ -87,6 +86,20 @@
                             <ion-icon name="alert-circle-outline"></ion-icon>Required field.</ion-text>
                     </div>
                 </ion-col>
+
+                <ion-col size="12">
+                    <ion-item>
+                        <ion-label position="floating">Place of Birth</ion-label>
+                        <ion-input type="text" name="place_of_birth" formControlName="place_of_birth" id="place_of_birth"></ion-input>
+                    </ion-item>
+                    <div class="error" *ngIf="form.get('place_of_birth').errors && form.get('place_of_birth').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('place_of_birth').hasError('required')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.</ion-text>
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('place_of_birth').hasError('minlength')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least two characters.
+                        </ion-text>
+                    </div>
+                </ion-col>
                 <ion-col size="12">
                     <app-date [birthdate]="date" (date)="buildDate($event)" [title]="'Date of Birth:'"></app-date>
                     <div class="error" *ngIf="!dateValid">
@@ -95,7 +108,7 @@
                         </ion-text>
                     </div>
                 </ion-col>
-                <ion-col size-md="4" size="6">
+                <ion-col size="6">
                     <ion-item>
                         <ion-label position="floating">Education</ion-label>
                         <ion-select interface="popover" formControlName="studies" cancelText="Cancelar" okText="Aceptar">
@@ -109,7 +122,7 @@
                             <ion-icon name="alert-circle-outline"></ion-icon>Required field.</ion-text>
                     </div>
                 </ion-col>
-                <ion-col size-md="4" size="6">
+                <ion-col size="6">
                     <ion-item>
                         <ion-label position="floating">Citizenship</ion-label>
                         <ion-select interface="popover" formControlName="nationality" cancelText="Cancelar" okText="Aceptar">
@@ -124,14 +137,11 @@
                         </ion-text>
                     </div>
                 </ion-col>
-                <ion-col size-md="4" size="6">
+
+                <ion-col size="6">
                     <ion-item>
                         <ion-label position="floating">US Citizent/ US Resident/US Work Visa</ion-label>
-                        <ion-select interface="popover" formControlName="work_permit" cancelText="Cancelar" okText="Aceptar">
-                            <ion-select-option value="Si">Yes</ion-select-option>
-                            <ion-select-option value="No">No</ion-select-option>
-                        </ion-select>
-                        <div tabindex="0" style="height: 0;"></div>
+                        <ion-input type="text" name="work_permit" formControlName="work_permit" id="work_permit"></ion-input>
                     </ion-item>
 
                     <div class="error" *ngIf="form.get('work_permit').errors &&  form.get('work_permit').touched">
@@ -157,7 +167,7 @@
                             <ion-icon name="alert-circle-outline"></ion-icon>Must have maximum ten numbers.</ion-text>
                     </div>
                 </ion-col>
-                <ion-col size-md="6" size="12">
+                <ion-col size="6">
                     <ion-item>
                         <ion-label position="floating">Availability</ion-label>
                         <ion-input type="text" name="availability" formControlName="availability" id="availability"></ion-input>
@@ -170,7 +180,23 @@
                             <ion-icon name="alert-circle-outline"></ion-icon>It must have at least two characters.</ion-text>
                     </div>
                 </ion-col>
-                <ion-col size-md="6" size="12">
+                <ion-col size="6">
+                    <ion-item>
+                        <ion-label position="floating">Last 4 digits to SSN</ion-label>
+                        <ion-input matInput type="tel" name="ssn" formControlName="ssn" id="ssn"></ion-input>
+                    </ion-item>
+                    <div class="error" *ngIf="form.get('ssn').errors && form.get('ssn').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('ssn').hasError('minlength')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>Minimum 4 digits
+                        </ion-text>
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('name').hasError('required')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.</ion-text>
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('name').hasError('maxlength')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>Maximum 4 digits.
+                        </ion-text>
+                    </div>
+                </ion-col>
+                <ion-col size="12">
                     <ion-item class="email">
                         <ion-label position="floating">Email</ion-label>
                         <ion-input type="email" name="email" formControlName="email" id="email"></ion-input>
@@ -184,34 +210,44 @@
                     </div>
                 </ion-col>
 
-                <ion-col size-md="6" size="12">
-                    <ion-item>
-                        <ion-label position="floating">Last 4 digits to SSN</ion-label>
-                        <ion-input matInput type="text" name="curp" formControlName="curp" id="curp" (ionChange)="validatorCURP()"></ion-input>
-                    </ion-item>
-                    <div class="error" *ngIf="form.get('curp').errors && form.get('curp').touched">
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('curp').hasError('required')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.</ion-text>
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('curp').hasError('minlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least four numbers.
-                        </ion-text>
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('curp').hasError('maxlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Must have maximum four numbers.
-                        </ion-text>
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('curp').hasError('pattern')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Enter a valid SSN.
-                        </ion-text>
-                        <ion-text *ngIf="form.get('curp').hasError('curpExists')" class="ion-justify-content-center" color="danger">
-                            <ion-icon name="alert-circle-outline"></ion-icon>This SSN already exists.
-                        </ion-text>
-                    </div>
-                </ion-col>
 
                 <ion-col size="12" class="ion-text-center">
                     <ion-text>
                         <h5>The following information is to give details of the candidate</h5>
                     </ion-text>
                 </ion-col>
+
+                <ion-col size="6">
+                    <ion-item>
+                        <ion-label position="floating">Travel Availability</ion-label>
+                        <ion-select interface="popover" formControlName="travel" cancelText="Cancelar" okText="Aceptar">
+                            <ion-select-option *ngFor="let y of cf.travel" [value]="y">{{y}}</ion-select-option>
+                        </ion-select>
+                        <div tabindex="0" style="height: 0;"></div>
+                    </ion-item>
+
+                    <div class="error" *ngIf="form.get('travel').errors &&  form.get('travel').touched">
+                        <ion-text class="ion-justify-content-center" color="danger">
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
+                        </ion-text>
+                    </div>
+                </ion-col>
+
+                <ion-col size="6">
+                    <ion-item>
+                        <ion-label position="floating">State of residence</ion-label>
+                        <ion-select interface="popover" formControlName="stateOfResidence" cancelText="Cancelar" okText="Aceptar">
+                            <ion-select-option *ngFor="let s of states$ | async" [value]="s.abbreviation">{{s.name}}</ion-select-option>
+                        </ion-select>
+                        <div tabindex="0" style="height: 0;"></div>
+                    </ion-item>
+
+                    <div class="error" *ngIf="form.get('stateOfResidence').errors &&  form.get('stateOfResidence').touched">
+                        <ion-text class="ion-justify-content-center" color="danger">
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.</ion-text>
+                    </div>
+                </ion-col>
+
 
                 <ion-col size="12">
                     <ion-item>
@@ -224,22 +260,6 @@
                         </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('address').hasError('minlength')">
                             <ion-icon name="alert-circle-outline"></ion-icon>It must have at least two characters.
-                        </ion-text>
-                    </div>
-                </ion-col>
-
-                <ion-col size-md="6" size="8">
-                    <ion-item>
-                        <ion-label position="floating">Travel Availability</ion-label>
-                        <ion-select interface="popover" formControlName="travel" cancelText="Cancelar" okText="Aceptar">
-                            <ion-select-option *ngFor="let y of cf.travel" [value]="y">{{y}}</ion-select-option>
-                        </ion-select>
-                        <div tabindex="0" style="height: 0;"></div>
-                    </ion-item>
-
-                    <div class="error" *ngIf="form.get('travel').errors &&  form.get('travel').touched">
-                        <ion-text class="ion-justify-content-center" color="danger">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                     </div>
                 </ion-col>
@@ -419,7 +439,7 @@
                     </ion-item>
                     <div class="error" *ngIf="form.get('comments').errors && form.get('comments').touched">
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('comments').hasError('minlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least two characters. 
+                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least two characters.
                         </ion-text>
                     </div>
                 </ion-col>

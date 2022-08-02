@@ -14,6 +14,7 @@ import { SeeAttachedComponent } from 'src/app/shared/see-attached/see-attached.c
   styleUrls: ['./create-candidate.page.scss'],
 })
 export class CreateCandidatePage implements OnInit, OnDestroy {
+  dataCurrentCurp: any;
   cf: any;
   cv: File;
   form: UntypedFormGroup;
@@ -24,6 +25,7 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
   date: DateInterface;
   mission: MissionData;
   countries$: Observable<Country[]>;
+  states$: Observable<any>;
   @ViewChild('topPage') content: IonContent;
   subscription: Subscription = new Subscription();
 
@@ -44,6 +46,7 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
     this.getCandidateFields();
     this.currentDate = this.ss.getDate();
     this.getCountries();
+    this.getStates();
   }
 
   ngOnDestroy(): void {
@@ -52,6 +55,10 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
 
   getCountries() {
     this.countries$ = this.ss.getDataJsonLocal('', 'assets/data/countries.json').pipe(pluck('countries'));
+  }
+
+  getStates() {
+    this.states$ = this.ss.getDataJsonLocal('', 'assets/data/states.json');
   }
 
   getCandidateFields() {
@@ -71,10 +78,12 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
   private buildForm() {
     this.form = this.formBuild.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
+      lastName: ['', [Validators.required, Validators.minLength(2)]],
       years_of_experience: ['', Validators.required],
       place_of_birth: ['', [Validators.required, Validators.minLength(2)]],
       sex: ['', Validators.required],
       studies: ['', Validators.required],
+      stateOfResidence: ['', Validators.required],
       availability: ['', Validators.required],
       phone: ['', Validators.required],
       email: ['', [Validators.required, Validators.pattern(/^\w+([\.\+\-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/)]],
@@ -88,7 +97,7 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
       courses_and_certi: ['', Validators.minLength(2)],
       specialized_software: ['', Validators.minLength(2)],
       comments: ['', Validators.minLength(2)],
-      curp: ['', [Validators.required, Validators.minLength(18), Validators.maxLength(18), Validators.pattern(/^[A-Z]{1}[AEIOU]{1}[A-Z]{2}[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM]{1}(AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[B-DF-HJ-NP-TV-Z]{3}[0-9A-Z]{1}[0-9]{1}$/)], [this.validatorCURP()]],
+      ssn: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
       company_1: [''],
       period_1: [''],
       position_1: [''],
@@ -106,11 +115,16 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
     });
   }
 
-  getDataForm() {
+  async getDataForm() {
     if (this.date?.day && this.date?.month && this.date?.year) {
       this.dateValid = true;
       if (this.form.valid) {
-        this.presentAlertConfirm();
+        this.dataCurrentCurp = await this.createCURP(this.form.value);
+        if (this.dataCurrentCurp?.curpExists) {
+          this.thisUserExist();
+        } else {
+          this.presentAlertConfirm();
+        }
       } else {
         this.content.scrollToTop(400);
         this.form.markAllAsTouched();
@@ -157,6 +171,7 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
       uid_recruiter: this.auth.userUid,
       mission_id: this.mission.mission_id,
       email: this.form.value.email.toLowerCase(),
+      curp: this.dataCurrentCurp.curp,
     };
     if (this.cv) {
       candidate = {
@@ -164,14 +179,15 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
         cv: this.cv
       };
     }
-    this.fs.setDoc(`candidates/${id}`, candidate)
-      .then(() => {
-        this.success = true;
-        this.date = null;
-        this.cv = null;
-        this.form.reset();
-        this.sendNotificationsEmail();
-      });
+    console.log({candidate});
+    // this.fs.setDoc(`candidates/${id}`, candidate)
+    //   .then(() => {
+    //     this.success = true;
+    //     this.date = null;
+    //     this.cv = null;
+    //     this.form.reset();
+    //     this.sendNotificationsEmail();
+    //   });
   }
 
   async sendNotificationsEmail() {
@@ -224,6 +240,29 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
         return null;
       }
     };
+  }
+
+  // Para construir pediremos First Name + Last Name + State of Residence + last 4 digits SSN CATECA0000 - Carlos Tea California 0000 -
+  async createCURP(c: CandidateData) {
+    const curp = `${c.name.slice(0, 2)}${c.lastName.slice(0, 2)}${c.stateOfResidence}${c.ssn}`.toUpperCase();
+    const queryCURP = await this.fs.getColFilter('candidates', 'curp', '==', curp).where('mission_id', '==', this.mission.mission_id).get();
+    if (queryCURP.size > 0) {
+      return {curp};
+    } else {
+      return { curpExists: true };
+    }
+  }
+
+  async thisUserExist() {
+    const alert = await this.alertController.create({
+      cssClass: 'delete-alert',
+      header: 'Alert',
+      subHeader: 'Important message',
+      message: '<ion-icon class="red" name="close-circle-outline"></ion-icon> This candidate already exists in this mission.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
 }
