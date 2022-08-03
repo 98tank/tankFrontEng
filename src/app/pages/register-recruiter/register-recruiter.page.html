@@ -186,12 +186,18 @@
                 </ion-col>
                 <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">Last 4 digits to SSN </ion-label>
-                        <ion-input matInput type="text" name="ssn" formControlName="ssn" id="ssn"></ion-input>
+                        <ion-label position="floating">Last 4 digits to SSN</ion-label>
+                        <ion-input matInput type="tel" name="ssn" formControlName="ssn" id="ssn"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="form.get('ssn').errors && form.get('ssn').touched">
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('ssn').hasError('minlength')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>Minimum 4 digits
+                        </ion-text>
                         <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('ssn').hasError('required')">
                             <ion-icon name="alert-circle-outline"></ion-icon>Required field.
+                        </ion-text>
+                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('ssn').hasError('maxlength')">
+                            <ion-icon name="alert-circle-outline"></ion-icon>Maximum 4 digits.
                         </ion-text>
                     </div>
                 </ion-col>
