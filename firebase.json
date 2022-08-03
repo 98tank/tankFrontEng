@@ -1,6 +1,6 @@
 {
     "hosting": {
-        "site": "tank-english-prod",
+        "site": "tank-english-deve",
         "public": "www",
         "ignore": [
             "firebase.json",
