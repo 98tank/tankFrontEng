@@ -257,6 +257,7 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
     const alert = await this.alertController.create({
       cssClass: 'delete-alert',
       header: 'Alert',
+      mode: 'ios',
       subHeader: 'Important message',
       message: '<ion-icon class="red" name="close-circle-outline"></ion-icon> This candidate already exists in this mission.',
       buttons: ['OK']
