@@ -45,7 +45,7 @@ export class ContractPage implements OnInit {
   private builForm() {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
-      phone: ['',  [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[0-9]+$/)]]
+      phone: ['',  Validators.required]
     });
   }
 

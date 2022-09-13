@@ -65,9 +65,9 @@ export class EditMyAccountPage implements OnInit, OnDestroy {
       name: [this.user.profile.name, [ Validators.minLength(2)]],
       email: [this.user.profile.email, [Validators.required, Validators.pattern(/^\w+([\.\+\-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/)]],
       address: [this.user.profile.address, [Validators.required, Validators.minLength(2)]],
-      personal_phone: [this.user.profile.personal_phone || '', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[0-9]+$/)]],
+      personal_phone: [this.user.profile.personal_phone || '', [Validators.required]],
       ssn: [this.user.profile.ssn, [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
-      taxId: [this.user.profile.taxId, [Validators.minLength(12), Validators.maxLength(13)]],
+      taxId: [this.user.profile.taxId, Validators.required],
       level_of_study: [this.user.profile.level_of_study],
       career: [this.user.profile.career],
     });

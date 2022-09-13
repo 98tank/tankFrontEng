@@ -49,7 +49,7 @@ export class InfoUserComponent implements OnInit {
   }
 
   async deleteUser(p: Profile) {
-    await this.presentLoading('Borrando Usuario');
+    await this.presentLoading('Deleting User');
     const resDelete = await this.eas.deleteUser(p.uid, p.type);
     await this.loadingController.dismiss();
     !resDelete ? this.alertError() : this.alertSuccess();
@@ -65,7 +65,7 @@ export class InfoUserComponent implements OnInit {
 
   async alertSuccess() {
     const alert = await this.alertController.create({
-      header: 'Exito',
+      header: 'Success',
       cssClass: 'delete-alert',
       backdropDismiss: false,
       mode: 'ios',

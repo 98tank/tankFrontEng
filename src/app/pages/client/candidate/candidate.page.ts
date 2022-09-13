@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { CandidateData, MissionData, User } from 'src/app/models';
 import { AuthService, FirebaseService } from 'src/app/services';
@@ -16,12 +17,14 @@ export class CandidatePage implements OnInit, OnDestroy {
   subscription3: Subscription = new Subscription();
   subscription4: Subscription = new Subscription();
   active = false;
+  mission: MissionData;
 
   constructor(
     private router: Router,
     public auth: AuthService,
     private fs: FirebaseService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -45,22 +48,57 @@ export class CandidatePage implements OnInit, OnDestroy {
   }
 
   getCandidate(id: string) {
-    this.subscription2 = this.fs.getDocObserver(`candidates/${id}`).subscribe((c: CandidateData) => {
-      this.candidate = c;
-      this.getMission(this.candidate);
+    this.subscription2 = this.fs.getDocObserver(`candidates/${id}`).subscribe({
+      next: (c: CandidateData) => {
+        if (c) {
+          this.candidate = c;
+          this.getMission(this.candidate);
+        } else {
+          this.deleteCandidateAlert();
+        }
+      },
+      error: e => {
+        this.deleteCandidateAlert();
+      }
     });
   }
 
   getMission(c: CandidateData) {
     this.subscription3 = this.auth.getAuth().subscribe(u => {
       if (u?.uid) {
-        this.subscription4 = this.fs.getDocObserver(`missions/${c.mission_id}`).subscribe((m: MissionData) => {
-          if (m.uid === u.uid) { this.active = true; }
-          else { this.active = false; }
+        this.subscription4 = this.fs.getDocObserver(`missions/${c.mission_id}`).subscribe({
+          next: (m: MissionData) => {
+            if (m) {
+              this.mission = m;
+              if (m.uid === u.uid) { this.active = true; }
+              else { this.active = false; }
+              this.updateViewCandidate(c, u.uid);
+            }
+          },
+          error: e => {
+            this.deleteCandidateAlert();
+          }
         });
-        this.updateViewCandidate(c, u.uid);
       }
     });
+  }
+
+  async deleteCandidateAlert() {
+    const alert = await this.alertController.create({
+      mode: 'ios',
+      cssClass: 'delete-alert',
+      header: 'Alert',
+      backdropDismiss: false,
+      subHeader: 'Important message',
+      message: `<ion-icon  class="red" name="close-circle"></ion-icon>This candidate was removed from this mission by the recruiter`,
+      buttons: [{
+        text: 'OK',
+        role: 'cancel',
+        handler: () => this.router.navigate([`/cliente/misiones-activas/mision/${this.mission.mission_id}`])
+      }],
+    });
+
+    await alert.present();
   }
 
   async updateViewCandidate(c: CandidateData, uid: string) {

@@ -47,7 +47,9 @@
                     <ion-card-content>
                         <strong>Type: </strong> {{u.profile.type}}<br>
                         <strong>Email: </strong> {{u.profile.email}}<br>
-                        <strong>Anniversary: </strong> {{u.profile.birthdate | date: 'MMMM d, y'}}
+                        <span *ngIf="u?.profile?.birthdate">
+                            <strong>Anniversary: </strong> {{u.profile.birthdate.month}}/{{u.profile.birthdate.day}}/{{u.profile.birthdate.year}}
+                        </span>
 
                     </ion-card-content>
                     <ng-container *ngIf="typeAdmin$ | async as t">
