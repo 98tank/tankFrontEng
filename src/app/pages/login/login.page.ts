@@ -59,7 +59,7 @@ export class LoginPage implements OnInit, OnDestroy {
                 if (p.type === 'recruiter') { this.router.navigate(['/reclutador/principal']); }
                 if (p.type === 'admin') { this.router.navigate(['/admin/principal']); }
                 if (p.type === 'superAdmin') { this.router.navigate(['/admin/principal']); }
-              } else {
+              } else if (p.status === 'Block') {
                 this.userBlocked().then(() => this.auth.logout());
               }
             });
