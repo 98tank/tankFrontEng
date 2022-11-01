@@ -1,0 +1,224 @@
+<ion-header>
+    <ion-toolbar color="secondary" class="ion-text-right mail">
+        <ion-grid fixed>
+            <a href="mailto:community@98tank.com">
+                <ion-icon name="mail-outline"></ion-icon>community@98tank.com</a>
+        </ion-grid>
+    </ion-toolbar>
+    <ion-toolbar>
+        <ion-grid fixed>
+            <img src="assets/img/logo_con_simbolo.png">
+            <ion-button color="tertiary" fill="solid" shape="round" size="small" [routerLink]="['/login']">
+                Login
+            </ion-button>
+        </ion-grid>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <div class="main">
+            <ion-row>
+                <ion-col size-md="6" size="12">
+                    <h1>Recruiting Success</h1>
+                    <p>We connect specialized recruiters with clients searching for the best candidates</p>
+                    <ion-button color="secondary" fill="solid" shape="round" [routerLink]="['/login']">
+                        Sing up free
+                        <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </div>
+        <div class="floating-boxes">
+            <ion-row class="ion-text-center">
+                <ion-col size-sm="4" size="12">
+                    <div class="square">
+                        <img src="assets/img/one.jpg" alt="">
+                        <div class="content">
+                            <h4>1</h4>
+                            <p>Fill Form</p>
+                        </div>
+                    </div>
+                </ion-col>
+                <ion-col size-sm="4" size="12">
+                    <div class="square">
+                        <img src="assets/img/two.jpg" alt="">
+                        <div class="content">
+                            <h4>2</h4>
+                            <p>Evaluate</p>
+                        </div>
+                    </div>
+                </ion-col>
+                <ion-col size-sm="4" size="12">
+                    <div class="square">
+                        <img src="assets/img/three.jpg" alt="">
+                        <div class="content">
+                            <h4>3</h4>
+                            <p>Hire</p>
+                        </div>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </div>
+        <div class="community">
+            <ion-row>
+                <ion-col size-md="6" size="12">
+                    <img src="assets/img/RECRUITMENT.jpg">
+                </ion-col>
+                <ion-col class="textos" size-md="6" size="12">
+                    <ion-text>
+                        <h5 class="border orange">RECRUITMENT COMMUNITY</h5>
+                        <h2>We are a Recruitment Community where we connect professionals recruiters with global clients looking for the best talent</h2>
+                    </ion-text>
+                    <ion-list>
+                        <ion-item lines="none">
+                            <ion-icon slot="start" color="secondary" name="checkmark-circle"></ion-icon>
+                            <ion-label class="ion-text-wrap">Specialized Recruiters in USA</ion-label>
+                        </ion-item>
+                        <ion-item lines="none">
+                            <ion-icon slot="start" color="secondary" name="checkmark-circle"></ion-icon>
+                            <ion-label class="ion-text-wrap">Top of the class recruitment processes and best practices</ion-label>
+                        </ion-item>
+                        <ion-item lines="none">
+                            <ion-icon slot="start" color="secondary" name="checkmark-circle"></ion-icon>
+                            <ion-label class="ion-text-wrap">Client focus</ion-label>
+                        </ion-item>
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+        </div>
+        <div class="experts">
+            <ion-row>
+                <ion-col size-md="4" size="12">
+                    <img src="assets/img/experts.jpg">
+                </ion-col>
+                <ion-col class="textos" size-md="8" size="12">
+                    <h6 class="border orange">I WE ARE EXPERTS</h6>
+                    <h2>+100 specialized professionals, we are a reliable and agile alternative to support your company and business needs. Our efective recruitment processes and professionals are the perfect formula for talent attraction, time reduction
+                        and recruitment savings.</h2>
+                    <ion-list>
+                        <ion-item lines="none">
+                            <ion-icon color="secondary" slot="start" name="checkmark-circle"></ion-icon>
+                            <ion-label>Specialized Recruiters in USA</ion-label>
+                        </ion-item>
+                        <ion-item lines="none">
+                            <ion-icon color="secondary" slot="start" name="checkmark-circle"></ion-icon>
+                            <ion-label>Top of the class recruitment processes and best practices</ion-label>
+                        </ion-item>
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+        </div>
+        <div class="platform">
+            <ion-row>
+                <ion-col size-md="6" size="12"></ion-col>
+                <ion-col size-md="6" size="12">
+                    <h5 class="border orange">TECHNOLOGICAL PLATFORM</h5>
+                    <h2>
+                        Our recruitment platform has been developed by experts integrating state of the art IT standards and recruitment best practices.
+                    </h2>
+                    <p>This platform centralizes the comunication between the client and the candidate, making evaluating, interviewing and candidates flow very easy.</p>
+                </ion-col>
+            </ion-row>
+        </div>
+        <div class="positions">
+            <ion-row class="ion-text-center">
+                <ion-col size="12">
+                    <ion-text color="secondary">
+                        <h2>Top positions 2022</h2>
+                    </ion-text>
+                </ion-col>
+                <ion-col size-md="3" size-sm="6" size="12" *ngFor="let pos of positions">
+                    <ion-text color="tertiary">
+                        <h6>{{pos}}</h6>
+                    </ion-text>
+                </ion-col>
+            </ion-row>
+        </div>
+        <div class="backoffice">
+            <ion-row>
+                <ion-col size-md="7" size="12">
+                    <h5 class="border orange">98 TANK BACKOFFICE</h5>
+                    <h2>
+                        98 Tank provide dedicated support to our clients and community trough our Support teams, covering IT, Recruitment and Account management 24/7
+                    </h2>
+                </ion-col>
+                <ion-col size-md="5" size="12">
+                    <img src="assets/img/backoffice.jpg">
+                </ion-col>
+            </ion-row>
+        </div>
+        <div class="hiring">
+            <ion-row>
+                <h5 class="border orange">HIRING FEES</h5>
+                <ion-card color="secondary">
+                    <ion-card-content>
+                        <ion-row>
+                            <ion-col size-sm="9" size="12">
+                                <h2>When hiring the candidate, a fee of 60% of one month of the candidate’s base salary is generated.</h2>
+                            </ion-col>
+                            <ion-col size-sm="3" size="12">
+                                <ion-button expand="block" fill="solid" shape="round" size="small" color="light" [routerLink]="['/login']">
+                                    Sign Up Free
+                                    <ion-icon name="arrow-forward-circle-outline" color="secondary"></ion-icon>
+                                </ion-button>
+                            </ion-col>
+                            <ion-col size="12">
+                                <p>30 days warranty Coverage.</p>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card-content>
+                </ion-card>
+            </ion-row>
+        </div>
+        <div class="commitment">
+            <ion-row class="ion-text-center">
+                <ion-col size="12">
+                    <h5 class="border white">OUR COMMITMENT</h5>
+                    <h4>Effective results</h4>
+                    <p>In 72 hours*</p>
+                </ion-col>
+            </ion-row>
+        </div>
+        <div class="logos">
+            <div class="slider"></div>
+        </div>
+        <div class="contact-us">
+            <ion-row>
+                <ion-col size="12">
+                    <h5 class="border white">CONTACT US</h5>
+                    <ion-text color="light">
+                        <h2>Our team will contact you shortly.</h2>
+                    </ion-text>
+                </ion-col>
+                <ion-col size-md="6" size="12">
+                    <ion-list>
+                        <ion-item lines="none">
+                            <ion-icon name="location" slot="start"></ion-icon>
+                            <ion-label>
+                                <h5>Address:</h5>
+                                <p><a href="https://www.google.com.mx/maps/place/333+H+St+Suite+5000,+Chula+Vista,+CA+91910,+EE.+UU./@32.6349836,-117.0793479,17.47z/data=!4m5!3m4!1s0x80d94e098a36e9eb:0x83cbe8b991a2756b!8m2!3d32.6349619!4d-117.0776445" target="_blank"
+                                        rel="noopener noreferrer">333 H Street Suite 5000, Chula Vista, CA 91910</a></p>
+                            </ion-label>
+                        </ion-item>
+                        <ion-item lines="none">
+                            <ion-icon name="call" slot="start"></ion-icon>
+                            <ion-label>
+                                <h5>Phone:</h5>
+                                <p><a href="tel:+16195517178">+1 619 5517178</a></p>
+                            </ion-label>
+                        </ion-item>
+                        <ion-item lines="none">
+                            <ion-icon name="mail" slot="start"></ion-icon>
+                            <ion-label>
+                                <h5>Email:</h5>
+                                <p><a href="mailto:community@98tank.com">community@98tank.com</a></p>
+                            </ion-label>
+                        </ion-item>
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-grid>
+
+</ion-content>
