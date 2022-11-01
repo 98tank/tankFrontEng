@@ -74,42 +74,6 @@
                 </ion-col>
                 <ion-col size="6">
                     <ion-item>
-                        <ion-label position="floating">Gender</ion-label>
-                        <ion-select interface="popover" formControlName="sex" cancelText="Cancelar" okText="Aceptar">
-                            <ion-select-option *ngFor="let y of cf.sex" [value]="y">{{y}}</ion-select-option>
-                        </ion-select>
-                        <div tabindex="0" style="height: 0;"></div>
-                    </ion-item>
-
-                    <div class="error" *ngIf="form.get('sex').errors &&  form.get('sex').touched">
-                        <ion-text class="ion-justify-content-center" color="danger">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.</ion-text>
-                    </div>
-                </ion-col>
-
-                <ion-col size="12">
-                    <ion-item>
-                        <ion-label position="floating">Place of Birth</ion-label>
-                        <ion-input type="text" name="place_of_birth" formControlName="place_of_birth" id="place_of_birth"></ion-input>
-                    </ion-item>
-                    <div class="error" *ngIf="form.get('place_of_birth').errors && form.get('place_of_birth').touched">
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('place_of_birth').hasError('required')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.</ion-text>
-                        <ion-text class="ion-justify-content-center" color="danger" *ngIf="form.get('place_of_birth').hasError('minlength')">
-                            <ion-icon name="alert-circle-outline"></ion-icon>It must have at least two characters.
-                        </ion-text>
-                    </div>
-                </ion-col>
-                <ion-col size="12">
-                    <app-date [birthdate]="date" (date)="buildDate($event)" [title]="'Date of Birth:'"></app-date>
-                    <div class="error" *ngIf="!dateValid">
-                        <ion-text class="ion-justify-content-center" color="danger">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
-                        </ion-text>
-                    </div>
-                </ion-col>
-                <ion-col size="6">
-                    <ion-item>
                         <ion-label position="floating">Education</ion-label>
                         <ion-select interface="popover" formControlName="studies" cancelText="Cancelar" okText="Aceptar">
                             <ion-select-option *ngFor="let y of cf.studies" [value]="y">{{y}}</ion-select-option>
@@ -149,7 +113,7 @@
                             <ion-icon name="alert-circle-outline"></ion-icon>Required field.</ion-text>
                     </div>
                 </ion-col>
-                <ion-col size="6">
+                <ion-col size="7">
                     <ion-item>
                         <ion-label position="floating">Mobile/Personal Number</ion-label>
                         <ion-input matInput type="tel" name="phone" formControlName="phone" id="phone"></ion-input>
@@ -167,7 +131,7 @@
                             <ion-icon name="alert-circle-outline"></ion-icon>Must have maximum ten numbers.</ion-text>
                     </div>
                 </ion-col>
-                <ion-col size="6">
+                <ion-col size="5">
                     <ion-item>
                         <ion-label position="floating">Availability</ion-label>
                         <ion-input type="text" name="availability" formControlName="availability" id="availability"></ion-input>
@@ -197,7 +161,7 @@
                         </ion-text>
                     </div>
                 </ion-col>
-                <ion-col size="12">
+                <ion-col size="6">
                     <ion-item class="email">
                         <ion-label position="floating">Email</ion-label>
                         <ion-input type="email" name="email" formControlName="email" id="email"></ion-input>
@@ -266,37 +230,11 @@
                 </ion-col>
 
                 <ion-col size="12">
-                    <ion-card mode="ios">
-                        <ion-card-header color="tertiary">
-                            <ion-title>English</ion-title>
-                        </ion-card-header>
-                        <ion-radio-group mode="md" formControlName="ingles">
-                            <ion-item>
-                                <ion-label>Essential</ion-label>
-                                <ion-radio slot="start" value="Essential"></ion-radio>
-                            </ion-item>
-
-                            <ion-item>
-                                <ion-label>Technical</ion-label>
-                                <ion-radio slot="start" value="Technical"></ion-radio>
-                            </ion-item>
-
-                            <ion-item>
-                                <ion-label>Intermediate</ion-label>
-                                <ion-radio slot="start" value="Intermediate"></ion-radio>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label>Advanced</ion-label>
-                                <ion-radio slot="start" value="Advanced"></ion-radio>
-                            </ion-item>
-                            <ion-item lines="none">
-                                <ion-label>Not Required</ion-label>
-                                <ion-radio slot="start" value="Not Required"></ion-radio>
-                            </ion-item>
-                        </ion-radio-group>
-                    </ion-card>
+                    <ion-item>
+                        <ion-label position="floating">Required Languages</ion-label>
+                        <ion-input type="text" name="languages" formControlName="languages" id="languages"></ion-input>
+                    </ion-item>
                 </ion-col>
-
                 <ion-col size="12">
                     <ion-item>
                         <ion-label position="floating">Skills</ion-label>

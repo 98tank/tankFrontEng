@@ -16,10 +16,8 @@ export class EditCandidateComponent implements OnInit {
   form: UntypedFormGroup;
   @Input() candidate: CandidateData;
   cf: any;
-  currentDate: Date;
   currentAge: number;
   success = false;
-  date: DateInterface;
   dateValid = true;
   countries$: Observable<Country[]>;
 
@@ -33,9 +31,7 @@ export class EditCandidateComponent implements OnInit {
 
   ngOnInit() {
     this.getCandidateFields();
-    this.currentDate = this.ss.getDate();
     this.getCountries();
-    this.date = this.candidate.birthdate;
    }
 
   closeModal() {
@@ -58,15 +54,14 @@ export class EditCandidateComponent implements OnInit {
     this.form = this.formBuild.group({
       name: [this.candidate.name, [Validators.required, Validators.minLength(2)]],
       years_of_experience: [this.candidate.years_of_experience, Validators.required],
-      place_of_birth: [this.candidate.place_of_birth, [Validators.required, Validators.minLength(2)]],
-      sex: [this.candidate.sex, Validators.required],
       studies: [this.candidate.studies, Validators.required],
       availability: [this.candidate.availability, Validators.required],
-      ingles: [this.candidate.ingles, Validators.required],
+      languages: [this.candidate.languages, Validators.required],
       phone: [this.candidate.phone, [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[0-9]+$/)]],
       email: [this.candidate.email, [Validators.required, Validators.pattern(/^\w+([\.\+\-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/)]],
       address: [this.candidate.address, [Validators.required, Validators.minLength(2)]],
       guards: [this.candidate.guards],
+      place_of_birth: [this.candidate.place_of_birth],
       work_permit: [this.candidate.work_permit, Validators.required],
       nationality: [this.candidate.nationality, Validators.required],
       travel: [this.candidate.travel, Validators.required],
@@ -91,7 +86,6 @@ export class EditCandidateComponent implements OnInit {
   }
 
   getDataUpdate() {
-    if (this.date?.day && this.date?.month && this.date?.year) {
       this.dateValid = true;
       if (this.form.valid) {
         const date = this.ss.getDate().getTime();
@@ -99,7 +93,6 @@ export class EditCandidateComponent implements OnInit {
           ...this.candidate,
           ...this.form.value,
           update_date: date,
-          birthdate: this.date
         };
         this.fs.updateDoc(`candidates/${this.candidate.candidate_id}`, newDataCandidate)
           .then(() => this.success = true)
@@ -107,10 +100,6 @@ export class EditCandidateComponent implements OnInit {
       } else {
         this.form.markAllAsTouched();
       }
-    } else {
-      this.dateValid = false;
-      this.form.markAllAsTouched();
-    }
   }
 
   getUrl(event: File) {
@@ -134,14 +123,6 @@ export class EditCandidateComponent implements OnInit {
       });
       return await modal.present();
     }
-  }
-
-  buildDate(e) {
-    this.date = {
-      ...this.date,
-      [e.type]: e.value
-    };
-    if (this.date?.day && this.date?.month && this.date?.year) { this.dateValid = true; }
   }
 
 }

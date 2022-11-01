@@ -3,7 +3,7 @@ import { File } from './mission-data';
 
 export interface CandidateData {
     cv?: File;
-    sex: string;
+    languages: string;
     name: string;
     lastName: string;
     email: string;
@@ -16,7 +16,6 @@ export interface CandidateData {
     guards: string;
     travel: string;
     address: string;
-    ingles?: string;
     studies: string;
     comments: string;
     period_1?: string;
@@ -46,7 +45,6 @@ export interface CandidateData {
     achievements_2?: string;
     achievements_3?: string;
     curriculumVideo?: string;
-    birthdate?: DateInterface;
     specify_children?: string;
     courses_and_certi: string;
     years_of_experience: string;
