@@ -16,6 +16,14 @@
 </ion-header>
 
 <ion-content>
+
+    <!-- fab placed to the bottom end -->
+    <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+        <ion-fab-button color="success" (click)="goUrl('https://web.whatsapp.com/send?phone=16196463336&text=Hola!')">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
     <ion-grid>
         <div class="main">
             <ion-row>
@@ -187,11 +195,11 @@
             <ion-row>
                 <ion-col size="12">
                     <h5 class="border white">CONTACT US</h5>
+                </ion-col>
+                <ion-col size-md="6" size="12">
                     <ion-text color="light">
                         <h2>Our team will contact you shortly.</h2>
                     </ion-text>
-                </ion-col>
-                <ion-col size-md="6" size="12">
                     <ion-list>
                         <ion-item lines="none">
                             <ion-icon name="location" slot="start"></ion-icon>
@@ -217,8 +225,62 @@
                         </ion-item>
                     </ion-list>
                 </ion-col>
+                <ion-col size-md="6" size="12">
+                    <form [formGroup]="form" (submit)="getData()" (keyup.enter)="getData()" novalidate>
+                        <ion-row>
+                            <ion-col size="6">
+                                <ion-item>
+                                    <ion-label color="secondary" position="floating">First Name*</ion-label>
+                                    <ion-input type="firstName" name="firstName" formControlName="firstName" id="firstName"></ion-input>
+                                </ion-item>
+                            </ion-col>
+                            <ion-col size="6">
+                                <ion-item>
+                                    <ion-label color="secondary" position="floating">Last Name*</ion-label>
+                                    <ion-input type="lastName" name="lastName" formControlName="lastName" id="lastName"></ion-input>
+                                </ion-item>
+                            </ion-col>
+                            <ion-col size="6">
+                                <ion-item>
+                                    <ion-label color="secondary" position="floating">Email*</ion-label>
+                                    <ion-input type="email" name="email" formControlName="email" id="email"></ion-input>
+                                </ion-item>
+                            </ion-col>
+                            <ion-col size="6">
+                                <ion-item>
+                                    <ion-label color="secondary" position="floating">Phone*</ion-label>
+                                    <ion-input type="phone" name="phone" formControlName="phone" id="phone"></ion-input>
+                                </ion-item>
+                            </ion-col>
+                            <ion-col size="12">
+                                <ion-item>
+                                    <ion-label color="secondary" position="floating">Subject*</ion-label>
+                                    <ion-input type="subject" name="subject" formControlName="subject" id="subject"></ion-input>
+                                </ion-item>
+                            </ion-col>
+                            <ion-col size="12">
+                                <ion-item>
+                                    <ion-label color="secondary" position="floating">Comments</ion-label>
+                                    <ion-input type="comments" name="comments" formControlName="comments" id="comments"></ion-input>
+                                </ion-item>
+                            </ion-col>
+                            <ion-col size="12" class="ion-text-center">
+                                <ion-button type="submit" color="danger" fill="solid" shape="round">
+                                    Send Message
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
+                    </form>
+                </ion-col>
             </ion-row>
         </div>
     </ion-grid>
 
+    <ion-footer>
+        <ion-toolbar>
+            <ion-title>© {{year}} 98Tank. All Rights Reserved</ion-title>
+            <ion-icon slot="end" name="logo-linkedin" (click)="goUrl('https://www.linkedin.com/company/98tank/')"></ion-icon>
+            <ion-icon slot="end" name="logo-youtube" (click)="goUrl('https://www.youtube.com/watch?v=wysfa0BmF58&ab_channel=carlosteam')"></ion-icon>
+        </ion-toolbar>
+    </ion-footer>
 </ion-content>
