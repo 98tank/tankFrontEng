@@ -21,7 +21,6 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
   dateValid = true;
   currentDate: Date;
   currentAge: number;
-  date: DateInterface;
   mission: MissionData;
   form: UntypedFormGroup;
   states$: Observable<any>;
@@ -80,8 +79,6 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
       name: ['', [Validators.required, Validators.minLength(2)]],
       lastName: ['', [Validators.required, Validators.minLength(2)]],
       years_of_experience: ['', Validators.required],
-      place_of_birth: ['', [Validators.required, Validators.minLength(2)]],
-      sex: ['', Validators.required],
       studies: ['', Validators.required],
       stateOfResidence: ['', Validators.required],
       availability: ['', Validators.required],
@@ -89,7 +86,7 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
       email: ['', [Validators.required, Validators.pattern(/^\w+([\.\+\-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/)]],
       address: ['', [Validators.required, Validators.minLength(2)]],
       guards: [''],
-      ingles: ['No'],
+      languages: [''],
       work_permit: ['', Validators.required],
       nationality: ['', Validators.required],
       travel: ['', Validators.required],
@@ -116,7 +113,6 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
   }
 
   async getDataForm() {
-    if (this.date?.day && this.date?.month && this.date?.year) {
       this.dateValid = true;
       if (this.form.valid) {
         this.dataCurrentCurp = await this.createCURP(this.form.value);
@@ -129,11 +125,6 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
         this.content.scrollToTop(400);
         this.form.markAllAsTouched();
       }
-    } else {
-      this.dateValid = false;
-      this.form.markAllAsTouched();
-      this.content.scrollToTop(400);
-    }
   }
 
   async presentAlertConfirm() {
@@ -166,7 +157,6 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
       candidate_id: id,
       create_date: date,
       update_date: date,
-      birthdate: this.date,
       uid_client: this.mission.uid,
       uid_recruiter: this.auth.userUid,
       mission_id: this.mission.mission_id,
@@ -182,7 +172,6 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
     this.fs.setDoc(`candidates/${id}`, candidate)
       .then(() => {
         this.success = true;
-        this.date = null;
         this.dataCurrentCurp = null;
         this.cv = null;
         this.form.reset();
@@ -221,14 +210,6 @@ export class CreateCandidatePage implements OnInit, OnDestroy {
       });
       return await modal.present();
     }
-  }
-
-  buildDate(e) {
-    this.date = {
-      ...this.date,
-      [e.type]: e.value
-    };
-    if (this.date?.day && this.date?.month && this.date?.year) { this.dateValid = true; }
   }
 
   validatorCURP(): AsyncValidatorFn{
