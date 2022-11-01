@@ -54,7 +54,7 @@ ion-content {
         margin: auto;
     }
     ion-list {
-        background: transparent;
+        background: transparent !important;
         ion-item {
             --background: transparent;
             ion-label {
@@ -75,7 +75,7 @@ ion-content {
         }
     }
     .main {
-        background: url('../../../assets/img/banner1.jpg');
+        background: url('../../../assets/landing/banner1.jpg');
         background-attachment: fixed;
         min-height: 700px;
         background-size: cover;
@@ -96,6 +96,15 @@ ion-content {
         margin: 70px 0;
         .square {
             position: relative;
+            &:hover {
+                h4 {
+                    background: #fff !important;
+                    &::before {
+                        transform: rotate(30deg);
+                        opacity: 1 !important;
+                    }
+                }
+            }
             img {
                 max-height: 300px;
             }
@@ -111,7 +120,8 @@ ion-content {
                 justify-content: center;
                 h4 {
                     border-radius: 50%;
-                    background: #fff;
+                    transition: 0.4s;
+                    background: rgb(232, 232, 232);
                     padding: 20px;
                     width: 100px;
                     height: 100px;
@@ -119,6 +129,15 @@ ion-content {
                     align-items: center;
                     justify-content: center;
                     font-size: 30px;
+                    &::before {
+                        content: url('../../../assets/landing/circle.svg');
+                        // content: '';
+                        height: 120px;
+                        width: 120px;
+                        position: absolute;
+                        transition: 0.4s;
+                        opacity: 0.4;
+                    }
                 }
                 p {
                     width: 100%;
@@ -140,7 +159,7 @@ ion-content {
     }
     .experts {
         min-height: 700px;
-        background: url('../../../assets/img/expert_background.jpg');
+        background: url('../../../assets/landing/expert_background.jpg');
         display: flex;
         align-items: center;
         justify-content: center;
@@ -183,8 +202,9 @@ ion-content {
     }
     .hiring {
         ion-card {
+            max-width: 98%;
             padding: 30px 0;
-            margin: 20px 0 50px;
+            margin: 20px auto 50px;
         }
         h2 {
             font-size: 25px;
@@ -210,9 +230,20 @@ ion-content {
             margin-bottom: 0;
         }
     }
+    .logos {
+        padding: 50px 0;
+        img {
+            max-height: 70px;
+            opacity: 0.4;
+            transition: 0.4s;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
     .contact-us {
         background: var(--ion-color-secondary);
-        padding: 70px 0;
+        padding: 50px 0;
         ion-item {
             color: #fff;
             --transition: 0.4s;
@@ -249,11 +280,17 @@ ion-content {
         }
     }
     ion-footer {
+        img {
+            max-height: 35px;
+        }
         ion-icon {
             cursor: pointer;
             height: 35px;
-            margin: 0 20px;
+            margin: 0 20px 0 0;
             width: 35px;
+            &[name="logo-youtube"] {
+                margin-right: 100px;
+            }
         }
     }
     ion-fab-button {
