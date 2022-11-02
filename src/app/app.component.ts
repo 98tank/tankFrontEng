@@ -42,7 +42,7 @@ export class AppComponent implements OnInit, OnDestroy {
         filter(event => event instanceof NavigationEnd)
     );
     navEndEvents$.subscribe((event: NavigationEnd) => {
-      if (event.urlAfterRedirects === '/login' || event.urlAfterRedirects === '/registro-cliente' || event.urlAfterRedirects === '/registro-reclutador' || event.urlAfterRedirects === '/registro-admin') {
+      if (event.urlAfterRedirects === '/login' || event.urlAfterRedirects === '/registro-cliente' || event.urlAfterRedirects === '/registro-reclutador' || event.urlAfterRedirects === '/registro-admin' || event.urlAfterRedirects === '/') {
         this.noMenu = true;
       } else {
         this.noMenu = false;

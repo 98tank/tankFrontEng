@@ -12,7 +12,7 @@ import { deleteField } from 'firebase/firestore';
 export class FirebaseService {
   commission$: Observable<Commissions>;
 
-  currentVersion = '0.0.4';
+  currentVersion = '0.0.5';
   lastVersion: string;
 
   constructor(

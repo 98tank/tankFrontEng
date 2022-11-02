@@ -10,4 +10,5 @@ export * from './commissions';
 export * from './date-interface';
 export * from './where-filter-op';
 export * from './states';
+export * from './landing-contact';
 

@@ -6,13 +6,13 @@
     },
     {
         "icon": "bulb",
-        "name": "Create Missions",
+        "name": "Create Mission",
         "redirecTo": "/cliente/crear-mision",
         "auth": true
     },
     {
         "icon": "search",
-        "name": "Missions in review",
+        "name": "Missions under Review",
         "redirecTo": "/cliente/misiones-en-revision",
         "auth": true
     },

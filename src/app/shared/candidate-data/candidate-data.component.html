@@ -16,9 +16,6 @@
                 <strong>Years of Experience:</strong> {{candidate.years_of_experience}}
             </ion-col>
             <ion-col size-md="6" size="12">
-                <strong>Gender:</strong> {{candidate.sex}}
-            </ion-col>
-            <ion-col size-md="6" size="12">
                 <strong>Education:</strong> {{candidate.studies}}
             </ion-col>
             <ion-col size-md="6" size="12">
@@ -47,10 +44,7 @@
                 <strong>Travel Availability:</strong> {{candidate.travel}}
             </ion-col>
             <ion-col size-md="6" size="12">
-                <strong>Date of Birth:</strong> {{(candidate.birthdate?.day || 0)+'/'+(candidate.birthdate?.month || 0)+'/'+(candidate.birthdate?.year || 0)}}
-            </ion-col>
-            <ion-col size-md="6" size="12">
-                <strong>English:</strong> {{candidate.ingles}}
+                <strong>Required Languages:</strong> {{candidate.languages}}
             </ion-col>
             <ion-col size="12">
                 <strong>Joined on:</strong> {{candidate.create_date | date: 'MMMM d, y - hh:mmaaa'}}
