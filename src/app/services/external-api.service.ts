@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { LandingContact } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -65,6 +66,19 @@ export class ExternalApiService {
       const api = environment.api;
       const endPoint = `${api}/notification/${field}`;
       this.http.post(endPoint, params).subscribe({
+        next: (res) => resolve(res),
+        error: (error) => resolve(error),
+      });
+    });
+  }
+
+  sendEmailLanding(hash: string) {
+    console.log('send');
+    return new Promise((resolve, reject) => {
+      const params = { hash };
+      const api = environment.api;
+      const endPoint = `${api}/notification/landingContact`;
+      this.http.post(endPoint, {params}).subscribe({
         next: (res) => resolve(res),
         error: (error) => resolve(error),
       });

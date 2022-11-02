@@ -8,5 +8,6 @@ export const environment = {
     messagingSenderId: '226577327419',
     appId: '1:226577327419:web:e316552b6510df1247431e'
   },
-  api: 'https://us-central1-tank-english-prod.cloudfunctions.net'
+  api: 'https://us-central1-tank-english-prod.cloudfunctions.net',
+  jwt_key: 'EufoéÉîáÂþÑ§Ü£ë#Øçb¦WÕìç_êÃäØÝyR¸B¦yÓãMAËü²£Ìõþwìx£óc·-Bhî¯öNàÎyJõ½¼Õ¤ÑQïþaxÀ©UäFÞÆÁËL3¸âµ°úxÞ²uÞn±w',
 };

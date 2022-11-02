@@ -13,7 +13,8 @@ export const environment = {
     appId: '1:1056216382366:web:15512acb2c886eaa6bf48f'
   },
   // api: 'http://localhost:5000/tank-english-dev/us-central1'
-  api: 'https://us-central1-tank-english-dev.cloudfunctions.net'
+  api: 'https://us-central1-tank-english-dev.cloudfunctions.net',
+  jwt_key: 'EufoéÉîáÂþÑ§Ü£ë#Øçb¦WÕìç_êÃäØÝyR¸B¦yÓãMAËü²£Ìõþwìx£óc·-Bhî¯öNàÎyJõ½¼Õ¤ÑQïþaxÀ©UäFÞÆÁËL3¸âµ°úxÞ²uÞn±w',
 
   // firebase: {
   //   apiKey: 'AIzaSyCJRQTSUJ_DaR8TKxWw0ykluJvf_UjVj1M',
