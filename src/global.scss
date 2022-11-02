@@ -31,3 +31,9 @@
 // Custom
 @import "./theme/fonts.scss";
 @import "./theme/shared.scss";
+// swiper
+@import '~swiper/swiper.min.css';
+@import "~swiper/css/lazy";
+@import "~swiper/css/navigation";
+@import "~swiper/css/pagination";
+@import "~swiper/css/autoplay";
