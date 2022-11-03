@@ -79,14 +79,14 @@
                     </ion-item>
                     <div class="error" *ngIf="form.get('position_level').errors &&  form.get('position_level').touched">
                         <ion-text class="ion-justify-content-center" color="danger">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Required field. 
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                     </div>
                 </ion-col>
 
                 <ion-col size-md="6" size="12">
                     <ion-item>
-                        <ion-label position="floating">Job Type</ion-label>
+                        <ion-label position="floating">Duration</ion-label>
                         <ion-select interface="popover" formControlName="duration" cancelText="Cancelar" okText="Aceptar">
                             <ion-select-option *ngFor="let y of mf.duration" [value]="y">{{y}}</ion-select-option>
                         </ion-select>
@@ -146,11 +146,11 @@
 
                     <div class="error" *ngIf="form.get('studies').errors &&  form.get('studies').touched">
                         <ion-text class="ion-justify-content-center" color="danger">
-                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.  
+                            <ion-icon name="alert-circle-outline"></ion-icon>Required field.
                         </ion-text>
                     </div>
                 </ion-col>
-                
+
                 <ion-col size-md="3" size="6">
                     <ion-item>
                         <ion-label position="floating">Salary</ion-label>

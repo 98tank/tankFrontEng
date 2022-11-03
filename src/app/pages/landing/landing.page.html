@@ -8,7 +8,7 @@
     <ion-toolbar>
         <ion-grid fixed>
             <img src="assets/img/logo_con_simbolo.png">
-            <ion-button size="large" color="tertiary" fill="solid" shape="round" [routerLink]="['/login']">
+            <ion-button class="landing" size="large" color="tertiary" fill="solid" shape="round" [routerLink]="['/login']">
                 Login
             </ion-button>
         </ion-grid>
@@ -18,18 +18,18 @@
 <ion-content>
     <!-- fab placed to the bottom end -->
     <ion-fab horizontal="end" vertical="bottom" slot="fixed">
-        <ion-fab-button color="success" (click)="goUrl('https://web.whatsapp.com/send?phone=16196463336&text=Hola!')">
+        <ion-fab-button class="landing" color="success" (click)="goUrl('https://web.whatsapp.com/send?phone=16196463336&text=Hola!')">
             <ion-icon name="logo-whatsapp"></ion-icon>
         </ion-fab-button>
     </ion-fab>
 
-    <ion-grid>
+    <ion-grid class="landing">
         <div class="main">
             <ion-row>
                 <ion-col size-md="6" size="12">
                     <h1>Recruiting Success</h1>
                     <p>We connect specialized recruiters with clients searching for the best candidates</p>
-                    <ion-button size="large" color="secondary" fill="solid" shape="round" [routerLink]="['/login']">
+                    <ion-button class="landing" size="large" color="secondary" fill="solid" shape="round" [routerLink]="['/login']">
                         Sing up free
                         <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                     </ion-button>
@@ -171,7 +171,7 @@
                                 <h2>When hiring the candidate, a fee of 60% of one month of the candidate’s base salary is generated.</h2>
                             </ion-col>
                             <ion-col size-sm="3" size="12">
-                                <ion-button size="large" expand="block" fill="solid" shape="round" color="light" [routerLink]="['/login']">
+                                <ion-button class="landing" size="large" expand="block" fill="solid" shape="round" color="light" [routerLink]="['/login']">
                                     Sign Up Free
                                     <ion-icon name="arrow-forward-circle-outline" color="secondary"></ion-icon>
                                 </ion-button>
@@ -272,7 +272,7 @@
                                 </ion-item>
                             </ion-col>
                             <ion-col size="12" class="ion-text-left">
-                                <ion-button size="large" class="btn-red" type="submit" fill="solid" shape="round">
+                                <ion-button class="landing" size="large" class="btn-red" type="submit" fill="solid" shape="round">
                                     Send Message
                                 </ion-button>
                             </ion-col>
@@ -283,7 +283,7 @@
         </div>
     </ion-grid>
 
-    <ion-footer>
+    <ion-footer class="landing">
         <ion-grid fixed>
             <ion-toolbar style="border-bottom: 1px solid #bbb;">
                 <img slot="start" src="assets/img/logo_con_simbolo.png">
