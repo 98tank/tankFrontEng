@@ -8,7 +8,7 @@
     <ion-toolbar>
         <ion-grid fixed>
             <img src="assets/img/logo_con_simbolo.png">
-            <ion-button color="tertiary" fill="solid" shape="round" size="small" [routerLink]="['/login']">
+            <ion-button size="large" color="tertiary" fill="solid" shape="round" [routerLink]="['/login']">
                 Login
             </ion-button>
         </ion-grid>
@@ -29,7 +29,7 @@
                 <ion-col size-md="6" size="12">
                     <h1>Recruiting Success</h1>
                     <p>We connect specialized recruiters with clients searching for the best candidates</p>
-                    <ion-button color="secondary" fill="solid" shape="round" [routerLink]="['/login']">
+                    <ion-button size="large" color="secondary" fill="solid" shape="round" [routerLink]="['/login']">
                         Sing up free
                         <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                     </ion-button>
@@ -171,7 +171,7 @@
                                 <h2>When hiring the candidate, a fee of 60% of one month of the candidate’s base salary is generated.</h2>
                             </ion-col>
                             <ion-col size-sm="3" size="12">
-                                <ion-button expand="block" fill="solid" shape="round" size="small" color="light" [routerLink]="['/login']">
+                                <ion-button size="large" expand="block" fill="solid" shape="round" color="light" [routerLink]="['/login']">
                                     Sign Up Free
                                     <ion-icon name="arrow-forward-circle-outline" color="secondary"></ion-icon>
                                 </ion-button>
@@ -187,7 +187,7 @@
         <div class="commitment">
             <ion-row class="ion-text-center">
                 <ion-col size="12">
-                    <h5 class="border white">OUR COMMITMENT</h5>
+                    <h5 class="border white" style="margin: auto;">OUR COMMITMENT</h5>
                     <h4>Effective results</h4>
                     <p>In 72 hours*</p>
                 </ion-col>
@@ -271,8 +271,8 @@
                                     <ion-input type="comments" name="comments" formControlName="comments" id="comments"></ion-input>
                                 </ion-item>
                             </ion-col>
-                            <ion-col size="12" class="ion-text-center">
-                                <ion-button type="submit" color="primary" fill="solid" shape="round">
+                            <ion-col size="12" class="ion-text-left">
+                                <ion-button size="large" class="btn-red" type="submit" fill="solid" shape="round">
                                     Send Message
                                 </ion-button>
                             </ion-col>
@@ -285,14 +285,14 @@
 
     <ion-footer>
         <ion-grid fixed>
-            <ion-toolbar>
+            <ion-toolbar style="border-bottom: 1px solid #bbb;">
                 <img slot="start" src="assets/img/logo_con_simbolo.png">
-                <ion-icon slot="end" name="logo-linkedin" (click)="goUrl( 'https://www.linkedin.com/company/98tank/')"></ion-icon>
-                <ion-icon slot="end" name="logo-youtube" (click)="goUrl( 'https://www.youtube.com/watch?v=wysfa0BmF58&ab_channel=carlosteam')"></ion-icon>
+                <ion-icon slot="end" name="logo-linkedin" (click)="goUrl('https://www.linkedin.com/company/98tank/')"></ion-icon>
+                <ion-icon slot="end" name="logo-youtube" (click)="goUrl('https://www.youtube.com/watch?v=wysfa0BmF58&ab_channel=carlosteam')"></ion-icon>
             </ion-toolbar>
         </ion-grid>
-        <ion-toolbar color="primary" class="ion-text-center">
-            <ion-title>© {{year}} 98Tank. All Rights Reserved</ion-title>
+        <ion-toolbar class="ion-text-center">
+            <ion-title>©{{year}} 98Tank. All Rights Reserved</ion-title>
         </ion-toolbar>
     </ion-footer>
 </ion-content>

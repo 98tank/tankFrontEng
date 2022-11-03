@@ -59,7 +59,7 @@ ion-content {
             --background: transparent;
             ion-label {
                 font-weight: 500;
-                font-size: 20px;
+                font-size: 20px !important;
             }
             ion-icon {
                 width: 25px;
@@ -69,6 +69,7 @@ ion-content {
     }
     h2 {
         font-size: 30px;
+        line-height: 36px;
         font-weight: 600;
         @media (max-width: 567px) {
             font-size: 25px;
@@ -93,7 +94,13 @@ ion-content {
         }
     }
     .floating-boxes {
-        margin: 70px 0;
+        position: relative;
+        ion-row {
+            position: relative;
+            @media (min-width: 567px) {
+                top: -120px;
+            }
+        }
         .square {
             position: relative;
             &:hover {
@@ -106,7 +113,7 @@ ion-content {
                 }
             }
             img {
-                max-height: 300px;
+                max-height: 320px;
             }
             .content {
                 position: absolute;
@@ -121,30 +128,39 @@ ion-content {
                 h4 {
                     border-radius: 50%;
                     transition: 0.4s;
+                    font-weight: 600;
                     background: rgb(232, 232, 232);
                     padding: 20px;
-                    width: 100px;
-                    height: 100px;
+                    width: 130px;
+                    height: 130px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    font-size: 30px;
+                    font-size: 40px;
                     &::before {
-                        content: url('../../../assets/landing/circle.svg');
-                        // content: '';
-                        height: 120px;
-                        width: 120px;
-                        position: absolute;
-                        transition: 0.4s;
                         opacity: 0.4;
+                        width: 160px;
+                        height: 160px;
+                        transition: 0.4s;
+                        position: absolute;
+                        content: url('../../../assets/landing/circle.svg');
+                    }
+                    &::after {
+                        content: "";
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        position: absolute;
+                        border: 2px solid #061348;
                     }
                 }
                 p {
                     width: 100%;
                     margin: 0;
                     color: #fff;
-                    font-size: 20px;
+                    font-size: 24px;
                     font-weight: 600;
+                    text-transform: uppercase;
                 }
             }
         }
@@ -177,15 +193,20 @@ ion-content {
         p {
             font-size: 18px;
             line-height: 30px;
+            padding: 0 20px;
+        }
+        h2 {
+            padding: 0 20px;
         }
     }
     .positions {
-        padding: 60px 0;
+        padding: 70px 0;
         background-color: #061348;
-        background-image: url($fondo);
+        // background-image: url($fondo);
         h2 {
             font-size: 35px;
             margin-top: 0;
+            margin-bottom: 30px;
         }
         h6 {
             font-size: 20px;
@@ -207,17 +228,17 @@ ion-content {
             margin: 20px auto 50px;
         }
         h2 {
-            font-size: 25px;
+            font-size: 36px;
             font-weight: 600;
         }
         p {
-            font-size: 23px;
+            font-size: 36px;
             font-style: italic;
         }
     }
     .commitment {
         background-color: #061348;
-        background-image: url($fondo);
+        // background-image: url($fondo);
         text-align: center;
         padding: 40px 0;
         color: #fff;
@@ -273,6 +294,7 @@ ion-content {
         form {
             background: #fff;
             border-radius: 7px;
+            padding: 25px;
             ion-item {
                 color: #000;
                 --background: transparent;
@@ -305,14 +327,27 @@ ion-content {
     border-radius: 3px;
     border: 2px solid;
     width: max-content;
-    font-size: 13px;
+    font-size: 16px;
     padding: 5px 15px;
     font-weight: 600;
-    margin: 10px auto;
+    margin: 10px;
     &.orange {
         color: var(--ion-color-secondary)
     }
     &.white {
         color: var(--ion-color-light)
+    }
+}
+
+.btn-red {
+    --background: red;
+}
+
+ion-button {
+    font-weight: 600;
+    font-size: 17px !important;
+    ion-icon {
+        width: 30px;
+        height: 30px;
     }
 }
