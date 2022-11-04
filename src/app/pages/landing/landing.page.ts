@@ -18,12 +18,13 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 })
 export class LandingPage implements OnInit {
   send = false;
-  positions = ['SAP Funcional', 'Desarrollador Java Sr', 'Desarrollador Saleforce', 'Gerente Omnicanal', 'UX/UI Designer', 'Guidewire Developer', 'Brand Manager', 'On Trade', 'Ciberseguridad', 'Saleforce Architect', 'ABAP HANA', 'Product Owner']
-  logos = ['Grupo-Elektra.png', 'att.png', 'banco-azteca.png', 'frethunters-01.png', 'grupo-salinas.png', 'home-depot.png', 'italika.png', 'Logo-Soft.png', 'santander.png', 'smart.png', 'tvazteca.png', 'securitas.png'];
+  positions = ['SAP Funcional', 'Desarrollador Java Sr', 'Desarrollador Saleforce', 'Gerente Omnicanal', 'UX/UI Designer', 'Guidewire Developer', 'Brand Manager', 'Service Designer', 'Ciberseguridad', 'Saleforce Architect', 'ABAP HANA', 'Product Owner']
+  logos = ['Grupo-Elektra.png', 'att.png', 'banco-azteca.png', 'frethunters-01.png', 'grupo-salinas.png', 'home-depot.png', 'italika.png', 'Logo-Soft.png', 'santander.png', 'smart.png', 'tvazteca.png', 'securitas.png', 'Lego.png'];
   capturas = ['cap-01.png', 'cap-02.png', 'cap-03.png', 'cap-04.png'];
   form: FormGroup;
   year = new Date().getFullYear();
   @ViewChild('swiper') swiper: SwiperComponent;
+  @ViewChild('swiper2') swiper2: SwiperComponent;
   config: SwiperOptions = {
     pagination: {
       clickable: true,
@@ -34,7 +35,15 @@ export class LandingPage implements OnInit {
       loadPrevNext: false
     },
   };
+  confi2: SwiperOptions = {
+    slidesPerView: 4,
+    loop: true,
+    lazy: {
+      loadPrevNext: false
+    },
+  };
   animationInProgress = false;
+  animationInProgress2 = false;
 
   constructor(
     private eas: ExternalApiService,
@@ -46,6 +55,7 @@ export class LandingPage implements OnInit {
   ngOnInit() {
     this.buildForm();
     this.startAnimation();
+    this.startAnimation2();
   }
 
   startAnimation() {
@@ -56,6 +66,16 @@ export class LandingPage implements OnInit {
       this.animationInProgress = false;
       this.startAnimation();
     }, 5000);
+  }
+
+  startAnimation2() {
+    if(this.animationInProgress2) return;
+    this.animationInProgress2 = true;
+    setTimeout(() => {
+      this.swiper2.swiperRef.slideNext(1500);
+      this.animationInProgress2 = false;
+      this.startAnimation2();
+    }, 1500);
   }
 
   next() {
